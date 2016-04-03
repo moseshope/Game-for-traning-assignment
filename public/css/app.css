@@ -1,0 +1,21 @@
+.mdl-navigation {
+  position: relative;
+}
+#menu-user {
+  position: relative;
+  padding: 0;
+  color: #fff;
+}
+.mdl-layout__header {
+  background-color: #2196F3;
+}
+.mdl-card {
+  width: 100%;
+}
+.mdl-card__title {
+  color: #fff;
+  height: 176px;
+  background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/welcome_card_tuts.png') center / cover;
+}
+
+/*# sourceMappingURL=app.css.map */
