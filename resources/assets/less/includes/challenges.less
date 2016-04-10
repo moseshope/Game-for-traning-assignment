@@ -1,0 +1,75 @@
+.challenge-cover{
+  width: 100%;
+  height: 250px;
+  background-image: url('../img/challenges/cover.jpg');
+  
+  h2{
+    margin: 0;
+    text-align: center;
+    padding-top: 35px;
+    color: #fff;
+  }
+  
+  
+  .time-left{
+    max-width: 250px;
+    position: relative;
+    text-align: center;
+    top: 50px;
+    margin: 0 auto;
+    
+    .time-left-indic{
+      color: #fff;
+      text-transform: uppercase;
+      padding: 5px 0;
+    }
+    
+    .progress{
+      position: relative;
+      margin-top: 10px;
+      height: 10px;
+      border-radius: 15px;
+      background-color: @colorMain;
+      border: 1px solid #fff;
+      
+      .progress-bar{
+        background: #fff;
+        box-shadow: none;
+      }
+    }
+  }
+  
+}
+
+.panel-overview{
+  color: @colorMain;
+  position: relative;
+  transform: translateY(-50%);
+      border: 0;
+
+  
+  .indic{
+    border-right: 1px solid #eee;
+    &:last-child{
+      border: 0;
+    }
+      padding: 10px 0;
+  }
+  
+  .icon-indic{
+    display: block;
+    padding: 5px 0;
+    font-size: 36px;
+  }
+  
+  .indic-title{
+    text-transform: uppercase;
+  }
+  
+  .panel-overview-create{
+    background-color: @colorMain;
+    color: #fff;
+    padding: 10px 0;
+  }
+    
+}

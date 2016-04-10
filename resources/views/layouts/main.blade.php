@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <!-- Styles -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
     <link rel="stylesheet" href="/css/app.css" />
     
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
@@ -26,50 +25,54 @@
 </head>
 
 <body id="app-layout">
-  <div class="mdl-layout mdl-js-layout">
-    <header class="mdl-layout__header">
-      <div class="mdl-layout__header-row">
-        <!-- Title -->
-        <span class="mdl-layout-title"><a href="/" style="color:#fff">GEM In Game</a></span>
-        <!-- Add spacer, to align navigation to the right -->
-        <div class="mdl-layout-spacer"></div>
-        <!-- Navigation -->
-        <nav class="mdl-navigation">
-          @if (Auth::guest())
-            <a href="{{ url('/login') }}" class="mdl-navigation__link" href="">Login</a>
-            <a href="{{ url('/register') }}" class="mdl-navigation__link" href="">Register</a>
-          @else
-            <a href="{{ url('/challenges') }}" class="mdl-navigation__link" href="">Challenges</a>
-            <button id="menu-user" class="mdl-button mdl-js-button">
-              <i class="fa fa-user"></i> {{ Auth::user()->name }} <i class="material-icons">more_vert</i>
-            </button>
-            <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
-                for="menu-user">
-              <li class="mdl-menu__item"><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
-            </ul>
-          @endif
-        </nav>
+  
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{{ url('/') }}">GEMinGAME</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            @if (Auth::guest())
+              <li>
+                <a href="{{ url('/login') }}" href="">Login</a>
+              </li>
+              <li>
+                <a href="{{ url('/register') }}" href="">Register</a>
+              </li>
+            @else
+              <li><a href="{{ url('/challenges') }}"><strong>Challenges</strong></a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">
+                <div class="notif-counter">
+                  2
+                </div>
+                <i class="fa fa-bell fa-lg"></i></a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="material-icons">account_circle</i> {{ Auth::user()->name }}  <i class="fa fa-chevron-down"></i></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Profile</a></li>
+                  <li><a href="{{ url('/logout') }}">Log out</a></li>
+                </ul>
+              </li>
+            @endif
+          </ul>
+        </div>
       </div>
-    </header>
-    <!-- <div class="mdl-layout__drawer">
-      <span class="mdl-layout-title">Title</span>
-      <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
-      </nav>
-    </div> -->
-    <main class="mdl-layout__content">
+    </nav>
+  
+    <main class="container-fluid">
       @yield('content')
     </main>
-    <footer class="mdl-mini-footer">
-      <div class="mdl-mini-footer__left-section">
-        <div class="mdl-logo">Title</div>
-        <ul class="mdl-mini-footer__link-list">
-          <li><a href="#">Help</a></li>
-          <li><a href="#">Privacy & Terms</a></li>
-        </ul>
+    <footer class="footer">
+      <div class="container-fluid">
+        <p class="text-muted text-right"><i class="fa fa-copyright"></i> Copyright GEM - 2016</p>
       </div>
     </footer>
   </div>

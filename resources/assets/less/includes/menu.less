@@ -1,0 +1,37 @@
+nav.navbar{
+  background-color: @colorMain;
+  color: #fff;
+  border: 0;
+  padding: 0px 20px;
+  
+  .navbar-brand{
+    color: #fff;
+  }
+  
+  .navbar-nav{
+    padding: 5px 0;
+  }
+  
+  .navbar-nav>li>a{
+    color: #fff;
+    font-size: 16px;
+    position: relative;
+  }
+  
+  .material-icons{
+    vertical-align: bottom;
+    line-height: inherit;;
+  }
+  
+  .notif-counter{
+    .circle(20px, @red);
+    font-size: 12px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+  }
+  
+  .dropdown.open>a{
+    background-color: darken(@colorMain, 10%)!important;
+  }
+}

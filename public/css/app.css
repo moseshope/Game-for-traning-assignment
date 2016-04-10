@@ -1,21 +1,117 @@
-.mdl-navigation {
-  position: relative;
+nav.navbar {
+  background-color: #1875d1;
+  color: #fff;
+  border: 0;
+  padding: 0px 20px;
 }
-#menu-user {
-  position: relative;
-  padding: 0;
+nav.navbar .navbar-brand {
   color: #fff;
 }
-.mdl-layout__header {
-  background-color: #2196F3;
+nav.navbar .navbar-nav {
+  padding: 5px 0;
 }
-.mdl-card {
+nav.navbar .navbar-nav > li > a {
+  color: #fff;
+  font-size: 16px;
+  position: relative;
+}
+nav.navbar .material-icons {
+  vertical-align: bottom;
+  line-height: inherit;
+}
+nav.navbar .notif-counter {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  background-color: #F44336;
+  font-size: 12px;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+nav.navbar .dropdown.open > a {
+  background-color: #135ba3 !important;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  padding: 15px 20px;
   width: 100%;
+  background-color: #f5f5f5;
 }
-.mdl-card__title {
+.footer p {
+  margin: 0;
+  font-size: 12px;
+}
+.challenge-cover {
+  width: 100%;
+  height: 250px;
+  background-image: url('../img/challenges/cover.jpg');
+}
+.challenge-cover h2 {
+  margin: 0;
+  text-align: center;
+  padding-top: 35px;
   color: #fff;
-  height: 176px;
-  background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/welcome_card_tuts.png') center / cover;
+}
+.challenge-cover .time-left {
+  max-width: 250px;
+  position: relative;
+  text-align: center;
+  top: 50px;
+  margin: 0 auto;
+}
+.challenge-cover .time-left .time-left-indic {
+  color: #fff;
+  text-transform: uppercase;
+  padding: 5px 0;
+}
+.challenge-cover .time-left .progress {
+  position: relative;
+  margin-top: 10px;
+  height: 10px;
+  border-radius: 15px;
+  background-color: #1875d1;
+  border: 1px solid #fff;
+}
+.challenge-cover .time-left .progress .progress-bar {
+  background: #fff;
+  box-shadow: none;
+}
+.panel-overview {
+  color: #1875d1;
+  position: relative;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  border: 0;
+}
+.panel-overview .indic {
+  border-right: 1px solid #eee;
+  padding: 10px 0;
+}
+.panel-overview .indic:last-child {
+  border: 0;
+}
+.panel-overview .icon-indic {
+  display: block;
+  padding: 5px 0;
+  font-size: 36px;
+}
+.panel-overview .indic-title {
+  text-transform: uppercase;
+}
+.panel-overview .panel-overview-create {
+  background-color: #1875d1;
+  color: #fff;
+  padding: 10px 0;
+}
+body {
+  padding-top: 60px;
+}
+.nostyle {
+  color: inherit;
 }
 
 /*# sourceMappingURL=app.css.map */
