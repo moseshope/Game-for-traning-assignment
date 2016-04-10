@@ -35,8 +35,6 @@ nav.navbar .dropdown.open > a {
   background-color: #135ba3 !important;
 }
 .footer {
-  position: absolute;
-  bottom: 0;
   padding: 15px 20px;
   width: 100%;
   background-color: #f5f5f5;
@@ -83,6 +81,7 @@ nav.navbar .dropdown.open > a {
 .panel-overview {
   color: #1875d1;
   position: relative;
+  margin-bottom: 5px;
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
   border: 0;
@@ -107,8 +106,47 @@ nav.navbar .dropdown.open > a {
   color: #fff;
   padding: 10px 0;
 }
+.challenge-tab {
+  border-bottom: 1px solid #ccc;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.challenge-tab li {
+  display: inline-block;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: 400;
+  min-width: 100px;
+  text-align: center;
+  padding-bottom: 10px;
+}
+.challenge-tab li > * {
+  text-decoration: none;
+}
+.challenge-tab li a {
+  color: #999;
+}
+.challenge-tab li a:hover {
+  color: #333;
+  text-decoration: none;
+}
+.challenge-tab li.active {
+  border-bottom: 2px solid #1875d1;
+}
+.challenge-tab li.active a {
+  color: #333;
+}
+.panel-idea h3 {
+  margin-top: 0px;
+}
+.panel-idea .user-idea i {
+  vertical-align: bottom;
+}
 body {
   padding-top: 60px;
+  background-color: #f8f8f8;
 }
 .nostyle {
   color: inherit;

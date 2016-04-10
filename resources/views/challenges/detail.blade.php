@@ -49,47 +49,80 @@
 
 <div class="row">
   
-  <div class="container">
-    
-    
-    <div>
-      <!-- Nav tabs -->
-      
-      
-      
-      <ul role="tablist">
-        <li role="presentation" class="active"><a href="#brief" aria-controls="brief" role="tab" data-toggle="tab">Brief</a></li>
-        <li role="presentation"><a href="#ideas" aria-controls="ideas" role="tab" data-toggle="tab">Ideas</a></li>
-        <li role="presentation" class="disabled"><a href="#results" aria-controls="results" role="tab" data-toggle="tab">Results</a></li>
-      </ul>
+  <div class="container-fluid">
+    <ul role="tablist" class="challenge-tab">
+      <li role="presentation" class="active"><a href="#brief" aria-controls="brief" role="tab" data-toggle="tab">Brief</a></li>
+      <li role="presentation"><a href="#ideas" aria-controls="ideas" role="tab" data-toggle="tab">Ideas</a></li>
+      <li role="presentation" class="disabled"><a href="#results" aria-controls="results" role="tab" data-toggle="tab">Results</a></li>
+    </ul>
 
-      <!-- Tab panes -->
-      <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="brief">
-          <h4>{{ $challenge[0]->status }}</h4>
-          <p>
-            {{ $challenge[0]->description }}
-          </p>
-        </div>
-        <div role="tabpanel" class="tab-pane" id="ideas">
-          try
-        </div>
-        <div role="tabpanel" class="tab-pane" id="results">
-          No results yet
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane fade in active" id="brief">
+        <h4>{{ $challenge[0]->status }}</h4>
+        <p>
+          {{ $challenge[0]->description }}
+        </p>
+      </div>
+      <div role="tabpanel" class="tab-pane fade" id="ideas">
+        <div class="row">
+          
+          <div class="col-lg-4 col-md-6">
+            <div class="panel panel-idea">
+              <div class="panel-body">
+                <h3>Idea title</h3>
+                <p>
+                  Lorem Ipsum
+                </p>
+                <span class="user-idea pull-right"><i class="material-icons">account_circle</i>Paul Marchand</span>
+              </div>
+              <div class="panel-idea-stats">
+                heart / bounces
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-4 col-md-6">
+            <div class="panel panel-idea">
+              <div class="panel-body">
+                <h3>Idea title</h3>
+                <p>
+                  Lorem Ipsum
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-4 col-md-6">
+            <div class="panel panel-idea">
+              <div class="panel-body">
+                <h3>Idea title</h3>
+                <p>
+                  Lorem Ipsum
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-4 col-md-6">
+            <div class="panel panel-idea">
+              <div class="panel-body">
+                <h3>Idea title</h3>
+                <p>
+                  Lorem Ipsum
+                </p>
+              </div>
+            </div>
+          </div>
+          
         </div>
       </div>
-
+      <div role="tabpanel" class="tab-pane fade" id="results">
+        No results yet
+      </div>
     </div>
+
   </div>
 </div>
   
-<div class="mdl-grid">
-  <div class="mdl-cell mdl-cell--12-col-desktop">
-    
-    
-    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
-      Participez
-    </button>
-  </div>
-</div>
 @endsection
