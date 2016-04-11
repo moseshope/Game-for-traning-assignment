@@ -18,7 +18,7 @@
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
     <style>
       body{
-        font-family: Roboto;
+        font-family: Lato;
       }
     </style>
 
@@ -70,11 +70,11 @@
     <main class="container-fluid">
       @yield('content')
     </main>
-    <footer class="footer">
+    <!-- <footer class="footer">
       <div class="container-fluid">
         <p class="text-muted text-right"><i class="fa fa-copyright"></i> Copyright GEM - 2016</p>
       </div>
-    </footer>
+    </footer> -->
   </div>
   
   

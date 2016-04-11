@@ -4,42 +4,37 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Challenges;
+use App\User;
 use DB;
+use Auth;
 use Log;
 
 class ChallengesController extends Controller
 {
-    /**
-     * The task repository instance.
-     *
-     * @var TaskRepository
-     */
+
     protected $challenges;
-    /**
-     * Create a new controller instance.
-     *
-     * @param  TaskRepository  $tasks
-     * @return void
-     */
-    /**
-     * Display a list of all of the user's task.
-     *
-     * @param  Request  $request
-     * @return Response
-     */
+
     public function index(Request $request)
     {
-        $challenges = DB::table('challenges')->get();
-        Log::info($challenges);
+        $challenges = Challenges::orderBy('created_at', 'asc')->get();
+        $user = Auth::user();
+        $isAdmin = $user->isAdmin;
         return view('challenges.home', [
             'challenges' => $challenges,
+            'isAdmin' => $isAdmin,
         ]);
     }
     
     public function detail($challenge)
     {  
-      $challenge = DB::table('challenges')->where('name', $challenge)->get();
+      $challenge = Challenges::where('name', $challenge)->get();
       Log::info($challenge);
       return view('challenges.detail', ['challenge' => $challenge]);
+    }
+    
+    public function create()
+    {  
+      $test = "Salut";
+      return $test;
     }
 }

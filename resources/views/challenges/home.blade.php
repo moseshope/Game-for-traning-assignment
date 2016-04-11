@@ -2,11 +2,17 @@
 
 @section('content')
   
+  
 <div class="mdl-grid">
-  <div class="mdl-cell mdl-cell--12-col-desktop">
-    <h3>Challenge list</h3>
-  </div>
+  <h3>Challenge list</h3>
 </div>
+
+@if (isset($isAdmin) && $isAdmin === 1)
+  <a href="/challenges/new">Create challenge</a>
+@else
+  <p>Salut</p>
+@endif
+
 
 <div class="mdl-grid">
   @foreach ($challenges as $challenge)

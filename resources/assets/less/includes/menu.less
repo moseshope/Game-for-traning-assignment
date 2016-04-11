@@ -1,11 +1,15 @@
 nav.navbar{
-  background-color: @colorMain;
-  color: #fff;
+  // background-color: @colorMain;
+  // color: #fff;
+  background-color: #eee;
+  color: #666;
+
   border: 0;
   padding: 0px 20px;
   
   .navbar-brand{
     color: #fff;
+      color: #666;
   }
   
   .navbar-nav{
@@ -13,7 +17,7 @@ nav.navbar{
   }
   
   .navbar-nav>li>a{
-    color: #fff;
+    color: @colorMain;
     font-size: 16px;
     position: relative;
   }
@@ -25,6 +29,7 @@ nav.navbar{
   
   .notif-counter{
     .circle(20px, @red);
+    color: #fff;
     font-size: 12px;
     position: absolute;
     right: 5px;
@@ -34,4 +39,11 @@ nav.navbar{
   .dropdown.open>a{
     background-color: darken(@colorMain, 10%)!important;
   }
+}
+
+.idea-tag{
+  padding: 1px 4px;
+  background-color: @colorMain;
+  border-radius: 2px;
+  color: #fff;
 }

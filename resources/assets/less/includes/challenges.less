@@ -112,6 +112,10 @@
 }
 
 .panel-idea{
+  padding-right: 75px;
+  position: relative;
+  border: 0;
+  
   h3{
     margin-top: 0px;
   }
@@ -119,6 +123,49 @@
     i{
       vertical-align: bottom;
     }  
-  }
+  }  
+}
+
+.form-filter{
+  padding-bottom: 20px;
+}
+
+
+.panel-idea-stats{
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 0 4px 4px 0;
+  width: 75px;
+  background-color: fade(@colorMain, 80%);
+  
+ .stat-container{
+   text-align: center;
+   height: 50%;
+   position: relative;
+   
+   &:first-child{
+     border-bottom: 1px solid #fff;
+   }
+   
+   i{
+     position: relative;
+     color: #fff;
+     top: 50%;
+     transform: translateY(-75%);
+     font-size: 26px;
+   }
+ }
+ 
+ .stat-indic{
+  text-align: center;
+  display: block;
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+  color: #fff; 
+ }
+
   
 }

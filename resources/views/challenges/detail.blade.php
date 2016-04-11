@@ -66,51 +66,40 @@
       </div>
       <div role="tabpanel" class="tab-pane fade" id="ideas">
         <div class="row">
+          <div class="col-sm-4 col-sm-offset-8">
+            <form class="form-inline">
+              <div class="form-group pull-right form-filter">
+                <label>Filter by</label>
+                <select class="form-control">
+                  <option>Last ideas</option>
+                  <!-- <option>Most likes</option>
+                  <option>Most rebounds</option> -->
+                </select>
+              </div>              
+            </form>
+            <br/>
+          </div>
+        </div>
+        <div class="row">
           
-          <div class="col-lg-4 col-md-6">
+          <div class="col-lg-4 col-md-6 col-sm-6">
             <div class="panel panel-idea">
               <div class="panel-body">
                 <h3>Idea title</h3>
                 <p>
-                  Lorem Ipsum
+                  Sed sed <span class="idea-tag">lacinia</span> leo. Morbi <span class="idea-tag">ultricies</span> ipsum quis imperdiet malesuada. Etiam fringilla augue magna, sed pretium sapien tempor at. Integer non nunc nec lacus <span class="idea-tag">maximuss</span> convallis eget ac dolor. Proin ac dapibus tellus. Praesent id turpis efficitur <span class="idea-tag">sapien</span> lobortis pretium a interdum ex. Suspendisse id suscipit leo.
                 </p>
                 <span class="user-idea pull-right"><i class="material-icons">account_circle</i>Paul Marchand</span>
               </div>
               <div class="panel-idea-stats">
-                heart / bounces
-              </div>
-            </div>
-          </div>
-          
-          <div class="col-lg-4 col-md-6">
-            <div class="panel panel-idea">
-              <div class="panel-body">
-                <h3>Idea title</h3>
-                <p>
-                  Lorem Ipsum
-                </p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="col-lg-4 col-md-6">
-            <div class="panel panel-idea">
-              <div class="panel-body">
-                <h3>Idea title</h3>
-                <p>
-                  Lorem Ipsum
-                </p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="col-lg-4 col-md-6">
-            <div class="panel panel-idea">
-              <div class="panel-body">
-                <h3>Idea title</h3>
-                <p>
-                  Lorem Ipsum
-                </p>
+                <div class="stat-container--like stat-container">
+                  <i class="fa fa-heart"></i>
+                  <span class="stat-indic">12</span>
+                </div>
+                <div class="stat-container--rebound stat-container">
+                  <i class="fa fa-share"></i>
+                  <span class="stat-indic">3</span>
+                </div>
               </div>
             </div>
           </div>

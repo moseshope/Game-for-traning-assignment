@@ -1,17 +1,18 @@
 nav.navbar {
-  background-color: #1875d1;
-  color: #fff;
+  background-color: #eee;
+  color: #666;
   border: 0;
   padding: 0px 20px;
 }
 nav.navbar .navbar-brand {
   color: #fff;
+  color: #666;
 }
 nav.navbar .navbar-nav {
   padding: 5px 0;
 }
 nav.navbar .navbar-nav > li > a {
-  color: #fff;
+  color: #009688;
   font-size: 16px;
   position: relative;
 }
@@ -26,13 +27,20 @@ nav.navbar .notif-counter {
   line-height: 20px;
   text-align: center;
   background-color: #F44336;
+  color: #fff;
   font-size: 12px;
   position: absolute;
   right: 5px;
   top: 5px;
 }
 nav.navbar .dropdown.open > a {
-  background-color: #135ba3 !important;
+  background-color: #00635a !important;
+}
+.idea-tag {
+  padding: 1px 4px;
+  background-color: #009688;
+  border-radius: 2px;
+  color: #fff;
 }
 .footer {
   padding: 15px 20px;
@@ -71,7 +79,7 @@ nav.navbar .dropdown.open > a {
   margin-top: 10px;
   height: 10px;
   border-radius: 15px;
-  background-color: #1875d1;
+  background-color: #009688;
   border: 1px solid #fff;
 }
 .challenge-cover .time-left .progress .progress-bar {
@@ -79,7 +87,7 @@ nav.navbar .dropdown.open > a {
   box-shadow: none;
 }
 .panel-overview {
-  color: #1875d1;
+  color: #009688;
   position: relative;
   margin-bottom: 5px;
   -webkit-transform: translateY(-50%);
@@ -102,7 +110,7 @@ nav.navbar .dropdown.open > a {
   text-transform: uppercase;
 }
 .panel-overview .panel-overview-create {
-  background-color: #1875d1;
+  background-color: #009688;
   color: #fff;
   padding: 10px 0;
 }
@@ -133,16 +141,57 @@ nav.navbar .dropdown.open > a {
   text-decoration: none;
 }
 .challenge-tab li.active {
-  border-bottom: 2px solid #1875d1;
+  border-bottom: 2px solid #009688;
 }
 .challenge-tab li.active a {
   color: #333;
+}
+.panel-idea {
+  padding-right: 75px;
+  position: relative;
+  border: 0;
 }
 .panel-idea h3 {
   margin-top: 0px;
 }
 .panel-idea .user-idea i {
   vertical-align: bottom;
+}
+.form-filter {
+  padding-bottom: 20px;
+}
+.panel-idea-stats {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 0 4px 4px 0;
+  width: 75px;
+  background-color: rgba(0, 150, 136, 0.8);
+}
+.panel-idea-stats .stat-container {
+  text-align: center;
+  height: 50%;
+  position: relative;
+}
+.panel-idea-stats .stat-container:first-child {
+  border-bottom: 1px solid #fff;
+}
+.panel-idea-stats .stat-container i {
+  position: relative;
+  color: #fff;
+  top: 50%;
+  -webkit-transform: translateY(-75%);
+  transform: translateY(-75%);
+  font-size: 26px;
+}
+.panel-idea-stats .stat-indic {
+  text-align: center;
+  display: block;
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+  color: #fff;
 }
 body {
   padding-top: 60px;
