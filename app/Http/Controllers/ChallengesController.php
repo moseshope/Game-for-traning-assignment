@@ -16,9 +16,15 @@ class ChallengesController extends Controller
 
     public function index(Request $request)
     {
-        $challenges = Challenges::orderBy('created_at', 'asc')->get();
+        $challenges = Challenges::orderBy('created_at', 'desc')->get();
         $user = Auth::user();
-        $isAdmin = $user->isAdmin;
+        if (isset($user)){
+          $isAdmin = $user->isAdmin;
+        }
+        else{
+          $isAdmin = false;
+        }
+        
         return view('challenges.home', [
             'challenges' => $challenges,
             'isAdmin' => $isAdmin,
@@ -32,9 +38,48 @@ class ChallengesController extends Controller
       return view('challenges.detail', ['challenge' => $challenge]);
     }
     
-    public function create()
+    public function showStore(Request $request)
     {  
-      $test = "Salut";
-      return $test;
+      $user = Auth::user();
+      if (isset($user)) {
+        Log::info($user);
+        $isAdmin = $user->isAdmin;
+        
+        if ($isAdmin == 1){
+          return view('challenges.new');
+        }
+        else{
+          return redirect('/challenges');
+        }
+      }
+      else{
+        return redirect('/challenges');
+      }
+      
+      
+    }
+      
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required|max:255',
+            'description' => 'required|max:500',
+            'content' => 'required|max:20000',
+            'img_cover' => 'max:500',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date',
+        ]);
+        
+        $challenge = new Challenges;
+        $challenge->name = $request->name;
+        $challenge->description = $request->description;
+        $challenge->content = $request->content;
+        $challenge->img_cover = $request->img_cover;
+        $challenge->start_date = $request->start_date;
+        $challenge->end_date = $request->end_date;
+        $challenge->save();
+
+        Log::info($challenge);
+        return redirect('/challenges');
     }
 }

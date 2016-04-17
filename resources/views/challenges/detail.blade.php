@@ -3,8 +3,9 @@
 @section('content')
   
 <div class="row">
-  <div class="challenge-cover">
+  <div class="challenge-cover" style="background-image:url({{$challenge[0]->img_cover}})">
     <h2>{{ $challenge[0]->name }}</h2>
+    <h4>{{ $challenge[0]->description }}</h4>
   
     <div class="time-left">
       <span class="time-left-indic">15 days left</span>
@@ -59,10 +60,14 @@
     <!-- Tab panes -->
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane fade in active" id="brief">
-        <h4>{{ $challenge[0]->status }}</h4>
-        <p>
-          {{ $challenge[0]->description }}
-        </p>
+        <div class="row">
+          <div class="col-md-offset-2 col-md-8">
+            <h4>Status : <strong>{{ $challenge[0]->status }}</strong></h4>
+            <p>
+              {{ $challenge[0]->content }}
+            </p>
+          </div>
+        </div>      
       </div>
       <div role="tabpanel" class="tab-pane fade" id="ideas">
         <div class="row">
