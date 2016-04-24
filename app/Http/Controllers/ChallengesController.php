@@ -14,6 +14,7 @@ class ChallengesController extends Controller
 
     protected $challenges;
 
+    //retourne la liste des challenges
     public function index(Request $request)
     {
         $challenges = Challenges::orderBy('created_at', 'desc')->get();
@@ -24,27 +25,34 @@ class ChallengesController extends Controller
         else{
           $isAdmin = false;
         }
-        
+
         return view('challenges.home', [
             'challenges' => $challenges,
             'isAdmin' => $isAdmin,
         ]);
     }
-    
+
+    //retourne le detail d'un challenge
     public function detail($challenge)
+<<<<<<< HEAD
     {  
       $challenge = Challenges::where('name', $challenge)->first();
+=======
+    {
+      $challenge = Challenges::where('name', $challenge)->get();
+>>>>>>> origin/BDD
       Log::info($challenge);
       return view('challenges.detail', ['challenge' => $challenge]);
     }
-    
+
+    //retourne le volet de création d'un nouveau challenge
     public function showStore(Request $request)
-    {  
+    {
       $user = Auth::user();
       if (isset($user)) {
         Log::info($user);
         $isAdmin = $user->isAdmin;
-        
+
         if ($isAdmin == 1){
           return view('challenges.new');
         }
@@ -55,9 +63,15 @@ class ChallengesController extends Controller
       else{
         return redirect('/challenges');
       }
+<<<<<<< HEAD
       
+=======
+
+
+>>>>>>> origin/BDD
     }
-      
+
+    //sauvegarde d'un nouveau challenge
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -68,7 +82,7 @@ class ChallengesController extends Controller
             'start_date' => 'required|date',
             'end_date' => 'required|date',
         ]);
-        
+
         $challenge = new Challenges;
         $challenge->name = $request->name;
         $challenge->description = $request->description;
@@ -81,6 +95,7 @@ class ChallengesController extends Controller
         Log::info($challenge);
         return redirect('/challenges');
     }
+<<<<<<< HEAD
     
     public function createIdea($challenge)
     {  
@@ -90,3 +105,11 @@ class ChallengesController extends Controller
     }
     
 }
+=======
+
+    public function getId()
+    {
+      // renvoie l'id du challenge ou l'on se situe
+    }
+}
+>>>>>>> origin/BDD
