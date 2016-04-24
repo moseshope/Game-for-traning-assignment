@@ -14,6 +14,7 @@ class ChallengesController extends Controller
 
     protected $challenges;
 
+    //retourne la liste des challenges
     public function index(Request $request)
     {
         $challenges = Challenges::orderBy('created_at', 'desc')->get();
@@ -24,27 +25,29 @@ class ChallengesController extends Controller
         else{
           $isAdmin = false;
         }
-        
+
         return view('challenges.home', [
             'challenges' => $challenges,
             'isAdmin' => $isAdmin,
         ]);
     }
-    
+
+    //retourne le detail d'un challenge
     public function detail($challenge)
-    {  
+    {
       $challenge = Challenges::where('name', $challenge)->get();
       Log::info($challenge);
       return view('challenges.detail', ['challenge' => $challenge]);
     }
-    
+
+    //retourne le volet de création d'un nouveau challenge
     public function showStore(Request $request)
-    {  
+    {
       $user = Auth::user();
       if (isset($user)) {
         Log::info($user);
         $isAdmin = $user->isAdmin;
-        
+
         if ($isAdmin == 1){
           return view('challenges.new');
         }
@@ -55,10 +58,11 @@ class ChallengesController extends Controller
       else{
         return redirect('/challenges');
       }
-      
-      
+
+
     }
-      
+
+    //sauvegarde d'un nouveau challenge
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -69,7 +73,7 @@ class ChallengesController extends Controller
             'start_date' => 'required|date',
             'end_date' => 'required|date',
         ]);
-        
+
         $challenge = new Challenges;
         $challenge->name = $request->name;
         $challenge->description = $request->description;
@@ -81,5 +85,10 @@ class ChallengesController extends Controller
 
         Log::info($challenge);
         return redirect('/challenges');
+    }
+
+    public function getId()
+    {
+      // renvoie l'id du challenge ou l'on se situe
     }
 }
