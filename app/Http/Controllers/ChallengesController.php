@@ -33,7 +33,7 @@ class ChallengesController extends Controller
     
     public function detail($challenge)
     {  
-      $challenge = Challenges::where('name', $challenge)->get();
+      $challenge = Challenges::where('name', $challenge)->first();
       Log::info($challenge);
       return view('challenges.detail', ['challenge' => $challenge]);
     }
@@ -55,7 +55,6 @@ class ChallengesController extends Controller
       else{
         return redirect('/challenges');
       }
-      
       
     }
       
@@ -82,4 +81,12 @@ class ChallengesController extends Controller
         Log::info($challenge);
         return redirect('/challenges');
     }
+    
+    public function createIdea($challenge)
+    {  
+      $challenge = Challenges::where('name', $challenge)->get();
+      Log::info($challenge);
+      return $challenge;
+    }
+    
 }

@@ -42,6 +42,22 @@ nav.navbar .dropdown.open > a {
   border-radius: 2px;
   color: #fff;
 }
+.modal-create {
+  width: 1200px;
+}
+.modal-create .modal-content {
+  border: 0;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+  border-radius: 2px;
+}
+.modal-create .modal-header {
+  background-color: #009688;
+  color: #fff;
+  padding-bottom: 40px;
+}
+.modal-create .modal-body {
+  padding-bottom: 30px;
+}
 .footer {
   padding: 15px 20px;
   width: 100%;
@@ -122,6 +138,11 @@ nav.navbar .dropdown.open > a {
   background-color: #009688;
   color: #fff;
   padding: 10px 0;
+  cursor: pointer;
+}
+.panel-overview .panel-overview-create a:hover {
+  color: #fff;
+  text-decoration: none;
 }
 .challenge-tab {
   border-bottom: 1px solid #ccc;
@@ -201,6 +222,97 @@ nav.navbar .dropdown.open > a {
   bottom: 15px;
   width: 100%;
   color: #fff;
+}
+.challenge-steps {
+  position: relative;
+}
+.challenge-step a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+.challenge-step a:hover .step-title {
+  color: #666;
+}
+.challenge-step .step-nb {
+  background-color: #fff;
+  border: 2px solid #ccc;
+  width: 40px;
+  color: #333;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  margin: 0 auto;
+}
+.challenge-step .step-nb i {
+  line-height: 36px;
+  color: #ccc;
+}
+.challenge-step .step-title {
+  position: relative;
+  top: -15px;
+  color: #ccc;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.challenge-step--done a .step-nb {
+  border-color: #009688;
+  color: #009688;
+}
+.challenge-step--done a .step-nb i {
+  color: #009688;
+}
+.challenge-step--done a .step-title {
+  color: #009688;
+}
+.elements-counter {
+  text-align: center;
+  text-transform: uppercase;
+  margin: 15px 0;
+}
+.elements-counter .counter {
+  color: #009688;
+  font-weight: bold;
+  font-size: 16px;
+}
+.recap-elements .recap-element {
+  padding: 5px;
+  background-color: #ccc;
+  border-radius: 3px;
+  height: 50px;
+}
+.recap-elements .recap-element--filled {
+  background-color: #009688;
+  color: #fff;
+}
+.recap-elements .recap-element--filled .element-name,
+.recap-elements .recap-element--filled .element-rating {
+  text-align: center;
+  font-weight: bold;
+}
+.recap-elements .recap-element--filled .element-rating > * {
+  font-size: 15px;
+  vertical-align: text-top;
+}
+.panel-element {
+  cursor: pointer;
+  color: #999;
+}
+.panel-element .panel-footer {
+  background-color: #ccc;
+  padding: 0 10px;
+}
+.panel-element .panel-footer i {
+  font-size: 12px;
+  color: #fff;
+}
+.panel-element--selected {
+  color: #333;
+  border-color: #009688;
+}
+.panel-element--selected .panel-footer {
+  background-color: #009688;
 }
 body {
   padding-top: 60px;

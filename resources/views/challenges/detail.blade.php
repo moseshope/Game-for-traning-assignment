@@ -3,9 +3,9 @@
 @section('content')
   
 <div class="row">
-  <div class="challenge-cover" style="background-image:url({{$challenge[0]->img_cover}})">
-    <h2>{{ $challenge[0]->name }}</h2>
-    <h4>{{ $challenge[0]->description }}</h4>
+  <div class="challenge-cover" style="background-image:url({{$challenge->img_cover}})">
+    <h2>{{ $challenge->name }}</h2>
+    <h4>{{ $challenge->description }}</h4>
   
     <div class="time-left">
       <span class="time-left-indic">15 days left</span>
@@ -39,7 +39,7 @@
           
       </div>
       <div class="panel-overview-create col-md-2 text-center">
-        <a href="#" class="nostyle">
+        <a data-toggle="modal" data-target="#modalCreate" class="nostyle btn-recap">
           <i class="icon-indic material-icons">library_add</i>
           <span class="indic-title">create</span>
         </a>
@@ -62,9 +62,9 @@
       <div role="tabpanel" class="tab-pane fade in active" id="brief">
         <div class="row">
           <div class="col-md-offset-2 col-md-8">
-            <h4>Status : <strong>{{ $challenge[0]->status }}</strong></h4>
+            <h4>Status : <strong>{{ $challenge->status }}</strong></h4>
             <p>
-              {{ $challenge[0]->content }}
+              {{ $challenge->content }}
             </p>
           </div>
         </div>      
@@ -116,6 +116,316 @@
       </div>
     </div>
 
+  </div>
+</div>
+
+<!-- Large modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCreate">Large modal</button>
+
+<div class="modal fade" id="modalCreate" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg modal-create">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+        <h2 class="modal-title text-uppercase">{{ $challenge->name }}</h2>
+        <p>
+          {{ $challenge->description }}
+        </p>
+      </div>
+
+      <div class="challenge-steps text-center row" role="tablist">
+        <div role="presentation" class="challenge-step col-sm-2">
+          <a href="#character" role="tab" data-toggle="tab">
+            <div class="step-nb">
+              <i class="material-icons">face</i>
+            </div>
+            <div class="step-title">
+              Personnage
+            </div>
+          </a>
+        </div>
+        <div role="presentation" class="challenge-step col-sm-2" href="#place" aria-controls="home" role="tab" data-toggle="tab">
+          <a href="#place" role="tab" data-toggle="tab">
+            <div class="step-nb">
+              <i class="material-icons">place</i>
+            </div>
+            <div class="step-title">
+              Lieu
+            </div>
+          </a>
+        </div>
+        <div class="challenge-step col-sm-2">
+          <a href="#ressource" role="tab" data-toggle="tab">
+            <div class="step-nb">
+              <i class="material-icons">battery_charging_full</i>
+            </div>
+            <div class="step-title">
+              Ressource
+            </div>
+          </a>
+        </div>
+        <div class="challenge-step col-sm-2">
+          <a href="#quest" role="tab" data-toggle="tab">
+            <div class="step-nb">
+              <i class="material-icons">flag</i>
+            </div>
+            <div class="step-title">
+              Quête
+            </div>
+          </a>
+        </div>
+        <div class="challenge-step col-sm-2">
+          <a href="#warning" role="tab" data-toggle="tab">
+            <div class="step-nb">
+              <i class="material-icons">warning</i>
+            </div>
+            <div class="step-title">
+              Element perturbateur
+            </div>
+          </a>
+        </div>
+        <div class="challenge-step col-sm-2">
+          <a href="#treasure" role="tab" data-toggle="tab">
+            <div class="step-nb">
+              <i class="material-icons">stars</i>
+            </div>
+            <div class="step-title">
+              Trésor
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="modal-body tab-content">
+        
+        <div role="tabpanel" class="tab-pane fade in active" id="character">
+          <h3 class="text-center">Quel personnage ?</h3>
+          <br/>
+          <div class="element clearfix">
+            <div class="col-md-8 col-md-offset-2">
+              <div class="row text-center">
+                <div class="col-md-6">
+                  <div class="panel panel-default panel-element">
+                    <div class="panel-body">
+                      <strong>Superman</strong>
+                    </div>
+                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="Difficulty of the element">
+                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="panel panel-default panel-element">
+                    <div class="panel-body">
+                      <strong>Batman</strong>
+                    </div>
+                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="Difficulty of the element">
+                      <i class="material-icons">star</i><i class="material-icons">star</i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div role="tabpanel" class="tab-pane fade" id="place">
+          <h3 class="text-center">Quel lieu ?</h3>
+          <br/>
+          <div class="element clearfix">
+            <div class="col-md-8 col-md-offset-2">
+              <div class="row text-center">
+                <div class="col-md-6">
+                  <div class="panel panel-default panel-element">
+                    <div class="panel-body">
+                      <strong>Gotham</strong>
+                    </div>
+                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="Difficulty of the element">
+                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="panel panel-default panel-element">
+                    <div class="panel-body">
+                      <strong>New York</strong>
+                    </div>
+                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="Difficulty of the element">
+                      <i class="material-icons">star</i><i class="material-icons">star</i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div role="tabpanel" class="tab-pane fade" id="ressource">
+          <h3 class="text-center">Quelle ressource ?</h3>
+          <br/>
+          <div class="element clearfix">
+            <div class="col-md-8 col-md-offset-2">
+              <div class="row text-center">
+                <div class="col-md-6">
+                  <div class="panel panel-default panel-element">
+                    <div class="panel-body">
+                      <strong>$$DOLLARS$$</strong>
+                    </div>
+                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="Difficulty of the element">
+                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="panel panel-default panel-element">
+                    <div class="panel-body">
+                      <strong>Alien Power</strong>
+                    </div>
+                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="Difficulty of the element">
+                      <i class="material-icons">star</i><i class="material-icons">star</i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div role="tabpanel" class="tab-pane fade" id="quest">
+          <h3 class="text-center">Quelle quête?</h3>
+          <br/>
+          <div class="element clearfix">
+            <div class="col-md-8 col-md-offset-2">
+              <div class="row text-center">
+                <div class="col-md-6">
+                  <div class="panel panel-default panel-element">
+                    <div class="panel-body">
+                      <strong>Save Gotham</strong>
+                    </div>
+                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="Difficulty of the element">
+                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="panel panel-default panel-element">
+                    <div class="panel-body">
+                      <strong>Save the world</strong>
+                    </div>
+                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="Difficulty of the element">
+                      <i class="material-icons">star</i><i class="material-icons">star</i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div role="tabpanel" class="tab-pane fade" id="warning">
+          <h3 class="text-center">Quel élément perturbateur?</h3>
+          <br/>
+          <div class="element clearfix">
+            <div class="col-md-8 col-md-offset-2">
+              <div class="row text-center">
+                <div class="col-md-6">
+                  <div class="panel panel-default panel-element">
+                    <div class="panel-body">
+                      <strong>The Joker</strong>
+                    </div>
+                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="Difficulty of the element">
+                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="panel panel-default panel-element">
+                    <div class="panel-body">
+                      <strong>Mario the plumber</strong>
+                    </div>
+                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="Difficulty of the element">
+                      <i class="material-icons">star</i><i class="material-icons">star</i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div role="tabpanel" class="tab-pane fade" id="treasure">
+          <h3 class="text-center">Quel trésor ?</h3>
+          <br/>
+          <div class="element clearfix">
+            <div class="col-md-8 col-md-offset-2">
+              <div class="row text-center">
+                <div class="col-md-6">
+                  <div class="panel panel-default panel-element">
+                    <div class="panel-body">
+                      <strong>A cookie</strong>
+                    </div>
+                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="Difficulty of the element">
+                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="panel panel-default panel-element">
+                    <div class="panel-body">
+                      <strong>A gameboy color</strong>
+                    </div>
+                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="Difficulty of the element">
+                      <i class="material-icons">star</i><i class="material-icons">star</i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      <div class="modal-footer">
+        <div class="recap-elements">
+          <div class="col-md-2">
+            <div class="recap-element">
+              <div class="element-name"></div>
+              <div class="element-rating"></div>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="recap-element">
+              <div class="element-name"></div>
+              <div class="element-rating"></div>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="recap-element">
+              <div class="element-name"></div>
+              <div class="element-rating"></div>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="recap-element">
+              <div class="element-name"></div>
+              <div class="element-rating"></div>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="recap-element">
+              <div class="element-name"></div>
+              <div class="element-rating"></div>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="recap-element">
+              <div class="element-name"></div>
+              <div class="element-rating"></div>
+            </div>
+          </div>
+        </div>
+        <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+      </div>
+    </div>
   </div>
 </div>
   
