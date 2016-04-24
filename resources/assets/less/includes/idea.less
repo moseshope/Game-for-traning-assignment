@@ -40,18 +40,29 @@
     font-weight: bold;
   }
   
+  &--active{
+    color: #666;
+    .step-nb{
+      border-color: #666;
+    }
+    .step-nb i{
+      color: #666;
+    }
+    .step-title{
+      color: #666;
+    }
+  }
+  
   &--done{
-    a{
-      .step-nb{
-        border-color: @colorMain;
-        color: @colorMain;
-        i{
-          color: @colorMain;
-        }
-      }
-      .step-title{
-        color: @colorMain;
-      }
+    color: @colorMain;
+    .step-nb{
+      border-color: @colorMain;
+    }
+    .step-nb i{
+      color: @colorMain;
+    }
+    .step-title{
+      color: @colorMain;
     }
     
   }
@@ -117,7 +128,17 @@
     
   }
   
-  
+}
+
+.btn-create-idea{
+  background-color: @colorMain;
+  color: #fff;
+  margin-top: 25px;
+  border: none;
+  font-size: 16px;
+  padding: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
   
 }
 

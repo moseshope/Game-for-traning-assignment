@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Challenges;
+use App\Ideas;
 use App\User;
 use DB;
 use Auth;
@@ -33,9 +34,20 @@ class ChallengesController extends Controller
     
     public function detail($challenge)
     {  
+      $user = Auth::user();
+      if (isset($user)) {
+        Log::info($user);
+        $userLogged = true;
+      }
+      else{
+        $userLogged = false;
+      }
       $challenge = Challenges::where('name', $challenge)->first();
       Log::info($challenge);
-      return view('challenges.detail', ['challenge' => $challenge]);
+      return view('challenges.detail', [
+        'challenge' => $challenge,
+        'userLogged' => $userLogged,
+      ]);
     }
     
     public function showStore(Request $request)
@@ -82,11 +94,27 @@ class ChallengesController extends Controller
         return redirect('/challenges');
     }
     
-    public function createIdea($challenge)
+    public function storeIdea(Request $request)
     {  
-      $challenge = Challenges::where('name', $challenge)->get();
-      Log::info($challenge);
-      return $challenge;
+      
+      $user = Auth::user();
+      return $user;
+      
+      $this->validate($request, [
+          'title' => 'required|max:255',
+          'content' => 'required|max:2500',
+      ]);
+      
+      $idea = new Ideas;
+      $idea->title = $request->title;
+      $idea->content = $request->content;
+      $idea->IDUser = $user->id;
+      $idea->save();
+      
+      Log::info($user);
+      Log::info($idea);
+      
+      return redirect('/challenges');
     }
     
 }

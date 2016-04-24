@@ -256,14 +256,28 @@ nav.navbar .dropdown.open > a {
   text-transform: uppercase;
   font-weight: bold;
 }
-.challenge-step--done a .step-nb {
+.challenge-step--active {
+  color: #666;
+}
+.challenge-step--active .step-nb {
+  border-color: #666;
+}
+.challenge-step--active .step-nb i {
+  color: #666;
+}
+.challenge-step--active .step-title {
+  color: #666;
+}
+.challenge-step--done {
+  color: #009688;
+}
+.challenge-step--done .step-nb {
   border-color: #009688;
+}
+.challenge-step--done .step-nb i {
   color: #009688;
 }
-.challenge-step--done a .step-nb i {
-  color: #009688;
-}
-.challenge-step--done a .step-title {
+.challenge-step--done .step-title {
   color: #009688;
 }
 .elements-counter {
@@ -313,6 +327,16 @@ nav.navbar .dropdown.open > a {
 }
 .panel-element--selected .panel-footer {
   background-color: #009688;
+}
+.btn-create-idea {
+  background-color: #009688;
+  color: #fff;
+  margin-top: 25px;
+  border: none;
+  font-size: 16px;
+  padding: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 body {
   padding-top: 60px;
