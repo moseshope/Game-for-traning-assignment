@@ -23,11 +23,15 @@ class CreateIdeasTable extends Migration
         });
 
         Schema::create('ideas_elements', function (Blueprint $table) {
+          $table->integer('idIdea');
+          $table->integer('idElement');
         });
 
         Schema::create('elements', function (Blueprint $table) {
           $table->increments('idElement');
-        });
+          $table->integer('idType');
+          $table->integer('idChallenge');
+        })
     }
 
     /**
