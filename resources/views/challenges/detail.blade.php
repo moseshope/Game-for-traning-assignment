@@ -386,7 +386,8 @@
         <div class="idea-form collapse">
           <div class="row">
             <div class="col-md-8 col-md-offset-2">
-              <form action="/challenges/{{ $challenge->name }}" method="POST">
+              <form action="/challenge/{{ $challenge->id }}" method="POST">
+                {{ csrf_field() }}
                 <div class="form-group">
                   <input type="text" name="title" class="form-control" placeholder="My idea title">
                 </div>

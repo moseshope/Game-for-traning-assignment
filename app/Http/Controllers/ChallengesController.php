@@ -99,11 +99,12 @@ class ChallengesController extends Controller
     
     
     /*En cours*/
-    public function storeIdea(Request $request)
+    public function storeIdea(Request $request, $challenge)
     {  
       
       $user = Auth::user();
-      return $user;
+
+      $challengeName = Challenges::where('id', $challenge)->value('name');
       
       $this->validate($request, [
           'title' => 'required|max:255',
@@ -113,13 +114,11 @@ class ChallengesController extends Controller
       $idea = new Ideas;
       $idea->title = $request->title;
       $idea->content = $request->content;
+      $idea->IDChallenge = $challenge;
       $idea->IDUser = $user->id;
       $idea->save();
       
-      Log::info($user);
-      Log::info($idea);
-      
-      return redirect('/challenges');
+      return redirect('/challenge/' . $challengeName);
     }
     
 }
