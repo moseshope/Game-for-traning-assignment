@@ -45,10 +45,18 @@ class ChallengesController extends Controller
         $userLogged = false;
       }
       $challenge = Challenges::where('name', $challenge)->first();
-      Log::info($challenge);
+      
+      /*Retrieve Ideas*/
+      $ideas = Ideas::where('IDChallenge', $challenge->id)->orderBy('created_at', 'desc')->get();
+      $ideasNB = count($ideas);
+      $ideaNBUser = $ideas->groupBy('IDUser')->count();
+      
       return view('challenges.detail', [
         'challenge' => $challenge,
         'userLogged' => $userLogged,
+        'ideas' => $ideas,
+        'ideasNB' => $ideasNB,
+        'ideaNBUser' => $ideaNBUser,
       ]);
     }
 

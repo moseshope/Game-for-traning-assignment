@@ -25,11 +25,11 @@
         <div class="row">
           <div class="col-xs-4 text-center indic">
             <i class="icon-indic material-icons">lightbulb_outline</i>
-            <span class="indic-title">36 Ideas</span>
+            <span class="indic-title">{{ $ideasNB }} Ideas</span>
           </div>
           <div class="col-xs-4 text-center indic">
             <i class="icon-indic material-icons">people_outline</i>
-            <span class="indic-title">24 Participants</span>
+            <span class="indic-title">{{ $ideaNBUser }} Participants</span>
           </div>
           <div class="col-xs-4 text-center indic">
             <i class="icon-indic material-icons">opacity</i>
@@ -85,6 +85,7 @@
             <br/>
           </div>
         </div>
+        
         <div class="row">
           
           <div class="col-lg-4 col-md-6 col-sm-6">
@@ -109,7 +110,31 @@
             </div>
           </div>
           
+          @foreach ($ideas as $idea)
+          <div class="col-lg-4 col-md-6 col-sm-6">
+            <div class="panel panel-idea">
+              <div class="panel-body">
+                <h3>{{ $idea->title }}</h3>
+                <p>
+                  {{ $idea->content }}
+                </p>
+                <span class="user-idea pull-right"><i class="material-icons">account_circle</i>{{ $idea->IDUser }}</span>
+              </div>
+              <div class="panel-idea-stats">
+                <div class="stat-container--like stat-container">
+                  <i class="fa fa-heart"></i>
+                  <span class="stat-indic">12</span>
+                </div>
+                <div class="stat-container--rebound stat-container">
+                  <i class="fa fa-share"></i>
+                  <span class="stat-indic">3</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          @endforeach
         </div>
+        
       </div>
       <div role="tabpanel" class="tab-pane fade" id="results">
         No results yet
