@@ -420,6 +420,14 @@
                   <textarea name="content" class="form-control" rows="7"></textarea>
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
+                <div class="hidden elements-form">
+                  <input type="hidden" name="character" />
+                  <input type="hidden" name="place" />
+                  <input type="hidden" name="ressource" />
+                  <input type="hidden" name="quest" />
+                  <input type="hidden" name="warning" />
+                  <input type="hidden" name="treasure" />
+                </div>
               </form>
             </div>
           </div>

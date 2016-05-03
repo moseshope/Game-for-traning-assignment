@@ -5,6 +5,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Challenges;
 use App\Ideas;
+use App\IdeasElements;
 use App\User;
 use DB;
 use Auth;
@@ -125,6 +126,18 @@ class ChallengesController extends Controller
       $idea->IDChallenge = $challenge;
       $idea->IDUser = $user->id;
       $idea->save();
+
+      
+      $ideaelements = new IdeasElements;
+      $ideaelements->IDIdea = $idea->id;;
+      $ideaelements->character = $request->character;
+      $ideaelements->place = $request->place;
+      $ideaelements->ressource = $request->ressource;
+      $ideaelements->quest = $request->quest;
+      $ideaelements->warning = $request->warning;
+      $ideaelements->treasure = $request->treasure;
+      $ideaelements->save();
+      
       
       return redirect('/challenge/' . $challengeName);
     }
