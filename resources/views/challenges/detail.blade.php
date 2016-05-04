@@ -25,7 +25,7 @@
         <div class="row">
           <div class="col-xs-4 text-center indic">
             <i class="icon-indic material-icons">lightbulb_outline</i>
-            <span class="indic-title">{{ $ideasNB }} Ideas</span>
+            <span class="indic-title">{{ count($ideas) }} Ideas</span>
           </div>
           <div class="col-xs-4 text-center indic">
             <i class="icon-indic material-icons">people_outline</i>

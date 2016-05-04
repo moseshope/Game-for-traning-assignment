@@ -27,6 +27,8 @@ class ChallengesController extends Controller
         else{
           $isAdmin = false;
         }
+        
+        
 
         return view('challenges.home', [
             'challenges' => $challenges,
@@ -48,15 +50,14 @@ class ChallengesController extends Controller
       $challenge = Challenges::where('name', $challenge)->first();
       
       /*Retrieve Ideas*/
-      $ideas = Ideas::where('IDChallenge', $challenge->id)->orderBy('created_at', 'desc')->get();
-      $ideasNB = count($ideas);
+      $ideas = Ideas::where('IDChallenge', $challenge->id)->join('ideas_elements', 'ideas.IDIdea', '=', 'ideas_elements.IDIdea')->orderBy('ideas.created_at', 'desc')->get();
+    
       $ideaNBUser = $ideas->groupBy('IDUser')->count();
-      
+    
       return view('challenges.detail', [
         'challenge' => $challenge,
         'userLogged' => $userLogged,
         'ideas' => $ideas,
-        'ideasNB' => $ideasNB,
         'ideaNBUser' => $ideaNBUser,
       ]);
     }
@@ -143,9 +144,3 @@ class ChallengesController extends Controller
     }
     
 }
-
-    // public function getId()
-    // {
-    //   // renvoie l'id du challenge ou l'on se situe
-    // }
-// }

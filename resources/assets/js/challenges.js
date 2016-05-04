@@ -25,6 +25,13 @@ $('.panel-element').on('click', function(){
   
 });
 
+$('.recap-element').on('click', function(){
+  $textElement = $(this).find('.element-name').text();
+  // $(this).addClass('recap-element-used');
+  $('textarea').insertAtCaret($textElement);
+});
+
+
 $('.challenge-step').on('click', function(){
   $('.challenge-step').removeClass('challenge-step--active');
   $(this).addClass('challenge-step--active');
@@ -35,5 +42,5 @@ $('.btn-create-idea').on('click', function(){
     $('.tab-content').collapse('hide');
     $('.idea-form').collapse('show');
   }
-})
+});
 

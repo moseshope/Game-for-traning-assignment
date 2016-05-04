@@ -1,5 +1,33 @@
 $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
+  $('[data-toggle="tooltip"]').tooltip();
+});
+
+jQuery.fn.extend({
+insertAtCaret: function(myValue){
+  return this.each(function(i) {
+    if (document.selection) {
+      //For browsers like Internet Explorer
+      this.focus();
+      sel = document.selection.createRange();
+      sel.text = myValue;
+      this.focus();
+    }
+    else if (this.selectionStart || this.selectionStart == '0') {
+      //For browsers like Firefox and Webkit based
+      var startPos = this.selectionStart;
+      var endPos = this.selectionEnd;
+      var scrollTop = this.scrollTop;
+      this.value = this.value.substring(0, startPos)+myValue+this.value.substring(endPos,this.value.length);
+      this.focus();
+      this.selectionStart = startPos + myValue.length;
+      this.selectionEnd = startPos + myValue.length;
+      this.scrollTop = scrollTop;
+    } else {
+      this.value += myValue;
+      this.focus();
+    }
+  })
+}
 });
 $('.panel-element').on('click', function(){
   /*ADD STYLE*/
@@ -28,6 +56,13 @@ $('.panel-element').on('click', function(){
   
 });
 
+$('.recap-element').on('click', function(){
+  $textElement = $(this).find('.element-name').text();
+  // $(this).addClass('recap-element-used');
+  $('textarea').insertAtCaret($textElement);
+});
+
+
 $('.challenge-step').on('click', function(){
   $('.challenge-step').removeClass('challenge-step--active');
   $(this).addClass('challenge-step--active');
@@ -38,7 +73,7 @@ $('.btn-create-idea').on('click', function(){
     $('.tab-content').collapse('hide');
     $('.idea-form').collapse('show');
   }
-})
+});
 
 
 //# sourceMappingURL=all.js.map
