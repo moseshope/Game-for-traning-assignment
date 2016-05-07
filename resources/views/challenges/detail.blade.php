@@ -88,7 +88,7 @@
         
         <div class="row">
           
-          <div class="col-lg-4 col-md-6 col-sm-6">
+          <!-- <div class="col-lg-4 col-md-6 col-sm-6">
             <div class="panel panel-idea">
               <div class="panel-body">
                 <h3>Idea title</h3>
@@ -108,7 +108,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
           
           @foreach ($ideas as $idea)
           <div class="col-lg-4 col-md-6 col-sm-6">
@@ -118,7 +118,7 @@
                 <p>
                   {{ $idea->content }}
                 </p>
-                <span class="user-idea pull-right"><i class="material-icons">account_circle</i>{{ $idea->IDUser }}</span>
+                <span class="user-idea pull-right"><i class="material-icons">account_circle</i>{{ $idea->name }}</span>
               </div>
               <div class="panel-idea-stats">
                 <div class="stat-container--like stat-container">

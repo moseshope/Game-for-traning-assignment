@@ -50,8 +50,7 @@ class ChallengesController extends Controller
       $challenge = Challenges::where('name', $challenge)->first();
       
       /*Retrieve Ideas*/
-      $ideas = Ideas::where('IDChallenge', $challenge->id)->join('ideas_elements', 'ideas.IDIdea', '=', 'ideas_elements.IDIdea')->orderBy('ideas.created_at', 'desc')->get();
-    
+      $ideas = Ideas::where('IDChallenge', $challenge->id)->join('ideas_elements', 'ideas.IDIdea', '=', 'ideas_elements.IDIdea')->join('users', 'users.id', '=', 'ideas.IDUser')->orderBy('ideas.created_at', 'desc')->get();
       $ideaNBUser = $ideas->groupBy('IDUser')->count();
     
       return view('challenges.detail', [
