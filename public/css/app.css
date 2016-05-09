@@ -39,6 +39,7 @@ nav.navbar .dropdown.open > a {
 .idea-tag {
   padding: 1px 4px;
   background-color: #009688;
+  white-space: nowrap;
   border-radius: 2px;
   color: #fff;
 }
@@ -183,6 +184,9 @@ nav.navbar .dropdown.open > a {
 }
 .panel-idea h3 {
   margin-top: 0px;
+}
+.panel-idea h3 a {
+  color: #009688;
 }
 .panel-idea .user-idea i {
   vertical-align: bottom;

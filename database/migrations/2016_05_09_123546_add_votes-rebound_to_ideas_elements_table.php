@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddTimestampsToIdeaselements extends Migration
+class AddVotesReboundToIdeasElementsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,8 @@ class AddTimestampsToIdeaselements extends Migration
     public function up()
     {
         Schema::table('ideas_elements', function (Blueprint $table) {
-          $table->timestamps();
+            $table->integer('votes');
+            $table->integer('rebounds');
         });
     }
 

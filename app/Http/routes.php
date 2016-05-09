@@ -27,10 +27,12 @@ Route::group(['middleware' => ['web']], function () {
   Route::post('/challenge/{challengeID}', 'ChallengesController@storeIdea');
 
   /*Ideas*/
-  Route::get('/ideas', 'IdeasController@index');
-  Route::get('/ideas/new', 'IdeasController@showStore');
-  Route::post('/ideas/new', 'IdeasController@store');
-  Route::get('/idea/{idea}', 'IdeasController@detail');
+  Route::get('/challenge/{challenge}/{idea}', 'ChallengesController@detailIdea');
+  
+  // Route::get('/ideas', 'IdeasController@index');
+  // Route::get('/ideas/new', 'IdeasController@showStore');
+  // Route::post('/ideas/new', 'IdeasController@store');
+  // Route::get('/idea/{ideaID}', 'IdeasController@detail');
 
   Route::auth();
 });

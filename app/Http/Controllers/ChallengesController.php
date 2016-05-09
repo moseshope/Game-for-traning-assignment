@@ -52,13 +52,25 @@ class ChallengesController extends Controller
       /*Retrieve Ideas*/
       $ideas = Ideas::where('IDChallenge', $challenge->id)->join('ideas_elements', 'ideas.IDIdea', '=', 'ideas_elements.IDIdea')->join('users', 'users.id', '=', 'ideas.IDUser')->orderBy('ideas.created_at', 'desc')->get();
       $ideaNBUser = $ideas->groupBy('IDUser')->count();
-    
+    // 
+    // return $ideas;
+      
       return view('challenges.detail', [
         'challenge' => $challenge,
         'userLogged' => $userLogged,
         'ideas' => $ideas,
         'ideaNBUser' => $ideaNBUser,
       ]);
+    }
+    
+    public function detailIdea($challenge, $idea)
+    {
+      // return $idea;
+      // $idea = Ideas::where('IDIdea', $idea)->join('ideas_elements', 'ideas.IDIdea', '=', 'ideas_elements.IDIdea')->get();
+      $idea = Ideas::where('IDIdea', $idea)->get();
+
+      return $idea;
+      // return view('idea.detail', ['idea' => $idea]);
     }
 
     //retourne le volet de création d'un nouveau challenge
@@ -95,6 +107,7 @@ class ChallengesController extends Controller
 
         $challenge = new Challenges;
         $challenge->name = $request->name;
+        $challenge->url = str_slug($challenge->name, "-");
         $challenge->description = $request->description;
         $challenge->content = $request->content;
         $challenge->img_cover = $request->img_cover;
