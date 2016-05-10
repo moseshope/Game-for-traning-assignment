@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Ideas;
+namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -23,7 +23,7 @@ class IdeasController extends Controller
     public function index(Request $request)
     {
         $ideas = Ideas::orderBy('created_at', 'desc')->get($challenge);
-        $user = Auth::user();
+        $user = Auth::check();
         if (isset($user)){
           $isAdmin = $user->isAdmin;
         }
@@ -36,13 +36,11 @@ class IdeasController extends Controller
             'isAdmin' => $isAdmin,
         ]);
     }
-
-    //retourne le detail d'une idée
-    public function detail($idea)
-    {
-      $idea = Ideas::where('IDIdea', $idea)->get();
-      return $idea;
-      Log::info($idea);
+    
+    public function detail($challenge, $idea)
+    {  
+      $ideaElement = DB::table('ideas_elements')->where('ideas_elements.IDIdea', $idea)->join('ideas', 'ideas_elements.IDIdea', '=', 'ideas.IDIdea')->get();      
+      return $ideaElement;
       // return view('idea.detail', ['idea' => $idea]);
     }
 
