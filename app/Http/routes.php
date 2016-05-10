@@ -28,11 +28,16 @@ Route::group(['middleware' => ['web']], function () {
 
   /*Ideas*/
   Route::get('/challenge/{challenge}/{idea}', 'ChallengesController@detailIdea');
-  
+
   // Route::get('/ideas', 'IdeasController@index');
   // Route::get('/ideas/new', 'IdeasController@showStore');
   // Route::post('/ideas/new', 'IdeasController@store');
   // Route::get('/idea/{ideaID}', 'IdeasController@detail');
 
   Route::auth();
+
+  /*Votes*/
+  Route::get('/challenge/{challenge}/{idea}', 'VotesControllers@totalVotes');
+  Route::post('/challenge/{challenge}/{idea}', 'VotesController@upvote');
+  Route::post('/challenge/{challenge}/{idea}', 'VotesController@unvote');
 });

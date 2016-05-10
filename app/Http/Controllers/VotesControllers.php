@@ -9,18 +9,29 @@ use DB;
 use Auth;
 
 class VotesControllers extends Controller{
-  public function like($idea, $user)
+
+  public function totalVotes($idea){
+    $votes = Votes::where('IDIdea', $idea->id)->count();
+    return $votes;
+  }
+
+  public function upvote($idea, $user)
     {
       if (Auth::check())
       {
-    // ++ sur les votes
+        DB::table('votes')->insert(
+        {
+          ['IDIdea'=>'$idea->IDIdea','IDUser'=>'$user->IDUser']
+        }
+        )
     }
     }
 
-    public function dislike($idea, $user){
+    public function unvote($idea, $user){
       if (Auth::check())
       {
-    // -- sur les votes
+        $ids=['IDIdea'=>'$idea->IDIdea','IDUser'=>'$user->IDUser'];
+        DB::table('votes')->where($ids)->delete();
     }
     }
   }
