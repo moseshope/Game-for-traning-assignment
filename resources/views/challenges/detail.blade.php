@@ -114,9 +114,18 @@
           <div class="col-lg-4 col-md-6 col-sm-6">
             <div class="panel panel-idea">
               <div class="panel-body">
-                <h3>{{ $idea->title }}</h3>
+                <h3><a href="{{ $challenge->name}}/{{$idea->IDIdea}}">{{ $idea->title }}</a></h3>
+                  <!-- <h3><a href="{{$idea->IDIdea}}">{{ $idea->title }}</a></h3> -->
                 <p>
                   {{ $idea->content }}
+                </p>
+                <p>
+                  <span class="idea-tag">{{ $idea->character}}</span>
+                  <span class="idea-tag">{{ $idea->place}}</span>
+                  <span class="idea-tag">{{ $idea->ressource}}</span>
+                  <span class="idea-tag">{{ $idea->quest}}</span>
+                  <span class="idea-tag">{{ $idea->warning}}</span>
+                  <span class="idea-tag">{{ $idea->treasure}}</span>
                 </p>
                 <span class="user-idea pull-right"><i class="material-icons">account_circle</i>{{ $idea->name }}</span>
               </div>

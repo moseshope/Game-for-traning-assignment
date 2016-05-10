@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Challenges;
+use App\Ideas;
+use App\IdeasElements;
 use App\User;
 use DB;
 use Auth;
@@ -38,9 +40,10 @@ class IdeasController extends Controller
     //retourne le detail d'une idée
     public function detail($idea)
     {
-      $idea = Ideas::where('id', $idea)->get();
+      $idea = Ideas::where('IDIdea', $idea)->get();
+      return $idea;
       Log::info($idea);
-      return view('idea.detail', ['idea' => $idea]);
+      // return view('idea.detail', ['idea' => $idea]);
     }
 
     //retourne l'interface de création d'une nouvelle idée
@@ -65,4 +68,9 @@ class IdeasController extends Controller
         Log::info($idea);
       return redirect(/*liste des idees*/);
     }
+    
+    // public function upvote(Ideas $idea){
+    //   DB::table('ideas_elements')->where('id', $IDIdea->id)->increment('votes');
+    //   return redirect('/task/'.$task->id);
+    // }
 }
