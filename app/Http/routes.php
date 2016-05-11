@@ -27,7 +27,7 @@ Route::group(['middleware' => ['web']], function () {
   Route::post('/challenge/{challengeID}', 'ChallengesController@storeIdea');
 
   /*Ideas*/
-  Route::get('/challenge/{challenge}/{idea}', 'IdeasController@detailIdea');
+  Route::get('/challenge/{challenge}/{idea}', 'IdeasController@detail');
 
   // Route::get('/ideas', 'IdeasController@index');
   // Route::get('/ideas/new', 'IdeasController@showStore');
@@ -37,7 +37,7 @@ Route::group(['middleware' => ['web']], function () {
   Route::auth();
 
   /*Votes*/
-  Route::get('/challenge/{challenge}/{idea}', 'VotesControllers@totalVotes');
-  Route::post('/challenge/{challenge}/{idea}', 'VotesController@upvote');
-  Route::post('/challenge/{challenge}/{idea}', 'VotesController@unvote');
+  Route::get('/challenge/{challenge}', 'VotesControllers@totalVotes');
+  Route::post('/challenge/{challenge}', 'VotesController@upvote');
+  Route::post('/challenge/{challenge}', 'VotesController@unvote');
 });

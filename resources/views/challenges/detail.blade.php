@@ -1,12 +1,12 @@
 @extends('layouts.main')
 
 @section('content')
-  
+
 <div class="row">
   <div class="challenge-cover" style="background-image:url({{$challenge->img_cover}})">
     <h2>{{ $challenge->name }}</h2>
     <h4>{{ $challenge->description }}</h4>
-    
+
     <div class="time-left">
       <span class="time-left-indic">15 days left</span>
       <div class="progress">
@@ -36,7 +36,7 @@
             <span class="indic-title">65 img points</span>
           </div>
         </div>
-          
+
       </div>
       <div class="panel-overview-create col-md-2 text-center">
         <a data-toggle="modal" data-target="#modalCreate" class="nostyle btn-recap">
@@ -49,7 +49,7 @@
 </div>
 
 <div class="row">
-  
+
   <div class="container-fluid">
     <ul role="tablist" class="challenge-tab">
       <li role="presentation" class="active"><a href="#brief" aria-controls="brief" role="tab" data-toggle="tab">Brief</a></li>
@@ -67,7 +67,7 @@
               {{ $challenge->content }}
             </p>
           </div>
-        </div>      
+        </div>
       </div>
       <div role="tabpanel" class="tab-pane fade" id="ideas">
         <div class="row">
@@ -80,14 +80,14 @@
                   <!-- <option>Most likes</option>
                   <option>Most rebounds</option> -->
                 </select>
-              </div>              
+              </div>
             </form>
             <br/>
           </div>
         </div>
-        
+
         <div class="row">
-          
+
           <!-- <div class="col-lg-4 col-md-6 col-sm-6">
             <div class="panel panel-idea">
               <div class="panel-body">
@@ -109,7 +109,7 @@
               </div>
             </div>
           </div> -->
-          
+
           @foreach ($ideas as $idea)
           <div class="col-lg-4 col-md-6 col-sm-6">
             <div class="panel panel-idea">
@@ -132,7 +132,7 @@
               <div class="panel-idea-stats">
                 <div class="stat-container--like stat-container">
                   <i class="fa fa-heart"></i>
-                  <span class="stat-indic">12</span>
+                  <span class="stat-indic">{{ $votes}}</span>
                 </div>
                 <div class="stat-container--rebound stat-container">
                   <i class="fa fa-share"></i>
@@ -143,7 +143,7 @@
           </div>
           @endforeach
         </div>
-        
+
       </div>
       <div role="tabpanel" class="tab-pane fade" id="results">
         No results yet
@@ -228,7 +228,7 @@
         </a>
       </div>
       <div class="modal-body">
-        
+
         <div class="tab-content collapse in">
           <div role="tabpanel" class="tab-pane fade in active" id="character">
             <h3 class="text-center">Quel personnage ?</h3>
@@ -260,7 +260,7 @@
               </div>
             </div>
           </div>
-          
+
           <div role="tabpanel" class="tab-pane fade" id="place">
             <h3 class="text-center">Quel lieu ?</h3>
             <br/>
@@ -291,7 +291,7 @@
               </div>
             </div>
           </div>
-          
+
           <div role="tabpanel" class="tab-pane fade" id="ressource">
             <h3 class="text-center">Quelle ressource ?</h3>
             <br/>
@@ -322,7 +322,7 @@
               </div>
             </div>
           </div>
-          
+
           <div role="tabpanel" class="tab-pane fade" id="quest">
             <h3 class="text-center">Quelle quête?</h3>
             <br/>
@@ -353,7 +353,7 @@
               </div>
             </div>
           </div>
-          
+
           <div role="tabpanel" class="tab-pane fade" id="warning">
             <h3 class="text-center">Quel élément perturbateur?</h3>
             <br/>
@@ -384,7 +384,7 @@
               </div>
             </div>
           </div>
-          
+
           <div role="tabpanel" class="tab-pane fade" id="treasure">
             <h3 class="text-center">Quel trésor ?</h3>
             <br/>
@@ -416,7 +416,7 @@
             </div>
           </div>
         </div>
-        
+
         <div class="idea-form collapse">
           <div class="row">
             <div class="col-md-8 col-md-offset-2">
@@ -440,11 +440,11 @@
               </form>
             </div>
           </div>
-          
+
         </div>
 
       </div>
-      
+
       <div class="modal-footer">
         <div class="recap-elements">
           <div class="col-md-2">
@@ -484,7 +484,7 @@
             </div>
           </div>
         </div>
-        
+
         <div class="row">
           <div class="col-md-4 col-md-offset-4 collapse" id="btn-create">
             <button class="btn btn-block btn-create-idea">
@@ -516,10 +516,10 @@
               <h2><i class="material-icons">account_circle</i></h2>
               You must be logged in to create an idea
             </div>
-          </div>    
+          </div>
         </div>
       </div>
-      
+
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
@@ -528,5 +528,5 @@
 </div>
 @endif
 
-  
+
 @endsection
