@@ -21,6 +21,7 @@ class ChallengesController extends Controller
     {
         $challenges = Challenges::orderBy('created_at', 'desc')->get();
         $user = Auth::user();
+        
         if (isset($user)){
           $isAdmin = $user->isAdmin;
         }
@@ -61,16 +62,6 @@ class ChallengesController extends Controller
         'ideas' => $ideas,
         'ideaNBUser' => $ideaNBUser,
       ]);
-    }
-    
-    public function detailIdea($challenge, $idea)
-    {
-      // return $idea;
-      // $idea = Ideas::where('IDIdea', $idea)->join('ideas_elements', 'ideas.IDIdea', '=', 'ideas_elements.IDIdea')->get();
-      $idea = Ideas::where('IDIdea', $idea)->get();
-
-      return $idea;
-      // return view('idea.detail', ['idea' => $idea]);
     }
 
     //retourne le volet de création d'un nouveau challenge
