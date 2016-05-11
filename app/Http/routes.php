@@ -27,7 +27,7 @@ Route::group(['middleware' => ['web']], function () {
   Route::post('/challenge/{challengeID}', 'ChallengesController@storeIdea');
 
   /*Ideas*/
-  Route::get('/challenge/{challenge}/{idea}', 'IdeasController@detailIdea');
+  Route::get('/challenge/{challenge}/{idea}', 'IdeasController@detail');
 
   // Route::get('/ideas', 'IdeasController@index');
   // Route::get('/ideas/new', 'IdeasController@showStore');
