@@ -132,6 +132,7 @@
               <div class="panel-idea-stats">
                 <div class="stat-container--like stat-container">
                   <i class="fa fa-heart"></i>
+                  <span class="stat-indic">{{ $votes}}</span>
                 </div>
                 <div class="stat-container--rebound stat-container">
                   <i class="fa fa-share"></i>
