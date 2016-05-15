@@ -132,7 +132,7 @@
               <div class="panel-idea-stats">
                 <div class="stat-container--like stat-container">
                   <i class="fa fa-heart"></i>
-                  <span class="stat-indic">{{ $votes}}</span>
+                  <span class="stat-indic">15</span>
                 </div>
                 <div class="stat-container--rebound stat-container">
                   <i class="fa fa-share"></i>
@@ -154,11 +154,11 @@
 </div>
 
 @if (isset($userLogged) && $userLogged === true)
-<div class="modal fade" id="modalCreate" tabindex="-1" role="dialog">
+<div class="modal fade" id="modalCreateOld" tabindex="-1" role="dialog">
   <div class="modal-dialog modal-lg modal-create">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h2 class="modal-title text-uppercase">{{ $challenge->name }}</h2>
         <p>
           {{ $challenge->description }}
@@ -497,6 +497,467 @@
     </div>
   </div>
 </div>
+<div class="modal fade" id="modalCreate" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg modal-create">
+    <div class="modal-content">    
+      <div class="ideas-create">
+        <div class="left-col col-sm-6">
+          <h3>1/2 - <strong>Etablir le scénario</strong></h3>
+          <div class="tab-content tabs-scenario">
+            <div role="tabpanel" class="tab-pane fade in active tab-pane--active" id="tab-character">
+              <p class="storygraph">"Your character is...</p>
+              <div class="row">
+                <div class="col-sm-5">
+                  <div class="panel panel-default panel-element">
+                    <div class="panel-body">
+                      <strong>Superman</strong>
+                    </div>
+                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
+                      <i class="material-icons">star</i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-2 text-center">
+                  <br/>
+                  ou
+                </div>
+                <div class="col-sm-5">
+                  <div class="panel panel-default panel-element">
+                    <div class="panel-body">
+                      <strong>Batman</strong>
+                    </div>
+                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
+                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="tab-place">
+              <p class="storygraph">"He is located in...</p>
+              <div class="row">
+                <div class="col-sm-5">
+                  <div class="panel panel-default panel-element">
+                    <div class="panel-body">
+                      <strong>Gotham</strong>
+                    </div>
+                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
+                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-2 text-center">
+                  <br/>
+                  ou
+                </div>
+                <div class="col-sm-5">
+                  <div class="panel panel-default panel-element">
+                    <div class="panel-body">
+                      <strong>New York City</strong>
+                    </div>
+                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
+                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="tab-ressource">
+              <p class="storygraph">"He uses...</p>
+              <div class="row">
+                <div class="col-sm-5">
+                  <div class="panel panel-default panel-element">
+                    <div class="panel-body">
+                      <strong>The power of friendship</strong>
+                    </div>
+                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
+                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-2 text-center">
+                  <br/>
+                  ou
+                </div>
+                <div class="col-sm-5">
+                  <div class="panel panel-default panel-element">
+                    <div class="panel-body">
+                      <strong>Drug money $$</strong>
+                    </div>
+                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
+                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="tab-quest">
+              <p class="storygraph">"He must...</p>
+              <div class="row">
+                <div class="col-sm-5">
+                  <div class="panel panel-default panel-element">
+                    <div class="panel-body">
+                      <strong>Create a rainbow dispenser</strong>
+                    </div>
+                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
+                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-2 text-center">
+                  <br/>
+                  ou
+                </div>
+                <div class="col-sm-5">
+                  <div class="panel panel-default panel-element">
+                    <div class="panel-body">
+                      <strong>Save a princess</strong>
+                    </div>
+                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
+                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="tab-danger">
+              <p class="storygraph">"But first he needs to defeat...</p>
+              <div class="row">
+                <div class="col-sm-5">
+                  <div class="panel panel-default panel-element">
+                    <div class="panel-body">
+                      <strong>A dragon</strong>
+                    </div>
+                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
+                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-2 text-center">
+                  <br/>
+                  ou
+                </div>
+                <div class="col-sm-5">
+                  <div class="panel panel-default panel-element">
+                    <div class="panel-body">
+                      <strong>Guy Roux</strong>
+                    </div>
+                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
+                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="tab-treasure">
+              <p class="storygraph">"and he will earn...</p>
+              <div class="row">
+                <div class="col-sm-5">
+                  <div class="panel panel-default panel-element">
+                    <div class="panel-body">
+                      <strong>One million dollar</strong>
+                    </div>
+                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
+                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-2 text-center">
+                  <br/>
+                  ou
+                </div>
+                <div class="col-sm-5">
+                  <div class="panel panel-default panel-element">
+                    <div class="panel-body">
+                      <strong>Eternal life</strong>
+                    </div>
+                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
+                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="row">
+            <br/><br/>
+            <div class="col-sm-4 col-sm-offset-2">
+              <button class="btn btn-block btn-main btn-main--other js-btn-element-previous">Précédent</button>
+            </div>
+            <div class="col-sm-4">
+              <button class="btn btn-block btn-main js-btn-element-next">Suivant</button>
+            </div>
+          </div>
+          
+        </div>
+        <div class="right-col col-sm-6">
+          <br/>
+          <h4><strong>Scénario</strong></h4>
+          <div class="element-recap col-sm-6">
+            <div class="icon-element">
+              <i class="material-icons">face</i>
+            </div>
+            <div class="panel panel-default panel-element panel-element--filling">
+              <div class="panel-body">
+                <div class="text-center placeholder-plus"><i class="fa fa-plus"></i></div>
+              </div>
+              <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
+              </div>
+            </div>
+          </div>
+          <div class="element-recap col-sm-6">
+            <div class="icon-element">
+              <i class="material-icons">place</i>
+            </div>
+            <div class="panel panel-default panel-element">
+              <div class="panel-body">
+              </div>
+              <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
+              </div>
+            </div>
+          </div>
+          <div class="element-recap col-sm-6">
+            <div class="icon-element">
+              <i class="material-icons">battery_charging_full</i>
+            </div>
+            <div class="panel panel-default panel-element">
+              <div class="panel-body">
+              </div>
+              <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
+              </div>
+            </div>
+          </div>
+          <div class="element-recap col-sm-6">
+            <div class="icon-element">
+              <i class="material-icons">flag</i>
+            </div>
+            <div class="panel panel-default panel-element">
+              <div class="panel-body">
+              </div>
+              <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
+              </div>
+            </div>
+          </div>
+          <div class="element-recap col-sm-6">
+            <div class="icon-element">
+              <i class="material-icons">warning</i>
+            </div>
+            <div class="panel panel-default panel-element">
+              <div class="panel-body">
+              </div>
+              <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
+              </div>
+            </div>
+          </div>
+          <div class="element-recap col-sm-6">
+            <div class="icon-element">
+              <i class="material-icons">stars</i>
+            </div>
+            <div class="panel panel-default panel-element">
+              <div class="panel-body">
+              </div>
+              <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
+              </div>
+            </div>
+          </div>
+          <br/>
+          <div class="row text-center pepper-gauge">
+            <div class="col-xs-4 gauge-step">
+              <i class="material-icons">star</i> <span>Innovante</span>
+            </div>
+            <div class="col-xs-4 gauge-step">
+              <i class="material-icons">star</i><i class="material-icons">star</i><span>Originale</span>
+            </div>
+            <div class="col-xs-4 gauge-step">
+              <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><span>Disruptive</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ideas-propose" style="display:none">
+        <div class="left-col col-sm-6">
+          <h3>2/2 - <strong>Proposer une idée</strong></h3>
+          <div class="tab-content tabs-scenario">
+            <div role="tabpanel" class="tab-pane fade in active tab-pane--active" id="tab-character">
+              <p class="storygraph">Nam bibendum vehicula ligula, vel dapibus orci viverra eget. Curabitur eu tortor eu ipsum tempus ornare a id neque. Nullam aliquet tortor purus, a commodo ex tincidunt sit amet. Donec volutpat est vel ligula sagittis dictum. Pellentesque porta in ex non pulvinar.
+              </p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="tab-place">
+              <p class="storygraph">"He is located in...</p>
+              <div class="row">
+                <div class="col-sm-5">
+                  <div class="panel panel-default panel-element">
+                    <div class="panel-body">
+                      <strong>Gotham</strong>
+                    </div>
+                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
+                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-2 text-center">
+                  <br/>
+                  ou
+                </div>
+                <div class="col-sm-5">
+                  <div class="panel panel-default panel-element">
+                    <div class="panel-body">
+                      <strong>New York City</strong>
+                    </div>
+                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
+                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="tab-ressource">
+              <p class="storygraph">"He uses...</p>
+              <div class="row">
+                <div class="col-sm-5">
+                  <div class="panel panel-default panel-element">
+                    <div class="panel-body">
+                      <strong>The power of friendship</strong>
+                    </div>
+                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
+                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-2 text-center">
+                  <br/>
+                  ou
+                </div>
+                <div class="col-sm-5">
+                  <div class="panel panel-default panel-element">
+                    <div class="panel-body">
+                      <strong>Drug money $$</strong>
+                    </div>
+                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
+                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="tab-quest">
+              <p class="storygraph">"He must...</p>
+              <div class="row">
+                <div class="col-sm-5">
+                  <div class="panel panel-default panel-element">
+                    <div class="panel-body">
+                      <strong>Create a rainbow dispenser</strong>
+                    </div>
+                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
+                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-2 text-center">
+                  <br/>
+                  ou
+                </div>
+                <div class="col-sm-5">
+                  <div class="panel panel-default panel-element">
+                    <div class="panel-body">
+                      <strong>Save a princess</strong>
+                    </div>
+                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
+                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="tab-danger">
+              <p class="storygraph">"But first he needs to defeat...</p>
+              <div class="row">
+                <div class="col-sm-5">
+                  <div class="panel panel-default panel-element">
+                    <div class="panel-body">
+                      <strong>A dragon</strong>
+                    </div>
+                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
+                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-2 text-center">
+                  <br/>
+                  ou
+                </div>
+                <div class="col-sm-5">
+                  <div class="panel panel-default panel-element">
+                    <div class="panel-body">
+                      <strong>Guy Roux</strong>
+                    </div>
+                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
+                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="tab-treasure">
+              <p class="storygraph">"and he will earn...</p>
+              <div class="row">
+                <div class="col-sm-5">
+                  <div class="panel panel-default panel-element">
+                    <div class="panel-body">
+                      <strong>One million dollar</strong>
+                    </div>
+                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
+                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-2 text-center">
+                  <br/>
+                  ou
+                </div>
+                <div class="col-sm-5">
+                  <div class="panel panel-default panel-element">
+                    <div class="panel-body">
+                      <strong>Eternal life</strong>
+                    </div>
+                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
+                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="row">
+            <br/><br/>
+            <h4><strong>Scenario</strong></h4>
+            <p class="storygraph text-left">
+              Nam bibendum vehicula ligula, vel dapibus orci viverra eget. Curabitur eu tortor eu ipsum tempus ornare a id neque. Nullam aliquet tortor purus, a commodo ex tincidunt sit amet. Donec volutpat est vel ligula sagittis dictum. Pellentesque porta in ex non pulvinar. 
+            </p>
+            <button class="btn btn-main btn-main--other js-modify-elements">Modifier</button>
+          </div>
+          
+        </div>
+        <div class="right-col col-sm-6">
+          <br/>
+          <h4><strong>Idea</strong></h4>
+          <textarea class="form-control" rows="10">Test</textarea>
+          
+          <h4><strong>Idea title</strong></h4>
+          <input type="text" name="idea-title" class="form-control" />
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-main btn-main--disabled js-btn-switch-write" disabled="disabled">Proposer une idée</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 @else
 <div class="modal fade" id="modalCreate" tabindex="-1" role="dialog">
   <div class="modal-dialog modal-lg modal-create">

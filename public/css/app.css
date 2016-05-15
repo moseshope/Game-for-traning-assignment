@@ -342,12 +342,138 @@ nav.navbar .dropdown.open > a {
   font-weight: bold;
   text-transform: uppercase;
 }
+.ideas-create h3,
+.ideas-propose h3 {
+  margin-top: 0;
+}
+.ideas-create .left-col,
+.ideas-propose .left-col {
+  padding: 30px;
+  background-color: #fff;
+}
+.ideas-create .right-col,
+.ideas-propose .right-col {
+  background-color: #f1f1f1;
+  padding: 30px;
+}
+.ideas-create .element-recap .panel,
+.ideas-propose .element-recap .panel {
+  background-color: transparent;
+}
+.ideas-create .element-recap .panel-body,
+.ideas-propose .element-recap .panel-body {
+  min-height: 50px;
+  background-color: transparent;
+}
+.ideas-create .element-recap .panel-footer,
+.ideas-propose .element-recap .panel-footer {
+  min-height: 25px;
+  border-top: 0;
+  background-color: transparent;
+}
+.ideas-create .element-recap .icon-element,
+.ideas-propose .element-recap .icon-element {
+  background-color: #666;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  top: 15px;
+  position: relative;
+  margin-left: -5px;
+  border-radius: 50%;
+  line-height: 40px;
+  display: block;
+  float: left;
+}
+.ideas-create .element-recap .icon-element i,
+.ideas-propose .element-recap .icon-element i {
+  line-height: 40px;
+}
+.ideas-create .element-recap .panel-element,
+.ideas-propose .element-recap .panel-element {
+  float: right;
+  width: calc(100% - 45px);
+}
+.ideas-create .element-recap .panel-element--filling,
+.ideas-propose .element-recap .panel-element--filling {
+  border: 1px solid #009688;
+}
+.ideas-create .element-recap .panel-element--filled,
+.ideas-propose .element-recap .panel-element--filled {
+  background-color: #fff;
+}
+.ideas-create .element-recap .panel-element--filled .panel-body,
+.ideas-propose .element-recap .panel-element--filled .panel-body {
+  color: #009688;
+}
+.ideas-create .element-recap .panel-element--filled .panel-footer,
+.ideas-propose .element-recap .panel-element--filled .panel-footer {
+  background-color: #ccc;
+}
+.storygraph {
+  text-align: center;
+  font-style: italic;
+  font-size: 18px;
+  padding: 25px 0;
+  padding-top: 75px;
+}
+.pepper-gauge {
+  color: #fff;
+  max-width: 450px;
+  margin: 0 auto;
+  border-radius: 50px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 12px;
+}
+.pepper-gauge .gauge-step:nth-child(1) {
+  background-color: rgba(0, 150, 136, 0.25);
+}
+.pepper-gauge .gauge-step:nth-child(2) {
+  background-color: rgba(0, 150, 136, 0.5);
+}
+.pepper-gauge .gauge-step:nth-child(3) {
+  background-color: #009688;
+}
+.pepper-gauge > * {
+  padding: 5px 0;
+}
+.pepper-gauge span {
+  padding-left: 5px;
+}
+.pepper-gauge i {
+  font-size: 12px;
+}
+.placeholder-plus {
+  color: #009688;
+  font-size: 14px;
+  position: relative;
+  top: 10px;
+}
 body {
   padding-top: 60px;
   background-color: #f8f8f8;
 }
 .nostyle {
   color: inherit;
+}
+.btn-main {
+  background-color: #009688;
+  color: #fff;
+  margin-top: 25px;
+  border: none;
+  font-size: 16px;
+  padding: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.btn-main--other {
+  background-color: #666;
+}
+.btn-main--disabled {
+  background-color: #ccc;
+  color: #fff;
 }
 
 /*# sourceMappingURL=app.css.map */

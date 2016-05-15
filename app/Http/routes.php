@@ -37,7 +37,7 @@ Route::group(['middleware' => ['web']], function () {
   Route::auth();
 
   /*Votes*/
-  Route::get('/challenge/{challenge}', 'VotesControllers@totalVotes');
-  Route::post('/challenge/{challenge}', 'VotesController@upvote');
-  Route::post('/challenge/{challenge}', 'VotesController@unvote');
+  // Route::get('/challenge/{challenge}', 'VotesControllers@totalVotes');
+  // Route::post('/challenge/{challenge}', 'VotesController@upvote');
+  // Route::post('/challenge/{challenge}', 'VotesController@unvote');
 });
