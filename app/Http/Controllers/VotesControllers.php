@@ -11,7 +11,7 @@ use Auth;
 class VotesControllers extends Controller{
 
   public function totalVotes($idea){
-    $votes = Votes::where('IDIdea', $idea->id)->count();
+    $votes = Votes::where('IDIdea', $idea->IDIdea)->count();
     return $votes;
   }
 
@@ -23,7 +23,6 @@ class VotesControllers extends Controller{
         {
           ['IDIdea'=>'$idea->IDIdea','IDUser'=>'$user->IDUser']
         }
-        )
     }
     }
 
