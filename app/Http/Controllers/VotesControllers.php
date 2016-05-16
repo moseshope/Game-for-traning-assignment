@@ -23,6 +23,7 @@ class VotesControllers extends Controller{
         {
           ['IDIdea'=>'$idea->IDIdea','IDUser'=>'$user->IDUser']
         }
+        )
     }
     }
 
