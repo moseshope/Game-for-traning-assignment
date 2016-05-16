@@ -48,23 +48,39 @@ class IdeasController extends Controller
     //manque: function "showStore"
 
     //sauvegarde d'un nouveau challenge
-    public function store(Request $request)
-    {
-        $this->validate($request, [
-            'name' => 'required|max:255',
-            'description' => 'required|max:500',
-            'content' => 'required|max:20000',
-            //6 éléments array?
-        ]);
+    /*En cours*/
+    public function storeIdea(Request $request, $challenge)
+    {  
+      
+      $user = Auth::user();
 
-        $idea = new Ideas;
-        $idea->name = $request->name;
-        $idea->description = $request->description;
-        $idea->content = $request->content;
-        $idea->save();
+      $challengeName = Challenges::where('id', $challenge)->value('name');
+      
+      $this->validate($request, [
+          'title' => 'required|max:255',
+          'content' => 'required|max:2500',
+      ]);
+      
+      $idea = new Ideas;
+      $idea->title = $request->title;
+      $idea->content = $request->content;
+      $idea->IDChallenge = $challenge;
+      $idea->IDUser = $user->id;
+      $idea->save();
 
-        Log::info($idea);
-      return redirect(/*liste des idees*/);
+      
+      $ideaelements = new IdeasElements;
+      $ideaelements->IDIdea = $idea->id;;
+      $ideaelements->character = $request->character;
+      $ideaelements->place = $request->place;
+      $ideaelements->ressource = $request->ressource;
+      $ideaelements->quest = $request->quest;
+      $ideaelements->warning = $request->warning;
+      $ideaelements->treasure = $request->treasure;
+      $ideaelements->save();
+      
+      
+      return redirect('/challenge/' . $challengeName);
     }
     
     // public function upvote(Ideas $idea){
