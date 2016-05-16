@@ -154,7 +154,7 @@
 </div>
 
 @if (isset($userLogged) && $userLogged === true)
-<div class="modal fade" id="modalCreateOld" tabindex="-1" role="dialog">
+<!-- <div class="modal fade" id="modalCreateOld" tabindex="-1" role="dialog">
   <div class="modal-dialog modal-lg modal-create">
     <div class="modal-content">
       <div class="modal-header text-center">
@@ -492,11 +492,11 @@
             </button>
           </div>
         </div>
-        <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
       </div>
     </div>
   </div>
-</div>
+</div> -->
+
 <div class="modal fade" id="modalCreate" tabindex="-1" role="dialog">
   <div class="modal-dialog modal-lg modal-create">
     <div class="modal-content">    
@@ -930,7 +930,7 @@
             </div>
           </div>
           
-          <div class="row">
+          <div>
             <br/><br/>
             <h4><strong>Scenario</strong></h4>
             <p class="storygraph text-left">
@@ -941,12 +941,27 @@
           
         </div>
         <div class="right-col col-sm-6">
-          <br/>
-          <h4><strong>Idea</strong></h4>
-          <textarea class="form-control" rows="10">Test</textarea>
-          
-          <h4><strong>Idea title</strong></h4>
-          <input type="text" name="idea-title" class="form-control" />
+          <form action="/challenge/{{ $challenge->id }}" method="POST">
+            {{ csrf_field() }}
+            <br/>
+            <h4><strong>Idea</strong></h4>
+            <textarea name="content" pattern=".{50,250}" required title="50 to 250 chars" class="form-control" rows="10">Test</textarea>
+            
+            <h4><strong>Idea title</strong></h4>
+            <input type="text" name="title" class="form-control" />
+            
+            <div class="hidden elements-form">
+              <input type="hidden" name="character" />
+              <input type="hidden" name="place" />
+              <input type="hidden" name="ressource" />
+              <input type="hidden" name="quest" />
+              <input type="hidden" name="warning" />
+              <input type="hidden" name="treasure" />
+            </div>
+            
+            <button type="submit" class="btn btn-main">Proposer une idée</button>
+
+          </form>
         </div>
       </div>
 

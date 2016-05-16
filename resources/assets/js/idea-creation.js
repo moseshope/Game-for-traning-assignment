@@ -67,6 +67,9 @@ $('.tabs-scenario .panel-element').on('click', function(){
   $('.element-recap').eq(currentTab).find('.panel-element .panel-body').html('<strong>' + $elementText +'</strong>');
   $('.element-recap').eq(currentTab).find('.panel-element .panel-footer').html($elementRating);
   
+  /*Fill form elements hidden input*/
+  $('.elements-form input').eq(currentTab).val($elementText);
+  
   var elementsFilled = $('.panel-element--filled').length;
   
   if (elementsFilled === $('.element-recap').length){
