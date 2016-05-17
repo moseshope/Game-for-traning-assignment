@@ -14,7 +14,8 @@ elixir(function(mix) {
     mix.less('app.less');
     mix.scripts([
         'global.js',
-        'challenges.js'
+        'challenges.js',
+        'idea-creation.js'
     ]);
 });
 

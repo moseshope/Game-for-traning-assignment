@@ -109,41 +109,5 @@ class ChallengesController extends Controller
         Log::info($challenge);
         return redirect('/challenges');
     }
-    
-    
-    /*En cours*/
-    public function storeIdea(Request $request, $challenge)
-    {  
-      
-      $user = Auth::user();
-
-      $challengeName = Challenges::where('id', $challenge)->value('name');
-      
-      $this->validate($request, [
-          'title' => 'required|max:255',
-          'content' => 'required|max:2500',
-      ]);
-      
-      $idea = new Ideas;
-      $idea->title = $request->title;
-      $idea->content = $request->content;
-      $idea->IDChallenge = $challenge;
-      $idea->IDUser = $user->id;
-      $idea->save();
-
-      
-      $ideaelements = new IdeasElements;
-      $ideaelements->IDIdea = $idea->id;;
-      $ideaelements->character = $request->character;
-      $ideaelements->place = $request->place;
-      $ideaelements->ressource = $request->ressource;
-      $ideaelements->quest = $request->quest;
-      $ideaelements->warning = $request->warning;
-      $ideaelements->treasure = $request->treasure;
-      $ideaelements->save();
-      
-      
-      return redirect('/challenge/' . $challengeName);
-    }
-    
+        
 }
