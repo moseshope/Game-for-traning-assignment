@@ -36,10 +36,10 @@ class IdeasController extends Controller
             'isAdmin' => $isAdmin,
         ]);
     }
-    
+
     public function detail($challenge, $idea)
-    {  
-      $ideaElement = DB::table('ideas_elements')->where('ideas_elements.IDIdea', $idea)->join('ideas', 'ideas_elements.IDIdea', '=', 'ideas.IDIdea')->get();      
+    {
+      $ideaElement = DB::table('ideas_elements')->where('ideas_elements.IDIdea', $idea)->join('ideas', 'ideas_elements.IDIdea', '=', 'ideas.IDIdea')->get();
       return $ideaElement;
       // return view('idea.detail', ['idea' => $idea]);
     }
@@ -50,17 +50,17 @@ class IdeasController extends Controller
     //sauvegarde d'un nouveau challenge
     /*En cours*/
     public function storeIdea(Request $request, $challenge)
-    {  
-      
+    {
+
       $user = Auth::user();
 
       $challengeName = Challenges::where('id', $challenge)->value('name');
-      
+
       $this->validate($request, [
           'title' => 'required|max:255',
           'content' => 'required|max:2500',
       ]);
-      
+
       $idea = new Ideas;
       $idea->title = $request->title;
       $idea->content = $request->content;
@@ -68,9 +68,9 @@ class IdeasController extends Controller
       $idea->IDUser = $user->id;
       $idea->save();
 
-      
+
       $ideaelements = new IdeasElements;
-      $ideaelements->IDIdea = $idea->id;;
+      $ideaelements->IDIdea = $idea->id;
       $ideaelements->character = $request->character;
       $ideaelements->place = $request->place;
       $ideaelements->ressource = $request->ressource;
@@ -78,13 +78,39 @@ class IdeasController extends Controller
       $ideaelements->warning = $request->warning;
       $ideaelements->treasure = $request->treasure;
       $ideaelements->save();
-      
-      
+
+
       return redirect('/challenge/' . $challengeName);
     }
-    
+
     // public function upvote(Ideas $idea){
     //   DB::table('ideas_elements')->where('id', $IDIdea->id)->increment('votes');
     //   return redirect('/task/'.$task->id);
     // }
+
+    public function rebound (Request $request, $idea){
+      if(Auth::Check()){
+
+      //nouvelle idée et éléments
+      $newIdea = new Ideas;
+      $this->validate($request, [
+          'title' => 'required|max:255',
+          'content' => 'required|max:2500',
+      ]);
+
+      $newIdea->title = $request->title;
+      $newIdea->content = $request->content;
+      $newIdea->IDChallenge = $idea->IDChallenge;
+      $newIdea->IDUser = $user->id;
+      $newIdea->save();
+
+      $ideaElements = new IdeasElements;
+      $ideaElements = IdeasElements::where('IDIdea', $idea->id);
+      $ideaElements->save();
+
+      //$newIdea = storeIdea($); solution en utilisant la méthode ?
+      return true;
+      }
+      else return false;
+    }
 }
