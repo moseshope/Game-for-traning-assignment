@@ -68,6 +68,25 @@ nav.navbar .dropdown.open > a {
   margin: 0;
   font-size: 12px;
 }
+.home-cover {
+  height: 260px;
+  background-color: rgba(0, 150, 136, 0.5);
+}
+.home-cover .home-cover--text {
+  text-transform: uppercase;
+  color: #fff;
+  top: 50%;
+  position: relative;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  text-align: center;
+  max-width: 50%;
+  margin: 0 auto;
+}
+.home-cover .home-cover--text h1 {
+  margin-top: 0;
+  font-size: 48px;
+}
 .challenge-cover {
   width: 100%;
   height: 250px;
@@ -111,6 +130,26 @@ nav.navbar .dropdown.open > a {
 .challenge-cover .time-left .progress .progress-bar {
   background: #fff;
   box-shadow: none;
+}
+.panel-cover {
+  height: 160px;
+  border-radius: 3px 3px 0 0;
+  background-color: #ccc;
+  background-size: cover;
+}
+.panel-challenge .panel-overview {
+  margin-top: 20px;
+  -webkit-transform: none;
+  transform: none;
+}
+.panel-challenge .panel-overview .indic {
+  padding: 0;
+}
+.panel-challenge p {
+  height: 70px;
+}
+.panel-challenge h3 {
+  margin-top: 10px;
 }
 .panel-overview {
   color: #009688;
@@ -226,6 +265,9 @@ nav.navbar .dropdown.open > a {
   bottom: 15px;
   width: 100%;
   color: #fff;
+}
+.form-group-elements .form-group {
+  padding: 0 15px;
 }
 .challenge-steps {
   position: relative;
