@@ -21,7 +21,7 @@ class VotesControllers extends Controller{
       {
         DB::table('votes')->insert(
         {
-          ['IDIdea'=>'$idea->IDIdea','IDUser'=>'$user->IDUser']
+          ['IDIdea'=> $idea->IDIdea,'IDUser'=> $user->IDUser]
         }
         )
     }
@@ -30,7 +30,7 @@ class VotesControllers extends Controller{
     public function unvote($idea, $user){
       if (Auth::check())
       {
-        $ids=['IDIdea'=>'$idea->IDIdea','IDUser'=>'$user->IDUser'];
+        $ids=['IDIdea'=> $idea->IDIdea,'IDUser'=> $user->IDUser];
         DB::table('votes')->where($ids)->delete();
     }
     }
