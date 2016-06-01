@@ -1,7 +1,8 @@
 @extends('layouts.main')
 
 @section('content')
-  
+
+
 <div class="row">
   <div class="home-cover">
     <div class="home-cover--text">
@@ -26,19 +27,19 @@
 <div class="container-fluid">
 
   @foreach ($challenges as $challenge)
-  <?php 
+  <?php
     // $id = $challenge->id;
-    // $id;  
+    // $id;
     // $test = $stats[1]->total;
   ?>
-  
-  
+
+
   <!-- {{ $challenge }} -->
   <div class="col-md-4">
     <div class="panel panel-challenge">
       <a href="/challenge/{{$challenge->name}}">
         <div class="panel-cover" style="background-image: url( {{$challenge->img_cover}} )">
-          
+
         </div>
       </a>
       <div class="panel-body">
@@ -64,11 +65,11 @@
           <a href="/challenge/{{$challenge->name}}" class="btn btn-main">Découvrir</a>
         </div>
       </div>
-      
-      
+
+
     </div>
   </div>
   @endforeach
-  
+
 </div>
 @endsection
