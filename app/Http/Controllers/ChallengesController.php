@@ -5,6 +5,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Challenges;
 use App\Ideas;
+use App\Elements;
 use App\IdeasElements;
 use App\User;
 use DB;
@@ -20,6 +21,9 @@ class ChallengesController extends Controller
     public function index(Request $request)
     {
         $challenges = Challenges::orderBy('created_at', 'desc')->get();
+        
+        $stats = DB::table('ideas')->select(DB::raw('count(*) as total, IDChallenge'))->groupBy('IDChallenge')->get();
+        
         $user = Auth::user();
         
         if (isset($user)){
@@ -29,11 +33,10 @@ class ChallengesController extends Controller
           $isAdmin = false;
         }
         
-        
-
         return view('challenges.home', [
             'challenges' => $challenges,
             'isAdmin' => $isAdmin,
+            'stats' => $stats,
         ]);
     }
 
@@ -48,18 +51,19 @@ class ChallengesController extends Controller
       else{
         $userLogged = false;
       }
+
       $challenge = Challenges::where('name', $challenge)->first();
+      $elements = Elements::where('IDChallenge', $challenge->id)->first();
       
       /*Retrieve Ideas*/
       $ideas = Ideas::where('IDChallenge', $challenge->id)->join('ideas_elements', 'ideas.IDIdea', '=', 'ideas_elements.IDIdea')->join('users', 'users.id', '=', 'ideas.IDUser')->orderBy('ideas.created_at', 'desc')->get();
       $ideaNBUser = $ideas->groupBy('IDUser')->count();
-    // 
-    // return $ideas;
       
       return view('challenges.detail', [
         'challenge' => $challenge,
         'userLogged' => $userLogged,
         'ideas' => $ideas,
+        'elements' => $elements,
         'ideaNBUser' => $ideaNBUser,
       ]);
     }
@@ -105,9 +109,66 @@ class ChallengesController extends Controller
         $challenge->start_date = $request->start_date;
         $challenge->end_date = $request->end_date;
         $challenge->save();
+        
+        $element = new Elements;
+        $element->IDChallenge = $challenge->id;
+        $element->character_1 = $request->character_1;
+        $element->character_2 = $request->character_2;
+        
+        $element->location_1 = $request->location_1;
+        $element->location_2 = $request->location_2;
+        
+        $element->power_1 = $request->power_1;
+        $element->power_2 = $request->power_2;
+        
+        $element->goal_1 = $request->goal_1;
+        $element->goal_2 = $request->goal_2;
+        
+        $element->warning_1 = $request->warning_1;
+        $element->warning_2 = $request->warning_2;
+        
+        $element->prize_1 = $request->prize_1;
+        $element->prize_2 = $request->prize_2;
+        $element->save();
 
         Log::info($challenge);
         return redirect('/challenges');
     }
-        
+    
+    
+    /*En cours*/
+    public function storeIdea(Request $request, $challenge)
+    {  
+      
+      $user = Auth::user();
+
+      $challengeName = Challenges::where('id', $challenge)->value('name');
+      
+      $this->validate($request, [
+          'title' => 'required|max:255',
+          'content' => 'required|max:2500',
+      ]);
+      
+      $idea = new Ideas;
+      $idea->title = $request->title;
+      $idea->content = $request->content;
+      $idea->IDChallenge = $challenge;
+      $idea->IDUser = $user->id;
+      $idea->save();
+
+      
+      $ideaelements = new IdeasElements;
+      $ideaelements->IDIdea = $idea->id;;
+      $ideaelements->character = $request->character;
+      $ideaelements->place = $request->place;
+      $ideaelements->ressource = $request->ressource;
+      $ideaelements->quest = $request->quest;
+      $ideaelements->warning = $request->warning;
+      $ideaelements->treasure = $request->treasure;
+      $ideaelements->save();
+      
+      
+      return redirect('/challenge/' . $challengeName);
+    }
+    
 }

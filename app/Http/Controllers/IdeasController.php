@@ -70,7 +70,7 @@ class IdeasController extends Controller
 
 
       $ideaelements = new IdeasElements;
-      $ideaelements->IDIdea = $idea->id;;
+      $ideaelements->IDIdea = $idea->id;
       $ideaelements->character = $request->character;
       $ideaelements->place = $request->place;
       $ideaelements->ressource = $request->ressource;
@@ -87,4 +87,30 @@ class IdeasController extends Controller
     //   DB::table('ideas_elements')->where('id', $IDIdea->id)->increment('votes');
     //   return redirect('/task/'.$task->id);
     // }
+
+    public function rebound (Request $request, $idea){
+      if(Auth::Check()){
+
+      //nouvelle idée et éléments
+      $newIdea = new Ideas;
+      $this->validate($request, [
+          'title' => 'required|max:255',
+          'content' => 'required|max:2500',
+      ]);
+
+      $newIdea->title = $request->title;
+      $newIdea->content = $request->content;
+      $newIdea->IDChallenge = $idea->IDChallenge;
+      $newIdea->IDUser = $user->id;
+      $newIdea->save();
+
+      $ideaElements = new IdeasElements;
+      $ideaElements = IdeasElements::where('IDIdea', $idea->id);
+      $ideaElements->save();
+
+      //$newIdea = storeIdea($); solution en utilisant la méthode ?
+      return true;
+      }
+      else return false;
+    }
 }
