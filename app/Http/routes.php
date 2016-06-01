@@ -23,14 +23,14 @@ Route::group(['middleware' => ['web']], function () {
   Route::get('/challenges', 'ChallengesController@index');
   Route::get('/challenges/new', 'ChallengesController@showStore');
   Route::post('/challenges/new', 'ChallengesController@store');
-  Route::get('/challenge/{challenge}', 'ChallengesController@detail');
-  
+  Route::get('/challenges/{challenge}', array('as' => 'challenge_detail', 'uses' => 'ChallengesController@detail' ));
+
 
   /*Ideas*/
   Route::get('/challenge/{challenge}/{idea}', 'IdeasController@detail');
-  Route::post('/challenge/{challengeID}', 'IdeasController@storeIdea');
-  
-  
+    Route::post('/challenge/{challengeID}', array('as' => 'challenge_detail_process', 'uses' => 'IdeasController@storeIdea' ));
+
+
   // Route::get('/ideas', 'IdeasController@index');
   // Route::get('/ideas/new', 'IdeasController@showStore');
   // Route::post('/ideas/new', 'IdeasController@store');
@@ -39,7 +39,6 @@ Route::group(['middleware' => ['web']], function () {
   Route::auth();
 
   /*Votes*/
-  // Route::get('/challenge/{challenge}', 'VotesControllers@totalVotes');
+  Route::post('api/challenge/vote',  array('as' => 'challenge_vote', 'uses' => 'VotesController@vote' ));
   // Route::post('/challenge/{challenge}', 'VotesController@upvote');
-  // Route::post('/challenge/{challenge}', 'VotesController@unvote');
 });

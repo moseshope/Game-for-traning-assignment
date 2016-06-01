@@ -1,8 +1,8 @@
 @extends('layouts.main')
 
 @section('content')
-  
-  
+
+
 <div class="mdl-grid">
   <h3>Challenge list</h3>
 </div>
@@ -26,7 +26,7 @@
         {{ $challenge->description}}
       </div>
       <div class="mdl-card__actions mdl-card--border">
-        <a href="/challenge/{{$challenge->name}}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+        <a href="{{ route('challenge_detail', $challenge->name)}}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
           View details
         </a>
       </div>

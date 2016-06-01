@@ -130,9 +130,9 @@
                 <span class="user-idea pull-right"><i class="material-icons">account_circle</i>{{ $idea->name }}</span>
               </div>
               <div class="panel-idea-stats">
-                <div class="stat-container--like stat-container">
+                <div class="stat-container--like stat-container js-btn-votes" data-id={{ $idea->id}}>
                   <i class="fa fa-heart"></i>
-                  <span class="stat-indic">15</span>
+                  <span class="stat-indic">{{ $idea->votes->count()}}</span>
                 </div>
                 <div class="stat-container--rebound stat-container">
                   <i class="fa fa-share"></i>
@@ -144,6 +144,7 @@
           @endforeach
         </div>
 
+    
       </div>
       <div role="tabpanel" class="tab-pane fade" id="results">
         No results yet
@@ -499,7 +500,7 @@
 
 <div class="modal fade" id="modalCreate" tabindex="-1" role="dialog">
   <div class="modal-dialog modal-lg modal-create">
-    <div class="modal-content">    
+    <div class="modal-content">
       <div class="ideas-create">
         <div class="left-col col-sm-6">
           <h3>1/2 - <strong>Etablir le scénario</strong></h3>
@@ -679,7 +680,7 @@
               </div>
             </div>
           </div>
-          
+
           <div class="row">
             <br/><br/>
             <div class="col-sm-4 col-sm-offset-2">
@@ -689,7 +690,7 @@
               <button class="btn btn-block btn-main js-btn-element-next">Suivant</button>
             </div>
           </div>
-          
+
         </div>
         <div class="right-col col-sm-6">
           <br/>
@@ -929,27 +930,27 @@
               </div>
             </div>
           </div>
-          
+
           <div>
             <br/><br/>
             <h4><strong>Scenario</strong></h4>
             <p class="storygraph text-left">
-              Nam bibendum vehicula ligula, vel dapibus orci viverra eget. Curabitur eu tortor eu ipsum tempus ornare a id neque. Nullam aliquet tortor purus, a commodo ex tincidunt sit amet. Donec volutpat est vel ligula sagittis dictum. Pellentesque porta in ex non pulvinar. 
+              Nam bibendum vehicula ligula, vel dapibus orci viverra eget. Curabitur eu tortor eu ipsum tempus ornare a id neque. Nullam aliquet tortor purus, a commodo ex tincidunt sit amet. Donec volutpat est vel ligula sagittis dictum. Pellentesque porta in ex non pulvinar.
             </p>
             <button class="btn btn-main btn-main--other js-modify-elements">Modifier</button>
           </div>
-          
+
         </div>
         <div class="right-col col-sm-6">
-          <form action="/challenge/{{ $challenge->id }}" method="POST">
+            <form action="{{ route('challenge_detail_process', $challenge->id)}}" method="POST">
             {{ csrf_field() }}
             <br/>
             <h4><strong>Idea</strong></h4>
             <textarea name="content" pattern=".{50,250}" required title="50 to 250 chars" class="form-control" rows="10">Test</textarea>
-            
+
             <h4><strong>Idea title</strong></h4>
             <input type="text" name="title" class="form-control" />
-            
+
             <div class="hidden elements-form">
               <input type="hidden" name="character" />
               <input type="hidden" name="place" />
@@ -958,7 +959,7 @@
               <input type="hidden" name="warning" />
               <input type="hidden" name="treasure" />
             </div>
-            
+
             <button type="submit" class="btn btn-main">Proposer une idée</button>
 
           </form>

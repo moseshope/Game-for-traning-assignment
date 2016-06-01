@@ -13,9 +13,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <!-- Styles -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/app.css" />
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
       body{
         font-family: Lato;
@@ -25,7 +24,7 @@
 </head>
 
 <body id="app-layout">
-  
+
   <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -66,7 +65,7 @@
         </div>
       </div>
     </nav>
-  
+
     <main class="container-fluid">
       @yield('content')
     </main>
@@ -76,15 +75,21 @@
       </div>
     </footer> -->
   </div>
-  
-  
-    
+
+
+
 
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="/js/all.js"></script>
-    {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
+    <script src="{{ asset('js/all.js') }}"></script>
+    <script>
+      $('.js-btn-votes').on('click', function(){
+        $.post('{{ route("challenge_vote")}}', {id: $(this).attr("data-id"), _token: '{{ csrf_token()}}'}, function(data){
+          $( ".js-btn-votes[data-id='"+$(this).attr("data-id")+"'] .stat-indic" ).html(data);
+        }.bind(this))
+      });
+    </script>
 </body>
 </html>
