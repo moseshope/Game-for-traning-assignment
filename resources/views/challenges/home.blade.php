@@ -37,7 +37,7 @@
   <!-- {{ $challenge }} -->
   <div class="col-md-4">
     <div class="panel panel-challenge">
-      <a href="/challenge/{{$challenge->name}}">
+      <a href="{{route ('challenge_detail', $challenge->name) }}">
         <div class="panel-cover" style="background-image: url( {{$challenge->img_cover}} )">
 
         </div>
@@ -62,7 +62,7 @@
           </div>
         </div> -->
         <div class="row text-center">
-          <a href="/challenge/{{$challenge->name}}" class="btn btn-main">Découvrir</a>
+          <a href="{{route ('challenge_detail', $challenge->name) }}" class="btn btn-main">Découvrir</a>
         </div>
       </div>
 
