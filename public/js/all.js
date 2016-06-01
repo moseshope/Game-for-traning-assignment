@@ -36,38 +36,38 @@ insertAtCaret: function(myValue){
 //   $elementText = $(this).find('.panel-body strong').text();
 //   console.log($elementText);
 //   $elementRating = $(this).find('.material-icons').length;
-//   
+//
 //   /*Fill steps*/
 //   $currentElement = $(this).closest('.element');
 //   $indexElement = $('.element').index($currentElement);
-//   
+//
 //   $('.challenge-step').eq($indexElement).addClass('challenge-step--done');
 //   $('.recap-element').eq($indexElement).addClass('recap-element--filled').find('.element-name').text($elementText);
 //   $('.recap-element').eq($indexElement).find('.element-rating').html($elementRating + '<i class="material-icons">star</i>');
-//   
+//
 //   /*Fill form elements hidden input*/
 //   $('.elements-form input').eq($indexElement).val($elementText);
-//   
+//
 //   var elementsFilled = $('.recap-element--filled').length;
-//   
+//
 //   if (elementsFilled === $('.recap-element').length){
 //     $('#btn-create').collapse('show');
 //   }
-//   
+//
 // });
-// 
+//
 // $('.recap-element').on('click', function(){
 //   $textElement = $(this).find('.element-name').text();
 //   // $(this).addClass('recap-element-used');
 //   $('textarea').insertAtCaret($textElement);
 // });
-// 
-// 
+//
+//
 // $('.challenge-step').on('click', function(){
 //   $('.challenge-step').removeClass('challenge-step--active');
 //   $(this).addClass('challenge-step--active');
 // });
-// 
+//
 // $('.btn-create-idea').on('click', function(){
 //   if ($('.recap-element--filled').length === $('.recap-element').length){
 //     $('.tab-content').collapse('hide');
@@ -90,9 +90,9 @@ function checkFirstTime(currentTab){
 currentTab = 0;
 allowNext = false;
 
-$('.js-btn-element-next').on('click', function(){  
+$('.js-btn-element-next').on('click', function(){
   currentTab = $('.tab-pane--active').index('.tabs-scenario .tab-pane');
-  
+
   if ( currentTab+1 < $('.tabs-scenario .tab-pane').length && allowNext == true  ){
     $('.tab-pane--active').removeClass('in active tab-pane--active');
     $('.tabs-scenario .tab-pane').eq(currentTab+1).addClass('active in tab-pane--active');
@@ -105,12 +105,12 @@ $('.js-btn-element-next').on('click', function(){
   else{
     alert('DERNIER ou FORBIDDEN');
   }
-  
+
 });
 
-$('.js-btn-element-previous').on('click', function(){  
+$('.js-btn-element-previous').on('click', function(){
   currentTab = $('.tab-pane--active').index('.tabs-scenario .tab-pane');
-  
+
   if (currentTab > 0){
     $('.tab-pane--active').removeClass('in active tab-pane--active');
     $('.tabs-scenario .tab-pane').eq(currentTab-1).addClass('active in tab-pane--active');
@@ -126,34 +126,34 @@ $('.js-btn-element-previous').on('click', function(){
 
 $('.tabs-scenario .panel-element').on('click', function(){
   allowNext = true;
-  
+
   $elementText = $(this).find('.panel-body strong').text();
   $elementRating = $(this).find('.panel-footer').children().clone();
-  
-  
+
+
   $(this).closest('.tab-pane').find('.panel-element').removeClass('panel-element--selected');
   $(this).addClass('panel-element--selected');
   $('.element-recap').eq(currentTab).find('.panel-element').removeClass('panel-element--filling').addClass('panel-element--filled');
-  
+
   /*CLEAN DIV*/
   $('.element-recap').eq(currentTab).find('.panel-element .placeholder-plus').remove();
   $('.element-recap').eq(currentTab).find('.panel-element .panel-body').children().remove();
   $('.element-recap').eq(currentTab).find('.panel-element .panel-footer').children().remove();
-  
-  
+
+
   /*INSERT DATA*/
   $('.element-recap').eq(currentTab).find('.panel-element .panel-body').html('<strong>' + $elementText +'</strong>');
   $('.element-recap').eq(currentTab).find('.panel-element .panel-footer').html($elementRating);
-  
+
   /*Fill form elements hidden input*/
   $('.elements-form input').eq(currentTab).val($elementText);
-  
+
   var elementsFilled = $('.panel-element--filled').length;
-  
+
   if (elementsFilled === $('.element-recap').length){
       $('.js-btn-switch-write').attr('disabled', false).removeClass('btn-main--disabled');
     }
-  
+
 });
 
 
@@ -166,5 +166,7 @@ $('.js-modify-elements').on('click', function(){
   $('.ideas-propose').hide('fast');
   $('.ideas-create').show('fast');
 });
+
+
 
 //# sourceMappingURL=all.js.map

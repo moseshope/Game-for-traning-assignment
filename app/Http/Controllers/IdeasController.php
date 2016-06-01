@@ -80,7 +80,7 @@ class IdeasController extends Controller
       $ideaelements->save();
 
 
-      return redirect('/challenge/' . $challengeName);
+      return redirect(route('challenge_detail', $challengeName));
     }
 
     // public function upvote(Ideas $idea){
