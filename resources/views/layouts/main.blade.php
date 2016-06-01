@@ -94,10 +94,9 @@
       $('.js-btn-rebound').on('click', function(){
         var ideaID = $(this).attr("data-id");
         //OUVRE LA POPIN
-        challengeRebound(ideaID);
-
         console.log('click rebound button');
         $('.btn-popin-rebound').on('click', function(){
+          challengeRebound(ideaID);
         })
 
       });
