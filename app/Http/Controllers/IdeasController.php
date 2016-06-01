@@ -15,7 +15,6 @@ class IdeasController extends Controller
 {
 
     protected $ideas;
-
     //RESTE A FAIRE: recuperer le challenge vu par l'user dans $challenge, pour recuperer ses idees
     //$challenge = Challenges::find($id);
 
@@ -88,8 +87,13 @@ class IdeasController extends Controller
     //   return redirect('/task/'.$task->id);
     // }
 
-    public function rebound (Request $request, $idea){
+    public function rebound (Request $request){
       if(Auth::Check()){
+
+        $idea = Ideas::where('IDIdea', $request->get('id'))->first();
+        if(!$idea){
+          return 'false';
+        }
 
       //nouvelle idée et éléments
       $newIdea = new Ideas;
@@ -101,15 +105,13 @@ class IdeasController extends Controller
       $newIdea->title = $request->title;
       $newIdea->content = $request->content;
       $newIdea->IDChallenge = $idea->IDChallenge;
-      $newIdea->IDUser = $user->id;
+      $newIdea->IDUser = Auth::user()->id;
       $newIdea->save();
 
-      $ideaElements = new IdeasElements;
-      $ideaElements = IdeasElements::where('IDIdea', $idea->id);
+      $ideaElements = IdeasElements::where('IDIdea', $idea->IDIdea)->first()->replicate();
       $ideaElements->save();
+      return IdeasElements::where('IDIdea', $idea->IDIdea)->count() - 1;
 
-      //$newIdea = storeIdea($); solution en utilisant la méthode ?
-      return true;
       }
       else return false;
     }

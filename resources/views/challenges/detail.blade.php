@@ -134,9 +134,9 @@
                   <i class="fa fa-heart"></i>
                   <span class="stat-indic">{{ $idea->votes->count()}}</span>
                 </div>
-                <div class="stat-container--rebound stat-container">
+                <div class="stat-container--rebound stat-container js-btn-rebound" data-id={{ $idea->id}}>
                   <i class="fa fa-share"></i>
-                  <span class="stat-indic">3</span>
+                  <span class="stat-indic">{{ App\IdeasElements::where('IDIdea', $idea->id)->count() - 1 }}</span>
                 </div>
               </div>
             </div>

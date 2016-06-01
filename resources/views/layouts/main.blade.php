@@ -90,6 +90,22 @@
           $( ".js-btn-votes[data-id='"+$(this).attr("data-id")+"'] .stat-indic" ).html(data);
         }.bind(this))
       });
+
+      $('.js-btn-rebound').on('click', function(){
+        var ideaID = $(this).attr("data-id");
+        //OUVRE LA POPIN
+        challengeRebound(ideaID);
+
+        console.log('click rebound button');
+        $('.btn-popin-rebound').on('click', function(){
+        })
+
+      });
+      var challengeRebound = function(ideaID){
+        $.post('{{ route("challenge_detail_rebound")}}', {id: ideaID, _token: '{{ csrf_token()}}', title: "$('textareaClass').val", content: "$('textareaClass').val"}, function(data){
+          window.location.reload();
+        }.bind(this))
+      }
     </script>
 </body>
 </html>

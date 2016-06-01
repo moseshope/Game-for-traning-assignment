@@ -32,8 +32,12 @@ Route::group(['middleware' => ['web']], function () {
 
 
   /*Ideas*/
-  Route::get('/challenge/{challenge}/{idea}', 'IdeasController@detail');
+    Route::get('/challenge/{challenge}/{idea}', 'IdeasController@detail');
     Route::post('/challenge/{challengeID}', array('as' => 'challenge_detail_process', 'uses' => 'IdeasController@storeIdea' ));
+
+    /*Rebound*/
+
+    Route::post ('api/challenge/rebound', array ('as' => 'challenge_detail_rebound', 'uses' => 'IdeasController@rebound'));
 
 
   // Route::get('/ideas', 'IdeasController@index');
