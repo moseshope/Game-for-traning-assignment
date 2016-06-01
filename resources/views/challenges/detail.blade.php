@@ -144,7 +144,7 @@
           @endforeach
         </div>
 
-    
+
       </div>
       <div role="tabpanel" class="tab-pane fade" id="results">
         No results yet
@@ -154,7 +154,7 @@
   </div>
 </div>
 
-@if (isset($userLogged) && $userLogged === true)
+@if (isset($userLogged) && $userLogged === true && isset($elements))
 <div class="modal fade" id="modalCreate" tabindex="-1" role="dialog">
   <div class="modal-dialog modal-lg modal-create">
     <div class="modal-content">
