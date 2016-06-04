@@ -329,7 +329,7 @@
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
                     <div class="panel-body">
-                      <strong>{{ $elements->prize_1 }}</strong>
+                      <strong>{{ $elements->prize_2 }}</strong>
                     </div>
                     <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
                       <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
@@ -458,7 +458,7 @@
                 </div>
                 <div class="col-sm-2 text-center">
                   <br/>
-                  ou
+                  or
                 </div>
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
@@ -473,7 +473,7 @@
               </div>
             </div>
             <div role="tabpanel" class="tab-pane fade" id="tab-ressource">
-              <p class="storygraph">"He uses...</p>
+              <p class="storygraph">"He must uses...</p>
               <div class="row">
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
@@ -492,7 +492,7 @@
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
                     <div class="panel-body">
-                      <strong>Drug money $$</strong>
+                      <strong>Electricity</strong>
                     </div>
                     <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
                       <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
@@ -502,7 +502,7 @@
               </div>
             </div>
             <div role="tabpanel" class="tab-pane fade" id="tab-quest">
-              <p class="storygraph">"He must...</p>
+              <p class="storygraph">"His quest is to...</p>
               <div class="row">
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
@@ -516,7 +516,7 @@
                 </div>
                 <div class="col-sm-2 text-center">
                   <br/>
-                  ou
+                  or
                 </div>
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
@@ -531,7 +531,7 @@
               </div>
             </div>
             <div role="tabpanel" class="tab-pane fade" id="tab-danger">
-              <p class="storygraph">"But first he needs to defeat...</p>
+              <p class="storygraph">"But he must faces...</p>
               <div class="row">
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
@@ -545,12 +545,12 @@
                 </div>
                 <div class="col-sm-2 text-center">
                   <br/>
-                  ou
+                  or
                 </div>
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
                     <div class="panel-body">
-                      <strong>Guy Roux</strong>
+                      <strong>Natural disaster</strong>
                     </div>
                     <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
                       <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
@@ -560,12 +560,12 @@
               </div>
             </div>
             <div role="tabpanel" class="tab-pane fade" id="tab-treasure">
-              <p class="storygraph">"and he will earn...</p>
+              <p class="storygraph">"and the payment solution is...</p>
               <div class="row">
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
                     <div class="panel-body">
-                      <strong>One million dollar</strong>
+                      <strong>Donations</strong>
                     </div>
                     <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
                       <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
@@ -574,12 +574,12 @@
                 </div>
                 <div class="col-sm-2 text-center">
                   <br/>
-                  ou
+                  or
                 </div>
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
                     <div class="panel-body">
-                      <strong>Eternal life</strong>
+                      <strong>Par per calory</strong>
                     </div>
                     <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
                       <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
@@ -605,7 +605,7 @@
             {{ csrf_field() }}
             <br/>
             <h4><strong>Idea</strong></h4>
-            <textarea name="content" pattern=".{50,250}" required title="50 to 250 chars" class="form-control" rows="10">Test</textarea>
+            <textarea name="content" pattern=".{50,250}" required title="50 to 250 chars" class="form-control" rows="10"></textarea>
 
             <h4><strong>Idea title</strong></h4>
             <input type="text" name="title" class="form-control" />
@@ -619,7 +619,7 @@
               <input type="hidden" name="treasure" />
             </div>
 
-            <button type="submit" class="btn btn-main">Proposer une idée</button>
+            <button type="submit" class="btn btn-main">Publier mon idée !</button>
 
           </form>
         </div>

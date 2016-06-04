@@ -25,7 +25,7 @@ $('.js-btn-element-next').on('click', function(){
     allowNext = false;
   }
   else{
-    alert('DERNIER ou FORBIDDEN');
+    console.log('DERNIER ou FORBIDDEN');
   }
   
 });
@@ -41,7 +41,7 @@ $('.js-btn-element-previous').on('click', function(){
 
   }
   else{
-    alert('PREMIER');
+    console.log('PREMIER');
   }
   currentTab = currentTab-1;
 });
@@ -82,9 +82,11 @@ $('.tabs-scenario .panel-element').on('click', function(){
 $('.js-btn-switch-write').on('click', function(){
   $('.ideas-create').hide('fast');
   $('.ideas-propose').show('fast');
+  $(this).hide('fast');
 });
 
 $('.js-modify-elements').on('click', function(){
   $('.ideas-propose').hide('fast');
   $('.ideas-create').show('fast');
+  $('.js-btn-switch-write').show('fast');
 });
