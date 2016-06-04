@@ -111,6 +111,7 @@
           </div> -->
 
           @foreach ($ideas as $idea)
+          
           <div class="col-lg-4 col-md-6 col-sm-6">
             <div class="panel panel-idea">
               <div class="panel-body">
@@ -130,13 +131,14 @@
                 <span class="user-idea pull-right"><i class="material-icons">account_circle</i>{{ $idea->name }}</span>
               </div>
               <div class="panel-idea-stats">
-                <div class="stat-container--like stat-container js-btn-votes" data-id={{ $idea->id}}>
+                <div class="stat-container--like stat-container js-btn-votes" data-id='{{ $idea->id}}'>
                   <i class="fa fa-heart"></i>
-                  <span class="stat-indic">{{ $idea->votes->count()}}</span>
+                  <span class="stat-indic">{{ $idea->votes }}</span>
+                  
                 </div>
-                <div class="stat-container--rebound stat-container js-btn-rebound" data-id={{ $idea->id}}>
+                <div class="stat-container--rebound stat-container js-btn-rebound" data-id='{{ $idea->id}}'>
                   <i class="fa fa-share"></i>
-                  <span class="stat-indic">{{ App\IdeasElements::where('IDIdea', $idea->id)->count() - 1 }}</span>
+                  <span class="stat-indic">{{ App\IdeasElements::where('IDIdea', $idea->id)->count() }}</span>
                 </div>
               </div>
             </div>
