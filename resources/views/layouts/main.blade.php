@@ -39,11 +39,11 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             @if (Auth::guest())
+              <li><a href="{{ url('/challenges') }}"><strong>Challenges</strong></a></li>
+              <li><a href="#">About</a></li>
+              <li data-toggle="modal" data-target=".modal-login"><a href="#">Login</a></li>
               <li>
-                <a href="{{ url('/login') }}" href="">Login</a>
-              </li>
-              <li>
-                <a href="{{ url('/register') }}" href="">Register</a>
+                <a data-toggle="modal" data-target=".modal-register" href="">Register</a>
               </li>
             @else
               <li><a href="{{ url('/challenges') }}"><strong>Challenges</strong></a></li>
@@ -76,7 +76,164 @@
     </footer> -->
   </div>
 
+  @if (Auth::guest())
+  <!-- Modal -->
+  <div class="modal fade modal-login" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h3 class="modal-title text-center">Login</h3>
+        </div>
+        <div class="modal-body">
+          <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
+              {!! csrf_field() !!}
+              <p class="text-center">Login to start innovating !</p>
+              <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
 
+                  <div class="col-md-8 col-md-offset-2">
+                    <div class="input-container">
+                      <i class="icon-indic material-icons">mail</i>
+                      <input type="email" placeholder="Email" class="form-control" name="email" value="{{ old('email') }}">
+                    </div>
+                      @if ($errors->has('email'))
+                          <span class="help-block">
+                              <strong>{{ $errors->first('email') }}</strong>
+                          </span>
+                      @endif
+                  </div>
+              </div>
+
+              <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+
+                  <div class="col-md-8 col-md-offset-2">
+                    <div class="input-container">
+                      <i class="icon-indic material-icons">lock</i>
+                      <input placeholder="Password" type="password" class="form-control" name="password">
+                    </div>
+
+                      @if ($errors->has('password'))
+                          <span class="help-block">
+                              <strong>{{ $errors->first('password') }}</strong>
+                          </span>
+                      @endif
+                  </div>
+              </div>
+
+
+              <div class="form-group">
+                  <div class="col-md-4 col-md-offset-2">
+                      <div class="checkbox" style="padding-top:0">
+                          <label>
+                              <input type="checkbox" name="remember"> Remember Me
+                          </label>
+                      </div>
+                  </div>
+                  <div class="col-md-4 text-right">
+                    <a href="{{ url('/password/reset') }}" class="lost-password">Forgot Your Password?</a>
+                  </div>
+              </div>
+
+              <div class="form-group text-center">
+                <button type="submit" class="btn btn-main">
+                    Login
+                </button>
+              </div>
+              
+              <p>Not a member yet ? <a href="#" class="color-main">Register</a></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal fade modal-register" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h3 class="modal-title text-center">Register</h3>
+        </div>
+        <div class="modal-body">
+          <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
+              {!! csrf_field() !!}
+              <p class="text-center">Register to start innovating !</p>
+
+              <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+
+                <div class="col-md-8 col-md-offset-2">
+                  <div class="input-container">
+                    <i class="icon-indic material-icons">account_circle</i>
+                      <input placeholder="Username" type="text" class="form-control" name="name" value="{{ old('name') }}">
+                  </div>
+                      @if ($errors->has('name'))
+                          <span class="help-block">
+                              <strong>{{ $errors->first('name') }}</strong>
+                          </span>
+                      @endif
+                  </div>
+              </div>
+
+              <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                  <div class="col-md-8 col-md-offset-2">
+                    <div class="input-container">
+                      <i class="icon-indic material-icons">mail</i>
+                      <input type="email" placeholder="Email" class="form-control" name="email" value="{{ old('email') }}">
+                    </div>
+
+                      @if ($errors->has('email'))
+                          <span class="help-block">
+                              <strong>{{ $errors->first('email') }}</strong>
+                          </span>
+                      @endif
+                  </div>
+              </div>
+
+              <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+
+                  <div class="col-md-8 col-md-offset-2">
+                    <div class="input-container">
+                      <i class="icon-indic material-icons">lock</i>
+                      <input placeholder="Password" type="password" class="form-control" name="password">
+                    </div>
+                      @if ($errors->has('password'))
+                          <span class="help-block">
+                              <strong>{{ $errors->first('password') }}</strong>
+                          </span>
+                      @endif
+                  </div>
+              </div>
+
+              <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+
+                <div class="col-md-8 col-md-offset-2">
+                  <div class="input-container">
+                    <i class="icon-indic material-icons">lock</i>
+                    <input placeholder="Confirm password" type="password" class="form-control" name="password_confirmation">
+                  </div>
+                      @if ($errors->has('password_confirmation'))
+                          <span class="help-block">
+                              <strong>{{ $errors->first('password_confirmation') }}</strong>
+                          </span>
+                      @endif
+                  </div>
+              </div>
+
+              <div class="form-group text-center">
+                <button type="submit" class="btn btn-main">
+                    Register
+                </button>
+              </div>
+              
+              <p>Already a member ? <a href="#" class="color-main">Login in</a></p>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  @endif
 
 
     <!-- JavaScripts -->

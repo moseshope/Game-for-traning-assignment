@@ -13,7 +13,7 @@
 
 Route::group(['middleware' => ['web']], function () {
   Route::get('/', function () {
-      return view('auth.login');
+      return redirect('/challenges');
   })->middleware('guest');
 
 

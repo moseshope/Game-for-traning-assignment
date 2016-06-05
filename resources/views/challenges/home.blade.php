@@ -24,15 +24,9 @@
 @endif
 
 
-<div class="container-fluid">
+<div class="container-fluid challenges-container">
 
   @foreach ($challenges as $challenge)
-  <?php
-    // $id = $challenge->id;
-    // $id;
-    // $test = $stats[1]->total;
-  ?>
-
 
   <!-- {{ $challenge }} -->
   <div class="col-md-4">
@@ -47,20 +41,20 @@
         <p>
           {{ $challenge->description}}
         </p>
-        <!-- <div class="row panel-overview text-center">
+        <div class="row panel-overview text-center">
           <div class="col-xs-4 text-center indic">
             <i class="icon-indic material-icons">lightbulb_outline</i>
-            <span class="indic-title">2 Ideas</span>
+            <span class="indic-title">12 Ideas</span>
           </div>
           <div class="col-xs-4 text-center indic">
             <i class="icon-indic material-icons">people_outline</i>
-            <span class="indic-title">{{ $test or 'Default' }} people</span>
+            <span class="indic-title">{{ '12' }} people</span>
           </div>
           <div class="col-xs-4 text-center indic">
             <i class="icon-indic material-icons">opacity</i>
-            <span class="indic-title">{{ $test or 'Default' }} Ideas</span>
+            <span class="indic-title">{{ '78' }} points</span>
           </div>
-        </div> -->
+        </div>
         <div class="row text-center">
           <a href="{{route ('challenge_detail', $challenge->name) }}" class="btn btn-main">Découvrir</a>
         </div>
