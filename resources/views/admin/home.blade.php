@@ -29,32 +29,33 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <ul class="list-group">
-      @foreach ($challenges as $challenge)
-        <li class="list-group-item">
-          <span>
-            <a href="{{route ('challenge_detail', $challenge->name) }}"><i class="fa fa-link"></i></a>
-          </span>
-          <strong>{{$challenge->name}}</strong>
-          @if ($challenge->status == 'live')
-            <span class="label label-success"><i class="fa fa-play-circle"></i> LIVE</span>
-          @elseif ($challenge->status == 'staging')
-            <span class="label label-primary">STAGING</span>
-          @else
-            <span class="label label-default">CLOSED</span>
-          @endif
-          
-          <div class="pull-right">
-            <a href="{{route ('challenge_edit', $challenge->name) }}"><i class="fa fa-pencil"></i> Manage challenge</a>
-          </div>
-          
+      <a style="margin-bottom:15px;" href="/challenges/new">
+        <li class="list-group-item active">
+          <i class="fa fa-plus-circle"></i> Create challenge
         </li>
+      </a>
+      @foreach ($challenges as $challenge)
+      <li class="list-group-item">
+        <span>
+          <a href="{{route ('challenge_detail', $challenge->name) }}"><i class="fa fa-link"></i></a>
+        </span>
+        <strong>{{$challenge->name}}</strong>
+        @if ($challenge->status == 'live')
+          <span class="label label-success"><i class="fa fa-play-circle"></i> LIVE</span>
+        @elseif ($challenge->status == 'staging')
+          <span class="label label-primary">STAGING</span>
+        @else
+          <span class="label label-default">CLOSED</span>
+        @endif
+        
+        <div class="pull-right">
+          <a href="{{route ('challenge_edit', $challenge->name) }}"><i class="fa fa-pencil"></i> Manage challenge</a>
+        </div>
+        
+      </li>
       @endforeach
     </ul>
   </div>
-</div>
-
-<div class="row">
-  <a class="btn btn-default" style="margin-bottom:15px;" href="/challenges/new"><i class="fa fa-plus-circle"></i> Create challenge</a>
 </div>
 
 @endsection

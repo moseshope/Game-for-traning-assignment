@@ -99,6 +99,32 @@ class AdminController extends Controller
         return redirect('/');
       }
     }
+    
+    public function editStatus($challengeID, Request $request)
+    {
+      $user = Auth::user();
+      if (isset($user)) {
+        Log::info($user);
+        $isAdmin = $user->isAdmin;
+
+        if ($isAdmin == 1){
+          DB::table('challenges')
+            ->where('id', $challengeID)
+            ->update(
+                array( 
+                      "status" => $request->status,
+                      )
+          );
+          return redirect()->back();
+        }
+        else{
+          return redirect('/');
+        }
+      }
+      else{
+        return redirect('/');
+      }
+    }
 
     
 }
