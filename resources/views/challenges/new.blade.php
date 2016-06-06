@@ -9,10 +9,6 @@
 <div class="container">
   <form action="/challenges/new" method="POST" class="form-horizontal">
     <!-- Nav tabs -->
-    <ul class="nav nav-tabs" role="tablist">
-      <li role="presentation" class="active"><a href="#challenge" aria-controls="challenge" role="tab" data-toggle="tab">Challenge</a></li>
-      <li role="presentation"><a href="#elements" aria-controls="elements" role="tab" data-toggle="tab">Elements</a></li>
-    </ul>
   
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane active" id="challenge">
@@ -68,116 +64,7 @@
         </div>
       
       </div>
-      <div role="tabpanel" class="tab-pane" id="elements">
-        <br/>
-        <div class="form-group-elements">
-          <p>
-            <img src="../img/picto/user.svg" alt="Character" />
-          </p>
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label>Hero n°1</label>
-              <input type="text" class="form-control" required name="character_1" >
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label>Hero n°2</label>
-              <input type="text" class="form-control" required name="character_2" >
-            </div>
-          </div>
-        </div>
-        <div class="form-group-elements">
-          <p>
-            <img src="../img/picto/location.svg" alt="Location" />
-          </p>
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label>Location n°1</label>
-              <input type="text" class="form-control" required name="location_1" >
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label>Location n°2</label>
-              <input type="text" class="form-control" required name="location_2" >
-            </div>
-          </div>
-        </div>
-        <div class="form-group-elements">
-          <p>
-            <img src="../img/picto/resource.svg" alt="Resource" />
-          </p>
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label>Power n°1</label>
-              <input type="text" class="form-control" required name="power_1" >
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label>Power n°2</label>
-              <input type="text" class="form-control" required name="power_2" >
-            </div>
-          </div>
-        </div>
-        <div class="form-group-elements">
-          <p>
-            <img src="../img/picto/advantage.svg" alt="Advantage" />
-          </p>
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label>Goal n°1</label>
-              <input type="text" class="form-control" required name="goal_1" >
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label>Goal n°2</label>
-              <input type="text" class="form-control" required name="goal_2" >
-            </div>
-          </div>
-        </div>
-        <div class="form-group-elements">
-          <p>
-            <img src="../img/picto/game-changer.svg" alt="Game Changer" />
-          </p>
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label>Warning °1</label>
-              <input type="text" class="form-control" required name="warning_1" >
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label>Warning n°2</label>
-              <input type="text" class="form-control" required name="warning_2" >
-            </div>
-          </div>
-        </div>
-        <div class="form-group-elements">
-          <p>
-            <img src="../img/picto/revenue-stream.svg" alt="Revenue Stream" />
-          </p>
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label>Prize n°1</label>
-              <input type="text" class="form-control" required name="prize_1" >
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label>Prize n°2</label>
-              <input type="text" class="form-control" required name="prize_2" >
-            </div>
-          </div>
-        </div>
-      
-        
-      
-      </div>
-      <div role="tabpanel" class="tab-pane" id="messages">...</div>
-      <div role="tabpanel" class="tab-pane" id="settings">...</div>
+
     </div>
     
     

@@ -21,9 +21,11 @@ Route::group(['middleware' => ['web']], function () {
     return redirect('/challenges');
   });
 
-  // Route::get('/home', 'HomeController@index');
-
-
+  /*ADMIN*/
+  Route::get('/admin', 'AdminController@index');
+  Route::get('/admin/{challenge}', array('as' => 'challenge_edit', 'uses' => 'AdminController@showEdit' ));
+  Route::post('/admin/{challengeID}', 'AdminController@edit');
+  
   /*CHALLENGES*/
   Route::get('/challenges', 'ChallengesController@index');
   Route::get('/challenges/new', 'ChallengesController@showStore');
