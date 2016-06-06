@@ -72,7 +72,7 @@
         <br/>
         <div class="form-group-elements">
           <p>
-            <i class="material-icons">face</i>
+            <img src="../img/picto/user.svg" alt="Character" />
           </p>
           <div class="col-sm-6">
             <div class="form-group">
@@ -89,7 +89,7 @@
         </div>
         <div class="form-group-elements">
           <p>
-            <i class="material-icons">place</i>
+            <img src="../img/picto/location.svg" alt="Location" />
           </p>
           <div class="col-sm-6">
             <div class="form-group">
@@ -106,7 +106,7 @@
         </div>
         <div class="form-group-elements">
           <p>
-            <i class="material-icons">battery_charging_full</i>
+            <img src="../img/picto/resource.svg" alt="Resource" />
           </p>
           <div class="col-sm-6">
             <div class="form-group">
@@ -123,7 +123,7 @@
         </div>
         <div class="form-group-elements">
           <p>
-            <i class="material-icons">flag</i>
+            <img src="../img/picto/advantage.svg" alt="Advantage" />
           </p>
           <div class="col-sm-6">
             <div class="form-group">
@@ -140,7 +140,7 @@
         </div>
         <div class="form-group-elements">
           <p>
-            <i class="material-icons">warning</i>
+            <img src="../img/picto/game-changer.svg" alt="Game Changer" />
           </p>
           <div class="col-sm-6">
             <div class="form-group">
@@ -157,7 +157,7 @@
         </div>
         <div class="form-group-elements">
           <p>
-            <i class="material-icons">stars</i>
+            <img src="../img/picto/revenue-stream.svg" alt="Revenue Stream" />
           </p>
           <div class="col-sm-6">
             <div class="form-group">

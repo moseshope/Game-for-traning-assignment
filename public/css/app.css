@@ -316,6 +316,12 @@ nav.navbar .dropdown.open > a {
 .form-group-elements .form-group {
   padding: 0 15px;
 }
+.form-group-elements p {
+  text-align: center;
+}
+.form-group-elements p img {
+  height: 50px;
+}
 .challenges-container {
   margin-top: 15px;
 }
@@ -542,6 +548,10 @@ nav.navbar .dropdown.open > a {
   font-size: 14px;
   position: relative;
   top: 10px;
+}
+.icon-element {
+  width: 40px;
+  height: 40px;
 }
 body {
   padding-top: 60px;

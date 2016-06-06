@@ -356,7 +356,7 @@
           <h4><strong>Scénario</strong></h4>
           <div class="element-recap col-sm-6">
             <div class="icon-element">
-              <i class="material-icons">face</i>
+              <img src="../img/picto/user.svg" alt="Character" />
             </div>
             <div class="panel panel-default panel-element panel-element--filling">
               <div class="panel-body">
@@ -368,7 +368,7 @@
           </div>
           <div class="element-recap col-sm-6">
             <div class="icon-element">
-              <i class="material-icons">place</i>
+              <img src="../img/picto/location.svg" alt="Location" />
             </div>
             <div class="panel panel-default panel-element">
               <div class="panel-body">
@@ -379,7 +379,7 @@
           </div>
           <div class="element-recap col-sm-6">
             <div class="icon-element">
-              <i class="material-icons">battery_charging_full</i>
+              <img src="../img/picto/resource.svg" alt="Resource" />
             </div>
             <div class="panel panel-default panel-element">
               <div class="panel-body">
@@ -390,7 +390,7 @@
           </div>
           <div class="element-recap col-sm-6">
             <div class="icon-element">
-              <i class="material-icons">flag</i>
+              <img src="../img/picto/advantage.svg" alt="Advantage" />
             </div>
             <div class="panel panel-default panel-element">
               <div class="panel-body">
@@ -401,7 +401,7 @@
           </div>
           <div class="element-recap col-sm-6">
             <div class="icon-element">
-              <i class="material-icons">warning</i>
+              <img src="../img/picto/game-changer.svg" alt="Game Changer" />
             </div>
             <div class="panel panel-default panel-element">
               <div class="panel-body">
@@ -412,7 +412,7 @@
           </div>
           <div class="element-recap col-sm-6">
             <div class="icon-element">
-              <i class="material-icons">stars</i>
+              <img src="../img/picto/revenue-stream.svg" alt="Revenue Stream" />
             </div>
             <div class="panel panel-default panel-element">
               <div class="panel-body">
