@@ -13,7 +13,7 @@
 
 Route::group(['middleware' => ['web']], function () {
   Route::get('/', function () {
-      return view('auth.login');
+      return redirect('/challenges');
   })->middleware('guest');
 
 
@@ -21,9 +21,13 @@ Route::group(['middleware' => ['web']], function () {
     return redirect('/challenges');
   });
 
-  // Route::get('/home', 'HomeController@index');
-
-
+  /*ADMIN*/
+  Route::get('/admin', 'AdminController@index');
+  Route::get('/admin/{challenge}', array('as' => 'challenge_edit', 'uses' => 'AdminController@showEdit' ));
+  Route::post('/admin/{challengeID}', 'AdminController@edit');
+  Route::post('/admin/{challengeID}/status', 'AdminController@editStatus');
+  Route::post('/admin/{challengeID}/elements', 'AdminController@storeElements');
+  
   /*CHALLENGES*/
   Route::get('/challenges', 'ChallengesController@index');
   Route::get('/challenges/new', 'ChallengesController@showStore');
@@ -32,8 +36,12 @@ Route::group(['middleware' => ['web']], function () {
 
 
   /*Ideas*/
-  Route::get('/challenge/{challenge}/{idea}', 'IdeasController@detail');
+    Route::get('/challenge/{challenge}/{idea}', 'IdeasController@detail');
     Route::post('/challenge/{challengeID}', array('as' => 'challenge_detail_process', 'uses' => 'IdeasController@storeIdea' ));
+
+    /*Rebound*/
+
+    Route::post ('api/challenge/rebound', array ('as' => 'challenge_detail_rebound', 'uses' => 'IdeasController@rebound'));
 
 
   // Route::get('/ideas', 'IdeasController@index');
