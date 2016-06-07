@@ -139,6 +139,10 @@
               <option value="closed" >Closed</option>
               <option value="staging">Staging</option>
               <option value="live" selected>Live</option>
+              @else
+              <option value="closed" >Closed</option>
+              <option value="staging">Staging</option>
+              <option value="live">Live</option>
               @endif
             </select>
           </div>

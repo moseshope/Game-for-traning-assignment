@@ -476,7 +476,11 @@
           <div class="col-md-6 col-md-offset-3">
             <div class="alert alert-info text-center" role="alert">
               <h2><i class="material-icons">account_circle</i></h2>
-              You must be logged in to create an idea
+              You must be logged in to create an idea<br/>
+              
+              <a type="button" class="btn btn-link" data-toggle="modal" data-target=".modal-login">Log In</a>
+              Or
+              <a type="button" class="btn btn-link" data-toggle="modal" data-target=".modal-register">Register</a>
             </div>
           </div>
         </div>

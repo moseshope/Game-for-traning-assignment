@@ -15,7 +15,7 @@
 </div>
 
 
-@if (isset($isAdmin) && $isAdmin === 1)
+@if (isset($isAdmin) && $isAdmin == 1)
   <div class="col-md-4 col-md-offset-8 text-right">
     <br/>
     <a class="btn btn-default" style="margin-bottom:15px;" href="/admin"><i class="fa fa-lock"></i> Administration</a>
