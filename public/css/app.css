@@ -1,5 +1,8 @@
+.color-main {
+  color: #009688;
+}
 nav.navbar {
-  background-color: #eee;
+  background-color: #fff;
   color: #666;
   border: 0;
   padding: 0px 20px;
@@ -59,6 +62,50 @@ nav.navbar .dropdown.open > a {
 .modal-create .modal-body {
   padding-bottom: 30px;
 }
+.modal .modal-content {
+  border: 0;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+  border-radius: 2px;
+}
+.modal-login .modal-header,
+.modal-register .modal-header {
+  background-color: rgba(0, 150, 136, 0.5);
+  color: #fff;
+}
+.modal-login .modal-header .close,
+.modal-register .modal-header .close {
+  color: #fff;
+  opacity: 1;
+  font-size: 28px;
+}
+.modal-login .lost-password,
+.modal-register .lost-password {
+  color: #999;
+  font-size: 12px;
+}
+.modal-login .input-container,
+.modal-register .input-container {
+  position: relative;
+  color: #009688;
+}
+.modal-login .input-container i,
+.modal-register .input-container i {
+  position: absolute;
+  background-color: #009688;
+  height: 42px;
+  width: 42px;
+  text-align: center;
+  line-height: 42px;
+  color: #fff;
+  font-size: 28px;
+}
+.modal-login input,
+.modal-register input {
+  border-radius: 2px;
+  box-shadow: none;
+  padding: 20px;
+  padding-left: 55px;
+}
 .footer {
   padding: 15px 20px;
   width: 100%;
@@ -91,7 +138,10 @@ nav.navbar .dropdown.open > a {
   width: 100%;
   height: 250px;
   background-image: url('../img/challenges/cover.jpg');
-  background-size: 100%;
+  background-position-y: 50%;
+  background-position-x: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .challenge-cover h2,
 .challenge-cover h4 {
@@ -268,6 +318,15 @@ nav.navbar .dropdown.open > a {
 }
 .form-group-elements .form-group {
   padding: 0 15px;
+}
+.form-group-elements p {
+  text-align: center;
+}
+.form-group-elements p img {
+  height: 50px;
+}
+.challenges-container {
+  margin-top: 15px;
 }
 .challenge-steps {
   position: relative;
@@ -492,6 +551,10 @@ nav.navbar .dropdown.open > a {
   font-size: 14px;
   position: relative;
   top: 10px;
+}
+.icon-element {
+  width: 40px;
+  height: 40px;
 }
 body {
   padding-top: 60px;

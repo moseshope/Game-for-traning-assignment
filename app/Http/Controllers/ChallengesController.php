@@ -32,7 +32,7 @@ class ChallengesController extends Controller
         else{
           $isAdmin = false;
         }
-        
+                
         return view('challenges.home', [
             'challenges' => $challenges,
             'isAdmin' => $isAdmin,
@@ -53,7 +53,14 @@ class ChallengesController extends Controller
       }
 
       $challenge = Challenges::where('name', $challenge)->first();
-      $elements = Elements::where('IDChallenge', $challenge->id)->first();
+      
+      /*Get 2 Random Element from each category*/
+      $elementsCharacter = Elements::where('IDChallenge', $challenge->id)->where('category', 'Character')->orderByRaw("RAND()")->take(2)->get();
+      $elementsRessource = Elements::where('IDChallenge', $challenge->id)->where('category', 'Ressource')->orderByRaw("RAND()")->take(2)->get();
+      $elementsLocation = Elements::where('IDChallenge', $challenge->id)->where('category', 'Location')->orderByRaw("RAND()")->take(2)->get();
+      $elementsQuest = Elements::where('IDChallenge', $challenge->id)->where('category', 'Quest')->orderByRaw("RAND()")->take(2)->get();
+      $elementsDisruptive = Elements::where('IDChallenge', $challenge->id)->where('category', 'Disruptive element')->orderByRaw("RAND()")->take(2)->get();
+      $elementsPayment = Elements::where('IDChallenge', $challenge->id)->where('category', 'Payment')->orderByRaw("RAND()")->take(2)->get();
       
       /*Retrieve Ideas*/
       $ideas = Ideas::where('IDChallenge', $challenge->id)->join('ideas_elements', 'ideas.IDIdea', '=', 'ideas_elements.IDIdea')->join('users', 'users.id', '=', 'ideas.IDUser')->orderBy('ideas.created_at', 'desc')->get();
@@ -63,7 +70,12 @@ class ChallengesController extends Controller
         'challenge' => $challenge,
         'userLogged' => $userLogged,
         'ideas' => $ideas,
-        'elements' => $elements,
+        'elementsCharacter' => $elementsCharacter,
+        'elementsRessource' => $elementsRessource,
+        'elementsLocation' => $elementsLocation,
+        'elementsQuest' => $elementsQuest,
+        'elementsDisruptive' => $elementsDisruptive,
+        'elementsPayment' => $elementsPayment,
         'ideaNBUser' => $ideaNBUser,
       ]);
     }
@@ -108,31 +120,16 @@ class ChallengesController extends Controller
         $challenge->img_cover = $request->img_cover;
         $challenge->start_date = $request->start_date;
         $challenge->end_date = $request->end_date;
+        $challenge->status = "staging";
         $challenge->save();
         
-        $element = new Elements;
-        $element->IDChallenge = $challenge->id;
-        $element->character_1 = $request->character_1;
-        $element->character_2 = $request->character_2;
-        
-        $element->location_1 = $request->location_1;
-        $element->location_2 = $request->location_2;
-        
-        $element->power_1 = $request->power_1;
-        $element->power_2 = $request->power_2;
-        
-        $element->goal_1 = $request->goal_1;
-        $element->goal_2 = $request->goal_2;
-        
-        $element->warning_1 = $request->warning_1;
-        $element->warning_2 = $request->warning_2;
-        
-        $element->prize_1 = $request->prize_1;
-        $element->prize_2 = $request->prize_2;
-        $element->save();
+        // $element = new Elements;
+        // $element->IDChallenge = $challenge->id;
+        // $element->character_1 = $request->character_1;
+        // $element->save();
 
         Log::info($challenge);
-        return redirect('/challenges');
+        return redirect('/admin');
     }
     
     

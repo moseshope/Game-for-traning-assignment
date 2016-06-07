@@ -13,7 +13,7 @@
 
 Route::group(['middleware' => ['web']], function () {
   Route::get('/', function () {
-      return view('auth.login');
+      return redirect('/challenges');
   })->middleware('guest');
 
 
@@ -21,9 +21,13 @@ Route::group(['middleware' => ['web']], function () {
     return redirect('/challenges');
   });
 
-  // Route::get('/home', 'HomeController@index');
-
-
+  /*ADMIN*/
+  Route::get('/admin', 'AdminController@index');
+  Route::get('/admin/{challenge}', array('as' => 'challenge_edit', 'uses' => 'AdminController@showEdit' ));
+  Route::post('/admin/{challengeID}', 'AdminController@edit');
+  Route::post('/admin/{challengeID}/status', 'AdminController@editStatus');
+  Route::post('/admin/{challengeID}/elements', 'AdminController@storeElements');
+  
   /*CHALLENGES*/
   Route::get('/challenges', 'ChallengesController@index');
   Route::get('/challenges/new', 'ChallengesController@showStore');
