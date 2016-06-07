@@ -88,28 +88,6 @@
 
         <div class="row">
 
-          <!-- <div class="col-lg-4 col-md-6 col-sm-6">
-            <div class="panel panel-idea">
-              <div class="panel-body">
-                <h3>Idea title</h3>
-                <p>
-                  Sed sed <span class="idea-tag">lacinia</span> leo. Morbi <span class="idea-tag">ultricies</span> ipsum quis imperdiet malesuada. Etiam fringilla augue magna, sed pretium sapien tempor at. Integer non nunc nec lacus <span class="idea-tag">maximuss</span> convallis eget ac dolor. Proin ac dapibus tellus. Praesent id turpis efficitur <span class="idea-tag">sapien</span> lobortis pretium a interdum ex. Suspendisse id suscipit leo.
-                </p>
-                <span class="user-idea pull-right"><i class="material-icons">account_circle</i>Paul Marchand</span>
-              </div>
-              <div class="panel-idea-stats">
-                <div class="stat-container--like stat-container">
-                  <i class="fa fa-heart"></i>
-                  <span class="stat-indic">12</span>
-                </div>
-                <div class="stat-container--rebound stat-container">
-                  <i class="fa fa-share"></i>
-                  <span class="stat-indic">3</span>
-                </div>
-              </div>
-            </div>
-          </div> -->
-
           @foreach ($ideas as $idea)
           
           <div class="col-lg-4 col-md-6 col-sm-6">
@@ -156,7 +134,7 @@
   </div>
 </div>
 
-@if (isset($userLogged) && $userLogged === true && isset($elements))
+@if (isset($userLogged) && $userLogged === true)
 <div class="modal fade" id="modalCreate" tabindex="-1" role="dialog">
   <div class="modal-dialog modal-lg modal-create">
     <div class="modal-content">
@@ -170,10 +148,10 @@
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
                     <div class="panel-body">
-                      <strong>{{ $elements->character_1 }}</strong>
+                      <strong>{{ $elementsCharacter[0]->label }}</strong>
                     </div>
                     <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      <i class="material-icons">star</i>
+                      {{ $elementsCharacter[0]->difficulty }}<i class="material-icons">star</i>
                     </div>
                   </div>
                 </div>
@@ -184,10 +162,10 @@
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
                     <div class="panel-body">
-                      <strong>{{ $elements->character_2 }}</strong>
+                      <strong>{{ $elementsCharacter[1]->label }}</strong>
                     </div>
                     <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                      {{ $elementsCharacter[0]->difficulty }}<i class="material-icons">star</i>
                     </div>
                   </div>
                 </div>
@@ -199,10 +177,10 @@
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
                     <div class="panel-body">
-                      <strong>{{ $elements->location_1 }}</strong>
+                      <strong>{{ $elementsLocation[0]->label }}</strong>
                     </div>
                     <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                      {{ $elementsLocation[0]->difficulty }}<i class="material-icons">star</i>
                     </div>
                   </div>
                 </div>
@@ -213,10 +191,10 @@
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
                     <div class="panel-body">
-                      <strong>{{ $elements->location_2 }}</strong>
+                      <strong>{{ $elementsLocation[1]->label }}</strong>
                     </div>
                     <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                      {{ $elementsLocation[1]->difficulty }}<i class="material-icons">star</i>
                     </div>
                   </div>
                 </div>
@@ -228,10 +206,10 @@
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
                     <div class="panel-body">
-                      <strong>{{ $elements->power_1 }}</strong>
+                      <strong>{{ $elementsRessource[0]->label }}</strong>
                     </div>
                     <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                      {{ $elementsRessource[0]->difficulty }}<i class="material-icons">star</i>
                     </div>
                   </div>
                 </div>
@@ -242,10 +220,10 @@
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
                     <div class="panel-body">
-                      <strong>{{ $elements->power_2 }}</strong>
+                      <strong>{{ $elementsRessource[1]->label }}</strong>
                     </div>
                     <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                      {{ $elementsRessource[1]->difficulty }}<i class="material-icons">star</i>
                     </div>
                   </div>
                 </div>
@@ -257,10 +235,10 @@
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
                     <div class="panel-body">
-                      <strong>{{ $elements->goal_1 }}</strong>
+                      <strong>{{ $elementsQuest[0]->label }}</strong>
                     </div>
                     <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                      {{ $elementsQuest[0]->difficulty }}<i class="material-icons">star</i>
                     </div>
                   </div>
                 </div>
@@ -271,10 +249,10 @@
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
                     <div class="panel-body">
-                      <strong>{{ $elements->goal_2 }}</strong>
+                      <strong>{{ $elementsQuest[1]->label }}</strong>
                     </div>
                     <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                      {{ $elementsQuest[1]->difficulty }}<i class="material-icons">star</i>
                     </div>
                   </div>
                 </div>
@@ -286,10 +264,10 @@
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
                     <div class="panel-body">
-                      <strong>{{ $elements->warning_1 }}</strong>
+                      <strong>{{ $elementsDisruptive[0]->label }}</strong>
                     </div>
                     <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                      {{ $elementsDisruptive[0]->difficulty }}<i class="material-icons">star</i>
                     </div>
                   </div>
                 </div>
@@ -300,10 +278,10 @@
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
                     <div class="panel-body">
-                      <strong>{{ $elements->warning_2 }}</strong>
+                      <strong>{{ $elementsDisruptive[1]->label }}</strong>
                     </div>
                     <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                      {{ $elementsDisruptive[1]->difficulty }}<i class="material-icons">star</i>
                     </div>
                   </div>
                 </div>
@@ -315,10 +293,10 @@
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
                     <div class="panel-body">
-                      <strong>{{ $elements->prize_1 }}</strong>
+                      <strong>{{ $elementsPayment[0]->label }}</strong>
                     </div>
                     <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                      {{ $elementsPayment[0]->difficulty }}<i class="material-icons">star</i>
                     </div>
                   </div>
                 </div>
@@ -329,10 +307,10 @@
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
                     <div class="panel-body">
-                      <strong>{{ $elements->prize_2 }}</strong>
+                      <strong>{{ $elementsPayment[1]->label }}</strong>
                     </div>
                     <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                      {{ $elementsPayment[1]->difficulty }}<i class="material-icons">star</i>
                     </div>
                   </div>
                 </div>

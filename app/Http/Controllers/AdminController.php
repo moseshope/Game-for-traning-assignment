@@ -58,8 +58,11 @@ class AdminController extends Controller
         if ($isAdmin == 1){
           $challenge = Challenges::where('name', $challenge)->first();
           
+          $elements = Elements::where('IDChallenge', $challenge->id)->get();
+          
           return view('admin.edit', [
             'challenge' => $challenge,
+            'elements' => $elements,
           ]);
         }
         else{
@@ -115,6 +118,40 @@ class AdminController extends Controller
                       "status" => $request->status,
                       )
           );
+          return redirect()->back();
+        }
+        else{
+          return redirect('/');
+        }
+      }
+      else{
+        return redirect('/');
+      }
+    }
+    
+    public function storeElements($challengeID, Request $request)
+    {
+      $user = Auth::user();
+      if (isset($user)) {
+        Log::info($user);
+        $isAdmin = $user->isAdmin;
+
+        if ($isAdmin == 1){
+          
+          /*store element*/
+          $this->validate($request, [
+              'label' => 'required|max:30',
+              'category' => 'required',
+              'difficulty' => 'required'
+          ]);
+          
+          $element = new Elements;
+          $element->IDChallenge = $challengeID;
+          $element->label = $request->label;
+          $element->category = $request->category;
+          $element->difficulty = $request->difficulty;
+          $element->save();
+          
           return redirect()->back();
         }
         else{

@@ -26,6 +26,7 @@ Route::group(['middleware' => ['web']], function () {
   Route::get('/admin/{challenge}', array('as' => 'challenge_edit', 'uses' => 'AdminController@showEdit' ));
   Route::post('/admin/{challengeID}', 'AdminController@edit');
   Route::post('/admin/{challengeID}/status', 'AdminController@editStatus');
+  Route::post('/admin/{challengeID}/elements', 'AdminController@storeElements');
   
   /*CHALLENGES*/
   Route::get('/challenges', 'ChallengesController@index');

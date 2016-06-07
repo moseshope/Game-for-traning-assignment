@@ -53,7 +53,14 @@ class ChallengesController extends Controller
       }
 
       $challenge = Challenges::where('name', $challenge)->first();
-      $elements = Elements::where('IDChallenge', $challenge->id)->first();
+      
+      /*Get 2 Random Element from each category*/
+      $elementsCharacter = Elements::where('IDChallenge', $challenge->id)->where('category', 'Character')->orderByRaw("RAND()")->take(2)->get();
+      $elementsRessource = Elements::where('IDChallenge', $challenge->id)->where('category', 'Ressource')->orderByRaw("RAND()")->take(2)->get();
+      $elementsLocation = Elements::where('IDChallenge', $challenge->id)->where('category', 'Location')->orderByRaw("RAND()")->take(2)->get();
+      $elementsQuest = Elements::where('IDChallenge', $challenge->id)->where('category', 'Quest')->orderByRaw("RAND()")->take(2)->get();
+      $elementsDisruptive = Elements::where('IDChallenge', $challenge->id)->where('category', 'Disruptive element')->orderByRaw("RAND()")->take(2)->get();
+      $elementsPayment = Elements::where('IDChallenge', $challenge->id)->where('category', 'Payment')->orderByRaw("RAND()")->take(2)->get();
       
       /*Retrieve Ideas*/
       $ideas = Ideas::where('IDChallenge', $challenge->id)->join('ideas_elements', 'ideas.IDIdea', '=', 'ideas_elements.IDIdea')->join('users', 'users.id', '=', 'ideas.IDUser')->orderBy('ideas.created_at', 'desc')->get();
@@ -63,7 +70,12 @@ class ChallengesController extends Controller
         'challenge' => $challenge,
         'userLogged' => $userLogged,
         'ideas' => $ideas,
-        'elements' => $elements,
+        'elementsCharacter' => $elementsCharacter,
+        'elementsRessource' => $elementsRessource,
+        'elementsLocation' => $elementsLocation,
+        'elementsQuest' => $elementsQuest,
+        'elementsDisruptive' => $elementsDisruptive,
+        'elementsPayment' => $elementsPayment,
         'ideaNBUser' => $ideaNBUser,
       ]);
     }

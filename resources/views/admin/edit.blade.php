@@ -20,8 +20,8 @@
       
       <div class="col-md-4 text-right">
         <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save changes</button><br/><br/>
-        <a class="btn btn-info"><i class="fa fa-tags"></i> Manage elements</a><br/><br/>
-        <a data-toggle="modal" data-target=".modal-status" class="btn btn-warning"><i class="fa fa-cog"></i> Change status</a>
+        <button type="button" data-toggle="modal" data-target=".modal-elements" class="btn btn-info"><i class="fa fa-tags"></i> Manage elements</button><br/><br/>
+        <button type="button" data-toggle="modal" data-target=".modal-status" class="btn btn-warning"><i class="fa fa-cog"></i> Change status</button>
       </div>
     </div>
   </div>
@@ -35,6 +35,81 @@
   </div>
   
 </form>
+
+
+
+<!-- Modal Elements-->
+<div class="modal fade modal-elements" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Elements</h4>
+      </div>
+      <form action="/admin/{{ $challenge->id }}/elements" method="POST">
+        {{ csrf_field() }}
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+              <h3>Add an element</h3>
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <form>
+                    <input type="text" class="form-control" placeholder="Element label" name="label">
+                    <br/>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <label>Category</label>
+                        <select name="category" class="form-control">
+                          <option value="Character">Character</option>
+                          <option value="Ressource">Ressource</option>
+                          <option value="Location">Location</option>
+                          <option value="Quest">Quest</option>
+                          <option value="Disruptive element">Disruptive element</option>
+                          <option value="Payment">Payment</option>
+                        </select>
+                      </div>
+                      <div class="col-md-6">
+                        <label>Difficulty</label>
+                        <select name="difficulty" style="font-family:'FontAwesome', 'Lato'" class="form-control">
+                          <option value="1">&#xf005;</option>
+                          <option value="2">&#xf005; &#xf005;</option>
+                          <option value="3">&#xf005; &#xf005; &#xf005;</option>
+                        </select>
+                      </div>
+                    </div>
+                    <br/>
+                    <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-plus-circle"></i> Save element</button>
+                  </form>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          
+          <br/>
+          
+          <div class="row">
+            
+              <div class="col-md-6 col-md-offset-3">
+                <ul class="list-group" style="overflow-y: auto;max-height: 320px;">
+                  <li class="list-group-item active text-uppercase">Elements</li>
+                  @foreach ($elements as $element)
+                  <li class="list-group-item">{{ $element->label }} <span class="label label-primary">{{ $element->category }}</span><span class="badge"><i class="fa fa-star"></i>{{ $element->difficulty }}</span></li>
+                  @endforeach
+                </ul>
+              </div>
+              
+          </div>     
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
   
   <!-- Modal -->
   <div class="modal fade modal-status" tabindex="-1" role="dialog">
