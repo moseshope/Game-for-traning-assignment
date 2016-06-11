@@ -25,7 +25,6 @@
       </div>
     </div>
   </div>
-
   <div class="row">
     <div class="col-md-offset-2 col-md-8">
       <br/>
@@ -92,11 +91,56 @@
           
           <div class="row">
             
-              <div class="col-md-6 col-md-offset-3">
-                <ul class="list-group" style="overflow-y: auto;max-height: 320px;">
-                  <li class="list-group-item active text-uppercase">Elements</li>
-                  @foreach ($elements as $element)
-                  <li class="list-group-item">{{ $element->label }} <span class="label label-primary">{{ $element->category }}</span><span class="badge"><i class="fa fa-star"></i>{{ $element->difficulty }}</span></li>
+              <div class="col-md-4">
+                <ul class="list-group" style="overflow-y: auto;height: 300px;">
+                  <li class="list-group-item active text-uppercase">Characters</li>
+                  @foreach ($elementsCharacter as $elementCharacter)
+                  <li class="list-group-item">{{ $elementCharacter->label }} <span class="badge"><i class="fa fa-star"></i>{{ $elementCharacter->difficulty }}</span></li>
+                  @endforeach
+                </ul>
+              </div>
+              
+              <div class="col-md-4">
+                <ul class="list-group" style="overflow-y: auto;height: 300px;">
+                  <li class="list-group-item active text-uppercase">Ressource</li>
+                  @foreach ($elementsRessource as $elementRessource)
+                  <li class="list-group-item">{{ $elementRessource->label }} <span class="badge"><i class="fa fa-star"></i>{{ $elementRessource->difficulty }}</span></li>
+                  @endforeach
+                </ul>
+              </div>
+              
+              <div class="col-md-4">
+                <ul class="list-group" style="overflow-y: auto;height: 300px;">
+                  <li class="list-group-item active text-uppercase">Locations</li>
+                  @foreach ($elementsLocation as $elementLocation)
+                  <li class="list-group-item">{{ $elementLocation->label }} <span class="badge"><i class="fa fa-star"></i>{{ $elementLocation->difficulty }}</span></li>
+                  @endforeach
+                </ul>
+              </div>
+              
+              <div class="col-md-4">
+                <ul class="list-group" style="overflow-y: auto;height: 300px;">
+                  <li class="list-group-item active text-uppercase">Quest</li>
+                  @foreach ($elementsQuest as $elementQuest)
+                  <li class="list-group-item">{{ $elementQuest->label }} <span class="badge"><i class="fa fa-star"></i>{{ $elementQuest->difficulty }}</span></li>
+                  @endforeach
+                </ul>
+              </div>
+              
+              <div class="col-md-4">
+                <ul class="list-group" style="overflow-y: auto;height: 300px;">
+                  <li class="list-group-item active text-uppercase">Disruptive elements</li>
+                  @foreach ($elementsDisruptive as $elementDisruptive)
+                  <li class="list-group-item">{{ $elementDisruptive->label }} <span class="badge"><i class="fa fa-star"></i>{{ $elementDisruptive->difficulty }}</span></li>
+                  @endforeach
+                </ul>
+              </div>
+              
+              <div class="col-md-4">
+                <ul class="list-group" style="overflow-y: auto;height: 300px;">
+                  <li class="list-group-item active text-uppercase">Payment</li>
+                  @foreach ($elementsPayment as $elementPayment)
+                  <li class="list-group-item">{{ $elementPayment->label }} <span class="badge"><i class="fa fa-star"></i>{{ $elementPayment->difficulty }}</span></li>
                   @endforeach
                 </ul>
               </div>
