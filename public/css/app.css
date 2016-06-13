@@ -19,6 +19,9 @@ nav.navbar .navbar-nav > li > a {
   font-size: 16px;
   position: relative;
 }
+nav.navbar .navbar-nav > li > a:hover {
+  color: #00635a;
+}
 nav.navbar .material-icons {
   vertical-align: bottom;
   line-height: inherit;
@@ -187,6 +190,9 @@ nav.navbar .dropdown.open > a {
   background-color: #ccc;
   background-size: cover;
 }
+.panel-challenge {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
 .panel-challenge .panel-overview {
   margin-top: 20px;
   -webkit-transform: none;
@@ -197,6 +203,7 @@ nav.navbar .dropdown.open > a {
 }
 .panel-challenge p {
   height: 70px;
+  text-align: center;
 }
 .panel-challenge h3 {
   margin-top: 10px;
@@ -220,6 +227,9 @@ nav.navbar .dropdown.open > a {
   display: block;
   padding: 5px 0;
   font-size: 36px;
+  height: 50px;
+  margin: 0 auto;
+  margin-bottom: 5px;
 }
 .panel-overview .indic-title {
   text-transform: uppercase;
@@ -558,7 +568,7 @@ nav.navbar .dropdown.open > a {
 }
 body {
   padding-top: 60px;
-  background-color: #f8f8f8;
+  background-color: #f4f4f4;
 }
 .nostyle {
   color: inherit;

@@ -48,11 +48,12 @@
             @else
               <li><a href="{{ url('/challenges') }}"><strong>Challenges</strong></a></li>
               <li><a href="#">About</a></li>
-              <li><a href="#">
+              <!-- <li><a href="#">
                 <div class="notif-counter">
                   2
                 </div>
-                <i class="fa fa-bell fa-lg"></i></a></li>
+                <i class="fa fa-bell fa-lg"></i></a>
+              </li> -->
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="material-icons">account_circle</i> {{ Auth::user()->name }}  <i class="fa fa-chevron-down"></i></a>
                 <ul class="dropdown-menu">

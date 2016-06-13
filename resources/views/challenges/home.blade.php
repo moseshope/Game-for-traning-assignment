@@ -46,15 +46,15 @@
         </p>
         <div class="row panel-overview text-center">
           <div class="col-xs-4 text-center indic">
-            <i class="icon-indic material-icons">lightbulb_outline</i>
+            <img src="img/picto/ideas.svg" class="icon-indic" width="30" alt="Ideas" />
             <span class="indic-title">12 Ideas</span>
           </div>
           <div class="col-xs-4 text-center indic">
-            <i class="icon-indic material-icons">people_outline</i>
+            <img src="img/picto/people.svg" class="icon-indic" width="30" alt="Ideas" />
             <span class="indic-title">{{ '12' }} people</span>
           </div>
           <div class="col-xs-4 text-center indic">
-            <i class="icon-indic material-icons">opacity</i>
+            <img src="img/picto/points.svg" class="icon-indic" width="30" alt="Ideas" />
             <span class="indic-title">{{ '78' }} points</span>
           </div>
         </div>
@@ -82,15 +82,15 @@
           </p>
           <div class="row panel-overview text-center">
             <div class="col-xs-4 text-center indic">
-              <i class="icon-indic material-icons">lightbulb_outline</i>
+              <img src="img/picto/ideas.svg" class="icon-indic" width="30" alt="Ideas" />
               <span class="indic-title">12 Ideas</span>
             </div>
             <div class="col-xs-4 text-center indic">
-              <i class="icon-indic material-icons">people_outline</i>
+              <img src="img/picto/people.svg" class="icon-indic" width="30" alt="Ideas" />
               <span class="indic-title">{{ '12' }} people</span>
             </div>
             <div class="col-xs-4 text-center indic">
-              <i class="icon-indic material-icons">opacity</i>
+              <img src="img/picto/points.svg" class="icon-indic" width="30" alt="Ideas" />
               <span class="indic-title">{{ '78' }} points</span>
             </div>
           </div>
@@ -117,15 +117,15 @@
           </p>
           <div class="row panel-overview text-center">
             <div class="col-xs-4 text-center indic">
-              <i class="icon-indic material-icons">lightbulb_outline</i>
+              <img src="img/picto/ideas.svg" class="icon-indic" width="30" alt="Ideas" />
               <span class="indic-title">12 Ideas</span>
             </div>
             <div class="col-xs-4 text-center indic">
-              <i class="icon-indic material-icons">people_outline</i>
+              <img src="img/picto/people.svg" class="icon-indic" width="30" alt="Ideas" />
               <span class="indic-title">{{ '12' }} people</span>
             </div>
             <div class="col-xs-4 text-center indic">
-              <i class="icon-indic material-icons">opacity</i>
+              <img src="img/picto/points.svg" class="icon-indic" width="30" alt="Ideas" />
               <span class="indic-title">{{ '78' }} points</span>
             </div>
           </div>

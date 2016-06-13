@@ -3,7 +3,6 @@ nav.navbar{
   // color: #fff;
   background-color: #fff;
   color: #666;
-
   border: 0;
   padding: 0px 20px;
   
@@ -20,6 +19,10 @@ nav.navbar{
     color: @colorMain;
     font-size: 16px;
     position: relative;
+    
+    &:hover{
+      color: darken(@colorMain, 10%);
+    }
   }
   
   .material-icons{
