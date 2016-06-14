@@ -9,7 +9,7 @@
 
     <div class="time-left">
       <span class="time-left-indic">15 days left</span>
-      <div class="progress">
+      <div style="background-color:{{ $challenge->color }}" class="progress">
         <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
           <span class="sr-only">60% Complete</span>
         </div>
@@ -25,20 +25,20 @@
         <div class="row">
           <div class="col-xs-4 text-center indic">
             <img src="../img/picto/ideas.svg" class="icon-indic" width="45" alt="Ideas">
-            <span class="indic-title"><strong>{{ count($ideas) }}</strong> Ideas</span>
+            <span class="indic-title"><strong style="color:{{ $challenge->color }}">{{ count($ideas) }}</strong> Ideas</span>
           </div>
           <div class="col-xs-4 text-center indic">
             <img src="../img/picto/people.svg" class="icon-indic" width="45" alt="Ideas">
-            <span class="indic-title"><strong>{{ $ideaNBUser }}</strong> Participants</span>
+            <span class="indic-title"><strong style="color:{{ $challenge->color }}">{{ $ideaNBUser }}</strong> Participants</span>
           </div>
           <div class="col-xs-4 text-center indic">
             <img src="../img/picto/points.svg" class="icon-indic" width="30" alt="Ideas">
-            <span class="indic-title"><strong>65</strong> img points</span>
+            <span class="indic-title"><strong style="color:{{ $challenge->color }}">65</strong> img points</span>
           </div>
         </div>
 
       </div>
-      <div class="panel-overview-create col-md-2 text-center">
+      <div style="background-color:{{ $challenge->color }}" class="panel-overview-create col-md-2 text-center">
         <a data-toggle="modal" data-target="#modalCreate" class="nostyle btn-recap">
           <i class="icon-indic material-icons">library_add</i>
           <span class="indic-title">create</span>
@@ -99,22 +99,22 @@
                   {{ $idea->content }}
                 </p>
                 <p>
-                  <span class="idea-tag">{{ $idea->character}}</span>
-                  <span class="idea-tag">{{ $idea->place}}</span>
-                  <span class="idea-tag">{{ $idea->ressource}}</span>
-                  <span class="idea-tag">{{ $idea->quest}}</span>
-                  <span class="idea-tag">{{ $idea->warning}}</span>
-                  <span class="idea-tag">{{ $idea->treasure}}</span>
+                  <span style="background-color:{{ $challenge->color }}" class="idea-tag">{{ $idea->character}}</span>
+                  <span style="background-color:{{ $challenge->color }}" class="idea-tag">{{ $idea->place}}</span>
+                  <span style="background-color:{{ $challenge->color }}" class="idea-tag">{{ $idea->ressource}}</span>
+                  <span style="background-color:{{ $challenge->color }}" class="idea-tag">{{ $idea->quest}}</span>
+                  <span style="background-color:{{ $challenge->color }}" class="idea-tag">{{ $idea->warning}}</span>
+                  <span style="background-color:{{ $challenge->color }}" class="idea-tag">{{ $idea->treasure}}</span>
                 </p>
                 <span class="user-idea"><i class="material-icons">account_circle</i>{{ $idea->name }}</span>
               </div>
               <div class="panel-idea-stats">
-                <div class="stat-container--like stat-container js-btn-votes" data-id='{{ $idea->id}}'>
+                <div style="background-color:{{ $challenge->color }}" class="stat-container--like stat-container js-btn-votes" data-id='{{ $idea->id}}'>
                   <i class="fa fa-heart"></i>
                   <span class="stat-indic">{{ $idea->votes->count() }}</span>
 
                 </div>
-                <div class="stat-container--rebound stat-container js-btn-rebound" data-id='{{ $idea->id}}'>
+                <div style="background-color:{{ $challenge->color }}" class="stat-container--rebound stat-container js-btn-rebound" data-id='{{ $idea->id}}'>
                   <i class="fa fa-share"></i>
                   <span class="stat-indic">{{ App\IdeasElements::where('IDIdea', $idea->id)->count() }}</span>
                 </div>
@@ -141,37 +141,8 @@
         <div class="left-col col-sm-6">
           <h3>1/2 - <strong>Etablir le scénario</strong></h3>
           <div class="tab-content tabs-scenario">
-            <div role="tabpanel" class="tab-pane fade in active tab-pane--active" id="tab-character">
-              <p class="storygraph">"Your character is...</p>
-              <div class="row">
-                <div class="col-sm-5">
-                  <div class="panel panel-default panel-element">
-                    <div class="panel-body">
-                      <strong>{{ $elementsCharacter[0]->label }}</strong>
-                    </div>
-                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      {{ $elementsCharacter[0]->difficulty }}<i class="material-icons">star</i>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-2 text-center">
-                  <br/>
-                  ou
-                </div>
-                <div class="col-sm-5">
-                  <div class="panel panel-default panel-element">
-                    <div class="panel-body">
-                      <strong>{{ $elementsCharacter[1]->label }}</strong>
-                    </div>
-                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      {{ $elementsCharacter[0]->difficulty }}<i class="material-icons">star</i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div role="tabpanel" class="tab-pane fade" id="tab-place">
-              <p class="storygraph">"He is located in...</p>
+            <div role="tabpanel" class="tab-pane fade in active tab-pane--active" id="tab-place">
+              <p class="storygraph">"Imagine if you are  <strong class="text-lowercase">{{ $challenge->context or 'Default' }}</strong> in a specific context</p>
               <div class="row">
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
@@ -200,7 +171,7 @@
               </div>
             </div>
             <div role="tabpanel" class="tab-pane fade" id="tab-ressource">
-              <p class="storygraph">"He uses...</p>
+              <p class="storygraph">"With this resource at your disposal...</p>
               <div class="row">
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
@@ -229,7 +200,7 @@
               </div>
             </div>
             <div role="tabpanel" class="tab-pane fade" id="tab-quest">
-              <p class="storygraph">"He must...</p>
+              <p class="storygraph">"You would use to...</p>
               <div class="row">
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
@@ -257,16 +228,16 @@
                 </div>
               </div>
             </div>
-            <div role="tabpanel" class="tab-pane fade" id="tab-danger">
-              <p class="storygraph">"But first he needs to defeat...</p>
+            <div role="tabpanel" class="tab-pane fade" id="tab-character">
+              <p class="storygraph">"For this group of users...</p>
               <div class="row">
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
                     <div class="panel-body">
-                      <strong>{{ $elementsDisruptive[0]->label }}</strong>
+                      <strong>{{ $elementsCharacter[0]->label }}</strong>
                     </div>
                     <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      {{ $elementsDisruptive[0]->difficulty }}<i class="material-icons">star</i>
+                      {{ $elementsCharacter[0]->difficulty }}<i class="material-icons">star</i>
                     </div>
                   </div>
                 </div>
@@ -277,17 +248,17 @@
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
                     <div class="panel-body">
-                      <strong>{{ $elementsDisruptive[1]->label }}</strong>
+                      <strong>{{ $elementsCharacter[1]->label }}</strong>
                     </div>
                     <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      {{ $elementsDisruptive[1]->difficulty }}<i class="material-icons">star</i>
+                      {{ $elementsCharacter[0]->difficulty }}<i class="material-icons">star</i>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             <div role="tabpanel" class="tab-pane fade" id="tab-treasure">
-              <p class="storygraph">"and he will earn...</p>
+              <p class="storygraph">"By this revenue option...</p>
               <div class="row">
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
@@ -315,6 +286,36 @@
                 </div>
               </div>
             </div>
+
+            <div role="tabpanel" class="tab-pane fade" id="tab-danger">
+              <p class="storygraph">"And what if...</p>
+              <div class="row">
+                <div class="col-sm-5">
+                  <div class="panel panel-default panel-element">
+                    <div class="panel-body">
+                      <strong>{{ $elementsDisruptive[0]->label }}</strong>
+                    </div>
+                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
+                      {{ $elementsDisruptive[0]->difficulty }}<i class="material-icons">star</i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-2 text-center">
+                  <br/>
+                  ou
+                </div>
+                <div class="col-sm-5">
+                  <div class="panel panel-default panel-element">
+                    <div class="panel-body">
+                      <strong>{{ $elementsDisruptive[1]->label }}</strong>
+                    </div>
+                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
+                      {{ $elementsDisruptive[1]->difficulty }}<i class="material-icons">star</i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="row">
@@ -333,22 +334,11 @@
           <h4><strong>Scénario</strong></h4>
           <div class="element-recap col-sm-6">
             <div class="icon-element">
-              <img src="../img/picto/user.svg" alt="Character" />
+              <img src="../img/picto/location.svg" alt="Location" />
             </div>
             <div class="panel panel-default panel-element panel-element--filling">
               <div class="panel-body">
                 <div class="text-center placeholder-plus"><i class="fa fa-plus"></i></div>
-              </div>
-              <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-              </div>
-            </div>
-          </div>
-          <div class="element-recap col-sm-6">
-            <div class="icon-element">
-              <img src="../img/picto/location.svg" alt="Location" />
-            </div>
-            <div class="panel panel-default panel-element">
-              <div class="panel-body">
               </div>
               <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
               </div>
@@ -378,7 +368,7 @@
           </div>
           <div class="element-recap col-sm-6">
             <div class="icon-element">
-              <img src="../img/picto/game-changer.svg" alt="Game Changer" />
+              <img src="../img/picto/user.svg" alt="Users" />
             </div>
             <div class="panel panel-default panel-element">
               <div class="panel-body">
@@ -390,6 +380,17 @@
           <div class="element-recap col-sm-6">
             <div class="icon-element">
               <img src="../img/picto/revenue-stream.svg" alt="Revenue Stream" />
+            </div>
+            <div class="panel panel-default panel-element">
+              <div class="panel-body">
+              </div>
+              <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
+              </div>
+            </div>
+          </div>
+          <div class="element-recap col-sm-6">
+            <div class="icon-element">
+              <img src="../img/picto/game-changer.svg" alt="Game Changer" />
             </div>
             <div class="panel panel-default panel-element">
               <div class="panel-body">
@@ -419,7 +420,7 @@
             <br/><br/>
             <h4><strong>Scenario</strong></h4>
             <p class="storygraph text-left">
-              Nam bibendum vehicula ligula, vel dapibus orci viverra eget. Curabitur eu tortor eu ipsum tempus ornare a id neque. Nullam aliquet tortor purus, a commodo ex tincidunt sit amet. Donec volutpat est vel ligula sagittis dictum. Pellentesque porta in ex non pulvinar.
+              Et si vous étiez un <strong>{{ $challenge->context }}</strong> dans <span class="story story-location"></span> avec à votre disposition <span class="story story-resource"></span> que vous utiliseriez pour <span class="story story-advantage"></span> <span class="story story-user"></span> qui <span class="story story-revenue"></span> et si en plus cela se faisait sans <span class="story story-game-changer"></span> !
             </p>
             <button class="btn btn-main btn-main--other js-modify-elements">Modifier</button>
           </div>
@@ -430,10 +431,10 @@
             {{ csrf_field() }}
             <br/>
             <h4><strong>Idea</strong></h4>
-            <textarea name="content" pattern=".{50,250}" required title="50 to 250 chars" class="form-control" rows="10"></textarea>
+            <textarea name="content" pattern=".{50,250}" placeholder="Quel produit ou service pourriez-vous imaginer pour relever ce défi ?" required title="50 to 250 chars" class="form-control" rows="10"></textarea>
 
             <h4><strong>Idea title</strong></h4>
-            <input type="text" name="title" class="form-control" />
+            <input type="text" name="title" placeholder="Nom de votre service ou produit" class="form-control" />
 
             <div class="hidden elements-form">
               <input type="hidden" name="character" />

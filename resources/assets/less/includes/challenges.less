@@ -159,7 +159,12 @@
     cursor: pointer;
     
     &:hover{
-      background-color: darken(@colorMain, 10%);
+      filter: grayscale(70%);
+       -webkit-filter: grayscale(70%);
+       -moz-filter: grayscale(70%);
+       -ms-filter: grayscale(70%);
+       -o-filter: grayscale(70%);
+       filter: grayscale(70%);
     }
     
     a:hover{
@@ -221,7 +226,8 @@
     i{
       vertical-align: bottom;
     }  
-  }  
+  } 
+   
 }
 
 .form-filter{
@@ -246,6 +252,12 @@
    
    &:hover{
      background-color: darken(@colorMain, 5%);
+     filter: grayscale(70%);
+      -webkit-filter: grayscale(70%);
+      -moz-filter: grayscale(70%);
+      -ms-filter: grayscale(70%);
+      -o-filter: grayscale(70%);
+      filter: grayscale(70%);
    }
    
    &:first-child{
@@ -315,4 +327,18 @@
       border-color: @colorMain;
     }
   }
+}
+
+.current-color{
+  background-color: #9C27B0;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  border-radius: 3px;
+}
+
+span.story{
+  font-weight: bold;
+  text-transform: lowercase;
 }

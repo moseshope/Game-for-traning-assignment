@@ -256,7 +256,11 @@ nav.navbar .dropdown.open > a {
   cursor: pointer;
 }
 .panel-overview .panel-overview-create:hover {
-  background-color: #222c31;
+  -webkit-filter: grayscale(70%);
+  -moz-filter: grayscale(70%);
+  -ms-filter: grayscale(70%);
+  -o-filter: grayscale(70%);
+  filter: grayscale(70%);
 }
 .panel-overview .panel-overview-create a:hover {
   color: #fff;
@@ -328,6 +332,11 @@ nav.navbar .dropdown.open > a {
 }
 .panel-idea-stats .stat-container:hover {
   background-color: #2d3940;
+  -webkit-filter: grayscale(70%);
+  -moz-filter: grayscale(70%);
+  -ms-filter: grayscale(70%);
+  -o-filter: grayscale(70%);
+  filter: grayscale(70%);
 }
 .panel-idea-stats .stat-container:first-child {
   border-bottom: 1px solid #fff;
@@ -382,6 +391,18 @@ nav.navbar .dropdown.open > a {
 }
 .color-list li.selected {
   border-color: #37474F;
+}
+.current-color {
+  background-color: #9C27B0;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  border-radius: 3px;
+}
+span.story {
+  font-weight: bold;
+  text-transform: lowercase;
 }
 .challenge-steps {
   position: relative;
