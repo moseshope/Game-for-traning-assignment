@@ -400,6 +400,10 @@ nav.navbar .dropdown.open > a {
   margin-bottom: 20px;
   border-radius: 3px;
 }
+span.story {
+  font-weight: bold;
+  text-transform: lowercase;
+}
 .challenge-steps {
   position: relative;
 }

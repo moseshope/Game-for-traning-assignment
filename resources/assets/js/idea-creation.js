@@ -58,6 +58,7 @@ $('.tabs-scenario .panel-element').on('click', function(){
   
   /*INSERT DATA*/
   $('.element-recap').eq(currentTab).find('.panel-element .panel-body').html('<strong>' + $elementText +'</strong>');
+  $('.story').eq(currentTab).text($elementText);
   $('.element-recap').eq(currentTab).find('.panel-element .panel-footer').html($elementRating);
   
   /*Fill form elements hidden input*/

@@ -141,12 +141,9 @@
       <div class="ideas-create">
         <div class="left-col col-sm-6">
           <h3>1/2 - <strong>Etablir le scénario</strong></h3>
-          <p>
-            Imagine you are <strong>{{ $challenge->context }}</strong>
-          </p>
           <div class="tab-content tabs-scenario">
             <div role="tabpanel" class="tab-pane fade in active tab-pane--active" id="tab-place">
-              <p class="storygraph">"Imagine if you are a {{ $challenge->context }} in a specific context</p>
+              <p class="storygraph">"Imagine if you are a {{ $challenge->context or 'Default' }} in a specific context</p>
               <div class="row">
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
@@ -338,22 +335,11 @@
           <h4><strong>Scénario</strong></h4>
           <div class="element-recap col-sm-6">
             <div class="icon-element">
-              <img src="../img/picto/user.svg" alt="Character" />
+              <img src="../img/picto/location.svg" alt="Location" />
             </div>
             <div class="panel panel-default panel-element panel-element--filling">
               <div class="panel-body">
                 <div class="text-center placeholder-plus"><i class="fa fa-plus"></i></div>
-              </div>
-              <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-              </div>
-            </div>
-          </div>
-          <div class="element-recap col-sm-6">
-            <div class="icon-element">
-              <img src="../img/picto/location.svg" alt="Location" />
-            </div>
-            <div class="panel panel-default panel-element">
-              <div class="panel-body">
               </div>
               <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
               </div>
@@ -383,7 +369,7 @@
           </div>
           <div class="element-recap col-sm-6">
             <div class="icon-element">
-              <img src="../img/picto/game-changer.svg" alt="Game Changer" />
+              <img src="../img/picto/user.svg" alt="Users" />
             </div>
             <div class="panel panel-default panel-element">
               <div class="panel-body">
@@ -395,6 +381,17 @@
           <div class="element-recap col-sm-6">
             <div class="icon-element">
               <img src="../img/picto/revenue-stream.svg" alt="Revenue Stream" />
+            </div>
+            <div class="panel panel-default panel-element">
+              <div class="panel-body">
+              </div>
+              <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
+              </div>
+            </div>
+          </div>
+          <div class="element-recap col-sm-6">
+            <div class="icon-element">
+              <img src="../img/picto/game-changer.svg" alt="Game Changer" />
             </div>
             <div class="panel panel-default panel-element">
               <div class="panel-body">
@@ -424,7 +421,7 @@
             <br/><br/>
             <h4><strong>Scenario</strong></h4>
             <p class="storygraph text-left">
-              Nam bibendum vehicula ligula, vel dapibus orci viverra eget. Curabitur eu tortor eu ipsum tempus ornare a id neque. Nullam aliquet tortor purus, a commodo ex tincidunt sit amet. Donec volutpat est vel ligula sagittis dictum. Pellentesque porta in ex non pulvinar.
+              Et si vous étiez un {{ $challenge->context }} dans <span class="story story-location"></span> avec à votre disposition <span class="story story-resource"></span> que vous utiliseriez pour <span class="story story-advantage"></span> <span class="story story-user"></span> qui <span class="story story-revenue"></span> et si en plus cela se faisait sans <span class="story story-game-changer"></span> !
             </p>
             <button class="btn btn-main btn-main--other js-modify-elements">Modifier</button>
           </div>
