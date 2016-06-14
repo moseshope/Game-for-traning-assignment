@@ -121,6 +121,7 @@ class ChallengesController extends Controller
         $challenge->start_date = $request->start_date;
         $challenge->end_date = $request->end_date;
         $challenge->status = "staging";
+        $challenge->color = $request->color;
         $challenge->save();
         
         // $element = new Elements;
