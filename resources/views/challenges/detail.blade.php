@@ -141,38 +141,12 @@
       <div class="ideas-create">
         <div class="left-col col-sm-6">
           <h3>1/2 - <strong>Etablir le scénario</strong></h3>
+          <p>
+            Imagine you are <strong>{{ $challenge->context }}</strong>
+          </p>
           <div class="tab-content tabs-scenario">
-            <div role="tabpanel" class="tab-pane fade in active tab-pane--active" id="tab-character">
-              <p class="storygraph">"Your character is...</p>
-              <div class="row">
-                <div class="col-sm-5">
-                  <div class="panel panel-default panel-element">
-                    <div class="panel-body">
-                      <strong>{{ $elementsCharacter[0]->label }}</strong>
-                    </div>
-                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      {{ $elementsCharacter[0]->difficulty }}<i class="material-icons">star</i>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-2 text-center">
-                  <br/>
-                  ou
-                </div>
-                <div class="col-sm-5">
-                  <div class="panel panel-default panel-element">
-                    <div class="panel-body">
-                      <strong>{{ $elementsCharacter[1]->label }}</strong>
-                    </div>
-                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      {{ $elementsCharacter[0]->difficulty }}<i class="material-icons">star</i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div role="tabpanel" class="tab-pane fade" id="tab-place">
-              <p class="storygraph">"He is located in...</p>
+            <div role="tabpanel" class="tab-pane fade in active tab-pane--active" id="tab-place">
+              <p class="storygraph">"Imagine if you are a {{ $challenge->context }} in a specific context</p>
               <div class="row">
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
@@ -201,7 +175,7 @@
               </div>
             </div>
             <div role="tabpanel" class="tab-pane fade" id="tab-ressource">
-              <p class="storygraph">"He uses...</p>
+              <p class="storygraph">"With this resource at your disposal...</p>
               <div class="row">
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
@@ -230,7 +204,7 @@
               </div>
             </div>
             <div role="tabpanel" class="tab-pane fade" id="tab-quest">
-              <p class="storygraph">"He must...</p>
+              <p class="storygraph">"You would use to...</p>
               <div class="row">
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
@@ -258,16 +232,16 @@
                 </div>
               </div>
             </div>
-            <div role="tabpanel" class="tab-pane fade" id="tab-danger">
-              <p class="storygraph">"But first he needs to defeat...</p>
+            <div role="tabpanel" class="tab-pane fade" id="tab-character">
+              <p class="storygraph">"For this group of users...</p>
               <div class="row">
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
                     <div class="panel-body">
-                      <strong>{{ $elementsDisruptive[0]->label }}</strong>
+                      <strong>{{ $elementsCharacter[0]->label }}</strong>
                     </div>
                     <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      {{ $elementsDisruptive[0]->difficulty }}<i class="material-icons">star</i>
+                      {{ $elementsCharacter[0]->difficulty }}<i class="material-icons">star</i>
                     </div>
                   </div>
                 </div>
@@ -278,17 +252,17 @@
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
                     <div class="panel-body">
-                      <strong>{{ $elementsDisruptive[1]->label }}</strong>
+                      <strong>{{ $elementsCharacter[1]->label }}</strong>
                     </div>
                     <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      {{ $elementsDisruptive[1]->difficulty }}<i class="material-icons">star</i>
+                      {{ $elementsCharacter[0]->difficulty }}<i class="material-icons">star</i>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             <div role="tabpanel" class="tab-pane fade" id="tab-treasure">
-              <p class="storygraph">"and he will earn...</p>
+              <p class="storygraph">"By this revenue option...</p>
               <div class="row">
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
@@ -311,6 +285,36 @@
                     </div>
                     <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
                       {{ $elementsPayment[1]->difficulty }}<i class="material-icons">star</i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div role="tabpanel" class="tab-pane fade" id="tab-danger">
+              <p class="storygraph">"And what if...</p>
+              <div class="row">
+                <div class="col-sm-5">
+                  <div class="panel panel-default panel-element">
+                    <div class="panel-body">
+                      <strong>{{ $elementsDisruptive[0]->label }}</strong>
+                    </div>
+                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
+                      {{ $elementsDisruptive[0]->difficulty }}<i class="material-icons">star</i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-2 text-center">
+                  <br/>
+                  ou
+                </div>
+                <div class="col-sm-5">
+                  <div class="panel panel-default panel-element">
+                    <div class="panel-body">
+                      <strong>{{ $elementsDisruptive[1]->label }}</strong>
+                    </div>
+                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
+                      {{ $elementsDisruptive[1]->difficulty }}<i class="material-icons">star</i>
                     </div>
                   </div>
                 </div>
@@ -431,10 +435,10 @@
             {{ csrf_field() }}
             <br/>
             <h4><strong>Idea</strong></h4>
-            <textarea name="content" pattern=".{50,250}" required title="50 to 250 chars" class="form-control" rows="10"></textarea>
+            <textarea name="content" pattern=".{50,250}" placeholder="Quel produit ou service pourriez-vous imaginer pour relever ce défi ?" required title="50 to 250 chars" class="form-control" rows="10"></textarea>
 
             <h4><strong>Idea title</strong></h4>
-            <input type="text" name="title" class="form-control" />
+            <input type="text" name="title" placeholder="Nom de votre service ou produit" class="form-control" />
 
             <div class="hidden elements-form">
               <input type="hidden" name="character" />

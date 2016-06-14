@@ -47,45 +47,60 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title">Elements</h4>
       </div>
-      <form action="/admin/{{ $challenge->id }}/elements" method="POST">
+      
         {{ csrf_field() }}
         <div class="modal-body">
           <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-              <h3>Add an element</h3>
+            
+          <form action="/admin/{{ $challenge->id }}/context" method="POST">
+            <div class="col-md-6">
+              <h3>Edit context</h3>
               <div class="panel panel-default">
                 <div class="panel-body">
-                  <form>
-                    <input type="text" class="form-control" placeholder="Element label" name="label">
-                    <br/>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <label>Category</label>
-                        <select name="category" class="form-control">
-                          <option value="Character">Character</option>
-                          <option value="Ressource">Ressource</option>
-                          <option value="Location">Location</option>
-                          <option value="Quest">Quest</option>
-                          <option value="Disruptive element">Disruptive element</option>
-                          <option value="Payment">Payment</option>
-                        </select>
-                      </div>
-                      <div class="col-md-6">
-                        <label>Difficulty</label>
-                        <select name="difficulty" style="font-family:'FontAwesome', 'Lato'" class="form-control">
-                          <option value="1">&#xf005;</option>
-                          <option value="2">&#xf005; &#xf005;</option>
-                          <option value="3">&#xf005; &#xf005; &#xf005;</option>
-                        </select>
-                      </div>
-                    </div>
-                    <br/>
-                    <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-plus-circle"></i> Save element</button>
-                  </form>
-                  
+                  <label>What if you were...</label>
+                  <input type="text" name="context" value="{{ $challenge->context }}" class="form-control" />
+                  <br/>
+                  <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-floppy-o"></i> Save</button>
                 </div>
               </div>
             </div>
+          </form>
+            
+          <form action="/admin/{{ $challenge->id }}/elements" method="POST">
+            <div class="col-md-6">
+              <h3>Add an element</h3>
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <input type="text" class="form-control" placeholder="Element label" name="label">
+                  <br/>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label>Category</label>
+                      <select name="category" class="form-control">
+                        <option value="Character">Character</option>
+                        <option value="Ressource">Ressource</option>
+                        <option value="Location">Location</option>
+                        <option value="Quest">Quest</option>
+                        <option value="Disruptive element">Disruptive element</option>
+                        <option value="Payment">Payment</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <label>Difficulty</label>
+                      <select name="difficulty" style="font-family:'FontAwesome', 'Lato'" class="form-control">
+                        <option value="1">&#xf005;</option>
+                        <option value="2">&#xf005; &#xf005;</option>
+                        <option value="3">&#xf005; &#xf005; &#xf005;</option>
+                      </select>
+                    </div>
+                  </div>
+                  <br/>
+                  <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-plus-circle"></i> Save element</button>
+                
+                </div>
+              </div>
+            </div>
+          </form>
           </div>
         
           
@@ -152,7 +167,6 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
-      </form>
     </div>
   </div>
 </div>

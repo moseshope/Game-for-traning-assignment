@@ -168,6 +168,32 @@ class AdminController extends Controller
       }
     }
     
+    public function editContext($challengeID, Request $request)
+    {
+      $user = Auth::user();
+      if (isset($user)) {
+        Log::info($user);
+        $isAdmin = $user->isAdmin;
+
+        if ($isAdmin == 1){
+          DB::table('challenges')
+            ->where('id', $challengeID)
+            ->update(
+                array( 
+                      "context" => $request->context,
+                      )
+          );
+          return redirect()->back();
+        }
+        else{
+          return redirect('/');
+        }
+      }
+      else{
+        return redirect('/');
+      }
+    }
+    
     public function storeElements($challengeID, Request $request)
     {
       $user = Auth::user();
