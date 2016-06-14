@@ -12,12 +12,12 @@ use Auth;
 class VotesController extends Controller{
 
   public function totalVotes($idIdea){
-    $votes=Votes::where('IDIdea', $idIdea);
+    $votes = Votes::where('IDIdea', $idIdea);
 
     if (is_numeric($votes)){
       return $votes->count();
     }
-    else {return 0;}
+    else return 0;
   }
 
   public function vote(Request $request)
