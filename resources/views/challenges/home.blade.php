@@ -27,6 +27,10 @@
 
 
 <div class="container-fluid challenges-container">
+  
+  <p class="text-center text-accroche">
+    Quel challenge choisissez-vous<br/> pour changer le monde aujourd'hui ?
+  </p>
 
   @foreach ($challenges as $challenge)
   
@@ -47,15 +51,15 @@
         <div class="row panel-overview text-center">
           <div class="col-xs-4 text-center indic">
             <img src="img/picto/ideas.svg" class="icon-indic" width="30" alt="Ideas" />
-            <span class="indic-title">12 Ideas</span>
+            <span class="indic-title"><strong>12</strong> Ideas</span>
           </div>
           <div class="col-xs-4 text-center indic">
             <img src="img/picto/people.svg" class="icon-indic" width="30" alt="Ideas" />
-            <span class="indic-title">{{ '12' }} people</span>
+            <span class="indic-title"><strong>{{ '12' }}</strong> people</span>
           </div>
           <div class="col-xs-4 text-center indic">
-            <img src="img/picto/points.svg" class="icon-indic" width="30" alt="Ideas" />
-            <span class="indic-title">{{ '78' }} points</span>
+            <img src="img/picto/points.svg" class="icon-indic" width="20" alt="Ideas" />
+            <span class="indic-title"><strong>{{ '78' }}</strong> points</span>
           </div>
         </div>
         <div class="row text-center">
@@ -83,15 +87,15 @@
           <div class="row panel-overview text-center">
             <div class="col-xs-4 text-center indic">
               <img src="img/picto/ideas.svg" class="icon-indic" width="30" alt="Ideas" />
-              <span class="indic-title">12 Ideas</span>
+              <span class="indic-title"><strong>12</strong> Ideas</span>
             </div>
             <div class="col-xs-4 text-center indic">
               <img src="img/picto/people.svg" class="icon-indic" width="30" alt="Ideas" />
-              <span class="indic-title">{{ '12' }} people</span>
+              <span class="indic-title"><strong>{{ '12' }}</strong> people</span>
             </div>
             <div class="col-xs-4 text-center indic">
-              <img src="img/picto/points.svg" class="icon-indic" width="30" alt="Ideas" />
-              <span class="indic-title">{{ '78' }} points</span>
+              <img src="img/picto/points.svg" class="icon-indic" width="20" alt="Ideas" />
+              <span class="indic-title"><strong>{{ '78' }}</strong> points</span>
             </div>
           </div>
           <div class="row text-center">
@@ -125,7 +129,7 @@
               <span class="indic-title">{{ '12' }} people</span>
             </div>
             <div class="col-xs-4 text-center indic">
-              <img src="img/picto/points.svg" class="icon-indic" width="30" alt="Ideas" />
+              <img src="img/picto/points.svg" class="icon-indic" width="20" alt="Ideas" />
               <span class="indic-title">{{ '78' }} points</span>
             </div>
           </div>
