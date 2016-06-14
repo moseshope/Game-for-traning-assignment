@@ -143,7 +143,7 @@
           <h3>1/2 - <strong>Etablir le scénario</strong></h3>
           <div class="tab-content tabs-scenario">
             <div role="tabpanel" class="tab-pane fade in active tab-pane--active" id="tab-place">
-              <p class="storygraph">"Imagine if you are a {{ $challenge->context or 'Default' }} in a specific context</p>
+              <p class="storygraph">"Imagine if you are  <strong class="text-lowercase">{{ $challenge->context or 'Default' }}</strong> in a specific context</p>
               <div class="row">
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
@@ -421,7 +421,7 @@
             <br/><br/>
             <h4><strong>Scenario</strong></h4>
             <p class="storygraph text-left">
-              Et si vous étiez un {{ $challenge->context }} dans <span class="story story-location"></span> avec à votre disposition <span class="story story-resource"></span> que vous utiliseriez pour <span class="story story-advantage"></span> <span class="story story-user"></span> qui <span class="story story-revenue"></span> et si en plus cela se faisait sans <span class="story story-game-changer"></span> !
+              Et si vous étiez un <strong>{{ $challenge->context }}</strong> dans <span class="story story-location"></span> avec à votre disposition <span class="story story-resource"></span> que vous utiliseriez pour <span class="story story-advantage"></span> <span class="story story-user"></span> qui <span class="story story-revenue"></span> et si en plus cela se faisait sans <span class="story story-game-changer"></span> !
             </p>
             <button class="btn btn-main btn-main--other js-modify-elements">Modifier</button>
           </div>
