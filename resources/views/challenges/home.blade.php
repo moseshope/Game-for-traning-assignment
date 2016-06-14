@@ -6,9 +6,9 @@
 <div class="row">
   <div class="home-cover">
     <div class="home-cover--text">
-      <h1>Phrase d'accroche</h1>
+      <h1>Story Juice</h1>
       <p>
-        Description du site. Sed dignissim at orci vulputate euismod. Phasellus maximus pulvinar sapien. Aenean enim ligula, viverra eu nibh a, consequat pellentesque erat.
+        Combinez, racontez, innovez
       </p>
     </div>
   </div>
