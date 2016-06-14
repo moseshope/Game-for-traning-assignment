@@ -24,16 +24,16 @@
       <div class="panel-overview-indics col-md-10">
         <div class="row">
           <div class="col-xs-4 text-center indic">
-            <i class="icon-indic material-icons">lightbulb_outline</i>
-            <span class="indic-title">{{ count($ideas) }} Ideas</span>
+            <img src="../img/picto/ideas.svg" class="icon-indic" width="45" alt="Ideas">
+            <span class="indic-title"><strong>{{ count($ideas) }}</strong> Ideas</span>
           </div>
           <div class="col-xs-4 text-center indic">
-            <i class="icon-indic material-icons">people_outline</i>
-            <span class="indic-title">{{ $ideaNBUser }} Participants</span>
+            <img src="../img/picto/people.svg" class="icon-indic" width="45" alt="Ideas">
+            <span class="indic-title"><strong>{{ $ideaNBUser }}</strong> Participants</span>
           </div>
           <div class="col-xs-4 text-center indic">
-            <i class="icon-indic material-icons">opacity</i>
-            <span class="indic-title">65 img points</span>
+            <img src="../img/picto/points.svg" class="icon-indic" width="30" alt="Ideas">
+            <span class="indic-title"><strong>65</strong> img points</span>
           </div>
         </div>
 
@@ -52,14 +52,14 @@
 
   <div class="container-fluid">
     <ul role="tablist" class="challenge-tab">
-      <li role="presentation" class="active"><a href="#brief" aria-controls="brief" role="tab" data-toggle="tab">Brief</a></li>
-      <li role="presentation"><a href="#ideas" aria-controls="ideas" role="tab" data-toggle="tab">Ideas</a></li>
-      <li role="presentation" class="disabled"><a href="#results" aria-controls="results" role="tab" data-toggle="tab">Results</a></li>
+      <li role="presentation"><a href="#brief" aria-controls="brief" role="tab" data-toggle="tab">Brief</a></li>
+      <li role="presentation" class="active"><a href="#ideas" aria-controls="ideas" role="tab" data-toggle="tab">Ideas</a></li>
+      <!-- <li role="presentation" class="disabled"><a href="#results" aria-controls="results" role="tab" data-toggle="tab">Results</a></li> -->
     </ul>
 
     <!-- Tab panes -->
     <div class="tab-content">
-      <div role="tabpanel" class="tab-pane fade in active" id="brief">
+      <div role="tabpanel" class="tab-pane fade " id="brief">
         <div class="row">
           <div class="col-md-offset-2 col-md-8">
             <h4>Status : <strong>{{ $challenge->status }}</strong></h4>
@@ -69,7 +69,7 @@
           </div>
         </div>
       </div>
-      <div role="tabpanel" class="tab-pane fade" id="ideas">
+      <div role="tabpanel" class="tab-pane fadein active" id="ideas">
         <div class="row">
           <div class="col-sm-4 col-sm-offset-8">
             <form class="form-inline">
@@ -106,7 +106,7 @@
                   <span class="idea-tag">{{ $idea->warning}}</span>
                   <span class="idea-tag">{{ $idea->treasure}}</span>
                 </p>
-                <span class="user-idea pull-right"><i class="material-icons">account_circle</i>{{ $idea->name }}</span>
+                <span class="user-idea"><i class="material-icons">account_circle</i>{{ $idea->name }}</span>
               </div>
               <div class="panel-idea-stats">
                 <div class="stat-container--like stat-container js-btn-votes" data-id='{{ $idea->id}}'>

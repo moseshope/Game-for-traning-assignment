@@ -62,6 +62,25 @@
               <input type="date" name="end_date" class="form-control" required>
             </div>
         </div>
+        
+        <div class="form-group">
+          <label class="col-sm-3 control-label">Challenge color</label>
+          <div class="col-sm-6">
+            <input type="hidden" class="challenge-color" value="#333" name="color" />
+            <ul class="color-list">
+              <li class="selected" data-color="#F44336"></li>
+              <li data-color="#2196F3"></li>
+              <li data-color="#8BC34A"></li>
+              <li data-color="#009688"></li>
+              <li data-color="#673AB7"></li>
+              <li data-color="#CDDC39"></li>
+              <li data-color="#FFC107"></li>
+              <li data-color="#607D8B"></li>
+              <li data-color="#795548"></li>
+              <li data-color="#E91E63"></li>
+            </ul>
+          </div>
+        </div>
       
       </div>
 

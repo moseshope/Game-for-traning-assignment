@@ -8,7 +8,7 @@
 
 body{
   padding-top: 60px;
-  background-color: #f8f8f8;
+  background-color: #f4f4f4;
 }
 
 .nostyle{
@@ -16,7 +16,7 @@ body{
 }
 
 .btn-main{
-  background-color: #009688;
+  background-color: @colorMain;
   color: #fff;
   margin-top: 25px;
   border: none;
@@ -24,6 +24,11 @@ body{
   padding: 15px;
   font-weight: bold;
   text-transform: uppercase;
+  
+  &:hover{
+    color: #fff;
+    background-color: darken(@colorMain, 20%);
+  }
   
   &--other{
     background-color: #666;

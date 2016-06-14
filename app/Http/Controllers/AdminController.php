@@ -60,9 +60,22 @@ class AdminController extends Controller
           
           $elements = Elements::where('IDChallenge', $challenge->id)->get();
           
+          $elementsCharacter = Elements::where('IDChallenge', $challenge->id)->where('category', 'Character')->get();
+          $elementsRessource = Elements::where('IDChallenge', $challenge->id)->where('category', 'Ressource')->get();
+          $elementsLocation = Elements::where('IDChallenge', $challenge->id)->where('category', 'Location')->get();
+          $elementsQuest = Elements::where('IDChallenge', $challenge->id)->where('category', 'Quest')->get();
+          $elementsDisruptive = Elements::where('IDChallenge', $challenge->id)->where('category', 'Disruptive element')->get();
+          $elementsPayment = Elements::where('IDChallenge', $challenge->id)->where('category', 'Payment')->get();
+          
           return view('admin.edit', [
             'challenge' => $challenge,
             'elements' => $elements,
+            'elementsCharacter' => $elementsCharacter,
+            'elementsRessource' => $elementsRessource,
+            'elementsLocation' => $elementsLocation,
+            'elementsQuest' => $elementsQuest,
+            'elementsDisruptive' => $elementsDisruptive,
+            'elementsPayment' => $elementsPayment,
           ]);
         }
         else{
