@@ -9,7 +9,7 @@
 
     <div class="time-left">
       <span class="time-left-indic">15 days left</span>
-      <div class="progress">
+      <div style="background-color:{{ $challenge->color }}" class="progress">
         <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
           <span class="sr-only">60% Complete</span>
         </div>
@@ -25,20 +25,20 @@
         <div class="row">
           <div class="col-xs-4 text-center indic">
             <img src="../img/picto/ideas.svg" class="icon-indic" width="45" alt="Ideas">
-            <span class="indic-title"><strong>{{ count($ideas) }}</strong> Ideas</span>
+            <span class="indic-title"><strong style="color:{{ $challenge->color }}">{{ count($ideas) }}</strong> Ideas</span>
           </div>
           <div class="col-xs-4 text-center indic">
             <img src="../img/picto/people.svg" class="icon-indic" width="45" alt="Ideas">
-            <span class="indic-title"><strong>{{ $ideaNBUser }}</strong> Participants</span>
+            <span class="indic-title"><strong style="color:{{ $challenge->color }}">{{ $ideaNBUser }}</strong> Participants</span>
           </div>
           <div class="col-xs-4 text-center indic">
             <img src="../img/picto/points.svg" class="icon-indic" width="30" alt="Ideas">
-            <span class="indic-title"><strong>65</strong> img points</span>
+            <span class="indic-title"><strong style="color:{{ $challenge->color }}">65</strong> img points</span>
           </div>
         </div>
 
       </div>
-      <div class="panel-overview-create col-md-2 text-center">
+      <div style="background-color:{{ $challenge->color }}" class="panel-overview-create col-md-2 text-center">
         <a data-toggle="modal" data-target="#modalCreate" class="nostyle btn-recap">
           <i class="icon-indic material-icons">library_add</i>
           <span class="indic-title">create</span>
@@ -99,22 +99,22 @@
                   {{ $idea->content }}
                 </p>
                 <p>
-                  <span class="idea-tag">{{ $idea->character}}</span>
-                  <span class="idea-tag">{{ $idea->place}}</span>
-                  <span class="idea-tag">{{ $idea->ressource}}</span>
-                  <span class="idea-tag">{{ $idea->quest}}</span>
-                  <span class="idea-tag">{{ $idea->warning}}</span>
-                  <span class="idea-tag">{{ $idea->treasure}}</span>
+                  <span style="background-color:{{ $challenge->color }}" class="idea-tag">{{ $idea->character}}</span>
+                  <span style="background-color:{{ $challenge->color }}" class="idea-tag">{{ $idea->place}}</span>
+                  <span style="background-color:{{ $challenge->color }}" class="idea-tag">{{ $idea->ressource}}</span>
+                  <span style="background-color:{{ $challenge->color }}" class="idea-tag">{{ $idea->quest}}</span>
+                  <span style="background-color:{{ $challenge->color }}" class="idea-tag">{{ $idea->warning}}</span>
+                  <span style="background-color:{{ $challenge->color }}" class="idea-tag">{{ $idea->treasure}}</span>
                 </p>
                 <span class="user-idea"><i class="material-icons">account_circle</i>{{ $idea->name }}</span>
               </div>
               <div class="panel-idea-stats">
-                <div class="stat-container--like stat-container js-btn-votes" data-id='{{ $idea->id}}'>
+                <div style="background-color:{{ $challenge->color }}" class="stat-container--like stat-container js-btn-votes" data-id='{{ $idea->id}}'>
                   <i class="fa fa-heart"></i>
                   <span class="stat-indic">{{ $idea->votes }}</span>
                   
                 </div>
-                <div class="stat-container--rebound stat-container js-btn-rebound" data-id='{{ $idea->id}}'>
+                <div style="background-color:{{ $challenge->color }}" class="stat-container--rebound stat-container js-btn-rebound" data-id='{{ $idea->id}}'>
                   <i class="fa fa-share"></i>
                   <span class="stat-indic">{{ App\IdeasElements::where('IDIdea', $idea->id)->count() }}</span>
                 </div>

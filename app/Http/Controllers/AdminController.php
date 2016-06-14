@@ -142,6 +142,32 @@ class AdminController extends Controller
       }
     }
     
+    public function editColor($challengeID, Request $request)
+    {
+      $user = Auth::user();
+      if (isset($user)) {
+        Log::info($user);
+        $isAdmin = $user->isAdmin;
+
+        if ($isAdmin == 1){
+          DB::table('challenges')
+            ->where('id', $challengeID)
+            ->update(
+                array( 
+                      "color" => $request->color,
+                      )
+          );
+          return redirect()->back();
+        }
+        else{
+          return redirect('/');
+        }
+      }
+      else{
+        return redirect('/');
+      }
+    }
+    
     public function storeElements($challengeID, Request $request)
     {
       $user = Auth::user();

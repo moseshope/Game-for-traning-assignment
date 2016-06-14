@@ -6,6 +6,7 @@
   <div class="row">
     <div class="challenge-cover" style="background-image:url({{$challenge->img_cover}})">
       <br/>
+      
       <div class="col-md-4 col-md-offset-4">
         <div class="form-group">
           Name : <input type="text" name="name" class="form-control" value="{{ $challenge->name }}" />
@@ -21,7 +22,8 @@
       <div class="col-md-4 text-right">
         <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save changes</button><br/><br/>
         <button type="button" data-toggle="modal" data-target=".modal-elements" class="btn btn-info"><i class="fa fa-tags"></i> Manage elements</button><br/><br/>
-        <button type="button" data-toggle="modal" data-target=".modal-status" class="btn btn-warning"><i class="fa fa-cog"></i> Change status</button>
+        <button type="button" data-toggle="modal" data-target=".modal-status" class="btn btn-warning"><i class="fa fa-cog"></i> Change status</button><br/><br/>
+        <button type="button" data-toggle="modal" data-target=".modal-color" class="btn btn-success"><i class="fa fa-paint-brush"></i> Change color</button>
       </div>
     </div>
   </div>
@@ -189,6 +191,50 @@
               <option value="live">Live</option>
               @endif
             </select>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal -->
+  <div class="modal fade modal-color" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Change color</h4>
+        </div>
+        <form action="/admin/{{ $challenge->id }}/color" method="POST">
+          {{ csrf_field() }}
+          <div class="modal-body">
+            <div class="form-group row text-center">
+              <div class="col-sm-12">
+                <input type="hidden" class="challenge-color" value="{{ $challenge->color }}" name="color" />
+                <label>Current Color</label>
+                <div class="text-center current-color" style="background-color:{{ $challenge->color }}"></div>
+                <label>Choose color</label>
+                <div class="row">
+                  <ul class="color-list">
+                    <li class="selected" data-color="#F44336"></li>
+                    <li data-color="#2196F3"></li>
+                    <li data-color="#8BC34A"></li>
+                    <li data-color="#009688"></li>
+                    <li data-color="#673AB7"></li>
+                    <li data-color="#CDDC39"></li>
+                    <li data-color="#FFC107"></li>
+                    <li data-color="#607D8B"></li>
+                    <li data-color="#795548"></li>
+                    <li data-color="#E91E63"></li>
+                  </ul>
+                </div>
+                
+              </div>
+            </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

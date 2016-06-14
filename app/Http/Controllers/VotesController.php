@@ -13,7 +13,7 @@ class VotesController extends Controller{
 
   public function totalVotes($idIdea){
     $votes=Votes::where('IDIdea', $idIdea);
-
+dd($votes);
     if (is_numeric($votes)){
       return $votes->count();
     }
