@@ -21,18 +21,18 @@ class ChallengesController extends Controller
     public function index(Request $request)
     {
         $challenges = Challenges::orderBy('created_at', 'desc')->get();
-        
+
         $stats = DB::table('ideas')->select(DB::raw('count(*) as total, IDChallenge'))->groupBy('IDChallenge')->get();
-        
+
         $user = Auth::user();
-        
+
         if (isset($user)){
           $isAdmin = $user->isAdmin;
         }
         else{
           $isAdmin = false;
         }
-                
+
         return view('challenges.home', [
             'challenges' => $challenges,
             'isAdmin' => $isAdmin,
@@ -42,7 +42,7 @@ class ChallengesController extends Controller
 
     //retourne le detail d'un challenge
     public function detail($challenge)
-    {  
+    {
       $user = Auth::user();
       if (isset($user)) {
         Log::info($user);
@@ -53,7 +53,7 @@ class ChallengesController extends Controller
       }
 
       $challenge = Challenges::where('name', $challenge)->first();
-      
+
       /*Get 2 Random Element from each category*/
       $elementsCharacter = Elements::where('IDChallenge', $challenge->id)->where('category', 'Character')->orderByRaw("RAND()")->take(2)->get();
       $elementsRessource = Elements::where('IDChallenge', $challenge->id)->where('category', 'Ressource')->orderByRaw("RAND()")->take(2)->get();
@@ -61,11 +61,11 @@ class ChallengesController extends Controller
       $elementsQuest = Elements::where('IDChallenge', $challenge->id)->where('category', 'Quest')->orderByRaw("RAND()")->take(2)->get();
       $elementsDisruptive = Elements::where('IDChallenge', $challenge->id)->where('category', 'Disruptive element')->orderByRaw("RAND()")->take(2)->get();
       $elementsPayment = Elements::where('IDChallenge', $challenge->id)->where('category', 'Payment')->orderByRaw("RAND()")->take(2)->get();
-      
+
       /*Retrieve Ideas*/
-      $ideas = Ideas::where('IDChallenge', $challenge->id)->join('ideas_elements', 'ideas.IDIdea', '=', 'ideas_elements.IDIdea')->join('users', 'users.id', '=', 'ideas.IDUser')->orderBy('ideas.created_at', 'desc')->get();
+      $ideas = Ideas::where('IDChallenge', $challenge->id)->join('users', 'users.id', '=', 'ideas.IDUser')->orderBy('ideas.created_at', 'desc')->get();
       $ideaNBUser = $ideas->groupBy('IDUser')->count();
-      
+
       return view('challenges.detail', [
         'challenge' => $challenge,
         'userLogged' => $userLogged,
@@ -123,7 +123,7 @@ class ChallengesController extends Controller
         $challenge->status = "staging";
         $challenge->color = $request->color;
         $challenge->save();
-        
+
         // $element = new Elements;
         // $element->IDChallenge = $challenge->id;
         // $element->character_1 = $request->character_1;
@@ -132,21 +132,21 @@ class ChallengesController extends Controller
         Log::info($challenge);
         return redirect('/admin');
     }
-    
-    
+
+
     /*En cours*/
     public function storeIdea(Request $request, $challenge)
-    {  
-      
+    {
+
       $user = Auth::user();
 
       $challengeName = Challenges::where('id', $challenge)->value('name');
-      
+
       $this->validate($request, [
           'title' => 'required|max:255',
           'content' => 'required|max:2500',
       ]);
-      
+
       $idea = new Ideas;
       $idea->title = $request->title;
       $idea->content = $request->content;
@@ -154,7 +154,7 @@ class ChallengesController extends Controller
       $idea->IDUser = $user->id;
       $idea->save();
 
-      
+
       $ideaelements = new IdeasElements;
       $ideaelements->IDIdea = $idea->id;;
       $ideaelements->character = $request->character;
@@ -164,9 +164,9 @@ class ChallengesController extends Controller
       $ideaelements->warning = $request->warning;
       $ideaelements->treasure = $request->treasure;
       $ideaelements->save();
-      
-      
+
+
       return redirect('/challenge/' . $challengeName);
     }
-    
+
 }
