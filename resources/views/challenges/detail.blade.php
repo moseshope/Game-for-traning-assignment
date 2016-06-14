@@ -89,7 +89,7 @@
         <div class="row">
 
           @foreach ($ideas as $idea)
-          
+
           <div class="col-lg-4 col-md-6 col-sm-6">
             <div class="panel panel-idea">
               <div class="panel-body">
@@ -111,8 +111,8 @@
               <div class="panel-idea-stats">
                 <div class="stat-container--like stat-container js-btn-votes" data-id='{{ $idea->id}}'>
                   <i class="fa fa-heart"></i>
-                  <span class="stat-indic">{{ $idea->votes }}</span>
-                  
+                  <span class="stat-indic">{{ $idea->votes->count() }}</span>
+
                 </div>
                 <div class="stat-container--rebound stat-container js-btn-rebound" data-id='{{ $idea->id}}'>
                   <i class="fa fa-share"></i>
@@ -133,8 +133,7 @@
 
   </div>
 </div>
-
-@if (isset($userLogged) && $userLogged === true)
+@if (isset($userLogged) && $userLogged === true && $elementsCharacter->count() >=2 )
 <div class="modal fade" id="modalCreate" tabindex="-1" role="dialog">
   <div class="modal-dialog modal-lg modal-create">
     <div class="modal-content">
@@ -477,7 +476,7 @@
             <div class="alert alert-info text-center" role="alert">
               <h2><i class="material-icons">account_circle</i></h2>
               You must be logged in to create an idea<br/>
-              
+
               <a type="button" class="btn btn-link" data-toggle="modal" data-target=".modal-login">Log In</a>
               Or
               <a type="button" class="btn btn-link" data-toggle="modal" data-target=".modal-register">Register</a>

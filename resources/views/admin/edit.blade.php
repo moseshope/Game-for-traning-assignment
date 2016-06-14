@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-<form action="/admin/{{ $challenge->id }}" method="POST">
+<form action="{{ url('/admin/'.$challenge->id)}}" method="POST">
   {{ csrf_field() }}
   <div class="row">
     <div class="challenge-cover" style="background-image:url({{$challenge->img_cover}})">
@@ -17,7 +17,7 @@
           Cover : <input type="text" name="img_cover" class="form-control" value="{{ $challenge->img_cover }}" />
         </div>
       </div>
-      
+
       <div class="col-md-4 text-right">
         <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save changes</button><br/><br/>
         <button type="button" data-toggle="modal" data-target=".modal-elements" class="btn btn-info"><i class="fa fa-tags"></i> Manage elements</button><br/><br/>
@@ -32,7 +32,7 @@
       <textarea class="form-control" name="content" rows="12">{{ $challenge->content }}</textarea>
     </div>
   </div>
-  
+
 </form>
 
 
@@ -45,7 +45,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title">Elements</h4>
       </div>
-      <form action="/admin/{{ $challenge->id }}/elements" method="POST">
+      <form action="{{ url('/admin/'.$challenge->id.'/elements')}}" method="POST">
         {{ csrf_field() }}
         <div class="modal-body">
           <div class="row">
@@ -80,17 +80,17 @@
                     <br/>
                     <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-plus-circle"></i> Save element</button>
                   </form>
-                  
+
                 </div>
               </div>
             </div>
           </div>
-        
-          
+
+
           <br/>
-          
+
           <div class="row">
-            
+
               <div class="col-md-4">
                 <ul class="list-group" style="overflow-y: auto;height: 300px;">
                   <li class="list-group-item active text-uppercase">Characters</li>
@@ -99,7 +99,7 @@
                   @endforeach
                 </ul>
               </div>
-              
+
               <div class="col-md-4">
                 <ul class="list-group" style="overflow-y: auto;height: 300px;">
                   <li class="list-group-item active text-uppercase">Ressource</li>
@@ -108,7 +108,7 @@
                   @endforeach
                 </ul>
               </div>
-              
+
               <div class="col-md-4">
                 <ul class="list-group" style="overflow-y: auto;height: 300px;">
                   <li class="list-group-item active text-uppercase">Locations</li>
@@ -117,7 +117,7 @@
                   @endforeach
                 </ul>
               </div>
-              
+
               <div class="col-md-4">
                 <ul class="list-group" style="overflow-y: auto;height: 300px;">
                   <li class="list-group-item active text-uppercase">Quest</li>
@@ -126,7 +126,7 @@
                   @endforeach
                 </ul>
               </div>
-              
+
               <div class="col-md-4">
                 <ul class="list-group" style="overflow-y: auto;height: 300px;">
                   <li class="list-group-item active text-uppercase">Disruptive elements</li>
@@ -135,7 +135,7 @@
                   @endforeach
                 </ul>
               </div>
-              
+
               <div class="col-md-4">
                 <ul class="list-group" style="overflow-y: auto;height: 300px;">
                   <li class="list-group-item active text-uppercase">Payment</li>
@@ -144,8 +144,8 @@
                   @endforeach
                 </ul>
               </div>
-              
-          </div>     
+
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -154,7 +154,7 @@
     </div>
   </div>
 </div>
-  
+
   <!-- Modal -->
   <div class="modal fade modal-status" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
@@ -163,7 +163,7 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title">Change status</h4>
         </div>
-        <form action="/admin/{{ $challenge->id }}/status" method="POST">
+        <form action="{{ url('/admin/'.$challenge->id.'/status')}}" method="POST">
           {{ csrf_field() }}
           <div class="modal-body">
             <div class="alert alert-warning" role="alert">
