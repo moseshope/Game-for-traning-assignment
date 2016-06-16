@@ -87,9 +87,7 @@
         </div>
 
         <div class="row">
-
           @foreach ($ideas as $idea)
-
           <div class="col-lg-4 col-md-6 col-sm-6">
             <div class="panel panel-idea">
               <div class="panel-body">
@@ -99,24 +97,24 @@
                   {{ $idea->content }}
                 </p>
                 <p>
-                  <span style="background-color:{{ $challenge->color }}" class="idea-tag">{{ $idea->character}}</span>
-                  <span style="background-color:{{ $challenge->color }}" class="idea-tag">{{ $idea->place}}</span>
-                  <span style="background-color:{{ $challenge->color }}" class="idea-tag">{{ $idea->ressource}}</span>
-                  <span style="background-color:{{ $challenge->color }}" class="idea-tag">{{ $idea->quest}}</span>
-                  <span style="background-color:{{ $challenge->color }}" class="idea-tag">{{ $idea->warning}}</span>
-                  <span style="background-color:{{ $challenge->color }}" class="idea-tag">{{ $idea->treasure}}</span>
+                  <span style="background-color:{{ $challenge->color }}" class="idea-tag tag-character-{{ $idea->IDIdea}}">{{ $idea->element->character}}</span>
+                  <span style="background-color:{{ $challenge->color }}" class="idea-tag tag-place-{{ $idea->IDIdea}}">{{ $idea->element->place}}</span>
+                  <span style="background-color:{{ $challenge->color }}" class="idea-tag tag-ressource-{{ $idea->IDIdea}}">{{ $idea->element->ressource}}</span>
+                  <span style="background-color:{{ $challenge->color }}" class="idea-tag tag-quest-{{ $idea->IDIdea}}">{{ $idea->element->quest}}</span>
+                  <span style="background-color:{{ $challenge->color }}" class="idea-tag tag-warning-{{ $idea->IDIdea}}">{{ $idea->element->warning}}</span>
+                  <span style="background-color:{{ $challenge->color }}" class="idea-tag tag-treasure-{{ $idea->IDIdea}}">{{ $idea->element->treasure}}</span>
                 </p>
                 <span class="user-idea"><i class="material-icons">account_circle</i>{{ $idea->name }}</span>
               </div>
               <div class="panel-idea-stats">
-                <div style="background-color:{{ $challenge->color }}" class="stat-container--like stat-container js-btn-votes" data-id='{{ $idea->id}}'>
+                <div style="background-color:{{ $challenge->color }}" class="stat-container--like stat-container js-btn-votes" data-id='{{ $idea->IDIdea}}'>
                   <i class="fa fa-heart"></i>
                   <span class="stat-indic">{{ $idea->votes->count() }}</span>
 
                 </div>
-                <div style="background-color:{{ $challenge->color }}" class="stat-container--rebound stat-container js-btn-rebound" data-id='{{ $idea->id}}'>
-                  <i class="fa fa-share"></i>
-                  <span class="stat-indic">{{ App\IdeasElements::where('IDIdea', $idea->id)->count() }}</span>
+                <div style="background-color:{{ $challenge->color }}" class="stat-container--rebound stat-container js-btn-rebound" data-id='{{ $idea->IDIdea}}'>
+                  <i class="fa fa-share" ></i>
+                  <span class="stat-indic">{{ $idea->rebounds }}</span>
                 </div>
               </div>
             </div>
@@ -443,6 +441,8 @@
               <input type="hidden" name="quest" />
               <input type="hidden" name="warning" />
               <input type="hidden" name="treasure" />
+              <input type="hidden" name="rebound" value='false' />
+
             </div>
 
             <button type="submit" class="btn btn-main">Publier mon idée !</button>

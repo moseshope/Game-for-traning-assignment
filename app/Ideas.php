@@ -8,6 +8,7 @@ class Ideas extends Model
 {
   protected $table = 'ideas';
     protected $fillable = ['title', 'content'];
+    protected $primaryKey = 'IDIdea';
 
     public function user()
     {
@@ -16,5 +17,9 @@ class Ideas extends Model
     public function votes()
     {
       return $this->hasMany('App\Votes', 'IDIdea');
+    }
+    public function element()
+    {
+      return $this->belongsTo(IdeasElements::class, 'IDElements', 'id');
     }
 }

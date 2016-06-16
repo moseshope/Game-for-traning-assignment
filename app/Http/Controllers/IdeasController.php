@@ -59,7 +59,7 @@ class IdeasController extends Controller
           'title' => 'required|max:255',
           'content' => 'required|max:2500',
       ]);
-
+      $first = Ideas::where('IDIdea', $request->rebound)->first();
       $idea = new Ideas;
       $idea->title = $request->title;
       $idea->content = $request->content;
@@ -67,16 +67,26 @@ class IdeasController extends Controller
       $idea->IDUser = $user->id;
       $idea->save();
 
+      if($request->rebound == 'false')
+      {
+        $ideaelements = new IdeasElements;
+        $ideaelements->IDIdea = $idea->IDIdea;
+        $ideaelements->character = $request->character;
+        $ideaelements->place = $request->place;
+        $ideaelements->ressource = $request->ressource;
+        $ideaelements->quest = $request->quest;
+        $ideaelements->warning = $request->warning;
+        $ideaelements->treasure = $request->treasure;
+        $ideaelements->save();
+        $idea->IDElements = $ideaelements->id;
 
-      $ideaelements = new IdeasElements;
-      $ideaelements->IDIdea = $idea->id;
-      $ideaelements->character = $request->character;
-      $ideaelements->place = $request->place;
-      $ideaelements->ressource = $request->ressource;
-      $ideaelements->quest = $request->quest;
-      $ideaelements->warning = $request->warning;
-      $ideaelements->treasure = $request->treasure;
-      $ideaelements->save();
+      }else{
+        $first->rebounds = $first->rebounds + 1;
+        $idea->IDElements = $first->IDElements;
+      }
+      $first->save();
+      $idea->save();
+
 
 
       return redirect(route('challenge_detail', $challengeName));

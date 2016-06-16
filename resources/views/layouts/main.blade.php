@@ -141,14 +141,14 @@
                     Login
                 </button>
               </div>
-              
+
               <p>Not a member yet ? <a href="#" class="color-main">Register</a></p>
           </form>
         </div>
       </div>
     </div>
   </div>
-  
+
   <div class="modal fade modal-register" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -226,7 +226,7 @@
                     Register
                 </button>
               </div>
-              
+
               <p>Already a member ? <a href="#" class="color-main">Login in</a></p>
 
           </form>
@@ -253,17 +253,29 @@
       $('.js-btn-rebound').on('click', function(){
         var ideaID = $(this).attr("data-id");
         //OUVRE LA POPIN
-        console.log('click rebound button');
-        $('.btn-popin-rebound').on('click', function(){
-          challengeRebound(ideaID);
-        })
+        $('#modalCreate').modal('show');
+        $('.ideas-propose').show('fast');
+        $('.ideas-create').hide('fast');
+        $('.js-modify-elements').hide();
+        $('.js-btn-switch-write').show('fast');
+        $('.ideas-propose h3').html('<strong>Proposer une idée</strong>');
+        $('.story-location').html($('.tag-place-'+ideaID).html());
+        $('.story-resource').html($('.tag-ressource-'+ideaID).html());
+        $('.story-advantage').html($('.tag-quest-'+ideaID).html());
+        $('.story-user').html($('.tag-character-'+ideaID).html());
+        $('input[name=character]').val($('.tag-character-'+ideaID).html());
+        $('input[name=place]').val($('.tag-place-'+ideaID).html());
+        $('input[name=ressource]').val($('.tag-ressource-'+ideaID).html());
+        $('input[name=quest]').val($('.tag-quest-'+ideaID).html());
+        $('input[name=warning]').val($('.tag-warning-'+ideaID).html());
+        $('input[name=treasure]').val($('.tag-treasure-'+ideaID).html());
+        $('input[name=rebound]').val(ideaID);
+        $('.story-revenue').html($('.tag-warning-'+ideaID).html());
+        $('.story-game-changer').html($('.tag-treasure-'+ideaID).html());
 
       });
-      var challengeRebound = function(ideaID){
-        $.post('{{ route("challenge_detail_rebound")}}', {id: ideaID, _token: '{{ csrf_token()}}', title: "$('textareaClass').val", content: "$('textareaClass').val"}, function(data){
-          window.location.reload();
-        }.bind(this))
-      }
+
+
     </script>
 </body>
 </html>
