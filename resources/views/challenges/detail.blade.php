@@ -4,7 +4,7 @@
 
 <div class="row">
   <div class="challenge-cover" style="background-image:url({{$challenge->img_cover}})">
-    <h2>{{ $challenge }}</h2>
+    <h2>{{ $challenge->name }}</h2>
     <h4>{{ $challenge->description }}</h4>
 
     <div class="time-left">
