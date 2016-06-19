@@ -16,6 +16,7 @@ class CreateIdeaTable extends Migration
             $table->increments('IDIdea');
             $table->integer('IDUser');
             $table->integer('IDChallenge');
+            $table->integer('IDElements');
             $table->string('title');
             $table->string('content');
             $table->timestamps();
