@@ -50,15 +50,15 @@
         </p>
         <div class="row panel-overview text-center">
           <div class="col-xs-4 text-center indic">
-            <img src="img/picto/ideas.svg" class="icon-indic" width="30" alt="Ideas" />
+            <img src="{{asset('/img/picto/ideas.svg')}}" class="icon-indic" width="30" alt="Ideas" />
             <span class="indic-title"><strong>12</strong> Ideas</span>
           </div>
           <div class="col-xs-4 text-center indic">
-            <img src="img/picto/people.svg" class="icon-indic" width="30" alt="Ideas" />
+            <img src="{{asset('/img/picto/people.svg')}}" class="icon-indic" width="30" alt="Ideas" />
             <span class="indic-title"><strong>{{ '12' }}</strong> people</span>
           </div>
           <div class="col-xs-4 text-center indic">
-            <img src="img/picto/points.svg" class="icon-indic" width="20" alt="Ideas" />
+            <img src="{{asset('/img/picto/points.svg')}}" class="icon-indic" width="20" alt="Ideas" />
             <span class="indic-title"><strong>{{ '78' }}</strong> points</span>
           </div>
         </div>
@@ -86,15 +86,15 @@
           </p>
           <div class="row panel-overview text-center">
             <div class="col-xs-4 text-center indic">
-              <img src="img/picto/ideas.svg" class="icon-indic" width="30" alt="Ideas" />
+              <img src="{{asset('/img/picto/ideas.svg')}}" class="icon-indic" width="30" alt="Ideas" />
               <span class="indic-title"><strong>12</strong> Ideas</span>
             </div>
             <div class="col-xs-4 text-center indic">
-              <img src="img/picto/people.svg" class="icon-indic" width="30" alt="Ideas" />
+              <img src="{{asset('/img/picto/people.svg')}}" class="icon-indic" width="30" alt="Ideas" />
               <span class="indic-title"><strong>{{ '12' }}</strong> people</span>
             </div>
             <div class="col-xs-4 text-center indic">
-              <img src="img/picto/points.svg" class="icon-indic" width="20" alt="Ideas" />
+              <img src="{{asset('/img/picto/points.svg')}}" class="icon-indic" width="20" alt="Ideas" />
               <span class="indic-title"><strong>{{ '78' }}</strong> points</span>
             </div>
           </div>
@@ -121,16 +121,16 @@
           </p>
           <div class="row panel-overview text-center">
             <div class="col-xs-4 text-center indic">
-              <img src="img/picto/ideas.svg" class="icon-indic" width="30" alt="Ideas" />
-              <span class="indic-title">12 Ideas</span>
+              <img src="{{asset('/img/picto/ideas.svg')}}" class="icon-indic" width="30" alt="Ideas" />
+              <span class="indic-title"><strong>12</strong> Ideas</span>
             </div>
             <div class="col-xs-4 text-center indic">
-              <img src="img/picto/people.svg" class="icon-indic" width="30" alt="Ideas" />
-              <span class="indic-title">{{ '12' }} people</span>
+              <img src="{{asset('/img/picto/people.svg')}}" class="icon-indic" width="30" alt="Ideas" />
+              <span class="indic-title"><strong>{{ '12' }}</strong> people</span>
             </div>
             <div class="col-xs-4 text-center indic">
-              <img src="img/picto/points.svg" class="icon-indic" width="20" alt="Ideas" />
-              <span class="indic-title">{{ '78' }} points</span>
+              <img src="{{asset('/img/picto/points.svg')}}" class="icon-indic" width="20" alt="Ideas" />
+              <span class="indic-title"><strong>{{ '78' }}</strong> points</span>
             </div>
           </div>
           <div class="row text-center">
