@@ -12,4 +12,8 @@ class IdeasElements extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function idea()
+    {
+        return $this->belongsTo(Ideas::class);
+    }
 }
