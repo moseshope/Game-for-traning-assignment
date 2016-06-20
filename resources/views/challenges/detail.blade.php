@@ -9,8 +9,8 @@
 
     <div class="time-left">
       <span class="time-left-indic">15 days left</span>
-      <div style="background-color:{{ $challenge->color }}" class="progress">
-        <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
+      <div class="progress timeline" style="background-color:#fff" data-end-date="{{ $challenge->end_date }}" data-start-date="{{ $challenge->start_date }}">
+        <div style="background-color:{{ $challenge->color }}; width:0%" class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
           <span class="sr-only">60% Complete</span>
         </div>
       </div>
