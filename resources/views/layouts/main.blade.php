@@ -13,6 +13,7 @@
     <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <!-- Styles -->
+    <link rel="icon" type="image/jpg" href="{{url( 'favicon.jpg')}}" />
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
