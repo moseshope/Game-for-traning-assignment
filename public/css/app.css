@@ -107,11 +107,15 @@ nav.navbar .dropdown.open > a {
   color: #fff;
   font-size: 28px;
 }
-.modal-login input,
-.modal-register input {
+.modal-login input[type="text"],
+.modal-register input[type="text"],
+.modal-login input[type="password"],
+.modal-register input[type="password"],
+.modal-login input[type="email"],
+.modal-register input[type="email"] {
   border-radius: 2px;
   box-shadow: none;
-  padding: 20px;
+  height: 42px;
   padding-left: 55px;
 }
 .footer {
@@ -673,6 +677,9 @@ body {
 }
 .nostyle {
   color: inherit;
+}
+.tooltip-inner {
+  white-space: pre-wrap;
 }
 .btn-main {
   background-color: #37474F;

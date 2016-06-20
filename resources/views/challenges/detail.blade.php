@@ -32,7 +32,10 @@
             <img src="../img/picto/users.svg" class="icon-indic" width="55" alt="Ideas">
             <span class="indic-title"><strong class="counter" style="color:{{ $challenge->color }}">{{ $ideaNBUser }}</strong> Creatives</span>
           </div>
-          <div class="col-xs-4 text-center indic">
+          <div class="col-xs-4 text-center indic" data-toggle="tooltip" data-placement="bottom" 
+                title="1 new idea = 10 points
+1 rebound = 5 points
+1 like = 1 point">
             <img src="../img/picto/picto-jus2.svg" class="icon-indic js-animate-points" width="55" alt="Ideas">
             <span class="indic-title"><strong class="counter" id="img-points" style="color:{{ $challenge->color }}">0</strong> OZ</span>
           </div>

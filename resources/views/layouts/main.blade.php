@@ -144,7 +144,7 @@
                 </button>
               </div>
 
-              <p>Not a member yet ? <a href="#" class="color-main">Register</a></p>
+              <p>Not a member yet ? <a onclick="$('.modal-login').modal('hide');$('.modal-register').modal('show')" class="color-main">Register</a></p>
           </form>
         </div>
       </div>
@@ -229,7 +229,7 @@
                 </button>
               </div>
 
-              <p>Already a member ? <a href="#" class="color-main">Login in</a></p>
+              <p>Already a member ? <a onclick="$('.modal-register').modal('hide');$('.modal-login').modal('show')" class="color-main">Login in</a></p>
 
           </form>
         </div>
