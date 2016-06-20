@@ -313,7 +313,7 @@
           <div class="row">
             <br/><br/>
             <div class="col-sm-4 col-sm-offset-2">
-              <button style="background-color:{{ $challenge->color }};-webkit-filter: grayscale(70%);filter: grayscale(70%);-moz-filter: grayscale(70%);-ms-filter: grayscale(70%);" class="btn btn-block btn-main btn-main--other js-btn-element-previous">Précédent</button>
+              <button disabled="disabled" style="background-color:{{ $challenge->color }};-webkit-filter: grayscale(70%);filter: grayscale(70%);-moz-filter: grayscale(70%);-ms-filter: grayscale(70%);" class="btn btn-block btn-main btn-main--other js-btn-element-previous">Précédent</button>
             </div>
             <div class="col-sm-4">
               <button style="background-color:{{ $challenge->color }}" class="btn btn-block btn-main js-btn-element-next">Suivant</button>
