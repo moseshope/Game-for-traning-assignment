@@ -247,7 +247,14 @@
       $('.js-btn-votes').on('click', function(){
         $.post('{{ route("challenge_vote")}}', {id: $(this).attr("data-id"), _token: '{{ csrf_token()}}'}, function(data){
           $( ".js-btn-votes[data-id='"+$(this).attr("data-id")+"'] .stat-indic" ).html(data);
+          var heart = $(this).find('.fa');
+          if(heart.hasClass('fa-heart-o')){
+            heart.removeClass('fa-heart-o').addClass('fa-heart');
+          }else{
+            heart.removeClass('fa-heart').addClass('fa-heart-o');
+          }
         }.bind(this))
+        //add class
       });
 
       $('.js-btn-rebound').on('click', function(){
