@@ -8,7 +8,7 @@ nav.navbar {
   padding: 0px 20px;
 }
 nav.navbar .navbar-brand {
-  top: 5px;
+  top: 7px;
   position: relative;
   padding: 0 15px;
 }
@@ -46,7 +46,7 @@ nav.navbar .dropdown.open > a {
 }
 .idea-tag {
   padding: 1px 4px;
-  background-color: #37474F;
+  background-color: #aaa;
   white-space: nowrap;
   border-radius: 2px;
   color: #fff;
@@ -172,6 +172,9 @@ nav.navbar .dropdown.open > a {
 }
 .challenge-cover h2 {
   padding-top: 35px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 36px;
 }
 .challenge-cover .time-left {
   max-width: 250px;
@@ -306,10 +309,10 @@ nav.navbar .dropdown.open > a {
   border: 0;
 }
 .panel-idea h3 {
-  margin-top: 0px;
-}
-.panel-idea h3 a {
   color: #37474F;
+  font-weight: bold;
+  text-transform: capitalize;
+  margin-top: 0px;
 }
 .panel-idea .user-idea i {
   vertical-align: bottom;

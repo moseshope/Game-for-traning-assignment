@@ -88,9 +88,9 @@
                     <div class="col-md-6">
                       <label>Difficulty</label>
                       <select name="difficulty" style="font-family:'FontAwesome', 'Lato'" class="form-control">
-                        <option value="1">&#xf005;</option>
-                        <option value="2">&#xf005; &#xf005;</option>
-                        <option value="3">&#xf005; &#xf005; &#xf005;</option>
+                        <option value="1">&#xf0e7;</option>
+                        <option value="2">&#xf0e7; &#xf0e7;</option>
+                        <option value="3">&#xf0e7; &#xf0e7; &#xf0e7;</option>
                       </select>
                       <br/>
                       <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-plus-circle"></i> Save element</button>
