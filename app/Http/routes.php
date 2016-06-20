@@ -16,7 +16,12 @@ Route::group(['middleware' => ['web']], function () {
       return view('auth.login');
   })->middleware('guest');
 
-  Route::get('/home', 'HomeController@index');
+
+  Route::get('/home', function () {
+    return redirect('/challenges');
+  });
+
+  // Route::get('/home', 'HomeController@index');
 
 
   /*CHALLENGES*/
