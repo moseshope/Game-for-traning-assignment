@@ -88,6 +88,7 @@
 
         <div class="row">
           @foreach ($ideas as $idea)
+          @if($idea->element)
           <div class="col-lg-4 col-md-6 col-sm-6">
             <div class="panel panel-idea">
               <div class="panel-body">
@@ -119,6 +120,7 @@
               </div>
             </div>
           </div>
+          @endif
           @endforeach
         </div>
 
