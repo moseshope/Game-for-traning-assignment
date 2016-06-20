@@ -13,7 +13,6 @@ class CreateIdeasElementsTable extends Migration
     public function up()
     {
         Schema::create('ideas_elements', function (Blueprint $table) {
-          $table->increments('id');
           $table->integer('IDIdea');
           $table->string('character');
           $table->string('place');

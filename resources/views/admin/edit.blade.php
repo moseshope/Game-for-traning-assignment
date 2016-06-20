@@ -170,7 +170,7 @@
     </div>
   </div>
 </div>
-
+</div>
   <!-- Modal -->
   <div class="modal fade modal-status" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
