@@ -31,6 +31,7 @@ Route::group(['middleware' => ['web']], function () {
   Route::post('/admin/{challengeID}/elements', 'AdminController@storeElements');
   Route::post('/admin/{elementID}/delete', 'AdminController@deleteElement');
   /*export ideas*/
+  Route::get('/admin/{challengeID}/export', 'AdminController@export');
 
 
   /*CHALLENGES*/

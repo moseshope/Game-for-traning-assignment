@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
+<a href="{{ url('/admin/'.$challenge->id.'/export') }}" class="btn btn-primary">Export ideas</a>
 
 
 <form action="{{ url('/admin/'.$challenge->id)}}" method="POST">
