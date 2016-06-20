@@ -633,6 +633,12 @@ span.story {
   width: 40px;
   height: 40px;
 }
+.btn-remove {
+  padding: 0 10px;
+  margin: 0;
+  padding-left: 0;
+  color: #F44336;
+}
 body {
   padding-top: 60px;
   background-color: #f4f4f4;
