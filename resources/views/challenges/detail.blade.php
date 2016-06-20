@@ -9,7 +9,7 @@
 
     <div class="time-left">
       <span class="time-left-indic">15 days left</span>
-      <div class="progress">
+      <div style="background-color:{{ $challenge->color }}" class="progress">
         <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
           <span class="sr-only">60% Complete</span>
         </div>
@@ -24,21 +24,21 @@
       <div class="panel-overview-indics col-md-10">
         <div class="row">
           <div class="col-xs-4 text-center indic">
-            <i class="icon-indic material-icons">lightbulb_outline</i>
-            <span class="indic-title">{{ count($ideas) }} Ideas</span>
+            <img src="../img/picto/ideas.svg" class="icon-indic" width="45" alt="Ideas">
+            <span class="indic-title"><strong style="color:{{ $challenge->color }}">{{ count($ideas) }}</strong> Ideas</span>
           </div>
           <div class="col-xs-4 text-center indic">
-            <i class="icon-indic material-icons">people_outline</i>
-            <span class="indic-title">{{ $ideaNBUser }} Participants</span>
+            <img src="../img/picto/people.svg" class="icon-indic" width="45" alt="Ideas">
+            <span class="indic-title"><strong style="color:{{ $challenge->color }}">{{ $ideaNBUser }}</strong> Participants</span>
           </div>
           <div class="col-xs-4 text-center indic">
-            <i class="icon-indic material-icons">opacity</i>
-            <span class="indic-title">65 img points</span>
+            <img src="../img/picto/points.svg" class="icon-indic" width="30" alt="Ideas">
+            <span class="indic-title"><strong style="color:{{ $challenge->color }}">65</strong> img points</span>
           </div>
         </div>
 
       </div>
-      <div class="panel-overview-create col-md-2 text-center">
+      <div style="background-color:{{ $challenge->color }}" class="panel-overview-create col-md-2 text-center">
         <a data-toggle="modal" data-target="#modalCreate" class="nostyle btn-recap">
           <i class="icon-indic material-icons">library_add</i>
           <span class="indic-title">create</span>
@@ -52,14 +52,14 @@
 
   <div class="container-fluid">
     <ul role="tablist" class="challenge-tab">
-      <li role="presentation" class="active"><a href="#brief" aria-controls="brief" role="tab" data-toggle="tab">Brief</a></li>
-      <li role="presentation"><a href="#ideas" aria-controls="ideas" role="tab" data-toggle="tab">Ideas</a></li>
-      <li role="presentation" class="disabled"><a href="#results" aria-controls="results" role="tab" data-toggle="tab">Results</a></li>
+      <li role="presentation"><a href="#brief" aria-controls="brief" role="tab" data-toggle="tab">Brief</a></li>
+      <li role="presentation" class="active"><a href="#ideas" aria-controls="ideas" role="tab" data-toggle="tab">Ideas</a></li>
+      <!-- <li role="presentation" class="disabled"><a href="#results" aria-controls="results" role="tab" data-toggle="tab">Results</a></li> -->
     </ul>
 
     <!-- Tab panes -->
     <div class="tab-content">
-      <div role="tabpanel" class="tab-pane fade in active" id="brief">
+      <div role="tabpanel" class="tab-pane fade " id="brief">
         <div class="row">
           <div class="col-md-offset-2 col-md-8">
             <h4>Status : <strong>{{ $challenge->status }}</strong></h4>
@@ -69,7 +69,7 @@
           </div>
         </div>
       </div>
-      <div role="tabpanel" class="tab-pane fade" id="ideas">
+      <div role="tabpanel" class="tab-pane fadein active" id="ideas">
         <div class="row">
           <div class="col-sm-4 col-sm-offset-8">
             <form class="form-inline">
@@ -87,29 +87,6 @@
         </div>
 
         <div class="row">
-
-          <!-- <div class="col-lg-4 col-md-6 col-sm-6">
-            <div class="panel panel-idea">
-              <div class="panel-body">
-                <h3>Idea title</h3>
-                <p>
-                  Sed sed <span class="idea-tag">lacinia</span> leo. Morbi <span class="idea-tag">ultricies</span> ipsum quis imperdiet malesuada. Etiam fringilla augue magna, sed pretium sapien tempor at. Integer non nunc nec lacus <span class="idea-tag">maximuss</span> convallis eget ac dolor. Proin ac dapibus tellus. Praesent id turpis efficitur <span class="idea-tag">sapien</span> lobortis pretium a interdum ex. Suspendisse id suscipit leo.
-                </p>
-                <span class="user-idea pull-right"><i class="material-icons">account_circle</i>Paul Marchand</span>
-              </div>
-              <div class="panel-idea-stats">
-                <div class="stat-container--like stat-container">
-                  <i class="fa fa-heart"></i>
-                  <span class="stat-indic">12</span>
-                </div>
-                <div class="stat-container--rebound stat-container">
-                  <i class="fa fa-share"></i>
-                  <span class="stat-indic">3</span>
-                </div>
-              </div>
-            </div>
-          </div> -->
-
           @foreach ($ideas as $idea)
           <div class="col-lg-4 col-md-6 col-sm-6">
             <div class="panel panel-idea">
@@ -120,29 +97,31 @@
                   {{ $idea->content }}
                 </p>
                 <p>
-                  <span class="idea-tag">{{ $idea->character}}</span>
-                  <span class="idea-tag">{{ $idea->place}}</span>
-                  <span class="idea-tag">{{ $idea->ressource}}</span>
-                  <span class="idea-tag">{{ $idea->quest}}</span>
-                  <span class="idea-tag">{{ $idea->warning}}</span>
-                  <span class="idea-tag">{{ $idea->treasure}}</span>
+                  <span style="background-color:{{ $challenge->color }}" class="idea-tag tag-character-{{ $idea->IDIdea}}">{{ $idea->element->character}}</span>
+                  <span style="background-color:{{ $challenge->color }}" class="idea-tag tag-place-{{ $idea->IDIdea}}">{{ $idea->element->place}}</span>
+                  <span style="background-color:{{ $challenge->color }}" class="idea-tag tag-ressource-{{ $idea->IDIdea}}">{{ $idea->element->ressource}}</span>
+                  <span style="background-color:{{ $challenge->color }}" class="idea-tag tag-quest-{{ $idea->IDIdea}}">{{ $idea->element->quest}}</span>
+                  <span style="background-color:{{ $challenge->color }}" class="idea-tag tag-warning-{{ $idea->IDIdea}}">{{ $idea->element->warning}}</span>
+                  <span style="background-color:{{ $challenge->color }}" class="idea-tag tag-treasure-{{ $idea->IDIdea}}">{{ $idea->element->treasure}}</span>
                 </p>
-                <span class="user-idea pull-right"><i class="material-icons">account_circle</i>{{ $idea->name }}</span>
+                <span class="user-idea"><i class="material-icons">account_circle</i>{{ $idea->name }}</span>
               </div>
               <div class="panel-idea-stats">
-                <div class="stat-container--like stat-container">
+                <div style="background-color:{{ $challenge->color }}" class="stat-container--like stat-container js-btn-votes" data-id='{{ $idea->IDIdea}}'>
                   <i class="fa fa-heart"></i>
-                  <span class="stat-indic">15</span>
+                  <span class="stat-indic">{{ $idea->votes->count() }}</span>
+
                 </div>
-                <div class="stat-container--rebound stat-container">
-                  <i class="fa fa-share"></i>
-                  <span class="stat-indic">3</span>
+                <div style="background-color:{{ $challenge->color }}" class="stat-container--rebound stat-container js-btn-rebound" data-id='{{ $idea->IDIdea}}'>
+                  <i class="fa fa-share" ></i>
+                  <span class="stat-indic">{{ $idea->rebounds }}</span>
                 </div>
               </div>
             </div>
           </div>
           @endforeach
         </div>
+
 
       </div>
       <div role="tabpanel" class="tab-pane fade" id="results">
@@ -152,25 +131,24 @@
 
   </div>
 </div>
-
-@if (isset($userLogged) && $userLogged === true)
+@if (isset($userLogged) && $userLogged === true && $elementsCharacter->count() >=2 )
 <div class="modal fade" id="modalCreate" tabindex="-1" role="dialog">
   <div class="modal-dialog modal-lg modal-create">
-    <div class="modal-content">    
+    <div class="modal-content">
       <div class="ideas-create">
         <div class="left-col col-sm-6">
           <h3>1/2 - <strong>Etablir le scénario</strong></h3>
           <div class="tab-content tabs-scenario">
-            <div role="tabpanel" class="tab-pane fade in active tab-pane--active" id="tab-character">
-              <p class="storygraph">"Your character is...</p>
+            <div role="tabpanel" class="tab-pane fade in active tab-pane--active" id="tab-place">
+              <p class="storygraph">"Imagine if you are  <strong class="text-lowercase">{{ $challenge->context or 'Default' }}</strong> in a specific context</p>
               <div class="row">
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
                     <div class="panel-body">
-                      <strong>{{ $elements->character_1 }}</strong>
+                      <strong>{{ $elementsLocation[0]->label }}</strong>
                     </div>
                     <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      <i class="material-icons">star</i>
+                      {{ $elementsLocation[0]->difficulty }}<i class="material-icons">star</i>
                     </div>
                   </div>
                 </div>
@@ -181,54 +159,25 @@
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
                     <div class="panel-body">
-                      <strong>{{ $elements->character_2 }}</strong>
+                      <strong>{{ $elementsLocation[1]->label }}</strong>
                     </div>
                     <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div role="tabpanel" class="tab-pane fade" id="tab-place">
-              <p class="storygraph">"He is located in...</p>
-              <div class="row">
-                <div class="col-sm-5">
-                  <div class="panel panel-default panel-element">
-                    <div class="panel-body">
-                      <strong>{{ $elements->location_1 }}</strong>
-                    </div>
-                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-2 text-center">
-                  <br/>
-                  ou
-                </div>
-                <div class="col-sm-5">
-                  <div class="panel panel-default panel-element">
-                    <div class="panel-body">
-                      <strong>{{ $elements->location_2 }}</strong>
-                    </div>
-                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                      {{ $elementsLocation[1]->difficulty }}<i class="material-icons">star</i>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             <div role="tabpanel" class="tab-pane fade" id="tab-ressource">
-              <p class="storygraph">"He uses...</p>
+              <p class="storygraph">"With this resource at your disposal...</p>
               <div class="row">
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
                     <div class="panel-body">
-                      <strong>{{ $elements->power_1 }}</strong>
+                      <strong>{{ $elementsRessource[0]->label }}</strong>
                     </div>
                     <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                      {{ $elementsRessource[0]->difficulty }}<i class="material-icons">star</i>
                     </div>
                   </div>
                 </div>
@@ -239,25 +188,25 @@
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
                     <div class="panel-body">
-                      <strong>{{ $elements->power_2 }}</strong>
+                      <strong>{{ $elementsRessource[1]->label }}</strong>
                     </div>
                     <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                      {{ $elementsRessource[1]->difficulty }}<i class="material-icons">star</i>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             <div role="tabpanel" class="tab-pane fade" id="tab-quest">
-              <p class="storygraph">"He must...</p>
+              <p class="storygraph">"You would use to...</p>
               <div class="row">
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
                     <div class="panel-body">
-                      <strong>{{ $elements->goal_1 }}</strong>
+                      <strong>{{ $elementsQuest[0]->label }}</strong>
                     </div>
                     <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                      {{ $elementsQuest[0]->difficulty }}<i class="material-icons">star</i>
                     </div>
                   </div>
                 </div>
@@ -268,25 +217,25 @@
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
                     <div class="panel-body">
-                      <strong>{{ $elements->goal_2 }}</strong>
+                      <strong>{{ $elementsQuest[1]->label }}</strong>
                     </div>
                     <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                      {{ $elementsQuest[1]->difficulty }}<i class="material-icons">star</i>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div role="tabpanel" class="tab-pane fade" id="tab-danger">
-              <p class="storygraph">"But first he needs to defeat...</p>
+            <div role="tabpanel" class="tab-pane fade" id="tab-character">
+              <p class="storygraph">"For this group of users...</p>
               <div class="row">
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
                     <div class="panel-body">
-                      <strong>{{ $elements->warning_1 }}</strong>
+                      <strong>{{ $elementsCharacter[0]->label }}</strong>
                     </div>
                     <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                      {{ $elementsCharacter[0]->difficulty }}<i class="material-icons">star</i>
                     </div>
                   </div>
                 </div>
@@ -297,25 +246,25 @@
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
                     <div class="panel-body">
-                      <strong>{{ $elements->warning_2 }}</strong>
+                      <strong>{{ $elementsCharacter[1]->label }}</strong>
                     </div>
                     <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                      {{ $elementsCharacter[0]->difficulty }}<i class="material-icons">star</i>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             <div role="tabpanel" class="tab-pane fade" id="tab-treasure">
-              <p class="storygraph">"and he will earn...</p>
+              <p class="storygraph">"By this revenue option...</p>
               <div class="row">
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
                     <div class="panel-body">
-                      <strong>{{ $elements->prize_1 }}</strong>
+                      <strong>{{ $elementsPayment[0]->label }}</strong>
                     </div>
                     <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                      {{ $elementsPayment[0]->difficulty }}<i class="material-icons">star</i>
                     </div>
                   </div>
                 </div>
@@ -326,17 +275,47 @@
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
                     <div class="panel-body">
-                      <strong>{{ $elements->prize_1 }}</strong>
+                      <strong>{{ $elementsPayment[1]->label }}</strong>
                     </div>
                     <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                      {{ $elementsPayment[1]->difficulty }}<i class="material-icons">star</i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div role="tabpanel" class="tab-pane fade" id="tab-danger">
+              <p class="storygraph">"And what if...</p>
+              <div class="row">
+                <div class="col-sm-5">
+                  <div class="panel panel-default panel-element">
+                    <div class="panel-body">
+                      <strong>{{ $elementsDisruptive[0]->label }}</strong>
+                    </div>
+                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
+                      {{ $elementsDisruptive[0]->difficulty }}<i class="material-icons">star</i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-2 text-center">
+                  <br/>
+                  ou
+                </div>
+                <div class="col-sm-5">
+                  <div class="panel panel-default panel-element">
+                    <div class="panel-body">
+                      <strong>{{ $elementsDisruptive[1]->label }}</strong>
+                    </div>
+                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
+                      {{ $elementsDisruptive[1]->difficulty }}<i class="material-icons">star</i>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          
+
           <div class="row">
             <br/><br/>
             <div class="col-sm-4 col-sm-offset-2">
@@ -346,14 +325,14 @@
               <button class="btn btn-block btn-main js-btn-element-next">Suivant</button>
             </div>
           </div>
-          
+
         </div>
         <div class="right-col col-sm-6">
           <br/>
           <h4><strong>Scénario</strong></h4>
           <div class="element-recap col-sm-6">
             <div class="icon-element">
-              <i class="material-icons">face</i>
+              <img src="../img/picto/location.svg" alt="Location" />
             </div>
             <div class="panel panel-default panel-element panel-element--filling">
               <div class="panel-body">
@@ -365,7 +344,7 @@
           </div>
           <div class="element-recap col-sm-6">
             <div class="icon-element">
-              <i class="material-icons">place</i>
+              <img src="../img/picto/resource.svg" alt="Resource" />
             </div>
             <div class="panel panel-default panel-element">
               <div class="panel-body">
@@ -376,7 +355,7 @@
           </div>
           <div class="element-recap col-sm-6">
             <div class="icon-element">
-              <i class="material-icons">battery_charging_full</i>
+              <img src="../img/picto/advantage.svg" alt="Advantage" />
             </div>
             <div class="panel panel-default panel-element">
               <div class="panel-body">
@@ -387,7 +366,7 @@
           </div>
           <div class="element-recap col-sm-6">
             <div class="icon-element">
-              <i class="material-icons">flag</i>
+              <img src="../img/picto/user.svg" alt="Users" />
             </div>
             <div class="panel panel-default panel-element">
               <div class="panel-body">
@@ -398,7 +377,7 @@
           </div>
           <div class="element-recap col-sm-6">
             <div class="icon-element">
-              <i class="material-icons">warning</i>
+              <img src="../img/picto/revenue-stream.svg" alt="Revenue Stream" />
             </div>
             <div class="panel panel-default panel-element">
               <div class="panel-body">
@@ -409,7 +388,7 @@
           </div>
           <div class="element-recap col-sm-6">
             <div class="icon-element">
-              <i class="material-icons">stars</i>
+              <img src="../img/picto/game-changer.svg" alt="Game Changer" />
             </div>
             <div class="panel panel-default panel-element">
               <div class="panel-body">
@@ -435,178 +414,26 @@
       <div class="ideas-propose" style="display:none">
         <div class="left-col col-sm-6">
           <h3>2/2 - <strong>Proposer une idée</strong></h3>
-          <div class="tab-content tabs-scenario">
-            <div role="tabpanel" class="tab-pane fade in active tab-pane--active" id="tab-character">
-              <p class="storygraph">Nam bibendum vehicula ligula, vel dapibus orci viverra eget. Curabitur eu tortor eu ipsum tempus ornare a id neque. Nullam aliquet tortor purus, a commodo ex tincidunt sit amet. Donec volutpat est vel ligula sagittis dictum. Pellentesque porta in ex non pulvinar.
-              </p>
-            </div>
-            <div role="tabpanel" class="tab-pane fade" id="tab-place">
-              <p class="storygraph">"He is located in...</p>
-              <div class="row">
-                <div class="col-sm-5">
-                  <div class="panel panel-default panel-element">
-                    <div class="panel-body">
-                      <strong>Gotham</strong>
-                    </div>
-                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-2 text-center">
-                  <br/>
-                  ou
-                </div>
-                <div class="col-sm-5">
-                  <div class="panel panel-default panel-element">
-                    <div class="panel-body">
-                      <strong>New York City</strong>
-                    </div>
-                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div role="tabpanel" class="tab-pane fade" id="tab-ressource">
-              <p class="storygraph">"He uses...</p>
-              <div class="row">
-                <div class="col-sm-5">
-                  <div class="panel panel-default panel-element">
-                    <div class="panel-body">
-                      <strong>The power of friendship</strong>
-                    </div>
-                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-2 text-center">
-                  <br/>
-                  ou
-                </div>
-                <div class="col-sm-5">
-                  <div class="panel panel-default panel-element">
-                    <div class="panel-body">
-                      <strong>Drug money $$</strong>
-                    </div>
-                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div role="tabpanel" class="tab-pane fade" id="tab-quest">
-              <p class="storygraph">"He must...</p>
-              <div class="row">
-                <div class="col-sm-5">
-                  <div class="panel panel-default panel-element">
-                    <div class="panel-body">
-                      <strong>Create a rainbow dispenser</strong>
-                    </div>
-                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-2 text-center">
-                  <br/>
-                  ou
-                </div>
-                <div class="col-sm-5">
-                  <div class="panel panel-default panel-element">
-                    <div class="panel-body">
-                      <strong>Save a princess</strong>
-                    </div>
-                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div role="tabpanel" class="tab-pane fade" id="tab-danger">
-              <p class="storygraph">"But first he needs to defeat...</p>
-              <div class="row">
-                <div class="col-sm-5">
-                  <div class="panel panel-default panel-element">
-                    <div class="panel-body">
-                      <strong>A dragon</strong>
-                    </div>
-                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-2 text-center">
-                  <br/>
-                  ou
-                </div>
-                <div class="col-sm-5">
-                  <div class="panel panel-default panel-element">
-                    <div class="panel-body">
-                      <strong>Guy Roux</strong>
-                    </div>
-                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div role="tabpanel" class="tab-pane fade" id="tab-treasure">
-              <p class="storygraph">"and he will earn...</p>
-              <div class="row">
-                <div class="col-sm-5">
-                  <div class="panel panel-default panel-element">
-                    <div class="panel-body">
-                      <strong>One million dollar</strong>
-                    </div>
-                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-2 text-center">
-                  <br/>
-                  ou
-                </div>
-                <div class="col-sm-5">
-                  <div class="panel panel-default panel-element">
-                    <div class="panel-body">
-                      <strong>Eternal life</strong>
-                    </div>
-                    <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
           <div>
             <br/><br/>
             <h4><strong>Scenario</strong></h4>
             <p class="storygraph text-left">
-              Nam bibendum vehicula ligula, vel dapibus orci viverra eget. Curabitur eu tortor eu ipsum tempus ornare a id neque. Nullam aliquet tortor purus, a commodo ex tincidunt sit amet. Donec volutpat est vel ligula sagittis dictum. Pellentesque porta in ex non pulvinar. 
+              Et si vous étiez un <strong>{{ $challenge->context }}</strong> dans <span class="story story-location"></span> avec à votre disposition <span class="story story-resource"></span> que vous utiliseriez pour <span class="story story-advantage"></span> <span class="story story-user"></span> qui <span class="story story-revenue"></span> et si en plus cela se faisait sans <span class="story story-game-changer"></span> !
             </p>
             <button class="btn btn-main btn-main--other js-modify-elements">Modifier</button>
           </div>
-          
+
         </div>
         <div class="right-col col-sm-6">
-          <form action="/challenge/{{ $challenge->id }}" method="POST">
+            <form action="{{ route('challenge_detail_process', $challenge->id)}}" method="POST">
             {{ csrf_field() }}
             <br/>
             <h4><strong>Idea</strong></h4>
-            <textarea name="content" pattern=".{50,250}" required title="50 to 250 chars" class="form-control" rows="10">Test</textarea>
-            
+            <textarea name="content" pattern=".{50,250}" placeholder="Quel produit ou service pourriez-vous imaginer pour relever ce défi ?" required title="50 to 250 chars" class="form-control" rows="10"></textarea>
+
             <h4><strong>Idea title</strong></h4>
-            <input type="text" name="title" class="form-control" />
-            
+            <input type="text" name="title" placeholder="Nom de votre service ou produit" class="form-control" />
+
             <div class="hidden elements-form">
               <input type="hidden" name="character" />
               <input type="hidden" name="place" />
@@ -614,9 +441,11 @@
               <input type="hidden" name="quest" />
               <input type="hidden" name="warning" />
               <input type="hidden" name="treasure" />
+              <input type="hidden" name="rebound" value='false' />
+
             </div>
-            
-            <button type="submit" class="btn btn-main">Proposer une idée</button>
+
+            <button type="submit" class="btn btn-main">Publier mon idée !</button>
 
           </form>
         </div>
@@ -647,7 +476,11 @@
           <div class="col-md-6 col-md-offset-3">
             <div class="alert alert-info text-center" role="alert">
               <h2><i class="material-icons">account_circle</i></h2>
-              You must be logged in to create an idea
+              You must be logged in to create an idea<br/>
+
+              <a type="button" class="btn btn-link" data-toggle="modal" data-target=".modal-login">Log In</a>
+              Or
+              <a type="button" class="btn btn-link" data-toggle="modal" data-target=".modal-register">Register</a>
             </div>
           </div>
         </div>

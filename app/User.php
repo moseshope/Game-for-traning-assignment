@@ -23,4 +23,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    public function vote()
+    {
+        return $this->belongsTo(Votes::class, 'id', 'IDUser');
+    }
 }

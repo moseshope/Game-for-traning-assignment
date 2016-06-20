@@ -15,7 +15,6 @@ class IdeasController extends Controller
 {
 
     protected $ideas;
-
     //RESTE A FAIRE: recuperer le challenge vu par l'user dans $challenge, pour recuperer ses idees
     //$challenge = Challenges::find($id);
 
@@ -60,7 +59,7 @@ class IdeasController extends Controller
           'title' => 'required|max:255',
           'content' => 'required|max:2500',
       ]);
-
+      $first = Ideas::where('IDIdea', $request->rebound)->first();
       $idea = new Ideas;
       $idea->title = $request->title;
       $idea->content = $request->content;
@@ -68,19 +67,29 @@ class IdeasController extends Controller
       $idea->IDUser = $user->id;
       $idea->save();
 
+      if($request->rebound == 'false')
+      {
+        $ideaelements = new IdeasElements;
+        $ideaelements->IDIdea = $idea->IDIdea;
+        $ideaelements->character = $request->character;
+        $ideaelements->place = $request->place;
+        $ideaelements->ressource = $request->ressource;
+        $ideaelements->quest = $request->quest;
+        $ideaelements->warning = $request->warning;
+        $ideaelements->treasure = $request->treasure;
+        $ideaelements->save();
+        $idea->IDElements = $ideaelements->id;
 
-      $ideaelements = new IdeasElements;
-      $ideaelements->IDIdea = $idea->id;
-      $ideaelements->character = $request->character;
-      $ideaelements->place = $request->place;
-      $ideaelements->ressource = $request->ressource;
-      $ideaelements->quest = $request->quest;
-      $ideaelements->warning = $request->warning;
-      $ideaelements->treasure = $request->treasure;
-      $ideaelements->save();
+      }else{
+        $first->rebounds = $first->rebounds + 1;
+        $idea->IDElements = $first->IDElements;
+      }
+      $first->save();
+      $idea->save();
 
 
-      return redirect('/challenge/' . $challengeName);
+
+      return redirect(route('challenge_detail', $challengeName));
     }
 
     // public function upvote(Ideas $idea){
@@ -88,8 +97,13 @@ class IdeasController extends Controller
     //   return redirect('/task/'.$task->id);
     // }
 
-    public function rebound (Request $request, $idea){
+    public function rebound (Request $request){
       if(Auth::Check()){
+
+        $idea = Ideas::where('IDIdea', $request->get('id'))->first();
+        if(!$idea){
+          return 'false';
+        }
 
       //nouvelle idée et éléments
       $newIdea = new Ideas;
@@ -101,15 +115,13 @@ class IdeasController extends Controller
       $newIdea->title = $request->title;
       $newIdea->content = $request->content;
       $newIdea->IDChallenge = $idea->IDChallenge;
-      $newIdea->IDUser = $user->id;
+      $newIdea->IDUser = Auth::user()->id;
       $newIdea->save();
 
-      $ideaElements = new IdeasElements;
-      $ideaElements = IdeasElements::where('IDIdea', $idea->id);
+      $ideaElements = IdeasElements::where('IDIdea', $idea->IDIdea)->first()->replicate();
       $ideaElements->save();
+      return IdeasElements::where('IDIdea', $idea->IDIdea)->count() - 1;
 
-      //$newIdea = storeIdea($); solution en utilisant la méthode ?
-      return true;
       }
       else return false;
     }

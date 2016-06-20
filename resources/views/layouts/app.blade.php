@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +15,7 @@
     <!-- Styles -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <!-- <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css"> -->
-    {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
+   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <style>
         body {
@@ -26,7 +27,6 @@
         }
     </style>
 </head>
-
 <body id="app-layout">
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
@@ -80,6 +80,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
