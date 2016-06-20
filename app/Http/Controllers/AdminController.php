@@ -227,6 +227,12 @@ class AdminController extends Controller
         return redirect('/');
       }
     }
+    
+    public function deleteElement($elementID, Request $request){
+      DB::table('elements')->where('id', $elementID)->delete();
+      return redirect()->back();
+      // return redirect()->back()->with('status', 'Profile updated!');
+    }
 
     
 }

@@ -8,11 +8,12 @@ nav.navbar {
   padding: 0px 20px;
 }
 nav.navbar .navbar-brand {
-  color: #fff;
-  color: #666;
+  top: 7px;
+  position: relative;
+  padding: 0 15px;
 }
 nav.navbar .navbar-nav {
-  padding: 5px 0;
+  padding: 0;
 }
 nav.navbar .navbar-nav > li > a {
   color: #37474F;
@@ -21,6 +22,7 @@ nav.navbar .navbar-nav > li > a {
 }
 nav.navbar .navbar-nav > li > a:hover {
   color: #222c31;
+  background-color: #f5f5f5;
 }
 nav.navbar .material-icons {
   vertical-align: bottom;
@@ -44,7 +46,7 @@ nav.navbar .dropdown.open > a {
 }
 .idea-tag {
   padding: 1px 4px;
-  background-color: #37474F;
+  background-color: #aaa;
   white-space: nowrap;
   border-radius: 2px;
   color: #fff;
@@ -170,6 +172,9 @@ nav.navbar .dropdown.open > a {
 }
 .challenge-cover h2 {
   padding-top: 35px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 36px;
 }
 .challenge-cover .time-left {
   max-width: 250px;
@@ -304,10 +309,10 @@ nav.navbar .dropdown.open > a {
   border: 0;
 }
 .panel-idea h3 {
-  margin-top: 0px;
-}
-.panel-idea h3 a {
   color: #37474F;
+  font-weight: bold;
+  text-transform: capitalize;
+  margin-top: 0px;
 }
 .panel-idea .user-idea i {
   vertical-align: bottom;
@@ -633,8 +638,14 @@ span.story {
   width: 40px;
   height: 40px;
 }
+.btn-remove {
+  padding: 0 10px;
+  margin: 0;
+  padding-left: 0;
+  color: #F44336;
+}
 body {
-  padding-top: 60px;
+  padding-top: 50px;
   background-color: #f4f4f4;
 }
 .nostyle {

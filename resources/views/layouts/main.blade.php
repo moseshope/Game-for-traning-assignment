@@ -36,7 +36,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="{{ url('/') }}">Story Juice</a>
+          <a class="navbar-brand" href="{{ url('/') }}"><img height="35" src="{{ asset('/img/logo-sj.svg')}}" /></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -243,6 +243,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="http://cdn.date-fns.org/v1.3.0/date_fns.min.js"></script>
     <script src="{{ asset('js/all.js') }}"></script>
     <script>
       $('.js-btn-votes').on('click', function(){

@@ -9,8 +9,8 @@
 
     <div class="time-left">
       <span class="time-left-indic">15 days left</span>
-      <div style="background-color:{{ $challenge->color }}" class="progress">
-        <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
+      <div class="progress timeline" style="background-color:#fff" data-end-date="{{ $challenge->end_date }}" data-start-date="{{ $challenge->start_date }}">
+        <div style="background-color:{{ $challenge->color }}; width:0%" class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
           <span class="sr-only">60% Complete</span>
         </div>
       </div>
@@ -51,39 +51,31 @@
 <div class="row">
 
   <div class="container-fluid">
-    <ul role="tablist" class="challenge-tab">
-      <li role="presentation"><a href="#brief" aria-controls="brief" role="tab" data-toggle="tab">Brief</a></li>
-      <li role="presentation" class="active"><a href="#ideas" aria-controls="ideas" role="tab" data-toggle="tab">Ideas</a></li>
-      <!-- <li role="presentation" class="disabled"><a href="#results" aria-controls="results" role="tab" data-toggle="tab">Results</a></li> -->
-    </ul>
 
     <!-- Tab panes -->
     <div class="tab-content">
-      <div role="tabpanel" class="tab-pane fade " id="brief">
-        <div class="row">
-          <div class="col-md-offset-2 col-md-8">
-            <h4>Status : <strong>{{ $challenge->status }}</strong></h4>
-            <p>
-              {{ $challenge->content }}
-            </p>
-          </div>
-        </div>
-      </div>
       <div role="tabpanel" class="tab-pane fadein active" id="ideas">
-        <div class="row">
+        <!-- <div class="row">
           <div class="col-sm-4 col-sm-offset-8">
             <form class="form-inline">
               <div class="form-group pull-right form-filter">
                 <label>Filter by</label>
                 <select class="form-control">
                   <option>Last ideas</option>
-                  <!-- <option>Most likes</option>
-                  <option>Most rebounds</option> -->
+                  <option>Most likes</option>
+                  <option>Most rebounds</option>
                 </select>
               </div>
             </form>
             <br/>
           </div>
+        </div> -->
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <p class="text-center text-accroche">
+              {{ $challenge->content }}
+            </p>
+          </div>          
         </div>
 
         <div class="row">
@@ -92,18 +84,18 @@
           <div class="col-lg-4 col-md-6 col-sm-6">
             <div class="panel panel-idea">
               <div class="panel-body">
-                <h3><a href="{{ $challenge->name}}/{{$idea->IDIdea}}">{{ $idea->title }}</a></h3>
+                <h3>{{ $idea->title }}</h3>
                   <!-- <h3><a href="{{$idea->IDIdea}}">{{ $idea->title }}</a></h3> -->
                 <p>
                   {{ $idea->content }}
                 </p>
                 <p>
-                  <span style="background-color:{{ $challenge->color }}" class="idea-tag tag-character-{{ $idea->IDIdea}}">{{ $idea->element->character}}</span>
-                  <span style="background-color:{{ $challenge->color }}" class="idea-tag tag-place-{{ $idea->IDIdea}}">{{ $idea->element->place}}</span>
-                  <span style="background-color:{{ $challenge->color }}" class="idea-tag tag-ressource-{{ $idea->IDIdea}}">{{ $idea->element->ressource}}</span>
-                  <span style="background-color:{{ $challenge->color }}" class="idea-tag tag-quest-{{ $idea->IDIdea}}">{{ $idea->element->quest}}</span>
-                  <span style="background-color:{{ $challenge->color }}" class="idea-tag tag-warning-{{ $idea->IDIdea}}">{{ $idea->element->warning}}</span>
-                  <span style="background-color:{{ $challenge->color }}" class="idea-tag tag-treasure-{{ $idea->IDIdea}}">{{ $idea->element->treasure}}</span>
+                  <span class="idea-tag tag-character-{{ $idea->IDIdea}}">{{ $idea->element->character}}</span>
+                  <span class="idea-tag tag-place-{{ $idea->IDIdea}}">{{ $idea->element->place}}</span>
+                  <span class="idea-tag tag-ressource-{{ $idea->IDIdea}}">{{ $idea->element->ressource}}</span>
+                  <span class="idea-tag tag-quest-{{ $idea->IDIdea}}">{{ $idea->element->quest}}</span>
+                  <span class="idea-tag tag-warning-{{ $idea->IDIdea}}">{{ $idea->element->warning}}</span>
+                  <span class="idea-tag tag-treasure-{{ $idea->IDIdea}}">{{ $idea->element->treasure}}</span>
                 </p>
                 <span class="user-idea"><i class="material-icons">account_circle</i>{{ $idea->name }}</span>
               </div>
@@ -154,7 +146,7 @@
                       <strong>{{ $elementsLocation[0]->label }}</strong>
                     </div>
                     <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      {{ $elementsLocation[0]->difficulty }}<i class="material-icons">star</i>
+                      {{ $elementsLocation[0]->difficulty }}<i class="fa fa-bolt"></i>
                     </div>
                   </div>
                 </div>
@@ -168,7 +160,7 @@
                       <strong>{{ $elementsLocation[1]->label }}</strong>
                     </div>
                     <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      {{ $elementsLocation[1]->difficulty }}<i class="material-icons">star</i>
+                      {{ $elementsLocation[1]->difficulty }}<i class="fa fa-bolt"></i>
                     </div>
                   </div>
                 </div>
@@ -183,7 +175,7 @@
                       <strong>{{ $elementsRessource[0]->label }}</strong>
                     </div>
                     <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      {{ $elementsRessource[0]->difficulty }}<i class="material-icons">star</i>
+                      {{ $elementsRessource[0]->difficulty }}<i class="fa fa-bolt"></i>
                     </div>
                   </div>
                 </div>
@@ -197,7 +189,7 @@
                       <strong>{{ $elementsRessource[1]->label }}</strong>
                     </div>
                     <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      {{ $elementsRessource[1]->difficulty }}<i class="material-icons">star</i>
+                      {{ $elementsRessource[1]->difficulty }}<i class="fa fa-bolt"></i>
                     </div>
                   </div>
                 </div>
@@ -212,7 +204,7 @@
                       <strong>{{ $elementsQuest[0]->label }}</strong>
                     </div>
                     <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      {{ $elementsQuest[0]->difficulty }}<i class="material-icons">star</i>
+                      {{ $elementsQuest[0]->difficulty }}<i class="fa fa-bolt"></i>
                     </div>
                   </div>
                 </div>
@@ -226,7 +218,7 @@
                       <strong>{{ $elementsQuest[1]->label }}</strong>
                     </div>
                     <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      {{ $elementsQuest[1]->difficulty }}<i class="material-icons">star</i>
+                      {{ $elementsQuest[1]->difficulty }}<i class="fa fa-bolt"></i>
                     </div>
                   </div>
                 </div>
@@ -241,7 +233,7 @@
                       <strong>{{ $elementsCharacter[0]->label }}</strong>
                     </div>
                     <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      {{ $elementsCharacter[0]->difficulty }}<i class="material-icons">star</i>
+                      {{ $elementsCharacter[0]->difficulty }}<i class="fa fa-bolt"></i>
                     </div>
                   </div>
                 </div>
@@ -255,7 +247,7 @@
                       <strong>{{ $elementsCharacter[1]->label }}</strong>
                     </div>
                     <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      {{ $elementsCharacter[0]->difficulty }}<i class="material-icons">star</i>
+                      {{ $elementsCharacter[0]->difficulty }}<i class="fa fa-bolt"></i>
                     </div>
                   </div>
                 </div>
@@ -270,7 +262,7 @@
                       <strong>{{ $elementsPayment[0]->label }}</strong>
                     </div>
                     <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      {{ $elementsPayment[0]->difficulty }}<i class="material-icons">star</i>
+                      {{ $elementsPayment[0]->difficulty }}<i class="fa fa-bolt"></i>
                     </div>
                   </div>
                 </div>
@@ -284,7 +276,7 @@
                       <strong>{{ $elementsPayment[1]->label }}</strong>
                     </div>
                     <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      {{ $elementsPayment[1]->difficulty }}<i class="material-icons">star</i>
+                      {{ $elementsPayment[1]->difficulty }}<i class="fa fa-bolt"></i>
                     </div>
                   </div>
                 </div>
@@ -300,7 +292,7 @@
                       <strong>{{ $elementsDisruptive[0]->label }}</strong>
                     </div>
                     <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      {{ $elementsDisruptive[0]->difficulty }}<i class="material-icons">star</i>
+                      {{ $elementsDisruptive[0]->difficulty }}<i class="fa fa-bolt"></i>
                     </div>
                   </div>
                 </div>
@@ -314,7 +306,7 @@
                       <strong>{{ $elementsDisruptive[1]->label }}</strong>
                     </div>
                     <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
-                      {{ $elementsDisruptive[1]->difficulty }}<i class="material-icons">star</i>
+                      {{ $elementsDisruptive[1]->difficulty }}<i class="fa fa-bolt"></i>
                     </div>
                   </div>
                 </div>
@@ -325,10 +317,10 @@
           <div class="row">
             <br/><br/>
             <div class="col-sm-4 col-sm-offset-2">
-              <button class="btn btn-block btn-main btn-main--other js-btn-element-previous">Précédent</button>
+              <button disabled="disabled" style="background-color:{{ $challenge->color }};-webkit-filter: grayscale(70%);filter: grayscale(70%);-moz-filter: grayscale(70%);-ms-filter: grayscale(70%);" class="btn btn-block btn-main btn-main--other js-btn-element-previous">Précédent</button>
             </div>
             <div class="col-sm-4">
-              <button class="btn btn-block btn-main js-btn-element-next">Suivant</button>
+              <button style="background-color:{{ $challenge->color }}" class="btn btn-block btn-main js-btn-element-next">Suivant</button>
             </div>
           </div>
 
@@ -342,7 +334,7 @@
             </div>
             <div class="panel panel-default panel-element panel-element--filling">
               <div class="panel-body">
-                <div class="text-center placeholder-plus"><i class="fa fa-plus"></i></div>
+                <div style="color:{{ $challenge->color }}" class="text-center placeholder-plus"><i class="fa fa-plus"></i></div>
               </div>
               <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
               </div>
@@ -406,13 +398,13 @@
           <br/>
           <div class="row text-center pepper-gauge">
             <div class="col-xs-4 gauge-step">
-              <i class="material-icons">star</i> <span>Innovante</span>
+              <i class="fa fa-bolt"></i> <span>Innovante</span>
             </div>
             <div class="col-xs-4 gauge-step">
-              <i class="material-icons">star</i><i class="material-icons">star</i><span>Originale</span>
+              <i class="fa fa-bolt"></i><i class="fa fa-bolt"></i><span>Originale</span>
             </div>
             <div class="col-xs-4 gauge-step">
-              <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><span>Disruptive</span>
+              <i class="fa fa-bolt"></i><i class="fa fa-bolt"></i><i class="fa fa-bolt"></i><span>Disruptive</span>
             </div>
           </div>
         </div>
@@ -424,9 +416,9 @@
             <br/><br/>
             <h4><strong>Scenario</strong></h4>
             <p class="storygraph text-left">
-              Et si vous étiez un <strong>{{ $challenge->context }}</strong> dans <span class="story story-location"></span> avec à votre disposition <span class="story story-resource"></span> que vous utiliseriez pour <span class="story story-advantage"></span> <span class="story story-user"></span> qui <span class="story story-revenue"></span> et si en plus cela se faisait sans <span class="story story-game-changer"></span> !
+              Imagine if you are <strong class="text-lowercase">{{ $challenge->context }}</strong> in a specific context <span class="story story-location"></span> with this resource at your disposal <span class="story story-resource"></span>. You would use  <span class="story story-advantage"></span> for this group of users <span class="story story-user"></span> by this revenue option <span class="story story-revenue"></span>. And what if <span class="story story-game-changer"></span> !
             </p>
-            <button class="btn btn-main btn-main--other js-modify-elements">Modifier</button>
+            <button style="background-color:{{ $challenge->color }};-webkit-filter: grayscale(70%);filter: grayscale(70%);-moz-filter: grayscale(70%);-ms-filter: grayscale(70%);" class="btn btn-main btn-main--other js-modify-elements">Modifier</button>
           </div>
 
         </div>
@@ -451,14 +443,14 @@
 
             </div>
 
-            <button type="submit" class="btn btn-main">Publier mon idée !</button>
+            <button style="background-color:{{ $challenge->color }}" type="submit" class="btn btn-main">Publier mon idée !</button>
 
           </form>
         </div>
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-main btn-main--disabled js-btn-switch-write" disabled="disabled">Proposer une idée</button>
+        <button type="button" style="background-color:{{ $challenge->color }}" class="btn btn-main btn-main--disabled js-btn-switch-write" disabled="disabled">Proposer une idée</button>
       </div>
     </div>
   </div>

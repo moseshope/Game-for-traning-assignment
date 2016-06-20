@@ -13,12 +13,15 @@ currentTab = 0;
 allowNext = false;
 
 $('.js-btn-element-next').on('click', function(){
-
+  $('.js-btn-element-previous').removeAttr('disabled');
   currentTab++;
+  
+  if (currentTab == 5){
+      $('.js-btn-element-next').attr('disabled', 'disabled');
+  }
 
   if (currentTab+1 > $('.ideas-create .tab-pane').length){
     currentTab--;
-    console.log('STOP');
   }
   else{
     $('.tab-pane--active').next().addClass('in active tab-pane--active');
@@ -28,11 +31,15 @@ $('.js-btn-element-next').on('click', function(){
 });
 
 $('.js-btn-element-previous').on('click', function(){
+  $('.js-btn-element-next').removeAttr('disabled');
   currentTab--;
+  
+  if (currentTab == '0'){
+    $('.js-btn-element-previous').attr('disabled', 'disabled');
+  }
 
   if (currentTab < 0){
     currentTab++;
-    console.log('STOP');
   }
   else{
     $('.tab-pane--active').prev().addClass('in active tab-pane--active');

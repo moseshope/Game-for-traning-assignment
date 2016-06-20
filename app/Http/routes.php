@@ -29,6 +29,8 @@ Route::group(['middleware' => ['web']], function () {
   Route::post('/admin/{challengeID}/color', 'AdminController@editColor');
   Route::post('/admin/{challengeID}/context', 'AdminController@editContext');
   Route::post('/admin/{challengeID}/elements', 'AdminController@storeElements');
+  Route::post('/admin/{elementID}/delete', 'AdminController@deleteElement');
+
   
   /*CHALLENGES*/
   Route::get('/challenges', 'ChallengesController@index');
