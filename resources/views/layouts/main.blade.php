@@ -13,6 +13,7 @@
     <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <!-- Styles -->
+    <link rel="icon" type="image/jpg" href="{{url( 'favicon.jpg')}}" />
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="http://s.mlcdn.co/animate.css">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
@@ -249,7 +250,14 @@
       $('.js-btn-votes').on('click', function(){
         $.post('{{ route("challenge_vote")}}', {id: $(this).attr("data-id"), _token: '{{ csrf_token()}}'}, function(data){
           $( ".js-btn-votes[data-id='"+$(this).attr("data-id")+"'] .stat-indic" ).html(data);
+          var heart = $(this).find('.fa');
+          if(heart.hasClass('fa-heart-o')){
+            heart.removeClass('fa-heart-o').addClass('fa-heart');
+          }else{
+            heart.removeClass('fa-heart').addClass('fa-heart-o');
+          }
         }.bind(this))
+        //add class
       });
 
       $('.js-btn-rebound').on('click', function(){

@@ -102,7 +102,11 @@
               </div>
               <div class="panel-idea-stats">
                 <div style="background-color:{{ $challenge->color }}" class="stat-container--like stat-container js-btn-votes" data-id='{{ $idea->IDIdea}}'>
+                  @if( Auth::check() && $idea->votes()->where('IDUser', Auth::id())->first())
                   <i class="fa fa-heart"></i>
+                  @else
+                  <i class="fa fa-heart-o"></i>
+                  @endif
                   <span class="stat-indic">{{ $idea->votes->count() }}</span>
 
                 </div>
