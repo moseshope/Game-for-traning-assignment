@@ -66,7 +66,7 @@
             </div>
           </form>
 
-          <form action="/admin/{{ $challenge->id }}/elements" method="POST">
+          <form action="{{ url('/admin/'.$challenge->id.'/elements') }}" method="POST">
             <div class="col-md-6">
               <h3>Add an element</h3>
               <div class="panel panel-default">
