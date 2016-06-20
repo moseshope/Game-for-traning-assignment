@@ -4,6 +4,7 @@
 
 <div class="row">
   <div class="challenge-cover" style="background-image:url({{$challenge->img_cover}})">
+    <div class="challenge-cover-filter"></div>
     <h2>{{ $challenge->name }}</h2>
     <h4>{{ $challenge->description }}</h4>
 
@@ -25,15 +26,15 @@
         <div class="row">
           <div class="col-xs-4 text-center indic">
             <img src="../img/picto/ideas.svg" class="icon-indic" width="45" alt="Ideas">
-            <span class="indic-title"><strong style="color:{{ $challenge->color }}">{{ count($ideas) }}</strong> Ideas</span>
+            <span class="indic-title"><strong class="counter" style="color:{{ $challenge->color }}">{{ count($ideas) }}</strong> Ideas</span>
           </div>
           <div class="col-xs-4 text-center indic">
-            <img src="../img/picto/people.svg" class="icon-indic" width="45" alt="Ideas">
-            <span class="indic-title"><strong style="color:{{ $challenge->color }}">{{ $ideaNBUser }}</strong> Participants</span>
+            <img src="../img/picto/users.svg" class="icon-indic" width="55" alt="Ideas">
+            <span class="indic-title"><strong class="counter" style="color:{{ $challenge->color }}">{{ $ideaNBUser }}</strong> Creatives</span>
           </div>
           <div class="col-xs-4 text-center indic">
-            <img src="../img/picto/points.svg" class="icon-indic" width="30" alt="Ideas">
-            <span class="indic-title"><strong style="color:{{ $challenge->color }}">65</strong> img points</span>
+            <img src="../img/picto/picto-jus2.svg" class="icon-indic js-animate-points" width="55" alt="Ideas">
+            <span class="indic-title"><strong class="counter" id="img-points" style="color:{{ $challenge->color }}">0</strong> OZ</span>
           </div>
         </div>
 
@@ -106,7 +107,7 @@
 
                 </div>
                 <div style="background-color:{{ $challenge->color }}" class="stat-container--rebound stat-container js-btn-rebound" data-id='{{ $idea->IDIdea}}'>
-                  <i class="fa fa-share" ></i>
+                  <img class="rebound-picto svg" src="{{ asset('img/picto/rebond.svg') }}" />
                   <span class="stat-indic">{{ $idea->rebounds }}</span>
                 </div>
               </div>
@@ -131,7 +132,7 @@
     <div class="modal-content">
       <div class="ideas-create">
         <div class="left-col col-sm-6">
-          <h3>1/2 - <strong>Etablir le scénario</strong></h3>
+          <h3>1/2 - <strong>Compose the scenario</strong></h3>
           <div class="tab-content tabs-scenario">
             <div role="tabpanel" class="tab-pane fade in active tab-pane--active" id="tab-place">
               <p class="storygraph">"Imagine if you are  <strong class="text-lowercase">{{ $challenge->context or 'Default' }}</strong> in a specific context</p>
@@ -148,7 +149,7 @@
                 </div>
                 <div class="col-sm-2 text-center">
                   <br/>
-                  ou
+                  or
                 </div>
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
@@ -313,17 +314,17 @@
           <div class="row">
             <br/><br/>
             <div class="col-sm-4 col-sm-offset-2">
-              <button disabled="disabled" style="background-color:{{ $challenge->color }};-webkit-filter: grayscale(70%);filter: grayscale(70%);-moz-filter: grayscale(70%);-ms-filter: grayscale(70%);" class="btn btn-block btn-main btn-main--other js-btn-element-previous">Précédent</button>
+              <button disabled="disabled" style="background-color:{{ $challenge->color }};-webkit-filter: grayscale(70%);filter: grayscale(70%);-moz-filter: grayscale(70%);-ms-filter: grayscale(70%);" class="btn btn-block btn-main btn-main--other js-btn-element-previous">Previous</button>
             </div>
             <div class="col-sm-4">
-              <button style="background-color:{{ $challenge->color }}" class="btn btn-block btn-main js-btn-element-next">Suivant</button>
+              <button style="background-color:{{ $challenge->color }}" class="btn btn-block btn-main js-btn-element-next">Next</button>
             </div>
           </div>
 
         </div>
         <div class="right-col col-sm-6">
           <br/>
-          <h4><strong>Scénario</strong></h4>
+          <h4><strong>Scenario</strong></h4>
           <div class="element-recap col-sm-6">
             <div class="icon-element">
               <img src="../img/picto/location.svg" alt="Location" />
@@ -394,27 +395,33 @@
           <br/>
           <div class="row text-center pepper-gauge">
             <div class="col-xs-4 gauge-step">
-              <i class="fa fa-bolt"></i> <span>Innovante</span>
+              <i class="fa fa-bolt"></i> <span>Innovative</span>
             </div>
             <div class="col-xs-4 gauge-step">
-              <i class="fa fa-bolt"></i><i class="fa fa-bolt"></i><span>Originale</span>
+              <i class="fa fa-bolt"></i><i class="fa fa-bolt"></i><span>Original</span>
             </div>
             <div class="col-xs-4 gauge-step">
               <i class="fa fa-bolt"></i><i class="fa fa-bolt"></i><i class="fa fa-bolt"></i><span>Disruptive</span>
             </div>
           </div>
+          <div class="text-center">
+            <br/>
+            <button type="button" style="background-color:{{ $challenge->color }}" class="btn btn-main btn-main--disabled js-btn-switch-write" disabled="disabled">Let's go !</button>
+
+          </div>
+
         </div>
       </div>
       <div class="ideas-propose" style="display:none">
         <div class="left-col col-sm-6">
-          <h3>2/2 - <strong>Proposer une idée</strong></h3>
+          <h3>2/2 - <strong>Create an idea</strong></h3>
           <div>
             <br/><br/>
             <h4><strong>Scenario</strong></h4>
             <p class="storygraph text-left">
               Imagine if you are <strong class="text-lowercase">{{ $challenge->context }}</strong> in a specific context <span class="story story-location"></span> with this resource at your disposal <span class="story story-resource"></span>. You would use  <span class="story story-advantage"></span> for this group of users <span class="story story-user"></span> by this revenue option <span class="story story-revenue"></span>. And what if <span class="story story-game-changer"></span> !
             </p>
-            <button style="background-color:{{ $challenge->color }};-webkit-filter: grayscale(70%);filter: grayscale(70%);-moz-filter: grayscale(70%);-ms-filter: grayscale(70%);" class="btn btn-main btn-main--other js-modify-elements">Modifier</button>
+            <button style="background-color:{{ $challenge->color }};-webkit-filter: grayscale(70%);filter: grayscale(70%);-moz-filter: grayscale(70%);-ms-filter: grayscale(70%);" class="btn btn-main btn-main--other js-modify-elements"><i class="fa fa-chevron-left"></i> &nbsp;Edit elements</button>
           </div>
 
         </div>
@@ -423,10 +430,10 @@
             {{ csrf_field() }}
             <br/>
             <h4><strong>Idea</strong></h4>
-            <textarea name="content" pattern=".{50,250}" placeholder="Quel produit ou service pourriez-vous imaginer pour relever ce défi ?" required title="50 to 250 chars" class="form-control" rows="10"></textarea>
+            <textarea name="content" pattern=".{50,250}" placeholder="Now you have your scenario, so : which product or service would you imaginate to meet this challenge ?" required title="50 to 250 chars" class="form-control" rows="10"></textarea>
 
             <h4><strong>Idea title</strong></h4>
-            <input type="text" name="title" placeholder="Nom de votre service ou produit" class="form-control" />
+            <input type="text" name="title" placeholder="The name of your product or service" class="form-control" />
 
             <div class="hidden elements-form">
               <input type="hidden" name="character" />
@@ -438,15 +445,15 @@
               <input type="hidden" name="rebound" value='false' />
 
             </div>
-
-            <button style="background-color:{{ $challenge->color }}" type="submit" class="btn btn-main">Publier mon idée !</button>
+            <div class="text-center">
+              <button style="background-color:{{ $challenge->color }}" type="submit" class="btn btn-main">Share my idea to the world !</button>
+            </div>
 
           </form>
         </div>
       </div>
 
       <div class="modal-footer">
-        <button type="button" style="background-color:{{ $challenge->color }}" class="btn btn-main btn-main--disabled js-btn-switch-write" disabled="disabled">Proposer une idée</button>
       </div>
     </div>
   </div>

@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <!-- Styles -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://s.mlcdn.co/animate.css">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
@@ -48,7 +49,7 @@
               </li>
             @else
               <li><a href="{{ url('/challenges') }}"><strong>Challenges</strong></a></li>
-              <li><a href="#">About</a></li>
+              <li><a target="_blank" href="http://www.cubification.com/">About</a></li>
               <!-- <li><a href="#">
                 <div class="notif-counter">
                   2

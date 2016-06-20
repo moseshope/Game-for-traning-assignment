@@ -8,7 +8,7 @@
     <div class="home-cover--text">
       <h1>Story Juice</h1>
       <p>
-        Combinez, racontez, innovez
+        Let's generate the future
       </p>
     </div>
   </div>
@@ -29,7 +29,7 @@
 <div class="container-fluid challenges-container">
 
   <p class="text-center text-accroche">
-    Quel challenge choisissez-vous<br/> pour changer le monde aujourd'hui ?
+    Which challenge do you choose<br/> to change the world today ?
   </p>
 
   @foreach ($challenges as $challenge)
@@ -63,7 +63,7 @@
           </div>
         </div>
         <div class="row text-center">
-          <a href="{{route ('challenge_detail', $challenge->name) }}" class="btn btn-main">Découvrir</a>
+          <a href="{{route ('challenge_detail', $challenge->name) }}" class="btn btn-main">Let's make juice</a>
         </div>
       </div>
 
@@ -99,7 +99,7 @@
             </div>
           </div>
           <div class="row text-center">
-            <a href="{{route ('challenge_detail', $challenge->name) }}" class="btn btn-main">Découvrir</a>
+            <a href="{{route ('challenge_detail', $challenge->name) }}" class="btn btn-main">Let's make juice</a>
           </div>
         </div>
 
@@ -134,7 +134,7 @@
             </div>
           </div>
           <div class="row text-center">
-            <a href="{{route ('challenge_detail', $challenge->name) }}" class="btn btn-main">Découvrir</a>
+            <a href="{{route ('challenge_detail', $challenge->name) }}" class="btn btn-main">Let's make juice</a>
           </div>
         </div>
 

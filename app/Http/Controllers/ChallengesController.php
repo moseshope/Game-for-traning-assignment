@@ -65,7 +65,7 @@ class ChallengesController extends Controller
       /*Retrieve Ideas*/
       $ideas = Ideas::where('IDChallenge', $challenge->id)->join('users', 'users.id', '=', 'ideas.IDUser')->orderBy('ideas.created_at', 'desc')->get();
       $ideaNBUser = $ideas->groupBy('IDUser')->count();
-
+      
       return view('challenges.detail', [
         'challenge' => $challenge,
         'userLogged' => $userLogged,
