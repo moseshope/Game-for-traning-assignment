@@ -92,7 +92,7 @@
           <div class="col-lg-4 col-md-6 col-sm-6">
             <div class="panel panel-idea">
               <div class="panel-body">
-                <h3><a href="{{ $challenge->name}}/{{$idea->IDIdea}}">{{ $idea->title }}</a></h3>
+                <h3>{{ $idea->title }}</h3>
                   <!-- <h3><a href="{{$idea->IDIdea}}">{{ $idea->title }}</a></h3> -->
                 <p>
                   {{ $idea->content }}
