@@ -15,12 +15,11 @@ class IdeasController extends Controller
 {
 
     protected $ideas;
-    //RESTE A FAIRE: recuperer le challenge vu par l'user dans $challenge, pour recuperer ses idees
-    //$challenge = Challenges::find($id);
 
     //retourne la liste des idées d'un challenge
     public function index(Request $request)
     {
+
         $ideas = Ideas::orderBy('created_at', 'desc')->get($challenge);
         $user = Auth::check();
         if (isset($user)){

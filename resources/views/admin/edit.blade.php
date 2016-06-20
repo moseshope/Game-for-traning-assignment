@@ -1,12 +1,14 @@
 @extends('layouts.main')
 
 @section('content')
+
+
 <form action="{{ url('/admin/'.$challenge->id)}}" method="POST">
   {{ csrf_field() }}
   <div class="row">
     <div class="challenge-cover" style="background-image:url({{$challenge->img_cover}})">
       <br/>
-      
+
       <div class="col-md-4 col-md-offset-4">
         <div class="form-group">
           Name : <input type="text" name="name" class="form-control" value="{{ $challenge->name }}" />
@@ -113,7 +115,7 @@
                   <li class="list-group-item active text-uppercase">Characters</li>
                   @foreach ($elementsCharacter as $elementCharacter)
                   <li class="list-group-item">
-                    <form style="display:inline-block" action="/admin/{{ $elementCharacter->id }}/delete" method="POST"> 
+                    <form style="display:inline-block" action="/admin/{{ $elementCharacter->id }}/delete" method="POST">
                       <button type="submit" class="btn btn-link btn-remove"><i class="fa fa-times"></i></button>
                     </form>
                      {{ $elementCharacter->label }} <span class="badge"><i class="fa fa-star"></i>{{ $elementCharacter->difficulty }}</span>
@@ -127,7 +129,7 @@
                   <li class="list-group-item active text-uppercase">Ressource</li>
                   @foreach ($elementsRessource as $elementRessource)
                   <li class="list-group-item">
-                    <form style="display:inline-block" action="/admin/{{ $elementRessource->id }}/delete" method="POST"> 
+                    <form style="display:inline-block" action="/admin/{{ $elementRessource->id }}/delete" method="POST">
                       <button type="submit" class="btn btn-link btn-remove"><i class="fa fa-times"></i></button>
                     </form>
                     {{ $elementRessource->label }} <span class="badge"><i class="fa fa-star"></i>{{ $elementRessource->difficulty }}</span>
@@ -141,7 +143,7 @@
                   <li class="list-group-item active text-uppercase">Locations</li>
                   @foreach ($elementsLocation as $elementLocation)
                   <li class="list-group-item">
-                    <form style="display:inline-block" action="/admin/{{ $elementLocation->id }}/delete" method="POST"> 
+                    <form style="display:inline-block" action="/admin/{{ $elementLocation->id }}/delete" method="POST">
                       <button type="submit" class="btn btn-link btn-remove"><i class="fa fa-times"></i></button>
                     </form>
                     {{ $elementLocation->label }} <span class="badge"><i class="fa fa-star"></i>{{ $elementLocation->difficulty }}</span>
@@ -155,7 +157,7 @@
                   <li class="list-group-item active text-uppercase">Quest</li>
                   @foreach ($elementsQuest as $elementQuest)
                   <li class="list-group-item">
-                    <form style="display:inline-block" action="/admin/{{ $elementQuest->id }}/delete" method="POST"> 
+                    <form style="display:inline-block" action="/admin/{{ $elementQuest->id }}/delete" method="POST">
                       <button type="submit" class="btn btn-link btn-remove"><i class="fa fa-times"></i></button>
                     </form>
                     {{ $elementQuest->label }} <span class="badge"><i class="fa fa-star"></i>{{ $elementQuest->difficulty }}</span>
@@ -169,7 +171,7 @@
                   <li class="list-group-item active text-uppercase">Disruptive elements</li>
                   @foreach ($elementsDisruptive as $elementDisruptive)
                   <li class="list-group-item">
-                    <form style="display:inline-block" action="/admin/{{ $elementDisruptive->id }}/delete" method="POST"> 
+                    <form style="display:inline-block" action="/admin/{{ $elementDisruptive->id }}/delete" method="POST">
                       <button type="submit" class="btn btn-link btn-remove"><i class="fa fa-times"></i></button>
                     </form>
                     {{ $elementDisruptive->label }} <span class="badge"><i class="fa fa-star"></i>{{ $elementDisruptive->difficulty }}</span>
@@ -183,7 +185,7 @@
                   <li class="list-group-item active text-uppercase">Payment</li>
                   @foreach ($elementsPayment as $elementPayment)
                   <li class="list-group-item">
-                    <form style="display:inline-block" action="/admin/{{ $elementPayment->id }}/delete" method="POST"> 
+                    <form style="display:inline-block" action="/admin/{{ $elementPayment->id }}/delete" method="POST">
                       <button type="submit" class="btn btn-link btn-remove"><i class="fa fa-times"></i></button>
                     </form>
                     {{ $elementPayment->label }} <span class="badge"><i class="fa fa-star"></i>{{ $elementPayment->difficulty }}</span>

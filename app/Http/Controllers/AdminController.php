@@ -27,11 +27,11 @@ class AdminController extends Controller
 
         if ($isAdmin == 1){
           $challenges = Challenges::orderBy('created_at', 'desc')->get();
-          
+
           $challengesNB = Challenges::count();
           $usersNB = User::count();
           $ideasNB = Ideas::count();
-          
+
           return view('admin.home', [
             'challenges' => $challenges,
             'challengesNB' => $challengesNB,
@@ -47,7 +47,7 @@ class AdminController extends Controller
         return redirect('/');
       }
     }
-    
+
     public function showEdit($challenge)
     {
       $user = Auth::user();
@@ -57,16 +57,16 @@ class AdminController extends Controller
 
         if ($isAdmin == 1){
           $challenge = Challenges::where('name', $challenge)->first();
-          
+
           $elements = Elements::where('IDChallenge', $challenge->id)->get();
-          
+
           $elementsCharacter = Elements::where('IDChallenge', $challenge->id)->where('category', 'Character')->get();
           $elementsRessource = Elements::where('IDChallenge', $challenge->id)->where('category', 'Ressource')->get();
           $elementsLocation = Elements::where('IDChallenge', $challenge->id)->where('category', 'Location')->get();
           $elementsQuest = Elements::where('IDChallenge', $challenge->id)->where('category', 'Quest')->get();
           $elementsDisruptive = Elements::where('IDChallenge', $challenge->id)->where('category', 'Disruptive element')->get();
           $elementsPayment = Elements::where('IDChallenge', $challenge->id)->where('category', 'Payment')->get();
-          
+
           return view('admin.edit', [
             'challenge' => $challenge,
             'elements' => $elements,
@@ -86,7 +86,7 @@ class AdminController extends Controller
         return redirect('/');
       }
     }
-    
+
     public function edit($challengeID, Request $request)
     {
       $user = Auth::user();
@@ -98,7 +98,7 @@ class AdminController extends Controller
           DB::table('challenges')
             ->where('id', $challengeID)
             ->update(
-                array( 
+                array(
                       "name" => $request->name,
                       "description" => $request->description,
                       "content" => $request->content,
@@ -115,7 +115,7 @@ class AdminController extends Controller
         return redirect('/');
       }
     }
-    
+
     public function editStatus($challengeID, Request $request)
     {
       $user = Auth::user();
@@ -127,7 +127,7 @@ class AdminController extends Controller
           DB::table('challenges')
             ->where('id', $challengeID)
             ->update(
-                array( 
+                array(
                       "status" => $request->status,
                       )
           );
@@ -141,7 +141,7 @@ class AdminController extends Controller
         return redirect('/');
       }
     }
-    
+
     public function editColor($challengeID, Request $request)
     {
       $user = Auth::user();
@@ -153,7 +153,7 @@ class AdminController extends Controller
           DB::table('challenges')
             ->where('id', $challengeID)
             ->update(
-                array( 
+                array(
                       "color" => $request->color,
                       )
           );
@@ -167,7 +167,7 @@ class AdminController extends Controller
         return redirect('/');
       }
     }
-    
+
     public function editContext($challengeID, Request $request)
     {
       $user = Auth::user();
@@ -179,7 +179,7 @@ class AdminController extends Controller
           DB::table('challenges')
             ->where('id', $challengeID)
             ->update(
-                array( 
+                array(
                       "context" => $request->context,
                       )
           );
@@ -193,7 +193,7 @@ class AdminController extends Controller
         return redirect('/');
       }
     }
-    
+
     public function storeElements($challengeID, Request $request)
     {
       $user = Auth::user();
@@ -202,21 +202,21 @@ class AdminController extends Controller
         $isAdmin = $user->isAdmin;
 
         if ($isAdmin == 1){
-          
+
           /*store element*/
           $this->validate($request, [
               'label' => 'required|max:30',
               'category' => 'required',
               'difficulty' => 'required'
           ]);
-          
+
           $element = new Elements;
           $element->IDChallenge = $challengeID;
           $element->label = $request->label;
           $element->category = $request->category;
           $element->difficulty = $request->difficulty;
           $element->save();
-          
+
           return redirect()->back();
         }
         else{
@@ -227,12 +227,31 @@ class AdminController extends Controller
         return redirect('/');
       }
     }
-    
+
     public function deleteElement($elementID, Request $request){
       DB::table('elements')->where('id', $elementID)->delete();
       return redirect()->back();
       // return redirect()->back()->with('status', 'Profile updated!');
     }
 
-    
+    public function export($challengeID){
+      $ideas = Ideas::orderBy('created_at', 'desc')->where('IDChallenge', $challengeID)->get();
+      $filename = "ideas.csv";
+      $handle = fopen($filename, 'w+');
+      fputcsv($handle, array('Title', 'Description', 'Rebounds'));
+
+      foreach($ideas as $row) {
+          fputcsv($handle, array($row['title'], $row['content'], $row['rebounds']));
+      }
+
+      fclose($handle);
+
+      $headers = array(
+          'Content-Type' => 'text/csv',
+      );
+
+       return response()->download($filename, 'ideas.csv', $headers);
+    }
+
+
 }
