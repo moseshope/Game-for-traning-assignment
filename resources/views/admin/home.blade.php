@@ -58,4 +58,40 @@
   </div>
 </div>
 
+<div class="row">
+  <div class="col-md-6 col-md-offset-3" id="users">
+    <div class="list-group-item list-group-item-success">
+      <i class="fa fa-user"></i> User list
+      <input class="search pull-right form-control" placeholder="Search user..." style="width:200px" placeholder="Search" />
+      <div class="clearfix"></div>
+    </div>
+    <ul class="list-group list" >
+      @foreach ($users as $user)
+      <li class="list-group-item">
+        @if ($user->isAdmin)
+        <span>
+          <span class="label label-primary"><i class="fa fa-user-secret"></i> Admin.</span> 
+        </span>
+        @endif
+        <strong class="username">{{$user->name}}</strong> <small>Inscription: {{$user->created_at}}</small>
+        
+        <div class="pull-right">
+          @if ($user->isAdmin)
+            <a href="/admin/{{ $user->id }}/rights"><i class="fa fa-times"></i> Remove admin rights</a>
+          @else
+            <a href="/admin/{{ $user->id }}/rights"><i class="fa fa-plus"></i> Add admin rights</a>
+          @endif
+        </div>
+        
+      </li>
+      @endforeach
+    </ul>
+  </div>
+</div>
+@push('scripts')
+  <script src="{{ asset('js/admin.js') }}"></script>
+@endpush
+
+
+
 @endsection

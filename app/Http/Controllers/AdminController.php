@@ -28,16 +28,17 @@ class AdminController extends Controller
 
         if ($isAdmin == 1){
           $challenges = Challenges::orderBy('created_at', 'desc')->get();
-
           $challengesNB = Challenges::count();
           $usersNB = User::count();
           $ideasNB = Ideas::count();
+          $users = DB::table('users')->orderBy('isAdmin', 'desc')->orderBy('name', 'asc')->get();
 
           return view('admin.home', [
             'challenges' => $challenges,
             'challengesNB' => $challengesNB,
             'usersNB' => $usersNB,
             'ideasNB' => $ideasNB,
+            'users' => $users,
           ]);
         }
         else{
@@ -234,6 +235,52 @@ class AdminController extends Controller
       return redirect()->back();
       // return redirect()->back()->with('status', 'Profile updated!');
     }
+    
+    public function rightsAdmin($userID, Request $request)
+    {
+      $user = Auth::user();
+      if (isset($user)) {
+        Log::info($user);
+        
+        $isAdmin =  DB::table('users')->select('isAdmin')->where('id', $userID)->get();
+        
+        if ($isAdmin[0]->isAdmin == 1){
+          DB::table('users')->where('id', $userID)->update(array("isAdmin" => '0',));
+          return redirect()->back();
+        }
+        else{
+          DB::table('users')->where('id', $userID)->update(array("isAdmin" => '1',));
+          return redirect()->back();
+        }
+      }
+      else{
+        return redirect('/');
+      }
+    }
+    // {
+    //   $user = Auth::user();
+    // 
+    //   $isAdmin =  DB::table('users')->select('isAdmin')->where('id', $userID)->get();
+    //   
+    //   return $isAdmin;
+    //   
+    //   if ($isAdmin[0] == '0'){
+    //     return "is not admin";
+    //     DB::table('users')->where('id', $userID)->update(
+    //         array(
+    //               "isAdmin" => '1',
+    //               )
+    //         );
+    //   }
+    //   else {
+    //     return "is admin";
+    //     DB::table('users')->where('id', $userID)->update(
+    //         array(
+    //               "isAdmin" => '0',
+    //               )
+    //         );
+    //   }
+    // }
 
     public function export($challengeID){
       $challenge = Challenges::where('id', $challengeID)->first();

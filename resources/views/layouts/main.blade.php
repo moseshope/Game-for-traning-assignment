@@ -246,8 +246,10 @@
     <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="http://cdn.date-fns.org/v1.3.0/date_fns.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.2.0/list.min.js"></script>
     <script src="{{ asset('jquery-ui/jquery-ui.js') }}"></script>
     <script src="{{ asset('js/all.js') }}"></script>
+    @stack('scripts')
     <script>
       $('.js-btn-votes').on('click', function(){
         $.post('{{ route("challenge_vote")}}', {id: $(this).attr("data-id"), _token: '{{ csrf_token()}}'}, function(data){
