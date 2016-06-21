@@ -30,7 +30,7 @@ class VotesController extends Controller{
             ['IDIdea'=> $request->get('id'),'IDUser'=> Auth::id()]
           );
         }
-        return $this->totalVotes($request->get('id'));
       }
+      return $this->totalVotes($request->get('id'));
     }
   }
