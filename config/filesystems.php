@@ -53,6 +53,12 @@ return [
             'root' => storage_path('app/public'),
             'visibility' => 'public',
         ],
+        
+        'covers' => [
+            'driver' => 'local',
+            'root' => storage_path('app/covers'),
+            'visibility' => 'public',
+        ],
 
         's3' => [
             'driver' => 's3',

@@ -10,6 +10,9 @@ use App\IdeasElements;
 use App\User;
 use DB;
 use Auth;
+use Storage;
+use File;
+// use Input as Input;
 use Log;
 
 class ChallengesController extends Controller
@@ -108,11 +111,12 @@ class ChallengesController extends Controller
             'name' => 'required|max:255',
             'description' => 'required|max:500',
             'content' => 'required|max:20000',
-            'img_cover' => 'max:500',
             'start_date' => 'required|date',
             'end_date' => 'required|date',
         ]);
-
+        
+        
+        
         $challenge = new Challenges;
         $challenge->name = $request->name;
         $challenge->url = str_slug($challenge->name, "-");
@@ -124,7 +128,25 @@ class ChallengesController extends Controller
         $challenge->status = "staging";
         $challenge->color = $request->color;
         $challenge->save();
-
+        
+        // Storage::put(
+        //     'covers/'.$challenge->url,
+        //     file_get_contents($request->file('cover')->getRealPath())
+        // );
+        
+        $file = $request->file('cover');
+        $filename = $challenge->url . '.jpg';
+        
+        if ($file){
+          Storage::disk('covers')->put($filename, File::get($file));
+        }
+        
+        
+        
+          // $cover = $request->cover;
+          // $cover->move('uploads', $cover->$challenge->url);
+          // echo '<img src="uploads/' .$cover->$challenge->url
+        
         // $element = new Elements;
         // $element->IDChallenge = $challenge->id;
         // $element->character_1 = $request->character_1;
@@ -132,6 +154,11 @@ class ChallengesController extends Controller
 
         Log::info($challenge);
         return redirect('/admin');
+    }
+    
+    public function coverImage($filename){
+      $file = Storage::disk('covers')->get($filename);
+      return new Response($file, 200);
     }
 
 

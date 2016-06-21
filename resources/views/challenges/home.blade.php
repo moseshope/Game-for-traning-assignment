@@ -39,7 +39,14 @@
   <div class="col-md-4">
     <div class="panel panel-challenge">
       <a href="{{route ('challenge_detail', $challenge->name) }}">
+        @if (Storage::disk('covers')->has( $challenge->url . '.jpg' ))
+        <div class="panel-cover" style="background-image:url(../images/{{ $challenge->url . '.jpg' }})">
+        @else
         <div class="panel-cover" style="background-image: url( {{$challenge->img_cover}} )">
+        @endif
+        
+        
+        
 
         </div>
       </a>
@@ -98,7 +105,11 @@
     <div class="col-md-4">
       <div class="panel panel-challenge" style="border-color:blue">
         <a href="{{route ('challenge_detail', $challenge->name) }}">
+          @if (Storage::disk('covers')->has( $challenge->url . '.jpg' ))
+          <div class="panel-cover" style="background-image:url(../images/{{ $challenge->url . '.jpg' }})">
+          @else
           <div class="panel-cover" style="background-image: url( {{$challenge->img_cover}} )">
+          @endif
 
           </div>
         </a>

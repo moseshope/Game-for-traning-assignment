@@ -77,9 +77,9 @@
         
         <div class="pull-right">
           @if ($user->isAdmin)
-            <a href="/admin/{{ $user->id }}/rights"><i class="fa fa-times"></i> Remove admin rights</a>
+            <a href="/admin/{{ $user->id }}/rights" class="text-danger"><i class="fa fa-times"></i> Remove admin rights</a>
           @else
-            <a href="/admin/{{ $user->id }}/rights"><i class="fa fa-plus"></i> Add admin rights</a>
+            <a href="/admin/{{ $user->id }}/rights" class="text-success"><i class="fa fa-plus"></i> Add admin rights</a>
           @endif
         </div>
         

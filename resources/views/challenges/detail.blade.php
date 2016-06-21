@@ -3,7 +3,11 @@
 @section('content')
 
 <div class="row">
+  @if (Storage::disk('covers')->has( $challenge->url . '.jpg' ))
+  <div class="challenge-cover" style="background-image:url(../images/{{ $challenge->url . '.jpg' }})">
+  @else
   <div class="challenge-cover" style="background-image:url({{$challenge->img_cover}})">
+  @endif
     <div class="challenge-cover-filter"></div>
     <h2>{{ $challenge->name }}</h2>
     <h4>{{ $challenge->description }}</h4>

@@ -7,7 +7,7 @@
 </div>
 
 <div class="container">
-  <form action="{{ url('/challenges/new')}}" method="POST" class="form-horizontal">
+  <form action="{{ url('/challenges/new')}}" enctype="multipart/form-data" method="POST" class="form-horizontal">
     <!-- Nav tabs -->
 
     <div class="tab-content">
@@ -38,6 +38,16 @@
               <input type="text" name="img_cover" class="form-control">
             </div>
         </div>
+        
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Image cover (from pc)</label>
+
+            <div class="col-sm-6">
+              <input type="file" name="cover" id="cover" accept="image/*">
+            </div>
+        </div>
+        
+        
 
         <div class="form-group">
             <label class="col-sm-3 control-label">Challenge brief</label>

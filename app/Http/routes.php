@@ -40,6 +40,18 @@ Route::group(['middleware' => ['web']], function () {
   Route::get('/challenges/new', 'ChallengesController@showStore');
   Route::post('/challenges/new', 'ChallengesController@store');
   Route::get('/challenges/{challenge}', array('as' => 'challenge_detail', 'uses' => 'ChallengesController@detail' ));
+  Route::get('/cover/{coverimage}', [
+    'uses' => 'ChallengesController@coverImage',
+    'as' => 'challenge.coverImage'
+  ]);
+  
+  Route::get('images/{image}', function($image = null)
+  {
+      $path = storage_path().'/app/covers/' . $image;
+      if (file_exists($path)) { 
+          return Response::download($path);
+      }
+  });
 
 
   /*Ideas*/
