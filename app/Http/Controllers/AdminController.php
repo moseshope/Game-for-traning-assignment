@@ -237,13 +237,25 @@ class AdminController extends Controller
     public function export($challengeID){
       $challenge = Challenges::where('id', $challengeID)->first();
       $ideas = Ideas::orderBy('created_at', 'desc')->where('IDChallenge', $challengeID)->get();
+      foreach ($ideas as $key) {
+        $ideas->element = IdeasElements::where('id', $key->IDElements)->get();
+      }
       $filename = 'ideas-'.$challenge->name.'.csv';
       $handle = fopen($filename, 'w+');
-      fputcsv($handle, array('Title', 'Description', 'Rebounds'));
+      fputcsv($handle, array('Title', 'Description', 'Rebounds', 'Character', 'Place', 'Ressource', 'Quest', 'Warning', 'Treasure' ));
 
       foreach($ideas as $row) {
-          fputcsv($handle, array($row['title'], $row['content'], $row['rebounds']));
-      }
+        fputcsv($handle, array(
+          $row['title'],
+          $row['content'],
+          $row['rebounds'],
+          $row->element['character'],
+          $row->element['place'],
+          $row->element['ressource'],
+          $row->element['quest'],
+          $row->element['warning'],
+          $row->element['treasure']
+        ));}
 
       fclose($handle);
 
