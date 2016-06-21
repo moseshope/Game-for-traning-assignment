@@ -32,7 +32,7 @@
             <img src="../img/picto/users.svg" class="icon-indic" width="55" alt="Ideas">
             <span class="indic-title"><strong class="counter" style="color:{{ $challenge->color }}">{{ $ideaNBUser }}</strong> Creatives</span>
           </div>
-          <div class="col-xs-4 text-center indic" data-toggle="tooltip" data-placement="bottom" 
+          <div class="col-xs-4 text-center indic" data-toggle="tooltip" data-placement="bottom"
                 title="1 new idea = 10 points
 1 rebound = 5 points
 1 like = 1 point">
@@ -79,7 +79,7 @@
             <p class="text-center text-accroche">
               {{ $challenge->content }}
             </p>
-          </div>          
+          </div>
         </div>
 
         <div class="row">
@@ -104,7 +104,7 @@
                 <span class="user-idea"><i class="material-icons">account_circle</i>{{ $idea->name }}</span>
               </div>
               <div class="panel-idea-stats">
-                <div style="background-color:{{ $challenge->color }}" class="stat-container--like stat-container js-btn-votes" data-id='{{ $idea->IDIdea}}'>
+                <div style="background-color:{{ $challenge->color }}" class="stat-container--like stat-container {{ Auth::check() ? 'js-btn-votes' : '' }}" data-id='{{ $idea->IDIdea}}'>
                   @if( Auth::check() && $idea->votes()->where('IDUser', Auth::id())->first())
                   <i class="fa fa-heart"></i>
                   @else
