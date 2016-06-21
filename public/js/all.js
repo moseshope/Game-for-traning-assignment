@@ -258,9 +258,13 @@ $('.js-modify-elements').on('click', function(){
     drop: function(event, ui) {
       $(ui.draggable).click();
       $(this).addClass('ui-droppable');
+      $(this).addClass('animated bounceIn');
+      setTimeout(function(){
+          $('.panel-element').removeClass('bounceIn');
+      }, 1000);
     }
   });
-  
+    
   $('.tabs-scenario .tab-pane').eq(1).find('.panel-element').draggable({
     appendTo: ".droppable1",
     helper: "clone"
@@ -270,6 +274,10 @@ $('.js-modify-elements').on('click', function(){
     drop: function(event, ui) {
       $(ui.draggable).click();
       $(this).addClass('ui-droppable');
+      $(this).addClass('animated bounceIn');
+      setTimeout(function(){
+          $('.panel-element').removeClass('bounceIn');
+      }, 1000);
     }
   });
   
@@ -282,6 +290,10 @@ $('.js-modify-elements').on('click', function(){
     drop: function(event, ui) {
       $(ui.draggable).click();
       $(this).addClass('ui-droppable');
+      $(this).addClass('animated bounceIn');
+      setTimeout(function(){
+          $('.panel-element').removeClass('bounceIn');
+      }, 1000);
     }
   });
 
@@ -294,6 +306,10 @@ $('.js-modify-elements').on('click', function(){
     drop: function(event, ui) {
       $(ui.draggable).click();
       $(this).addClass('ui-droppable');
+      $(this).addClass('animated bounceIn');
+      setTimeout(function(){
+          $('.panel-element').removeClass('bounceIn');
+      }, 1000);
     }
   });
   
@@ -306,6 +322,10 @@ $('.js-modify-elements').on('click', function(){
     drop: function(event, ui) {
       $(ui.draggable).click();
       $(this).addClass('ui-droppable');
+      $(this).addClass('animated bounceIn');
+      setTimeout(function(){
+          $('.panel-element').removeClass('bounceIn');
+      }, 1000);
     }
   });
   
@@ -318,6 +338,10 @@ $('.js-modify-elements').on('click', function(){
     drop: function(event, ui) {
       $(ui.draggable).click();
       $(this).addClass('ui-droppable');
+      $(this).addClass('animated bounceIn');
+      setTimeout(function(){
+          $('.panel-element').removeClass('bounceIn');
+      }, 1000);
     }
   });
 //rebound
