@@ -1,14 +1,15 @@
 @extends('layouts.main')
 
 @section('content')
-<a href="{{ url('/admin/'.$challenge->id.'/export') }}" class="btn btn-primary">Export ideas</a>
-
-
 <form action="{{ url('/admin/'.$challenge->id)}}" method="POST">
   {{ csrf_field() }}
   <div class="row">
     <div class="challenge-cover" style="background-image:url({{$challenge->img_cover}})">
       <br/>
+
+      <div class="col-md-0" style="margin-left:1%" name="export">
+        <a href="{{ url('/admin/'.$challenge->id.'/export') }}" class="btn btn-primary">Export ideas</a>
+      </div>
 
       <div class="col-md-4 col-md-offset-4">
         <div class="form-group">

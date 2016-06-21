@@ -235,8 +235,9 @@ class AdminController extends Controller
     }
 
     public function export($challengeID){
+      $challenge = Challenges::where('id', $challengeID)->first();
       $ideas = Ideas::orderBy('created_at', 'desc')->where('IDChallenge', $challengeID)->get();
-      $filename = "ideas.csv";
+      $filename = 'ideas-'.$challenge->name.'.csv';
       $handle = fopen($filename, 'w+');
       fputcsv($handle, array('Title', 'Description', 'Rebounds'));
 
@@ -250,7 +251,7 @@ class AdminController extends Controller
           'Content-Type' => 'text/csv',
       );
 
-       return response()->download($filename, 'ideas.csv', $headers);
+       return response()->download($filename, 'ideas-'.$challenge->name.'.csv', $headers);
     }
 
 
