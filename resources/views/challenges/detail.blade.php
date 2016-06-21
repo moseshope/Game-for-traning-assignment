@@ -9,7 +9,11 @@
     <h4>{{ $challenge->description }}</h4>
 
     <div class="time-left">
-      <span class="time-left-indic">15 days left</span>
+      @if ($challenge->status != 'closed')
+      <span class="time-left-indic">0 days left</span>
+      @else
+      <span class="time-left-indic time-closed"><i class="fa fa-lock"></i> Challenge closed</span>
+      @endif
       <div class="progress timeline" style="background-color:#fff" data-end-date="{{ $challenge->end_date }}" data-start-date="{{ $challenge->start_date }}">
         <div style="background-color:{{ $challenge->color }}; width:0%" class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
           <span class="sr-only">60% Complete</span>
@@ -19,10 +23,16 @@
   </div>
 </div>
 
+
+
 <div class="row">
   <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
     <div class="panel panel-overview row">
+      @if ($challenge->status != 'closed')
       <div class="panel-overview-indics col-md-10">
+      @else
+      <div class="panel-overview-indics col-md-12">
+      @endif
         <div class="row">
           <div class="col-xs-4 text-center indic">
             <img src="../img/picto/ideas.svg" class="icon-indic icon-fadein" width="45" alt="Ideas">
@@ -42,12 +52,14 @@
         </div>
 
       </div>
+      @if ($challenge->status != 'closed')
       <div style="background-color:{{ $challenge->color }}" class="panel-overview-create col-md-2 text-center">
         <a data-toggle="modal" data-target="#modalCreate" class="nostyle btn-recap">
           <i class="icon-indic material-icons">library_add</i>
           <span class="indic-title">create</span>
         </a>
       </div>
+      @endif
     </div>
   </div>
 </div>
@@ -133,6 +145,7 @@
 
   </div>
 </div>
+@if ($challenge->status != 'closed')
 @if (isset($userLogged) && $userLogged === true && $elementsCharacter->count() >=2 )
 <div class="modal fade" id="modalCreate" tabindex="-1" role="dialog">
   <div class="modal-dialog modal-lg modal-create">
@@ -501,6 +514,6 @@
   </div>
 </div>
 @endif
-
+@endif
 
 @endsection

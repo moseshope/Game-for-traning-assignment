@@ -34,7 +34,7 @@
 
   @foreach ($challenges as $challenge)
 
-  @if ($challenge->status == 'live' )
+  @if ($challenge->status != 'staging'  )
   <!-- {{ $challenge }} -->
   <div class="col-md-4">
     <div class="panel panel-challenge">
@@ -48,6 +48,11 @@
         <p>
           {{ $challenge->description}}
         </p>
+          @if ($challenge->status == 'closed')
+            <div class="text-center">
+              <strong><i class="fa fa-lock"></i> Challenge completed</strong>
+            </div>
+          @endif
         <div class="row panel-overview text-center">
           <div class="col-xs-4 text-center indic">
             <img src="{{asset('/img/picto/ideas.svg')}}" class="icon-indic" width="30" alt="Ideas" />
@@ -63,7 +68,13 @@
           </div>
         </div>
         <div class="row text-center">
-          <a href="{{route ('challenge_detail', $challenge->name) }}" class="btn btn-main">Let's make juice</a>
+          <a href="{{route ('challenge_detail', $challenge->name) }}" class="btn btn-main">
+            @if ($challenge->status == 'closed')
+              Taste !
+            @else
+              Let's make juice !
+            @endif
+          </a>
         </div>
       </div>
 
@@ -71,54 +82,22 @@
     </div>
   </div>
 
-    @elseif ($challenge->status == 'staging' && (isset($isAdmin) && $isAdmin === 1))
+    @elseif ($challenge->status == 'staging' && (isset($isAdmin) && $isAdmin == 1))
     <div class="col-md-4">
-      <div class="panel panel-challenge">
+      <div class="panel panel-challenge" style="border-color:blue">
         <a href="{{route ('challenge_detail', $challenge->name) }}">
           <div class="panel-cover" style="background-image: url( {{$challenge->img_cover}} )">
 
           </div>
         </a>
         <div class="panel-body">
-          <h3 class="text-center"><span class="text-center" style="color:blue">{{$challenge->status}}</span> {{ $challenge->name }}</h3>
+          <h3 class="text-center"><span class="label label-info">{{$challenge->status}}</span> {{ $challenge->name }}</h3>
           <p>
             {{ $challenge->description}}
           </p>
-          <div class="row panel-overview text-center">
-            <div class="col-xs-4 text-center indic">
-              <img src="{{asset('/img/picto/ideas.svg')}}" class="icon-indic" width="30" alt="Ideas" />
-              <span class="indic-title"><strong>12</strong> Ideas</span>
-            </div>
-            <div class="col-xs-4 text-center indic">
-              <img src="{{asset('/img/picto/people.svg')}}" class="icon-indic" width="30" alt="Ideas" />
-              <span class="indic-title"><strong>{{ '12' }}</strong> people</span>
-            </div>
-            <div class="col-xs-4 text-center indic">
-              <img src="{{asset('/img/picto/points.svg')}}" class="icon-indic" width="20" alt="Ideas" />
-              <span class="indic-title"><strong>{{ '78' }}</strong> points</span>
-            </div>
+          <div class="text-center text-info">
+            <strong><i class="fa fa-exclamation-triangle"></i> You can see this challenge because you are administrator</stong>
           </div>
-          <div class="row text-center">
-            <a href="{{route ('challenge_detail', $challenge->name) }}" class="btn btn-main">Let's make juice</a>
-          </div>
-        </div>
-
-
-      </div>
-    </div>
-    @elseif ($challenge->status == 'closed' && (isset($isAdmin) && $isAdmin === 1))
-    <div class="col-md-4">
-      <div class="panel panel-challenge">
-        <a href="{{route ('challenge_detail', $challenge->name) }}">
-          <div class="panel-cover" style="background-image: url( {{$challenge->img_cover}} )">
-
-          </div>
-        </a>
-        <div class="panel-body">
-          <h3 class="text-center"><span class="text-center" style="color:red">{{$challenge->status}}</span> {{ $challenge->name }}</h3>
-          <p>
-            {{ $challenge->description}}
-          </p>
           <div class="row panel-overview text-center">
             <div class="col-xs-4 text-center indic">
               <img src="{{asset('/img/picto/ideas.svg')}}" class="icon-indic" width="30" alt="Ideas" />

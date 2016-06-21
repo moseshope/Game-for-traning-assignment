@@ -62,6 +62,7 @@ jQuery('img.svg').each(function(){
 $('document').ready(function(){
   
   /*INJECT DAYS LEFT*/
+  
   todayDate = dateFns.format(new Date(), 'YYYY/MM/DD');
   startDate = $('.progress.timeline').attr('data-start-date');
   endDate = $('.progress.timeline').attr('data-end-date');
@@ -79,6 +80,11 @@ $('document').ready(function(){
   currentPos = dateFns.differenceInCalendarDays(todayDate, startDate);
   posProgressBar = (currentPos / totalDays) * 100;
   $('.progress-bar').css('width', posProgressBar + '%');
+  
+  if ($('.time-closed').length == 1){
+    $('.time-closed').html('<i class="fa fa-lock"></i> Challenge closed')
+    $('.progress-bar').css('width','100%');
+  }
   
   /*IMG POINTS*/
   
