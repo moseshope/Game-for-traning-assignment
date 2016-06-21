@@ -44,7 +44,7 @@
           <ul class="nav navbar-nav navbar-right">
             @if (Auth::guest())
               <li><a href="{{ url('/challenges') }}"><strong>Challenges</strong></a></li>
-              <li><a href="#">About</a></li>
+              <li><a target="_blank" href="http://www.cubification.com/">About</a></li>
               <li data-toggle="modal" data-target=".modal-login"><a href="#">Login</a></li>
               <li>
                 <a data-toggle="modal" data-target=".modal-register" href="">Register</a>

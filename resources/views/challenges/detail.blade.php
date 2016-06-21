@@ -12,7 +12,7 @@
       @if ($challenge->status != 'closed')
       <span class="time-left-indic">0 days left</span>
       @else
-      <span class="time-left-indic time-closed"><i class="fa fa-lock"></i> Challenge closed</span>
+      <span class="time-left-indic time-closed"><i class="fa fa-lock"></i> Challenge completed</span>
       @endif
       <div class="progress timeline" style="background-color:#fff" data-end-date="{{ $challenge->end_date }}" data-start-date="{{ $challenge->start_date }}">
         <div style="background-color:{{ $challenge->color }}; width:0%" class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
@@ -482,7 +482,7 @@
 
 @else
 <div class="modal fade" id="modalCreate" tabindex="-1" role="dialog">
-  <div class="modal-dialog modal-lg modal-create">
+  <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header text-center">
         <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
@@ -507,8 +507,10 @@
         </div>
       </div>
 
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      <div class="modal-footer text-center">
+        <div class="row text-center">
+          <button style="background-color:{{ $challenge->color }}; margin:10px" type="button" class="btn btn-main" data-dismiss="modal">Close</button>
+        </div>
       </div>
     </div>
   </div>

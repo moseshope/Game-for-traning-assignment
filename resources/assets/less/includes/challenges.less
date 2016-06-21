@@ -71,37 +71,47 @@
     font-weight: bold;
     font-size: 36px;
   }
+
+}
+
+.time-left{
+  max-width: 250px;
+  position: relative;
+  text-align: center;
+  top: 30px;
+  margin: 0 auto;
   
-  
-  
-  .time-left{
-    max-width: 250px;
-    position: relative;
-    text-align: center;
-    top: 30px;
-    margin: 0 auto;
-    
-    .time-left-indic{
-      color: #fff;
-      text-transform: uppercase;
-      padding: 5px 0;
-    }
-    
-    .progress{
-      position: relative;
-      margin-top: 10px;
-      height: 10px;
-      border-radius: 15px;
-      background-color: @colorMain;
-      border: 1px solid #fff;
-      
-      .progress-bar{
-        background: #fff;
-        box-shadow: none;
-      }
-    }
+  .time-left-indic{
+    color: #fff;
+    text-transform: uppercase;
+    padding: 5px 0;
   }
   
+  .progress{
+    position: relative;
+    margin-top: 10px;
+    height: 10px;
+    border-radius: 15px;
+    background-color: @colorMain;
+    border: 1px solid #fff;
+    
+    .progress-bar{
+      background: #fff;
+      box-shadow: none;
+    }
+  }
+}
+
+.panel-challenge .time-left{
+  top: 0;
+  
+  .time-left-indic{
+    color: @colorMain;
+  }
+  
+  .progress-bar{
+    background-color: @colorMain;
+  }
 }
 
 .panel-cover{

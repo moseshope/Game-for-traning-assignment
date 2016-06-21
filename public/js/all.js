@@ -62,29 +62,33 @@ jQuery('img.svg').each(function(){
 $('document').ready(function(){
   
   /*INJECT DAYS LEFT*/
-  
   todayDate = dateFns.format(new Date(), 'YYYY/MM/DD');
-  startDate = $('.progress.timeline').attr('data-start-date');
-  endDate = $('.progress.timeline').attr('data-end-date');
-  daysLeft = dateFns.differenceInCalendarDays(endDate, todayDate);
-  
-  if (daysLeft < 0){
-    $('.time-left-indic').text('0 day left');
-  }
-  else{
-    $('.time-left-indic').text(daysLeft + ' days left');
-  }
+  $('.time-left').each(function(){
+    startDate = $(this).find('.progress.timeline').attr('data-start-date');
+    endDate = $(this).find('.progress.timeline').attr('data-end-date');
+    daysLeft = dateFns.differenceInCalendarDays(endDate, todayDate);
     
-  /*JAUGE*/
-  totalDays = dateFns.differenceInCalendarDays(endDate, startDate);
-  currentPos = dateFns.differenceInCalendarDays(todayDate, startDate);
-  posProgressBar = (currentPos / totalDays) * 100;
-  $('.progress-bar').css('width', posProgressBar + '%');
+    if (daysLeft < 0){
+      $(this).find('.time-left-indic').text('0 day left');
+    }
+    else{
+      $(this).find('.time-left-indic').text(daysLeft + ' days left');
+    }
+      
+    /*JAUGE*/
+    totalDays = dateFns.differenceInCalendarDays(endDate, startDate);
+    currentPos = dateFns.differenceInCalendarDays(todayDate, startDate);
+    posProgressBar = (currentPos / totalDays) * 100;
+    
+    $(this).find('.progress-bar').css('width', posProgressBar + '%');
+    
+    if ($('.time-closed').length == 1){
+      $(this).find('.time-closed').html('<i class="fa fa-lock"></i> Challenge closed')
+      $(this).find('.progress-bar').css('width','100%');
+    }
+  });
   
-  if ($('.time-closed').length == 1){
-    $('.time-closed').html('<i class="fa fa-lock"></i> Challenge closed')
-    $('.progress-bar').css('width','100%');
-  }
+  
   
   /*IMG POINTS*/
   

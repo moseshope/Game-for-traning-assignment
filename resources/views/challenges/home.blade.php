@@ -48,11 +48,23 @@
         <p>
           {{ $challenge->description}}
         </p>
+        
+        
+        <div class="time-left">
           @if ($challenge->status == 'closed')
             <div class="text-center">
               <strong><i class="fa fa-lock"></i> Challenge completed</strong>
             </div>
+          @else
+            <span class="time-left-indic">4 days left</span>
           @endif
+                
+                <div class="progress timeline" style="background-color:#fff" data-end-date="{{ $challenge->end_date }}" data-start-date="{{ $challenge->start_date }}">
+            <div style="width:0%" class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+              <span class="sr-only">60% Complete</span>
+            </div>
+          </div>
+        </div>
         <div class="row panel-overview text-center">
           <div class="col-xs-4 text-center indic">
             <img src="{{asset('/img/picto/ideas.svg')}}" class="icon-indic" width="30" alt="Ideas" />

@@ -195,19 +195,19 @@ nav.navbar .dropdown.open > a {
   font-weight: bold;
   font-size: 36px;
 }
-.challenge-cover .time-left {
+.time-left {
   max-width: 250px;
   position: relative;
   text-align: center;
   top: 30px;
   margin: 0 auto;
 }
-.challenge-cover .time-left .time-left-indic {
+.time-left .time-left-indic {
   color: #fff;
   text-transform: uppercase;
   padding: 5px 0;
 }
-.challenge-cover .time-left .progress {
+.time-left .progress {
   position: relative;
   margin-top: 10px;
   height: 10px;
@@ -215,9 +215,18 @@ nav.navbar .dropdown.open > a {
   background-color: #37474F;
   border: 1px solid #fff;
 }
-.challenge-cover .time-left .progress .progress-bar {
+.time-left .progress .progress-bar {
   background: #fff;
   box-shadow: none;
+}
+.panel-challenge .time-left {
+  top: 0;
+}
+.panel-challenge .time-left .time-left-indic {
+  color: #37474F;
+}
+.panel-challenge .time-left .progress-bar {
+  background-color: #37474F;
 }
 .panel-cover {
   height: 160px;
