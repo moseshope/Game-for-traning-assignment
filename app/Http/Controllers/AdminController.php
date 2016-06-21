@@ -5,6 +5,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Challenges;
 use App\Ideas;
+use App\Votes;
 use App\Elements;
 use App\IdeasElements;
 use App\User;
@@ -239,10 +240,12 @@ class AdminController extends Controller
       $ideas = Ideas::orderBy('created_at', 'desc')->where('IDChallenge', $challengeID)->get();
       foreach ($ideas as $key) {
         $ideas->element = IdeasElements::where('id', $key->IDElements)->get();
+        $key->votes = Votes::where('IDIdea', $key->IDIdea )->count();
       }
+
       $filename = 'ideas-'.$challenge->name.'.csv';
       $handle = fopen($filename, 'w+');
-      fputcsv($handle, array('Title', 'Description', 'Rebounds', 'Character', 'Place', 'Ressource', 'Quest', 'Warning', 'Treasure' ));
+      fputcsv($handle, array('Title', 'Description', 'Rebounds', 'Character', 'Place', 'Ressource', 'Quest', 'Warning', 'Treasure', 'Votes' ));
 
       foreach($ideas as $row) {
         fputcsv($handle, array(
@@ -254,7 +257,8 @@ class AdminController extends Controller
           $row->element['ressource'],
           $row->element['quest'],
           $row->element['warning'],
-          $row->element['treasure']
+          $row->element['treasure'],
+          $row['votes']
         ));}
 
       fclose($handle);
