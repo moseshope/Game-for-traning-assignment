@@ -68,7 +68,11 @@ $('document').ready(function(){
   totalPoints = (nbIdeas * 10) + (nbLikes * 1) - (nbRebounds * 5);
   $('#img-points').text(totalPoints);
   
+  
+  /***ANIMATION***/
   $('.js-animate-points').addClass('animated shake');
+  $('.icon-fadein').addClass('animated bounceIn');
+  $('.challenge-cover').find('h2, h4').addClass('animated fadeInDown');
   
   $('.counter').each(function () {
       $(this).prop('Counter',0).animate({

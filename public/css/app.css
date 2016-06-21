@@ -665,6 +665,9 @@ span.story {
   width: 40px;
   height: 40px;
 }
+.ui-state-default {
+  border: 1px solid #37474F;
+}
 .btn-remove {
   padding: 0 10px;
   margin: 0;

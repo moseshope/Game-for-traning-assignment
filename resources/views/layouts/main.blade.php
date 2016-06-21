@@ -15,6 +15,7 @@
     <!-- Styles -->
     <link rel="icon" type="image/jpg" href="{{url( 'favicon.jpg')}}" />
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('jquery-ui/jquery-ui.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="http://s.mlcdn.co/animate.css">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -245,6 +246,7 @@
     <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="http://cdn.date-fns.org/v1.3.0/date_fns.min.js"></script>
+    <script src="{{ asset('jquery-ui/jquery-ui.js') }}"></script>
     <script src="{{ asset('js/all.js') }}"></script>
     <script>
       $('.js-btn-votes').on('click', function(){

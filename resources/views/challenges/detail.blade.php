@@ -25,11 +25,11 @@
       <div class="panel-overview-indics col-md-10">
         <div class="row">
           <div class="col-xs-4 text-center indic">
-            <img src="../img/picto/ideas.svg" class="icon-indic" width="45" alt="Ideas">
+            <img src="../img/picto/ideas.svg" class="icon-indic icon-fadein" width="45" alt="Ideas">
             <span class="indic-title"><strong class="counter" style="color:{{ $challenge->color }}">{{ count($ideas) }}</strong> Ideas</span>
           </div>
           <div class="col-xs-4 text-center indic">
-            <img src="../img/picto/users.svg" class="icon-indic" width="55" alt="Ideas">
+            <img src="../img/picto/users.svg" class="icon-indic icon-fadein" width="55" alt="Ideas">
             <span class="indic-title"><strong class="counter" style="color:{{ $challenge->color }}">{{ $ideaNBUser }}</strong> Creatives</span>
           </div>
           <div class="col-xs-4 text-center indic" data-toggle="tooltip" data-placement="bottom"
@@ -336,7 +336,7 @@
             <div class="icon-element">
               <img src="../img/picto/location.svg" alt="Location" />
             </div>
-            <div class="panel panel-default panel-element panel-element--filling">
+            <div class="panel panel-default panel-element panel-element--filling droppable0">
               <div class="panel-body">
                 <div style="color:{{ $challenge->color }}" class="text-center placeholder-plus"><i class="fa fa-plus"></i></div>
               </div>
@@ -348,7 +348,7 @@
             <div class="icon-element">
               <img src="../img/picto/resource.svg" alt="Resource" />
             </div>
-            <div class="panel panel-default panel-element">
+            <div class="panel panel-default panel-element droppable1">
               <div class="panel-body">
               </div>
               <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
@@ -359,7 +359,7 @@
             <div class="icon-element">
               <img src="../img/picto/advantage.svg" alt="Advantage" />
             </div>
-            <div class="panel panel-default panel-element">
+            <div class="panel panel-default panel-element droppable2">
               <div class="panel-body">
               </div>
               <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
@@ -370,7 +370,7 @@
             <div class="icon-element">
               <img src="../img/picto/user.svg" alt="Users" />
             </div>
-            <div class="panel panel-default panel-element">
+            <div class="panel panel-default panel-element droppable3">
               <div class="panel-body">
               </div>
               <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
@@ -381,7 +381,7 @@
             <div class="icon-element">
               <img src="../img/picto/revenue-stream.svg" alt="Revenue Stream" />
             </div>
-            <div class="panel panel-default panel-element">
+            <div class="panel panel-default panel-element droppable4">
               <div class="panel-body">
               </div>
               <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
@@ -392,7 +392,7 @@
             <div class="icon-element">
               <img src="../img/picto/game-changer.svg" alt="Game Changer" />
             </div>
-            <div class="panel panel-default panel-element">
+            <div class="panel panel-default panel-element droppable5">
               <div class="panel-body">
               </div>
               <div class="panel-footer text-right" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Difficulty of the element">
