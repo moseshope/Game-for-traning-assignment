@@ -232,6 +232,7 @@ nav.navbar .dropdown.open > a {
   border-radius: 3px 3px 0 0;
   background-color: #ccc;
   background-size: cover;
+  background-position: center center;
 }
 .panel-challenge {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
@@ -686,6 +687,7 @@ span.story {
 body {
   padding-top: 50px;
   background-color: #f4f4f4;
+  background-image: url('../img/cubes.png');
 }
 .nostyle {
   color: inherit;
