@@ -115,6 +115,12 @@ $('document').ready(function(){
   $('.icon-fadein').addClass('animated bounceIn');
   $('.challenge-cover').find('h2, h4').addClass('animated fadeInDown');
   
+  /*ANIMATION HOME*/
+  $('.home-cover h1').addClass('animated fadeInDown');
+  $('.home-cover p').addClass('animated bounceInLeft');
+  $('.panel-challenge').addClass('animated fadeIn');
+  
+  
   $('.counter').each(function () {
       $(this).prop('Counter',0).animate({
           Counter: $(this).text()

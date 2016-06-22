@@ -39,30 +39,30 @@
       @endif
         <div class="row">
           <div class="col-xs-4 text-center indic">
-            <img src="../img/picto/ideas.svg" class="icon-indic icon-fadein" width="45" alt="Ideas">
+            <img src="{{ asset('img/picto/ideas.svg') }}" class="icon-indic icon-fadein" width="45" alt="Ideas">
             <span class="indic-title"><strong class="counter" style="color:{{ $challenge->color }}">{{ count($ideas) }}</strong> Ideas</span>
           </div>
           <div class="col-xs-4 text-center indic">
-            <img src="../img/picto/users.svg" class="icon-indic icon-fadein" width="55" alt="Ideas">
+            <img src="{{ asset('img/picto/users.svg') }}" class="icon-indic icon-fadein" width="55" alt="Ideas">
             <span class="indic-title"><strong class="counter" style="color:{{ $challenge->color }}">{{ $ideaNBUser }}</strong> Creatives</span>
           </div>
           <div class="col-xs-4 text-center indic" data-toggle="tooltip" data-placement="bottom"
                 title="1 new idea = 10 points
 1 rebound = 5 points
 1 like = 1 point">
-            <img src="../img/picto/picto-jus2.svg" class="icon-indic js-animate-points" width="55" alt="Ideas">
+            <img src="{{ asset('img/picto/picto-jus2.svg') }}" class="icon-indic js-animate-points" width="55" alt="Ideas">
             <span class="indic-title"><strong class="counter" id="img-points" style="color:{{ $challenge->color }}">0</strong> OZ</span>
           </div>
         </div>
 
       </div>
       @if ($challenge->status != 'closed')
+      <a data-toggle="modal" data-target="#modalCreate" class="nostyle btn-recap">
       <div style="background-color:{{ $challenge->color }}" class="panel-overview-create col-md-2 text-center">
-        <a data-toggle="modal" data-target="#modalCreate" class="nostyle btn-recap">
           <i class="icon-indic material-icons">library_add</i>
           <span class="indic-title">create</span>
-        </a>
       </div>
+      </a>
       @endif
     </div>
   </div>

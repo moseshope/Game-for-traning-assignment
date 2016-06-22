@@ -29,10 +29,13 @@ body{
   padding: 10px 15px;
   font-weight: bold;
   text-transform: uppercase;
+  transition-duration: 0.5s;
   
   &:hover{
     color: #fff;
     background-color: darken(@colorMain, 20%);
+    transform: scale(1.1);
+    transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
   }
   
   &--other{
