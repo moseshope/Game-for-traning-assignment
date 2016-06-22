@@ -351,7 +351,7 @@
           <h4><strong>Scenario</strong></h4>
           <div class="element-recap col-sm-6">
             <div class="icon-element">
-              <img src="../img/picto/location.svg" alt="Location" />
+              <img src="{{ asset('img/picto/location.svg') }}" alt="Location" />
             </div>
             <div class="panel panel-default panel-element panel-element--filling droppable0">
               <div class="panel-body">
@@ -363,7 +363,7 @@
           </div>
           <div class="element-recap col-sm-6">
             <div class="icon-element">
-              <img src="../img/picto/resource.svg" alt="Resource" />
+              <img src="{{ asset('img/picto/resource.svg') }}" alt="Resource" />
             </div>
             <div class="panel panel-default panel-element droppable1">
               <div class="panel-body">
@@ -374,7 +374,7 @@
           </div>
           <div class="element-recap col-sm-6">
             <div class="icon-element">
-              <img src="../img/picto/advantage.svg" alt="Advantage" />
+              <img src="{{ asset('img/picto/advantage.svg') }}" alt="Advantage" />
             </div>
             <div class="panel panel-default panel-element droppable2">
               <div class="panel-body">
@@ -385,7 +385,7 @@
           </div>
           <div class="element-recap col-sm-6">
             <div class="icon-element">
-              <img src="../img/picto/user.svg" alt="Users" />
+              <img src="{{ asset('img/picto/user.svg') }}" alt="Users" />
             </div>
             <div class="panel panel-default panel-element droppable3">
               <div class="panel-body">
@@ -396,7 +396,7 @@
           </div>
           <div class="element-recap col-sm-6">
             <div class="icon-element">
-              <img src="../img/picto/revenue-stream.svg" alt="Revenue Stream" />
+              <img src="{{ asset('img/picto/revenue-stream.svg') }}" alt="Revenue Stream" />
             </div>
             <div class="panel panel-default panel-element droppable4">
               <div class="panel-body">
@@ -407,7 +407,7 @@
           </div>
           <div class="element-recap col-sm-6">
             <div class="icon-element">
-              <img src="../img/picto/game-changer.svg" alt="Game Changer" />
+              <img src="{{ asset('img/picto/game-changer.svg') }}" alt="Game Changer" />
             </div>
             <div class="panel panel-default panel-element droppable5">
               <div class="panel-body">

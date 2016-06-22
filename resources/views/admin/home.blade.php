@@ -6,21 +6,21 @@
   <div class="col-md-4">
     <div class="panel panel-default">
       <div class="panel-body">
-        <i class="icon-indic material-icons">lightbulb_outline</i> {{ $ideasNB }}
+        <i class="icon-indic material-icons">lightbulb_outline</i> <span class="counter">{{ $ideasNB }}</span>
       </div>
     </div>
   </div>
   <div class="col-md-4">
     <div class="panel panel-default">
       <div class="panel-body">
-        <i class="icon-indic material-icons">people_outline</i> {{ $usersNB }}
+        <i class="icon-indic material-icons">people_outline</i> <span class="counter">{{ $usersNB }}</span>
       </div>
     </div>
   </div>
   <div class="col-md-4">
     <div class="panel panel-default">
       <div class="panel-body">
-        <i class="icon-indic material-icons">flag</i> {{ $challengesNB }}
+        <i class="icon-indic material-icons">flag</i> <span class="counter">{{ $challengesNB }}</span>
       </div>
     </div>
   </div>
@@ -73,7 +73,7 @@
           <span class="label label-primary"><i class="fa fa-user-secret"></i> Admin.</span> 
         </span>
         @endif
-        <strong class="username">{{$user->name}}</strong> <small>Inscription: {{$user->created_at}}</small>
+        <strong class="username">{{$user->name}}</strong> <i class="fa fa-envelope"></i> {{$user->email}} <small>{{$user->created_at}}</small>
         
         <div class="pull-right">
           @if ($user->isAdmin)

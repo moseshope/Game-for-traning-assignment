@@ -74,15 +74,15 @@
         </div>
         <div class="row panel-overview text-center">
           <div class="col-xs-4 text-center indic">
-            <img src="{{asset('/img/picto/ideas.svg')}}" class="icon-indic" width="30" alt="Ideas" />
+            <img src="{{asset('/img/picto/ideas.svg')}}" class="icon-indic" width="40" alt="Ideas" />
             <span class="indic-title"><strong>12</strong> Ideas</span>
           </div>
           <div class="col-xs-4 text-center indic">
-            <img src="{{asset('/img/picto/people.svg')}}" class="icon-indic" width="30" alt="Ideas" />
+            <img src="{{ asset('img/picto/users.svg') }}" class="icon-indic" width="50" alt="Ideas" />
             <span class="indic-title"><strong>{{ '12' }}</strong> people</span>
           </div>
           <div class="col-xs-4 text-center indic">
-            <img src="{{asset('/img/picto/points.svg')}}" class="icon-indic" width="20" alt="Ideas" />
+            <img src="{{ asset('img/picto/picto-jus2.svg') }}" class="icon-indic" width="40" alt="Ideas" />
             <span class="indic-title"><strong>{{ '78' }}</strong> points</span>
           </div>
         </div>
@@ -123,15 +123,15 @@
           </div>
           <div class="row panel-overview text-center">
             <div class="col-xs-4 text-center indic">
-              <img src="{{asset('/img/picto/ideas.svg')}}" class="icon-indic" width="30" alt="Ideas" />
+              <img src="{{asset('/img/picto/ideas.svg')}}" class="icon-indic" width="40" alt="Ideas" />
               <span class="indic-title"><strong>12</strong> Ideas</span>
             </div>
             <div class="col-xs-4 text-center indic">
-              <img src="{{asset('/img/picto/people.svg')}}" class="icon-indic" width="30" alt="Ideas" />
+              <img src="{{ asset('img/picto/users.svg') }}" class="icon-indic" width="50" alt="Ideas" />
               <span class="indic-title"><strong>{{ '12' }}</strong> people</span>
             </div>
             <div class="col-xs-4 text-center indic">
-              <img src="{{asset('/img/picto/points.svg')}}" class="icon-indic" width="20" alt="Ideas" />
+              <img src="{{ asset('img/picto/picto-jus2.svg') }}" class="icon-indic" width="40" alt="Ideas" />
               <span class="indic-title"><strong>{{ '78' }}</strong> points</span>
             </div>
           </div>
