@@ -235,7 +235,7 @@ class AdminController extends Controller
       return redirect()->back();
       // return redirect()->back()->with('status', 'Profile updated!');
     }
-    
+
     public function deleteIdea($ideaID){
       DB::table('ideas')->where('IDIdea', $ideaID)->delete();
       // DB::table('ideas_elements')->where('IDIdea', $ideaID)->delete();
@@ -243,20 +243,20 @@ class AdminController extends Controller
       return redirect()->back();
       // return redirect()->back()->with('status', 'Profile updated!');
     }
-    
+
     public function deleteChallenge($challengeID){
       DB::table('challenges')->where('id', $challengeID)->delete();
       return redirect('/admin');
     }
-    
+
     public function rightsAdmin($userID, Request $request)
     {
       $user = Auth::user();
       if (isset($user)) {
         Log::info($user);
-        
+
         $isAdmin =  DB::table('users')->select('isAdmin')->where('id', $userID)->get();
-        
+
         if ($isAdmin[0]->isAdmin == 1){
           DB::table('users')->where('id', $userID)->update(array("isAdmin" => '0',));
           return redirect()->back();
@@ -272,11 +272,11 @@ class AdminController extends Controller
     }
     // {
     //   $user = Auth::user();
-    // 
+    //
     //   $isAdmin =  DB::table('users')->select('isAdmin')->where('id', $userID)->get();
-    //   
+    //
     //   return $isAdmin;
-    //   
+    //
     //   if ($isAdmin[0] == '0'){
     //     return "is not admin";
     //     DB::table('users')->where('id', $userID)->update(
@@ -298,14 +298,16 @@ class AdminController extends Controller
     public function export($challengeID){
       $challenge = Challenges::where('id', $challengeID)->first();
       $ideas = Ideas::orderBy('created_at', 'desc')->where('IDChallenge', $challengeID)->get();
-      foreach ($ideas as $key) {
-        $ideas->element = IdeasElements::where('id', $key->IDElements)->get();
-        $key->votes = Votes::where('IDIdea', $key->IDIdea )->count();
+
+      foreach ($ideas as $idea) {
+        $ideas->element = IdeasElements::where('id', $idea->IDElements)->get();
+        $idea->votes = Votes::where('IDIdea', $idea->IDIdea )->count();
+        $idea->user = User::where('id', $idea->IDUser )->first();
       }
 
       $filename = 'ideas-'.$challenge->name.'.csv';
       $handle = fopen($filename, 'w+');
-      fputcsv($handle, array('Title', 'Description', 'Rebounds', 'Character', 'Place', 'Ressource', 'Quest', 'Warning', 'Treasure', 'Votes' ));
+      fputcsv($handle, array('Title', 'Description', 'Rebounds', 'Character', 'Place', 'Ressource', 'Quest', 'Warning', 'Treasure', 'Votes', 'Author' ));
 
       foreach($ideas as $row) {
         fputcsv($handle, array(
@@ -318,7 +320,8 @@ class AdminController extends Controller
           $row->element['quest'],
           $row->element['warning'],
           $row->element['treasure'],
-          $row['votes']
+          $row['votes'],
+          $row->user['name']
         ));}
 
       fclose($handle);
@@ -329,6 +332,4 @@ class AdminController extends Controller
 
        return response()->download($filename, 'ideas-'.$challenge->name.'.csv', $headers);
     }
-
-
 }
