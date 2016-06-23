@@ -11,7 +11,6 @@
     <div class="challenge-cover-filter"></div>
     <h2>{{ $challenge->name }}</h2>
     <h4>{{ $challenge->description }}</h4>
-
     <div class="time-left">
       @if ($challenge->status != 'closed')
       <span class="time-left-indic">0 days left</span>
@@ -118,7 +117,7 @@
                   <span class="idea-tag tag-treasure-{{ $idea->IDIdea}}">{{ $idea->element->treasure}}</span>
                 </p>
                 <span class="user-idea pull-left"><i class="material-icons">account_circle</i>{{ $idea->name }}</span>
-                <strong class="pull-right"><i style="color: {{ $challenge->color }}" class="fa fa-bolt"></i> {{ $idea->element->disruptive}}</strong>
+                <strong class="pull-right" data-toggle="tooltip" data-placement="bottom" title="Disruptivity level"><i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i> {{ $idea->element->disruptive}}</strong>
               </div>
               @if (isset($isAdmin) && $isAdmin == 1)
               <div class="panel-footer" data-id="{{$idea->IDIdea}}">
@@ -127,12 +126,13 @@
                   </div>
               </div>
               @endif
+              
               <div class="panel-idea-stats">
                 <div style="background-color:{{ $challenge->color }}" class="stat-container--like stat-container {{ Auth::check() ? 'js-btn-votes' : '' }}" data-id='{{ $idea->IDIdea}}'>
                   @if( Auth::check() && $idea->votes()->where('IDUser', Auth::id())->first())
                   <i class="fa fa-heart"></i>
                   @else
-                  <i class="fa fa-heart-o"></i>
+                  <i data-target="#modalCreate" data-toggle="modal" class="fa fa-heart-o"></i>
                   @endif
                   <span class="stat-indic">{{ $idea->votes->count() }}</span>
 
@@ -509,7 +509,7 @@
           <div class="col-md-6 col-md-offset-3">
             <div class="alert alert-info text-center" role="alert">
               <h2><i class="material-icons">account_circle</i></h2>
-              You must be logged in to create an idea<br/>
+              You must be logged in to contribute to a challenge<br/>
 
               <a type="button" class="btn btn-link" data-toggle="modal" data-target=".modal-login">Log In</a>
               Or
