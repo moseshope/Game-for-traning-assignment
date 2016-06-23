@@ -307,19 +307,19 @@ class AdminController extends Controller
 
       $filename = 'ideas-'.$challenge->name.'.csv';
       $handle = fopen($filename, 'w+');
-      fputcsv($handle, array('Title', 'Description', 'Rebounds', 'Character', 'Place', 'Ressource', 'Quest', 'Warning', 'Treasure', 'Votes', 'Author' ));
+      fputcsv($handle, array('Title', 'Description', 'Rebounds', 'Locations', 'Resources', 'Advantages', 'Users', 'Revenue Streams', 'Game Changers', 'Votes', 'Author' ));
 
       foreach($ideas as $row) {
         fputcsv($handle, array(
           $row['title'],
           $row['content'],
           $row['rebounds'],
-          $row->element['character'],
-          $row->element['place'],
-          $row->element['ressource'],
-          $row->element['quest'],
-          $row->element['warning'],
-          $row->element['treasure'],
+          $row->element['character'],//= place = location
+          $row->element['place'],//=ressource
+          $row->element['ressource'],//= quest = advantages
+          $row->element['quest'],//character = user
+          $row->element['warning'],//=treasure = revenue stream
+          $row->element['treasure'],//=warning = game changers
           $row['votes'],
           $row->user['name']
         ));}
