@@ -425,13 +425,13 @@
           </div>
           <br/>
           <div class="row text-center pepper-gauge">
-            <div class="col-xs-4 gauge-step">
+            <div class="col-xs-4 gauge-step" style="background-color: {{ $challenge->color }}">
               <i class="fa fa-bolt"></i> <span>Innovative</span>
             </div>
-            <div class="col-xs-4 gauge-step">
+            <div class="col-xs-4 gauge-step" style="background-color: {{ $challenge->color }}">
               <i class="fa fa-bolt"></i><i class="fa fa-bolt"></i><span>Original</span>
             </div>
-            <div class="col-xs-4 gauge-step">
+            <div class="col-xs-4 gauge-step" style="background-color: {{ $challenge->color }}">
               <i class="fa fa-bolt"></i><i class="fa fa-bolt"></i><i class="fa fa-bolt"></i><span>Disruptive</span>
             </div>
           </div>
@@ -467,14 +467,14 @@
             <input type="text" name="title" placeholder="The name of your product or service" class="form-control" />
 
             <div class="hidden elements-form">
-              <input type="hidden" name="character" />
               <input type="hidden" name="place" />
               <input type="hidden" name="ressource" />
               <input type="hidden" name="quest" />
-              <input type="hidden" name="warning" />
+              <input type="hidden" name="character" />
               <input type="hidden" name="treasure" />
+              <input type="hidden" name="warning" />
               <input type="hidden" name="rebound" value='false' />
-
+              <input type="hidden" name="disruptive" />
             </div>
             <div class="text-center">
               <button style="background-color:{{ $challenge->color }}" type="submit" class="btn btn-main">Share my idea to the world !</button>

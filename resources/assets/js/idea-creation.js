@@ -9,6 +9,28 @@ function checkFirstTime(currentTab){
   }
 }
 
+function updateDisruptive(){
+  nbBolts = $('.element-recap .fa-bolt').length;
+  console.log(nbBolts);
+  
+  switch (true) {
+    case (nbBolts < 10) :
+      $('.gauge-step').removeClass('gauge-step--active');
+      $('.gauge-step').eq(0).addClass('gauge-step--active');
+      break;
+    case (nbBolts >= 11 && nbBolts < 14) :
+    $('.gauge-step').removeClass('gauge-step--active');
+      $('.gauge-step').eq(1).addClass('gauge-step--active');
+      break;
+    case (nbBolts >= 15 && nbBolts < 18) :
+    $('.gauge-step').removeClass('gauge-step--active');
+      $('.gauge-step').eq(2).addClass('gauge-step--active');
+      break;
+  }
+  
+  $('.elements-form input[name="disruptive"]').val(nbBolts);
+}
+
 currentTab = 0;
 allowNext = false;
 
@@ -54,7 +76,7 @@ $('.js-btn-element-previous').on('click', function(){
 $('.tabs-scenario .panel-element').on('click', function(){
 
   $elementText = $(this).find('.panel-body strong').text();
-  $elementRating = $(this).find('.panel-footer').children().clone();
+  $elementRating = Number($(this).find('.panel-footer').text());
 
   $(this).closest('.tab-pane').find('.panel-element').removeClass('panel-element--selected');
   $(this).addClass('panel-element--selected');
@@ -69,7 +91,11 @@ $('.tabs-scenario .panel-element').on('click', function(){
   /*INSERT DATA*/
   $('.element-recap').eq(currentTab).find('.panel-element .panel-body').html('<strong>' + $elementText +'</strong>');
   $('.story').eq(currentTab).text($elementText);
-  $('.element-recap').eq(currentTab).find('.panel-element .panel-footer').html($elementRating);
+  
+  for (i=0;i<$elementRating;i++){
+    $('.element-recap').eq(currentTab).find('.panel-element .panel-footer').append('<i class="fa fa-bolt"></i>');
+  }
+  // $('.element-recap').eq(currentTab).find('.panel-element .panel-footer').html($elementRating);
 
   /*Fill form elements hidden input*/
   $('.elements-form input').eq(currentTab).val($elementText);
@@ -78,8 +104,10 @@ $('.tabs-scenario .panel-element').on('click', function(){
   var elementsFilled = $('.panel-element--filled').length;
 
   if (elementsFilled === $('.element-recap').length){
-      $('.js-btn-switch-write').attr('disabled', false).removeClass('btn-main--disabled');
-    }
+    $('.js-btn-switch-write').attr('disabled', false).removeClass('btn-main--disabled');
+  }
+  
+  updateDisruptive();
 
 });
 
