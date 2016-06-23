@@ -50,9 +50,11 @@ class ChallengesController extends Controller
       if (isset($user)) {
         Log::info($user);
         $userLogged = true;
+        $isAdmin = $user->isAdmin;
       }
       else{
         $userLogged = false;
+        $isAdmin = false;
       }
 
       $challenge = Challenges::where('name', $challenge)->first();
@@ -81,6 +83,7 @@ class ChallengesController extends Controller
         'elementsDisruptive' => $elementsDisruptive,
         'elementsPayment' => $elementsPayment,
         'ideaNBUser' => $ideaNBUser,
+        'isAdmin' => $isAdmin,
       ]);
     }
 

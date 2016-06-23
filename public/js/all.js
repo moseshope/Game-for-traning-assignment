@@ -362,4 +362,19 @@ $('.js-modify-elements').on('click', function(){
   });
 //rebound
 
+
+//DELETE_IDEA
+
+$('.js-modal-delete').on('click', function(){
+  ideaTitle = $(this).closest('.panel-idea').find('h3').text();
+  ideaP = $(this).closest('.panel-idea').find('h3').next().text();
+  ideaUser = $(this).closest('.panel-idea').find('.user-idea').text();
+  ideaID = $(this).closest('.panel-idea').find('.panel-footer').attr('data-id');
+  
+  $('.idea-title-delete').text(ideaTitle);
+  $('.idea-p-delete').text(ideaP);
+  $('.idea-user').text(ideaUser);
+  $('.js-delete-idea-button').attr('href', '/admin/' + ideaID + '/delete');
+});
+
 //# sourceMappingURL=all.js.map

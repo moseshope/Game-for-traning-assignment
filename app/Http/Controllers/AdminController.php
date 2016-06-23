@@ -236,6 +236,14 @@ class AdminController extends Controller
       // return redirect()->back()->with('status', 'Profile updated!');
     }
     
+    public function deleteIdea($ideaID){
+      DB::table('ideas')->where('IDIdea', $ideaID)->delete();
+      // DB::table('ideas_elements')->where('IDIdea', $ideaID)->delete();
+      // DB::table('votes')->where('IDIdea', $ideaID)->delete();
+      return redirect()->back();
+      // return redirect()->back()->with('status', 'Profile updated!');
+    }
+    
     public function rightsAdmin($userID, Request $request)
     {
       $user = Auth::user();

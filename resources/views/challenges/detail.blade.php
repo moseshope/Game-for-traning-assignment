@@ -119,6 +119,13 @@
                 </p>
                 <span class="user-idea"><i class="material-icons">account_circle</i>{{ $idea->name }}</span>
               </div>
+              @if (isset($isAdmin) && $isAdmin == 1)
+              <div class="panel-footer" data-id="{{$idea->IDIdea}}">
+                  <div>
+                    <a data-toggle="modal" data-target=".modal-delete-idea"  class="text-danger js-modal-delete"><i class="fa fa-times"></i> Delete this idea</a>
+                  </div>
+              </div>
+              @endif
               <div class="panel-idea-stats">
                 <div style="background-color:{{ $challenge->color }}" class="stat-container--like stat-container {{ Auth::check() ? 'js-btn-votes' : '' }}" data-id='{{ $idea->IDIdea}}'>
                   @if( Auth::check() && $idea->votes()->where('IDUser', Auth::id())->first())
@@ -521,5 +528,32 @@
 </div>
 @endif
 @endif
+
+@if (isset($isAdmin) && $isAdmin == 1)
+<!-- Modal -->
+<div class="modal fade modal-delete-idea"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Confirmation</h4>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-danger text-center" role="alert">
+          <i class="fa fa-exclamation-triangle fa-2x"></i> <br/>Are you sure you want to delete this idea ?
+        </div>
+        <h4 class="idea-title-delete"></h4>
+        <p class="idea-p-delete"></p>
+        <small class="idea-user"></small>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <a href="/admin/{{ $idea->IDIdea }}/delete" type="button" class="btn btn-danger js-delete-idea-button"><i class="fa fa-times"></i> Delete this idea</a>
+      </div>
+    </div>
+  </div>
+</div>
+@endif
+
 
 @endsection
