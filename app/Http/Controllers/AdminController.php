@@ -244,6 +244,11 @@ class AdminController extends Controller
       // return redirect()->back()->with('status', 'Profile updated!');
     }
     
+    public function deleteChallenge($challengeID){
+      DB::table('challenges')->where('id', $challengeID)->delete();
+      return redirect('/admin');
+    }
+    
     public function rightsAdmin($userID, Request $request)
     {
       $user = Auth::user();

@@ -11,11 +11,13 @@
     @endif
       <br/>
 
-      <div class="col-md-0" style="margin-left:1%" name="export">
+      <div class="col-md-4" name="export">
         <a href="{{ url('/admin/'.$challenge->id.'/export') }}" class="btn btn-primary">Export ideas</a>
+        <br/><br/>
+        <a data-toggle="modal" data-target=".modal-delete-challenge" class="btn btn-danger"><i class="fa fa-trash"></i> Delete challenge</a>
       </div>
 
-      <div class="col-md-4 col-md-offset-4">
+      <div class="col-md-4">
         <div class="form-group">
           Name : <input type="text" name="name" class="form-control" value="{{ $challenge->name }}" />
         </div>
@@ -293,6 +295,27 @@
             <button type="submit" class="btn btn-primary">Save changes</button>
           </div>
         </form>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal -->
+  <div class="modal fade modal-delete-challenge"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Confirmation</h4>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-danger text-center" role="alert">
+            <i class="fa fa-exclamation-triangle fa-2x"></i> <br/>Are you sure you want to delete <strong>this challenge</strong> ?
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <a href="/admin/{{ $challenge->id }}/deleteChallenge" type="button" class="btn btn-danger"><i class="fa fa-times"></i> Delete</a>
+        </div>
       </div>
     </div>
   </div>

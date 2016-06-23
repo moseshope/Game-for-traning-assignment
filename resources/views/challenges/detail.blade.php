@@ -548,7 +548,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <a href="/admin/{{ $idea->IDIdea }}/delete" type="button" class="btn btn-danger js-delete-idea-button"><i class="fa fa-times"></i> Delete this idea</a>
+        <a href="" type="button" class="btn btn-danger js-delete-idea-button"><i class="fa fa-times"></i> Delete this idea</a>
       </div>
     </div>
   </div>
