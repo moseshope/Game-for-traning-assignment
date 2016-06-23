@@ -117,7 +117,8 @@
                   <span class="idea-tag tag-warning-{{ $idea->IDIdea}}">{{ $idea->element->warning}}</span>
                   <span class="idea-tag tag-treasure-{{ $idea->IDIdea}}">{{ $idea->element->treasure}}</span>
                 </p>
-                <span class="user-idea"><i class="material-icons">account_circle</i>{{ $idea->name }}</span>
+                <span class="user-idea pull-left"><i class="material-icons">account_circle</i>{{ $idea->name }}</span>
+                <strong class="pull-right"><i style="color: {{ $challenge->color }}" class="fa fa-bolt"></i> {{ $idea->element->disruptive}}</strong>
               </div>
               @if (isset($isAdmin) && $isAdmin == 1)
               <div class="panel-footer" data-id="{{$idea->IDIdea}}">

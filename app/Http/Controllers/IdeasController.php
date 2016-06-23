@@ -75,6 +75,7 @@ class IdeasController extends Controller
         $ideaelements->quest = $request->quest;
         $ideaelements->warning = $request->warning;
         $ideaelements->treasure = $request->treasure;
+        $ideaelements->disruptive = $request->disruptive;
         $ideaelements->save();
         $idea->IDElements = $ideaelements->id;
 

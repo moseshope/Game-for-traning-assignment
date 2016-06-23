@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class IdeasElements extends Model
 {
-    protected $fillable = ['character', 'place', 'ressource', 'quest', 'warning', 'treasure'];
+    protected $fillable = ['character', 'place', 'ressource', 'quest', 'warning', 'treasure', 'rebounds' ,'disruptive'];
 
     public function user()
     {
