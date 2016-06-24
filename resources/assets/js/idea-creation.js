@@ -22,7 +22,7 @@ function updateDisruptive(){
     $('.gauge-step').removeClass('gauge-step--active');
       $('.gauge-step').eq(1).addClass('gauge-step--active');
       break;
-    case (nbBolts >= 15 && nbBolts < 18) :
+    case (nbBolts >= 15 && nbBolts <= 18) :
     $('.gauge-step').removeClass('gauge-step--active');
       $('.gauge-step').eq(2).addClass('gauge-step--active');
       break;

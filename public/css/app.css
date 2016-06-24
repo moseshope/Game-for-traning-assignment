@@ -140,7 +140,6 @@ nav.navbar .dropdown.open > a {
   color: #fff;
   top: 50%;
   position: relative;
-  -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
   text-align: center;
   max-width: 50%;
@@ -244,7 +243,6 @@ nav.navbar .dropdown.open > a {
 }
 .panel-challenge .panel-overview {
   margin-top: 20px;
-  -webkit-transform: none;
   transform: none;
 }
 .panel-challenge .panel-overview .indic {
@@ -261,7 +259,6 @@ nav.navbar .dropdown.open > a {
   color: #37474F;
   position: relative;
   margin-bottom: 5px;
-  -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
   border: 0;
 }
@@ -289,7 +286,6 @@ nav.navbar .dropdown.open > a {
   padding: 10px 0;
   cursor: pointer;
   transition-duration: 0.3s;
-  transition-property: -webkit-transform;
   transition-property: transform;
 }
 .panel-overview .panel-overview-create:hover {
@@ -298,7 +294,6 @@ nav.navbar .dropdown.open > a {
   -ms-filter: grayscale(70%);
   -o-filter: grayscale(70%);
   filter: grayscale(70%);
-  -webkit-transform: scale(1.2);
   transform: scale(1.2);
   transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
 }
@@ -393,7 +388,6 @@ nav.navbar .dropdown.open > a {
   position: relative;
   color: #fff;
   top: 50%;
-  -webkit-transform: translateY(-75%);
   transform: translateY(-75%);
   font-size: 26px;
 }
@@ -453,6 +447,12 @@ span.story {
   font-weight: bold;
   text-transform: lowercase;
 }
+p.idea-content {
+  min-height: 40px;
+}
+p.tag-list {
+  min-height: 50px;
+}
 .challenge-steps {
   position: relative;
 }
@@ -471,7 +471,6 @@ span.story {
   height: 40px;
   line-height: 40px;
   border-radius: 50%;
-  -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
   margin: 0 auto;
 }
@@ -542,6 +541,9 @@ span.story {
 .panel-element {
   cursor: pointer;
   color: #999;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .panel-element .panel-footer {
   background-color: #ccc;
@@ -736,6 +738,11 @@ body {
 .tooltip-inner {
   white-space: pre-wrap;
 }
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .btn-main {
   background-color: #37474F;
   color: #fff;
@@ -750,7 +757,6 @@ body {
 .btn-main:hover {
   color: #fff;
   background-color: #0d1113;
-  -webkit-transform: scale(1.1);
   transform: scale(1.1);
   transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
 }
