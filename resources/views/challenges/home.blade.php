@@ -119,7 +119,7 @@
             {{ $challenge->description}}
           </p>
           <div class="text-center text-info">
-            <strong><i class="fa fa-exclamation-triangle"></i> You can see this challenge because you are administrator</stong>
+            <strong><i class="fa fa-exclamation-triangle"></i> You can see this challenge because you are administrator</strong>
           </div>
           <div class="row panel-overview text-center">
             <div class="col-xs-4 text-center indic">

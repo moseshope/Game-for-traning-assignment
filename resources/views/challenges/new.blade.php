@@ -58,19 +58,24 @@
         </div>
 
         <div class="form-group">
-            <label for="task-date" class="col-sm-3 control-label">Start date</label>
+            <label for="task-date" class="col-sm-2 col-sm-offset-1 control-label">Start date</label>
 
-            <div class="col-sm-6">
-              <input type="date" name="start_date" class="form-control" required>
+            <div class="col-sm-2">
+              <input class="form-control calendar" placeholder="Start date of your challenge" id="start_date" name="start_date" data-altinput=true data-altFormat="F j, Y" required>
+              <!-- <input type="text" name="start_date" class="form-control calendar" required> -->
+            </div>
+            
+            <label for="task-date" class="col-sm-1 control-label">End date</label>
+
+            <div class="col-sm-2">
+              <input class="form-control calendar" placeholder="End date of your challenge" id="end_date" name="end_date" data-altinput=true data-altFormat="F j, Y" required>
+
+              <!-- <input type="text" name="end_date" class="form-control calendar" required> -->
             </div>
         </div>
 
         <div class="form-group">
-            <label for="task-date" class="col-sm-3 control-label">End date</label>
-
-            <div class="col-sm-6">
-              <input type="date" name="end_date" class="form-control" required>
-            </div>
+            
         </div>
 
         <div class="form-group">
@@ -110,4 +115,13 @@
   </form>
 
 </div>
+@push('scripts')
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/1.8.7/flatpickr.min.js"></script>
+  <script src="{{ asset('js/admin.js') }}"></script>
+@endpush
+
+@push('styles')
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/1.8.7/flatpickr.min.css" rel="stylesheet">
+@endpush
+
 @endsection
