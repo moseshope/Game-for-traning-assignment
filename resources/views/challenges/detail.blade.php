@@ -103,12 +103,12 @@
           <div class="col-lg-4 col-md-6 col-sm-6">
             <div class="panel panel-idea">
               <div class="panel-body">
-                <h3>{{ $idea->title }}</h3>
+                <h3 class="truncate">{{ $idea->title }}</h3>
                   <!-- <h3><a href="{{$idea->IDIdea}}">{{ $idea->title }}</a></h3> -->
-                <p>
+                <p class="idea-content">
                   {{ $idea->content }}
                 </p>
-                <p>
+                <p class="tag-list">
                   <span class="idea-tag tag-character-{{ $idea->IDIdea}}">{{ $idea->element->character}}</span>
                   <span class="idea-tag tag-place-{{ $idea->IDIdea}}">{{ $idea->element->place}}</span>
                   <span class="idea-tag tag-ressource-{{ $idea->IDIdea}}">{{ $idea->element->ressource}}</span>

@@ -453,6 +453,12 @@ span.story {
   font-weight: bold;
   text-transform: lowercase;
 }
+p.idea-content {
+  min-height: 40px;
+}
+p.tag-list {
+  min-height: 50px;
+}
 .challenge-steps {
   position: relative;
 }
@@ -542,6 +548,9 @@ span.story {
 .panel-element {
   cursor: pointer;
   color: #999;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .panel-element .panel-footer {
   background-color: #ccc;
@@ -750,6 +759,11 @@ body {
 }
 .tooltip-inner {
   white-space: pre-wrap;
+}
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .btn-main {
   background-color: #37474F;
