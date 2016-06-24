@@ -20,6 +20,12 @@ Route::group(['middleware' => ['web']], function () {
   Route::get('/home', function () {
     return redirect('/challenges');
   });
+  
+  Route::get('/about', function()
+  {
+      return view('about.about');
+  });
+
 
   /*ADMIN*/
   Route::get('/admin', 'AdminController@index');
@@ -27,12 +33,14 @@ Route::group(['middleware' => ['web']], function () {
   Route::post('/admin/{challengeID}', 'AdminController@edit');
   Route::post('/admin/{challengeID}/status', 'AdminController@editStatus');
   Route::post('/admin/{challengeID}/color', 'AdminController@editColor');
+  Route::post('/admin/{challengeID}/editCover', 'AdminController@editCover');
   Route::post('/admin/{challengeID}/context', 'AdminController@editContext');
   Route::post('/admin/{challengeID}/elements', 'AdminController@storeElements');
   Route::post('/admin/{elementID}/delete', 'AdminController@deleteElement');
   Route::get('/admin/{userID}/rights', 'AdminController@rightsAdmin');
   Route::get('/admin/{ideaID}/delete', 'AdminController@deleteIdea');
   Route::get('/admin/{challengeID}/deleteChallenge', 'AdminController@deleteChallenge');
+  
   /*export ideas*/
   Route::get('/admin/{challengeID}/export', 'AdminController@export');
 

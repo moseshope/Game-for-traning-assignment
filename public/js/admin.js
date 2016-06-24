@@ -4,7 +4,6 @@ var options = {
 
 var userList = new List('users', options);
 
-
 var check_in = flatpickr("#start_date", { minDate: new Date() });
 var check_out = flatpickr("#end_date", { minDate: new Date() });
 
@@ -15,4 +14,3 @@ check_out.set("onChange", function(d) {
 	check_in.set("maxDate", d);
 });
 
-// flatpickr('.calendar');

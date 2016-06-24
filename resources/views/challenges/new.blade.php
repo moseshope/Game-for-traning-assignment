@@ -31,7 +31,7 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group hidden">
             <label class="col-sm-3 control-label">Image cover URL</label>
 
             <div class="col-sm-6">

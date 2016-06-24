@@ -12,6 +12,8 @@ use App\User;
 use DB;
 use Auth;
 use Log;
+use Storage;
+use File;
 
 class AdminController extends Controller
 {
@@ -270,30 +272,19 @@ class AdminController extends Controller
         return redirect('/');
       }
     }
-    // {
-    //   $user = Auth::user();
-    //
-    //   $isAdmin =  DB::table('users')->select('isAdmin')->where('id', $userID)->get();
-    //
-    //   return $isAdmin;
-    //
-    //   if ($isAdmin[0] == '0'){
-    //     return "is not admin";
-    //     DB::table('users')->where('id', $userID)->update(
-    //         array(
-    //               "isAdmin" => '1',
-    //               )
-    //         );
-    //   }
-    //   else {
-    //     return "is admin";
-    //     DB::table('users')->where('id', $userID)->update(
-    //         array(
-    //               "isAdmin" => '0',
-    //               )
-    //         );
-    //   }
-    // }
+    
+    public function editCover(Request $request, $challengeID){
+      $challenge = Challenges::where('id', $challengeID)->first();
+      
+      $file = $request->file('cover');
+      $filename = $challenge->url . '.jpg';
+      
+      if ($file){
+        Storage::disk('covers')->put($filename, File::get($file));
+      }
+      
+      return redirect()->back();
+    }
 
     public function export($challengeID){
       $challenge = Challenges::where('id', $challengeID)->first();

@@ -48,10 +48,6 @@ $('.js-btn-element-next').on('click', function(){
     $('.tab-pane--active').next().addClass('in active tab-pane--active');
     $('.tab-pane--active').first().removeClass('in active tab-pane--active');
   }
-  console.log(currentTab);
-  
-  // $('.panel-element').removeClass('ui-droppable');
-  // $('.element-recap').eq(currentTab).find('.panel-element').addClass('panel-element--filling ui-droppable');
   
 });
 
@@ -124,119 +120,101 @@ $('.js-modify-elements').on('click', function(){
   $('.js-btn-switch-write').show('fast');
 });
 
-
-/****DRAG AND DROP****/
-// $(".tabs-scenario .panel-element").draggable({
-//   appendTo: ".ui-droppable, .panel-element--filling",
-//   refreshPositions: true,
-//   helper: "clone"
-// });
-// $( ".panel-element--filling, .ui-droppable" ).droppable({
-//     activeClass: "ui-state-default",
-//     hoverClass: "ui-state-hover",
-//     refreshPositions: true,
-//     accept: ":not(.ui-sortable-helper)",
-//     drop: function(event, ui) {
-//       $(ui.draggable).click();
-//       // $(this).addClass('ui-droppable');
-//     }
-//   })
-
-  $('.tabs-scenario .tab-pane').eq(0).find('.panel-element').draggable({
-    appendTo: ".droppable0",
-    helper: "clone"
-  });
-  $( ".droppable0" ).droppable({
-    accept: ":not(.ui-sortable-helper)",
-    drop: function(event, ui) {
-      $(ui.draggable).click();
-      $(this).addClass('ui-droppable');
-      $(this).addClass('animated bounceIn');
-      setTimeout(function(){
-          $('.panel-element').removeClass('bounceIn');
-      }, 1000);
-    }
-  });
+$('.tabs-scenario .tab-pane').eq(0).find('.panel-element').draggable({
+  appendTo: ".droppable0",
+  helper: "clone"
+});
+$( ".droppable0" ).droppable({
+  accept: ":not(.ui-sortable-helper)",
+  drop: function(event, ui) {
+    $(ui.draggable).click();
+    $(this).addClass('ui-droppable');
+    $(this).addClass('animated bounceIn');
+    setTimeout(function(){
+        $('.panel-element').removeClass('bounceIn');
+    }, 1000);
+  }
+});
     
-  $('.tabs-scenario .tab-pane').eq(1).find('.panel-element').draggable({
-    appendTo: ".droppable1",
-    helper: "clone"
-  });
-  $( ".droppable1" ).droppable({
-    accept: ":not(.ui-sortable-helper)",
-    drop: function(event, ui) {
-      $(ui.draggable).click();
-      $(this).addClass('ui-droppable');
-      $(this).addClass('animated bounceIn');
-      setTimeout(function(){
-          $('.panel-element').removeClass('bounceIn');
-      }, 1000);
-    }
-  });
+$('.tabs-scenario .tab-pane').eq(1).find('.panel-element').draggable({
+  appendTo: ".droppable1",
+  helper: "clone"
+});
+$( ".droppable1" ).droppable({
+  accept: ":not(.ui-sortable-helper)",
+  drop: function(event, ui) {
+    $(ui.draggable).click();
+    $(this).addClass('ui-droppable');
+    $(this).addClass('animated bounceIn');
+    setTimeout(function(){
+        $('.panel-element').removeClass('bounceIn');
+    }, 1000);
+  }
+});
   
-  $('.tabs-scenario .tab-pane').eq(2).find('.panel-element').draggable({
-    appendTo: ".droppable2",
-    helper: "clone"
-  });
-  $( ".droppable2" ).droppable({
-    accept: ":not(.ui-sortable-helper)",
-    drop: function(event, ui) {
-      $(ui.draggable).click();
-      $(this).addClass('ui-droppable');
-      $(this).addClass('animated bounceIn');
-      setTimeout(function(){
-          $('.panel-element').removeClass('bounceIn');
-      }, 1000);
-    }
-  });
+$('.tabs-scenario .tab-pane').eq(2).find('.panel-element').draggable({
+  appendTo: ".droppable2",
+  helper: "clone"
+});
+$( ".droppable2" ).droppable({
+  accept: ":not(.ui-sortable-helper)",
+  drop: function(event, ui) {
+    $(ui.draggable).click();
+    $(this).addClass('ui-droppable');
+    $(this).addClass('animated bounceIn');
+    setTimeout(function(){
+        $('.panel-element').removeClass('bounceIn');
+    }, 1000);
+  }
+});
 
-  $('.tabs-scenario .tab-pane').eq(3).find('.panel-element').draggable({
-    appendTo: ".droppable3",
-    helper: "clone"
-  });
-  $( ".droppable3" ).droppable({
-    accept: ":not(.ui-sortable-helper)",
-    drop: function(event, ui) {
-      $(ui.draggable).click();
-      $(this).addClass('ui-droppable');
-      $(this).addClass('animated bounceIn');
-      setTimeout(function(){
-          $('.panel-element').removeClass('bounceIn');
-      }, 1000);
-    }
-  });
+$('.tabs-scenario .tab-pane').eq(3).find('.panel-element').draggable({
+  appendTo: ".droppable3",
+  helper: "clone"
+});
+$( ".droppable3" ).droppable({
+  accept: ":not(.ui-sortable-helper)",
+  drop: function(event, ui) {
+    $(ui.draggable).click();
+    $(this).addClass('ui-droppable');
+    $(this).addClass('animated bounceIn');
+    setTimeout(function(){
+        $('.panel-element').removeClass('bounceIn');
+    }, 1000);
+  }
+});
   
-  $('.tabs-scenario .tab-pane').eq(4).find('.panel-element').draggable({
-    appendTo: ".droppable4",
-    helper: "clone"
-  });
-  $( ".droppable4" ).droppable({
-    accept: ":not(.ui-sortable-helper)",
-    drop: function(event, ui) {
-      $(ui.draggable).click();
-      $(this).addClass('ui-droppable');
-      $(this).addClass('animated bounceIn');
-      setTimeout(function(){
-          $('.panel-element').removeClass('bounceIn');
-      }, 1000);
-    }
-  });
-  
-  $('.tabs-scenario .tab-pane').eq(5).find('.panel-element').draggable({
-    appendTo: ".droppable5",
-    helper: "clone"
-  });
-  $( ".droppable5" ).droppable({
-    accept: ":not(.ui-sortable-helper)",
-    drop: function(event, ui) {
-      $(ui.draggable).click();
-      $(this).addClass('ui-droppable');
-      $(this).addClass('animated bounceIn');
-      setTimeout(function(){
-          $('.panel-element').removeClass('bounceIn');
-      }, 1000);
-    }
-  });
+$('.tabs-scenario .tab-pane').eq(4).find('.panel-element').draggable({
+  appendTo: ".droppable4",
+  helper: "clone"
+});
+$( ".droppable4" ).droppable({
+  accept: ":not(.ui-sortable-helper)",
+  drop: function(event, ui) {
+    $(ui.draggable).click();
+    $(this).addClass('ui-droppable');
+    $(this).addClass('animated bounceIn');
+    setTimeout(function(){
+        $('.panel-element').removeClass('bounceIn');
+    }, 1000);
+  }
+});
+
+$('.tabs-scenario .tab-pane').eq(5).find('.panel-element').draggable({
+  appendTo: ".droppable5",
+  helper: "clone"
+});
+$( ".droppable5" ).droppable({
+  accept: ":not(.ui-sortable-helper)",
+  drop: function(event, ui) {
+    $(ui.draggable).click();
+    $(this).addClass('ui-droppable');
+    $(this).addClass('animated bounceIn');
+    setTimeout(function(){
+        $('.panel-element').removeClass('bounceIn');
+    }, 1000);
+  }
+});
 //rebound
 
 

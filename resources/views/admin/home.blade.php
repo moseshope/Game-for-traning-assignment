@@ -37,7 +37,7 @@
       @foreach ($challenges as $challenge)
       <li class="list-group-item">
         <span>
-          <a href="{{route ('challenge_detail', $challenge->name) }}"><i class="fa fa-link"></i></a>
+          <a href="{{route ('challenge_detail', $challenge->name) }}"><i class="fa fa-eye"></i></a>
         </span>
         <strong>{{$challenge->name}}</strong>
         @if ($challenge->status == 'live')

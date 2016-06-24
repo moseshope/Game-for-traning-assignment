@@ -51,7 +51,7 @@ $('document').ready(function(){
     
     $(this).find('.progress-bar').css('width', posProgressBar + '%');
     
-    if ($('.time-closed').length == 1){
+    if ($('.time-closed').length == 1 || $(this).find('.fa-lock').length > 0){
       $(this).find('.time-closed').html('<i class="fa fa-lock"></i> Challenge closed')
       $(this).find('.progress-bar').css('width','100%');
     }
@@ -101,6 +101,13 @@ $('document').ready(function(){
           }
       });
   });
+  
+    
+  $('.panel-idea').each(function(index){
+    nbLikes = $(this).find('.stat-indic-likes').text();
+    ideaTitle = $(this).find('h3').text();
+    console.log(ideaTitle +  ' Likes: ' + nbLikes);
+  })
 
 });
 

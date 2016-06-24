@@ -97,7 +97,7 @@
           </div>
         </div>
 
-        <div class="row">
+        <div class="row" id="ideas-list">
           @foreach ($ideas as $idea)
           @if($idea->element)
           <div class="col-lg-4 col-md-6 col-sm-6">
@@ -128,13 +128,13 @@
               @endif
               
               <div class="panel-idea-stats">
-                <div style="background-color:{{ $challenge->color }}" class="stat-container--like stat-container {{ Auth::check() ? 'js-btn-votes' : '' }}" data-id='{{ $idea->IDIdea}}'>
+                <div style="background-color:{{ $challenge->color }}" class="stat-container--like stat-container {{ Auth::check() && $challenge->status != 'closed' ? 'js-btn-votes' : '' }}" data-id='{{ $idea->IDIdea}}'>
                   @if( Auth::check() && $idea->votes()->where('IDUser', Auth::id())->first())
                   <i class="fa fa-heart"></i>
                   @else
                   <i data-target="#modalCreate" data-toggle="modal" class="fa fa-heart-o"></i>
                   @endif
-                  <span class="stat-indic">{{ $idea->votes->count() }}</span>
+                  <span class="stat-indic stat-indic-likes">{{ $idea->votes->count() }}</span>
 
                 </div>
                 <div style="background-color:{{ $challenge->color }}" class="stat-container--rebound stat-container js-btn-rebound" data-id='{{ $idea->IDIdea}}'>
@@ -451,7 +451,7 @@
             <br/><br/>
             <h4><strong>Scenario</strong></h4>
             <p class="storygraph text-left">
-              Imagine if you are <strong class="text-lowercase">{{ $challenge->context }}</strong> in a specific context <span class="story story-location"></span> with this resource at your disposal <span class="story story-resource"></span>. You would use  <span class="story story-advantage"></span> for this group of users <span class="story story-user"></span> by this revenue option <span class="story story-revenue"></span>. And what if <span class="story story-game-changer"></span> !
+              Imagine if you are <strong class="text-lowercase">{{ $challenge->context }}</strong> in <span class="story story-location"></span> with <span class="story story-resource"></span> at your disposal. You would <span class="story story-advantage"></span> for this group of <span class="story story-user"></span> by this <span class="story story-revenue"></span> option. And what if you consider <span class="story story-game-changer"></span> ?
             </p>
             <button style="background-color:{{ $challenge->color }};-webkit-filter: grayscale(70%);filter: grayscale(70%);-moz-filter: grayscale(70%);-ms-filter: grayscale(70%);" class="btn btn-main btn-main--other js-modify-elements"><i class="fa fa-chevron-left"></i> &nbsp;Edit elements</button>
           </div>

@@ -749,6 +749,20 @@ p.tag-list {
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
+.about p {
+  margin: 0 0 10px;
+  font-size: 17px;
+  line-height: 30px;
+  color: #444;
+}
+.about ul {
+  margin: 0;
+  padding-left: 20px;
+}
+.about ul li {
+  padding: 10px 0;
+  font-size: 17px;
+}
 body {
   padding-top: 50px;
   background-color: #f4f4f4;
