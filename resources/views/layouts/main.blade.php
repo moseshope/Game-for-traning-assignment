@@ -6,6 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Story Juice - Create ideas !</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Story Juice">
+    
+    <meta name="theme-color" content="#E64545">
+    <!-- Add to homescreen -->
+    <meta name="mobile-web-app-capable" content="yes">
 
     <!-- Fonts -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>

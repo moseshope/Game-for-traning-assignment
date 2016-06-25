@@ -784,6 +784,11 @@ p.tag-list {
     margin-left: -15px;
     margin-right: -15px;
   }
+  .panel-overview-create {
+    transition: none!important;
+    -webkit-transform: none!important;
+    transform: none!important;
+  }
 }
 body {
   padding-top: 50px;
@@ -793,6 +798,10 @@ body {
 }
 .nostyle {
   color: inherit;
+}
+.nostyle:hover {
+  color: #inherit;
+  text-decoration: none;
 }
 .tooltip-inner {
   white-space: pre-wrap;
