@@ -356,6 +356,7 @@ nav.navbar .dropdown.open > a {
   font-weight: bold;
   text-transform: capitalize;
   margin-top: 0px;
+  height: 30px;
 }
 .panel-idea .user-idea i {
   vertical-align: bottom;
