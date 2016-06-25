@@ -272,17 +272,17 @@ class AdminController extends Controller
         return redirect('/');
       }
     }
-    
+
     public function editCover(Request $request, $challengeID){
       $challenge = Challenges::where('id', $challengeID)->first();
-      
+
       $file = $request->file('cover');
       $filename = $challenge->url . '.jpg';
-      
+
       if ($file){
         Storage::disk('covers')->put($filename, File::get($file));
       }
-      
+
       return redirect()->back();
     }
 
@@ -294,11 +294,15 @@ class AdminController extends Controller
         $ideas->element = IdeasElements::where('id', $idea->IDElements)->get();
         $idea->votes = Votes::where('IDIdea', $idea->IDIdea )->count();
         $idea->user = User::where('id', $idea->IDUser )->first();
+
+        /*foreach ($ideas as $idea){
+          $idea->disruptiveCounter = $idea->disruptiveCounter + $idea->element->disruptive;
+        }*/
       }
 
       $filename = 'ideas-'.$challenge->name.'.csv';
       $handle = fopen($filename, 'w+');
-      fputcsv($handle, array('Title', 'Description', 'Rebounds', 'Locations', 'Resources', 'Advantages', 'Users', 'Revenue Streams', 'Game Changers', 'Votes', 'Author' ));
+      fputcsv($handle, array('Title', 'Description', 'Rebounds', 'Locations', 'Resources', 'Advantages', 'Users', 'Revenue Streams', 'Game Changers', 'Votes', 'Author', 'Disruptive' ));
 
       foreach($ideas as $row) {
         fputcsv($handle, array(
@@ -312,7 +316,8 @@ class AdminController extends Controller
           $row->element['warning'],//=treasure = revenue stream
           $row->element['treasure'],//=warning = game changers
           $row['votes'],
-          $row->user['name']
+          $row->user['name'],
+          $row->element['disruptive']
         ));}
 
       fclose($handle);

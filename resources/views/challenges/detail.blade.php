@@ -108,6 +108,9 @@
                 <p class="idea-content">
                   {{ $idea->content }}
                 </p>
+                @if ( $idea->ideaOrigin )
+                <p name="origin">Cette idée est un rebond de {{ $idea->ideaOrigin }}</p>
+                @endif
                 <p class="tag-list">
                   <span class="idea-tag tag-character-{{ $idea->IDIdea}}">{{ $idea->element->character}}</span>
                   <span class="idea-tag tag-place-{{ $idea->IDIdea}}">{{ $idea->element->place}}</span>
@@ -126,7 +129,7 @@
                   </div>
               </div>
               @endif
-              
+
               <div class="panel-idea-stats">
                 <div style="background-color:{{ $challenge->color }}" class="stat-container--like stat-container {{ Auth::check() && $challenge->status != 'closed' ? 'js-btn-votes' : '' }}" data-id='{{ $idea->IDIdea}}'>
                   @if( Auth::check() && $idea->votes()->where('IDUser', Auth::id())->first())

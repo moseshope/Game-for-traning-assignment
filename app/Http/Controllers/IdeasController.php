@@ -83,6 +83,7 @@ class IdeasController extends Controller
         $first = Ideas::where('IDIdea', $request->rebound)->first();
         $first->rebounds = $first->rebounds + 1;
         $idea->IDElements = $first->IDElements;
+        $idea->ideaOrigin = $first->title;
         $first->save();
       }
       $idea->save();
