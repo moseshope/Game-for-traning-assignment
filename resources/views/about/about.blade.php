@@ -37,7 +37,11 @@
       
       <br/>
       <br/>
-      <p>To know more about our offer:<br/> <a href="http://www.opopoi.com/">www.opopoi.com</a>  or contact us: hello (@) opopoi.com <i class="fa fa-envelope"></i> </p>
+      <p>
+        To know more about our offer:<br/> <a href="http://www.opopoi.com/">www.opopoi.com</a><br/>
+        hello (@) opopoi.com <i class="fa fa-envelope"></i>
+      </p>
+      
       <br/>
     </div>
     
