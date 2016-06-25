@@ -309,12 +309,12 @@ class AdminController extends Controller
           $row['title'],
           $row['content'],
           $row['rebounds'],
-          $row->element['character'],//= place = location
           $row->element['place'],//=ressource
           $row->element['ressource'],//= quest = advantages
-          $row->element['quest'],//character = user
-          $row->element['warning'],//=treasure = revenue stream
-          $row->element['treasure'],//=warning = game changers
+          $row->element['quest'],// advantages
+          $row->element['character'],//= place = location
+          $row->element['treasure'],//=revenue stream
+          $row->element['warning'],//=game changers
           $row['votes'],
           $row->user['name'],
           $row->element['disruptive']
