@@ -51,9 +51,6 @@ nav.navbar .dropdown.open > a {
   border-radius: 2px;
   color: #fff;
 }
-.modal-create {
-  width: 1200px;
-}
 .modal-create .modal-content {
   border: 0;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
@@ -763,6 +760,25 @@ p.tag-list {
 .about ul li {
   padding: 10px 0;
   font-size: 17px;
+}
+@media (min-width: 1250px) {
+  .modal-lg {
+    width: 1200px;
+  }
+}
+@media (max-width: 600px) {
+  .ideas-create .right-col,
+  .ideas-propose .right-col,
+  .ideas-create .left-col,
+  .ideas-propose .left-col {
+    padding: 15px;
+  }
+  .panel-element {
+    text-align: center;
+  }
+  .element-recap {
+    display: none;
+  }
 }
 body {
   padding-top: 50px;

@@ -249,6 +249,34 @@
 
   </div>
 </div>
+
+
+@if (isset($isAdmin) && $isAdmin == 1)
+<!-- Modal -->
+<div class="modal fade modal-delete-idea"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Confirmation</h4>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-danger text-center" role="alert">
+          <i class="fa fa-exclamation-triangle fa-2x"></i> <br/>Are you sure you want to delete this idea ?
+        </div>
+        <h4 class="idea-title-delete"></h4>
+        <p class="idea-p-delete"></p>
+        <small class="idea-user"></small>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <a href="" type="button" class="btn btn-danger js-delete-idea-button"><i class="fa fa-times"></i> Delete this idea</a>
+      </div>
+    </div>
+  </div>
+</div>
+@endif
+
 @if ($challenge->status != 'closed')
 @if (isset($userLogged) && $userLogged === true && $elementsCharacter->count() >=2 )
 <div class="modal fade" id="modalCreate" tabindex="-1" role="dialog">
@@ -272,8 +300,10 @@
                   </div>
                 </div>
                 <div class="col-sm-2 text-center">
-                  <br/>
+                  <br class="hidden-xs"/>
                   or
+                  <br class="hidden-sm hidden-md hidden-lg"/>
+                  <br class="hidden-sm hidden-md hidden-lg"/>
                 </div>
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
@@ -437,10 +467,10 @@
 
           <div class="row">
             <br/><br/>
-            <div class="col-sm-4 col-sm-offset-2">
+            <div class="col-sm-4 col-xs-6 col-sm-offset-2">
               <button disabled="disabled" style="background-color:{{ $challenge->color }};-webkit-filter: grayscale(70%);filter: grayscale(70%);-moz-filter: grayscale(70%);-ms-filter: grayscale(70%);" class="btn btn-block btn-main btn-main--other js-btn-element-previous">Previous</button>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-4 col-xs-6">
               <button style="background-color:{{ $challenge->color }}" class="btn btn-block btn-main js-btn-element-next">Next</button>
             </div>
           </div>
@@ -621,32 +651,5 @@
 </div>
 @endif
 @endif
-
-@if (isset($isAdmin) && $isAdmin == 1)
-<!-- Modal -->
-<div class="modal fade modal-delete-idea"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Confirmation</h4>
-      </div>
-      <div class="modal-body">
-        <div class="alert alert-danger text-center" role="alert">
-          <i class="fa fa-exclamation-triangle fa-2x"></i> <br/>Are you sure you want to delete this idea ?
-        </div>
-        <h4 class="idea-title-delete"></h4>
-        <p class="idea-p-delete"></p>
-        <small class="idea-user"></small>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <a href="" type="button" class="btn btn-danger js-delete-idea-button"><i class="fa fa-times"></i> Delete this idea</a>
-      </div>
-    </div>
-  </div>
-</div>
-@endif
-
 
 @endsection
