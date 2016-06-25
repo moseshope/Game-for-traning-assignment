@@ -69,7 +69,7 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="material-icons">account_circle</i> {{ Auth::user()->name }}  <i class="fa fa-chevron-down"></i></a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">Profile</a></li>
+                  <li><a href="{{ url('/profile') }}">Profile</a></li>
                   <li><a href="{{ url('/logout') }}">Log out</a></li>
                 </ul>
               </li>

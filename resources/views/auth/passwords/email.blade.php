@@ -2,7 +2,26 @@
 
 <!-- Main Content -->
 @section('content')
+
 <div class="container">
+    @if (Auth::user())
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <br/>
+        <ul class="list-group">
+          @if (Auth::user()->isAdmin == '1')
+          <li class="list-group-item active text-center"><strong>Administrator</strong></li>
+          @endif
+          <li class="list-group-item"><i class="fa fa-user fa-fw"></i> Username : <strong>{{ Auth::user()->name }}</strong></li>
+          <li class="list-group-item"><i class="fa fa-envelope fa-fw"></i> Mail : <strong>{{ Auth::user()->email }}</strong></li>
+          <li class="list-group-item"><i class="fa fa-calendar fa-fw"></i> Register date : <strong>{{ Auth::user()->created_at }}</li>
+          
+        </ul>
+        <br/>
+      </div>
+    </div>
+    @endif
+  
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">

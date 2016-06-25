@@ -25,6 +25,11 @@ Route::group(['middleware' => ['web']], function () {
   {
       return view('about.about');
   });
+  
+  Route::get('/profile', function()
+  {
+      return view('auth.passwords.email');
+  });
 
 
   /*ADMIN*/
