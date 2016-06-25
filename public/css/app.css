@@ -779,11 +779,17 @@ p.tag-list {
   .element-recap {
     display: none;
   }
+  .challenges-container {
+    padding: 0;
+    margin-left: -15px;
+    margin-right: -15px;
+  }
 }
 body {
   padding-top: 50px;
   background-color: #f4f4f4;
   background-image: url('../img/cubes.png');
+  overflow-x: hidden;
 }
 .nostyle {
   color: inherit;
