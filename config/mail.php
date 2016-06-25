@@ -7,7 +7,7 @@ return [
   "port" => 587,
   "from" => array(
       "address" => "account@story-juice.com",
-      "name" => "Account"
+      "name" => "Story Juice"
   ),
   "username" => "account@story-juice.com",
   "password" => "accountSJ1337",
