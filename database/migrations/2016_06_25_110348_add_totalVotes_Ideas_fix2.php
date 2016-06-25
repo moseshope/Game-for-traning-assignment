@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddTotalVotesIdeas extends Migration
+class AddTotalVotesIdeasfix2 extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class AddTotalVotesIdeas extends Migration
      */
     public function up()
     {
-        Schema::table('Ideas', function (Blueprint $table) {
+        Schema::table('ideas', function (Blueprint $table) {
           $table->integer('totalVotes');
         });
     }
@@ -24,7 +24,7 @@ class AddTotalVotesIdeas extends Migration
      */
     public function down()
     {
-        Schema::table('Ideas', function (Blueprint $table) {
+        Schema::table('ideas', function (Blueprint $table) {
             //
         });
     }

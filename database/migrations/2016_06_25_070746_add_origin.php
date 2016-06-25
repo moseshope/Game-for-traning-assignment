@@ -12,7 +12,7 @@ class AddOrigin extends Migration
      */
     public function up()
     {
-        Schema::table('Ideas', function (Blueprint $table) {
+        Schema::table('ideas', function (Blueprint $table) {
             $table->string('ideaOrigin');
         });
     }
@@ -24,7 +24,7 @@ class AddOrigin extends Migration
      */
     public function down()
     {
-        Schema::table('Ideas', function (Blueprint $table) {
+        Schema::table('ideas', function (Blueprint $table) {
             //
         });
     }
