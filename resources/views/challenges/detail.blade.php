@@ -103,14 +103,19 @@
           <div class="col-lg-4 col-md-6 col-sm-6">
             <div class="panel panel-idea">
               <div class="panel-body">
-                <h3 class="truncate">{{ $idea->title }}</h3>
+                <h3 class="truncate">
+                  @if ( $idea->ideaOrigin )
+                    <div style="background-color:{{ $challenge->color }}"data-toggle="tooltip" data-placement="bottom" title="Rebound from {{ $idea->ideaOrigin }}" class="rebound-container">
+                      <img class="rebound-picto svg" height="20" src="{{ asset('img/picto/rebond.svg') }}" /> 
+                    </div>
+                  @endif
+                  {{ $idea->title }}
+                </h3>
                   <!-- <h3><a href="{{$idea->IDIdea}}">{{ $idea->title }}</a></h3> -->
                 <p class="idea-content">
                   {{ $idea->content }}
                 </p>
-                @if ( $idea->ideaOrigin )
-                <p name="origin">Cette idée est un rebond de {{ $idea->ideaOrigin }}</p>
-                @endif
+                
                 <p class="tag-list">
                   <span class="idea-tag tag-character-{{ $idea->IDIdea}}">{{ $idea->element->character}}</span>
                   <span class="idea-tag tag-place-{{ $idea->IDIdea}}">{{ $idea->element->place}}</span>
@@ -131,11 +136,12 @@
               @endif
 
               <div class="panel-idea-stats">
-                <div style="background-color:{{ $challenge->color }}" class="stat-container--like stat-container {{ Auth::check() && $challenge->status != 'closed' ? 'js-btn-votes' : '' }}" data-id='{{ $idea->IDIdea}}'>
+                
+                <div {{  ! Auth::check() ? 'data-toggle=modal data-target=#modalCreate' : '' }} style="background-color:{{ $challenge->color }}" class="stat-container--like stat-container {{ Auth::check() && $challenge->status != 'closed' ? 'js-btn-votes' : '' }}"  data-id='{{ $idea->IDIdea}}'>
                   @if( Auth::check() && $idea->votes()->where('IDUser', Auth::id())->first())
                   <i class="fa fa-heart"></i>
                   @else
-                  <i data-target="#modalCreate" data-toggle="modal" class="fa fa-heart-o"></i>
+                  <i class="fa fa-heart-o"></i>
                   @endif
                   <span class="stat-indic stat-indic-likes">{{ $idea->votes->count() }}</span>
 
