@@ -16,25 +16,6 @@ class IdeasController extends Controller
 
     protected $ideas;
 
-    //retourne la liste des idées d'un challenge
-    public function index(Request $request)
-    {
-
-        $ideas = Ideas::orderBy('created_at', 'desc')->get($challenge);
-        $user = Auth::check();
-        if (isset($user)){
-          $isAdmin = $user->isAdmin;
-        }
-        else{
-          $isAdmin = false;
-        }
-
-        return view('challenge.ideas.list', [
-            'ideas' => $ideas,
-            'isAdmin' => $isAdmin,
-        ]);
-    }
-
     public function detail($challenge, $idea)
     {
       $ideaElement = DB::table('ideas_elements')->where('ideas_elements.IDIdea', $idea)->join('ideas', 'ideas_elements.IDIdea', '=', 'ideas.IDIdea')->get();

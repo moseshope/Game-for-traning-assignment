@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-<form action="{{ url('/admin/'.$challenge->id)}}" method="POST">
+<form context-edit="true" action="{{ url('/admin/'.$challenge->id)}}" method="POST">
   {{ csrf_field() }}
   <div class="row">
     @if (Storage::disk('covers')->has( $challenge->url . '.jpg' ))
@@ -11,7 +11,7 @@
     @endif
       <br/>
 
-      <div class="col-md-4" name="export">
+      <div class="col-md-3" name="export">
         <a href="{{ url('/admin/'.$challenge->id.'/export') }}" class="btn btn-primary">Export ideas</a>
         <br/><br/>
         <a data-toggle="modal" data-target=".modal-update-cover" class="btn btn-success"><i class="fa fa-picture-o"></i> Change cover</a>
@@ -19,20 +19,51 @@
         <a data-toggle="modal" data-target=".modal-delete-challenge" class="btn btn-danger"><i class="fa fa-trash"></i> Delete challenge</a>
       </div>
 
-      <div class="col-md-4">
-        <div class="form-group">
-          Name : <input type="text" name="name" class="form-control" value="{{ $challenge->name }}" />
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Name</label> 
+              <div class="col-sm-10">
+                <input type="text" name="name" class="form-control" value="{{ $challenge->name }}" />
+              </div>
+            </div>
+            <br/><br/>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Description</label> 
+              <div class="col-sm-10">
+                <input type="text" name="description" class="form-control" value="{{ $challenge->description }}" />
+              </div>
+            </div>
+            <br/><br/>
+            <div class="form-group">
+                <label for="task-date" class="col-sm-2 control-label"><i class="fa fa-calendar"></i> Start date</label>
+    
+                <div class="col-sm-4">
+                  <input class="form-control calendar" value="{{ $challenge->start_date }}" placeholder="Start date of your challenge" id="start_date" name="start_date" data-altinput=true data-altFormat="F j, Y" required>
+                  <!-- <input type="text" name="start_date" class="form-control calendar" required> -->
+                </div>
+                
+                <label for="task-date" class="col-sm-2 control-label"><i class="fa fa-calendar"></i> End date</label>
+    
+                <div class="col-sm-4">
+                  <input class="form-control calendar" value="{{ $challenge->end_date }}" placeholder="End date of your challenge" id="end_date" name="end_date" data-altinput=true data-altFormat="F j, Y" required>
+    
+                  <!-- <input type="text" name="end_date" class="form-control calendar" required> -->
+                </div>
+            </div>
+            <br/>
+            <div class="form-group">
+              <br/>
+              <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-save"></i> Save changes</button>
+
+            </div>
+          </div>
         </div>
-        <div class="form-group">
-          Description : <input type="text" name="description" class="form-control" value="{{ $challenge->description }}" />
-        </div>
-        <div class="form-group">
-          Cover : <input type="text" name="img_cover" class="form-control" value="{{ $challenge->img_cover }}" />
-        </div>
+        
       </div>
 
-      <div class="col-md-4 text-right">
-        <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save changes</button><br/><br/>
+      <div class="col-md-3 text-right">
         <button type="button" data-toggle="modal" data-target=".modal-status" class="btn btn-warning"><i class="fa fa-cog"></i> Change status</button><br/><br/>
         <button type="button" data-toggle="modal" data-target=".modal-color" class="btn btn-success"><i class="fa fa-paint-brush"></i> Change color</button>
       </div>
@@ -334,3 +365,12 @@
   </div>
 
 @endsection
+
+@push('scripts')
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/1.8.7/flatpickr.min.js"></script>
+  <script src="{{ asset('js/admin.js') }}"></script>
+@endpush
+
+@push('styles')
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/1.8.7/flatpickr.min.css" rel="stylesheet">
+@endpush

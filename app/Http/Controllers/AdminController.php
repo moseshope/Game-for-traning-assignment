@@ -102,12 +102,11 @@ class AdminController extends Controller
           DB::table('challenges')
             ->where('id', $challengeID)
             ->update(
-                array(
-                      "name" => $request->name,
+                array("name" => $request->name,
                       "description" => $request->description,
                       "content" => $request->content,
-                      "img_cover" => $request->img_cover,
-                      )
+                      "start_date" => $request->start_date,
+                      "end_date" => $request->end_date,)
           );
           return redirect()->back();
         }
@@ -235,15 +234,11 @@ class AdminController extends Controller
     public function deleteElement($elementID, Request $request){
       DB::table('elements')->where('id', $elementID)->delete();
       return redirect()->back();
-      // return redirect()->back()->with('status', 'Profile updated!');
     }
 
     public function deleteIdea($ideaID){
       DB::table('ideas')->where('IDIdea', $ideaID)->delete();
-      // DB::table('ideas_elements')->where('IDIdea', $ideaID)->delete();
-      // DB::table('votes')->where('IDIdea', $ideaID)->delete();
       return redirect()->back();
-      // return redirect()->back()->with('status', 'Profile updated!');
     }
 
     public function deleteChallenge($challengeID){
@@ -277,7 +272,7 @@ class AdminController extends Controller
       $challenge = Challenges::where('id', $challengeID)->first();
 
       $file = $request->file('cover');
-      $filename = $challenge->url . '.jpg';
+      $filename = $challenge->id . '_' . $challenge->url . '.jpg';
 
       if ($file){
         Storage::disk('covers')->put($filename, File::get($file));

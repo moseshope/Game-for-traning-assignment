@@ -84,6 +84,8 @@ class ChallengesController extends Controller
       
         /*Retrieve Ideas*/
         $ideas = Ideas::where('IDChallenge', $challenge->id)->join('users', 'users.id', '=', 'ideas.IDUser')->orderBy('ideas.created_at', 'desc')->get();
+        // $ideas = Ideas::where('IDChallenge', $challenge->id)->join('users', 'users.id', '=', 'ideas.IDUser')->join('ideas_elements', 'ideas_elements.IDIdea', '=', 'ideas.IDIdea')->orderBy('ideas.created_at', 'desc')->get();
+
         $ideaNBUser = $ideas->groupBy('IDUser')->count();
 
         return view('challenges.detail', [
@@ -99,15 +101,7 @@ class ChallengesController extends Controller
           'ideaNBUser' => $ideaNBUser,
           'isAdmin' => $isAdmin,
         ]);
-      }
-
-
-      
-      
-      
-      
-      // return $ideas;
-      
+      }    
       
     }
 
@@ -154,28 +148,12 @@ class ChallengesController extends Controller
         $challenge->color = $request->color;
         $challenge->save();
         
-        // Storage::put(
-        //     'covers/'.$challenge->url,
-        //     file_get_contents($request->file('cover')->getRealPath())
-        // );
-        
         $file = $request->file('cover');
-        $filename = $challenge->url . '.jpg';
+        $filename = $challenge->id . '_' . $challenge->url . '.jpg';
         
         if ($file){
           Storage::disk('covers')->put($filename, File::get($file));
         }
-        
-        
-        
-          // $cover = $request->cover;
-          // $cover->move('uploads', $cover->$challenge->url);
-          // echo '<img src="uploads/' .$cover->$challenge->url
-        
-        // $element = new Elements;
-        // $element->IDChallenge = $challenge->id;
-        // $element->character_1 = $request->character_1;
-        // $element->save();
 
         Log::info($challenge);
         return redirect('/admin');

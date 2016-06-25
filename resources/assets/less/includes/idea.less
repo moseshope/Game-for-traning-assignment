@@ -287,30 +287,16 @@
   border: 1px solid #37474F;
 }
 
-.gauge-step:nth-child(1){
+.gauge-step{
   -webkit-filter: grayscale(100%);
   -moz-filter: grayscale(100%);
   -ms-filter: grayscale(100%);
   -o-filter: grayscale(100%);
   filter: grayscale(100%);
 }
-.gauge-step:nth-child(2){
-  -webkit-filter: grayscale(80%);
-  -moz-filter: grayscale(80%);
-  -ms-filter: grayscale(80%);
-  -o-filter: grayscale(80%);
-  filter: grayscale(80%);
-}
-.gauge-step:nth-child(3){
-  -webkit-filter: grayscale(60%);
-  -moz-filter: grayscale(60%);
-  -ms-filter: grayscale(60%);
-  -o-filter: grayscale(60%);
-  filter: grayscale(60%);
-}
 
 .gauge-step{
-  transition: 0.5s ease-in;
+  transition: 0.25s ease-in;
   border: 2px solid transparent;
   &--active{
     -webkit-filter: grayscale(0%)!important;

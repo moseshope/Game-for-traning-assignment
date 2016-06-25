@@ -223,7 +223,7 @@ $( ".droppable5" ).droppable({
 $('.js-modal-delete').on('click', function(){
   ideaTitle = $(this).closest('.panel-idea').find('h3').text();
   ideaP = $(this).closest('.panel-idea').find('h3').next().text();
-  ideaUser = $(this).closest('.panel-idea').find('.user-idea').text();
+  ideaUser = $(this).closest('.panel-idea').find('.user-idea-text').text();
   ideaID = $(this).closest('.panel-idea').find('.panel-footer').attr('data-id');
   
   $('.idea-title-delete').text(ideaTitle);

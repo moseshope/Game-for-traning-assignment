@@ -3,8 +3,8 @@
 @section('content')
 
 <div class="row">
-  @if (Storage::disk('covers')->has( $challenge->url . '.jpg' ))
-  <div class="challenge-cover" style="background-image:url(../images/{{ $challenge->url . '.jpg' }})">
+  @if (Storage::disk('covers')->has( $challenge->id . '_' . $challenge->url . '.jpg' ))
+  <div class="challenge-cover" style="background-image:url(../images/{{ $challenge->id . '_' . $challenge->url . '.jpg' }})">
   @else
   <div class="challenge-cover" style="background-image:url({{$challenge->img_cover}})">
   @endif
@@ -98,9 +98,10 @@
         </div>      
         
         @if ($challenge->status == 'closed')
-          <h1 class="text-center">Results</h1>
+          <h1 class="text-center"><i class="fa fa-trophy"></i> Results</h1>
           <h3 class="text-center">The 3 top voted ideas and rebounds</h3>
           <br/>
+          <div class="row">
           @foreach($topIdeas as $topIdea)
           <div class="col-lg-4 col-md-6 col-sm-6">
             <div class="panel panel-idea">
@@ -125,8 +126,16 @@
                   <span class="idea-tag tag-warning-{{ $topIdea->IDIdea}}">{{ $topIdea->element->warning}}</span>
                   <span class="idea-tag tag-treasure-{{ $topIdea->IDIdea}}">{{ $topIdea->element->treasure}}</span>
                 </p>
-                <span class="user-idea pull-left"><i class="material-icons">account_circle</i>{{ $topIdea->name }}</span>
-                <strong class="pull-right" data-toggle="tooltip" data-placement="bottom" title="Disruptivity level"><i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i> {{ $topIdea->element->disruptive}}</strong>
+                <span class="user-idea pull-left"><i class="material-icons">account_circle</i><span class="user-idea-text">{{ $topIdea->name }}</span></span>
+                <strong class="pull-right" data-toggle="tooltip" data-placement="bottom" title="Disruptivity level">                 
+                  @if ($topIdea->element->disruptive >= 0 && $topIdea->element->disruptive <= 10)
+                    <i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i> Innovative
+                  @elseif ($topIdea->element->disruptive >= 11 && $topIdea->element->disruptive <= 14)
+                    <i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i><i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i> Original
+                  @elseif ($topIdea->element->disruptive >= 15 && $topIdea->element->disruptive <=18)
+                    <i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i><i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i><i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i> Disruptive
+                  @endif
+                </strong>
               </div>
               @if (isset($isAdmin) && $isAdmin == 1)
               <div class="panel-footer" data-id="{{$topIdea->IDIdea}}">
@@ -155,11 +164,16 @@
             </div>
           </div>
           @endforeach
+        </div>
+        <br/><br/><br/>
+        <h1 class="text-center">All ideas</h1>
+        <br/><br/>
+        <!-- <h3 class="text-center">The 3 top voted ideas and rebounds</h3> -->
+        @endif
           
-          
-        @else
         <div class="row" id="ideas-list">
           @foreach ($ideas as $idea)
+          
             @if($idea->element)
             <div class="col-lg-4 col-md-6 col-sm-6">
               <div class="panel panel-idea">
@@ -185,8 +199,16 @@
                     <span class="idea-tag tag-warning-{{ $idea->IDIdea}}">{{ $idea->element->warning}}</span>
                     <span class="idea-tag tag-treasure-{{ $idea->IDIdea}}">{{ $idea->element->treasure}}</span>
                   </p>
-                  <span class="user-idea pull-left"><i class="material-icons">account_circle</i>{{ $idea->name }}</span>
-                  <strong class="pull-right" data-toggle="tooltip" data-placement="bottom" title="Disruptivity level"><i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i> {{ $idea->element->disruptive}}</strong>
+                  <span class="user-idea pull-left"><i class="material-icons">account_circle</i><span class="user-idea-text">{{ $idea->name }}</span></span>
+                  <strong class="pull-right" data-toggle="tooltip" data-placement="bottom" title="Disruptivity level">                 
+                    @if ($idea->element->disruptive >= 0 && $idea->element->disruptive <= 10)
+                      <i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i> Innovative
+                    @elseif ($idea->element->disruptive >= 11 && $idea->element->disruptive <= 14)
+                      <i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i><i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i> Original
+                    @elseif ($idea->element->disruptive >= 15 && $idea->element->disruptive <=18)
+                      <i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i><i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i><i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i> Disruptive
+                    @endif
+                  </strong>
                 </div>
                 @if (isset($isAdmin) && $isAdmin == 1)
                 <div class="panel-footer" data-id="{{$idea->IDIdea}}">
@@ -216,7 +238,6 @@
             </div>
             @endif
           @endforeach
-        @endif
         </div>
 
 

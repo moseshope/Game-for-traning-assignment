@@ -39,16 +39,11 @@
   <div class="col-md-4">
     <div class="panel panel-challenge">
       <a href="{{route ('challenge_detail', $challenge->name) }}">
-        @if (Storage::disk('covers')->has( $challenge->url . '.jpg' ))
-        <div class="panel-cover" style="background-image:url(../images/{{ $challenge->url . '.jpg' }})">
+        @if (Storage::disk('covers')->has( $challenge->id . '_' . $challenge->url . '.jpg' ))
+        <div class="panel-cover" style="background-image:url(../images/{{ $challenge->id . '_' . $challenge->url . '.jpg' }})"></div>
         @else
-        <div class="panel-cover" style="background-image: url( {{$challenge->img_cover}} )">
+        <div class="panel-cover" style="background-image: url( {{$challenge->img_cover}} )"></div>
         @endif
-        
-        
-        
-
-        </div>
       </a>
       <div class="panel-body">
         <h3 class="text-center">{{ $challenge->name }}</h3>
@@ -105,13 +100,11 @@
     <div class="col-md-4">
       <div class="panel panel-challenge" style="border-color:blue">
         <a href="{{route ('challenge_detail', $challenge->name) }}">
-          @if (Storage::disk('covers')->has( $challenge->url . '.jpg' ))
-          <div class="panel-cover" style="background-image:url(../images/{{ $challenge->url . '.jpg' }})">
+          @if (Storage::disk('covers')->has( $challenge->id . '_' . $challenge->url . '.jpg' ))
+          <div class="panel-cover" style="background-image:url(../images/{{ $challenge->id . '_' . $challenge->url . '.jpg' }})"></div>
           @else
-          <div class="panel-cover" style="background-image: url( {{$challenge->img_cover}} )">
+          <div class="panel-cover" style="background-image: url( {{$challenge->img_cover}} )"></div>
           @endif
-
-          </div>
         </a>
         <div class="panel-body">
           <h3 class="text-center"><span class="label label-info">{{$challenge->status}}</span> {{ $challenge->name }}</h3>
