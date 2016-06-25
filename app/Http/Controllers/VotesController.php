@@ -20,15 +20,20 @@ class VotesController extends Controller{
       if (Auth::check())
       {
         $vote = Auth::user()->vote()->where('IDIdea', $request->get('id'))->first();
+        $idea = Ideas::where('IDIdea', $request->get('id'))->first();
         if($vote)
         {
           $vote->delete();
+          $idea->totalVotes = $idea->totalVotes -1 ;
+          $idea->save();
         }
         else
         {
           DB::table('votes')->insert(
             ['IDIdea'=> $request->get('id'),'IDUser'=> Auth::id()]
           );
+          $idea->totalVotes = $idea->totalVotes +1;
+          $idea->save();
         }
       }
       return $this->totalVotes($request->get('id'));
