@@ -58,35 +58,57 @@ class ChallengesController extends Controller
       }
 
       $challenge = Challenges::where('name', $challenge)->first();
-
-      /*Get 2 Random Element from each category*/
-      $elementsCharacter = Elements::where('IDChallenge', $challenge->id)->where('category', 'Character')->orderByRaw("RAND()")->take(2)->get();
-      $elementsRessource = Elements::where('IDChallenge', $challenge->id)->where('category', 'Ressource')->orderByRaw("RAND()")->take(2)->get();
-      $elementsLocation = Elements::where('IDChallenge', $challenge->id)->where('category', 'Location')->orderByRaw("RAND()")->take(2)->get();
-      $elementsQuest = Elements::where('IDChallenge', $challenge->id)->where('category', 'Quest')->orderByRaw("RAND()")->take(2)->get();
-      $elementsDisruptive = Elements::where('IDChallenge', $challenge->id)->where('category', 'Disruptive element')->orderByRaw("RAND()")->take(2)->get();
-      $elementsPayment = Elements::where('IDChallenge', $challenge->id)->where('category', 'Payment')->orderByRaw("RAND()")->take(2)->get();
-
-      /*Retrieve Ideas*/
-      $ideas = Ideas::where('IDChallenge', $challenge->id)->join('users', 'users.id', '=', 'ideas.IDUser')->orderBy('ideas.created_at', 'desc')->get();
       
-      $ideaNBUser = $ideas->groupBy('IDUser')->count();
+      if ($challenge->status == "closed"){
+        $ideas = Ideas::where('IDChallenge', $challenge->id)->join('users', 'users.id', '=', 'ideas.IDUser')->orderBy('ideas.created_at', 'desc')->get();
+        $ideaNBUser = $ideas->groupBy('IDUser')->count();
+        $topIdeas = Ideas::where('IDChallenge', $challenge->id)->join('users', 'users.id', '=', 'ideas.IDUser')->orderBy('ideas.totalVotes', 'desc')->take(3)->get();
+              
+        return view('challenges.detail', [
+          'challenge' => $challenge,
+          'userLogged' => $userLogged,
+          'ideas' => $ideas,
+          'ideaNBUser' => $ideaNBUser,
+          'isAdmin' => $isAdmin,
+          'topIdeas' => $topIdeas,
+        ]);
+      }
+      else{
+        /*Get 2 Random Element from each category*/
+        $elementsCharacter = Elements::where('IDChallenge', $challenge->id)->where('category', 'Character')->orderByRaw("RAND()")->take(2)->get();
+        $elementsRessource = Elements::where('IDChallenge', $challenge->id)->where('category', 'Ressource')->orderByRaw("RAND()")->take(2)->get();
+        $elementsLocation = Elements::where('IDChallenge', $challenge->id)->where('category', 'Location')->orderByRaw("RAND()")->take(2)->get();
+        $elementsQuest = Elements::where('IDChallenge', $challenge->id)->where('category', 'Quest')->orderByRaw("RAND()")->take(2)->get();
+        $elementsDisruptive = Elements::where('IDChallenge', $challenge->id)->where('category', 'Disruptive element')->orderByRaw("RAND()")->take(2)->get();
+        $elementsPayment = Elements::where('IDChallenge', $challenge->id)->where('category', 'Payment')->orderByRaw("RAND()")->take(2)->get();
+      
+        /*Retrieve Ideas*/
+        $ideas = Ideas::where('IDChallenge', $challenge->id)->join('users', 'users.id', '=', 'ideas.IDUser')->orderBy('ideas.created_at', 'desc')->get();
+        $ideaNBUser = $ideas->groupBy('IDUser')->count();
+
+        return view('challenges.detail', [
+          'challenge' => $challenge,
+          'userLogged' => $userLogged,
+          'ideas' => $ideas,
+          'elementsCharacter' => $elementsCharacter,
+          'elementsRessource' => $elementsRessource,
+          'elementsLocation' => $elementsLocation,
+          'elementsQuest' => $elementsQuest,
+          'elementsDisruptive' => $elementsDisruptive,
+          'elementsPayment' => $elementsPayment,
+          'ideaNBUser' => $ideaNBUser,
+          'isAdmin' => $isAdmin,
+        ]);
+      }
+
+
+      
+      
+      
       
       // return $ideas;
       
-      return view('challenges.detail', [
-        'challenge' => $challenge,
-        'userLogged' => $userLogged,
-        'ideas' => $ideas,
-        'elementsCharacter' => $elementsCharacter,
-        'elementsRessource' => $elementsRessource,
-        'elementsLocation' => $elementsLocation,
-        'elementsQuest' => $elementsQuest,
-        'elementsDisruptive' => $elementsDisruptive,
-        'elementsPayment' => $elementsPayment,
-        'ideaNBUser' => $ideaNBUser,
-        'isAdmin' => $isAdmin,
-      ]);
+      
     }
 
     //retourne le volet de création d'un nouveau challenge

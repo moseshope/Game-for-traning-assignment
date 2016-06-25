@@ -9,7 +9,7 @@
   <div class="challenge-cover" style="background-image:url({{$challenge->img_cover}})">
   @endif
     <div class="challenge-cover-filter"></div>
-    <h2>{{ $challenge->name }}</h2>
+    <h2>{{ $challenge->name }} {{$challenge->status}}</h2>
     <h4>{{ $challenge->description }}</h4>
     <div class="time-left">
       @if ($challenge->status != 'closed')
@@ -95,40 +95,41 @@
               {{ $challenge->content }}
             </p>
           </div>
-        </div>
-
-        <div class="row" id="ideas-list">
-          @foreach ($ideas as $idea)
-          @if($idea->element)
+        </div>      
+        
+        @if ($challenge->status == 'closed')
+          <h1 class="text-center">Results</h1>
+          <h3 class="text-center">The 3 top voted ideas and rebounds</h3>
+          <br/>
+          @foreach($topIdeas as $topIdea)
           <div class="col-lg-4 col-md-6 col-sm-6">
             <div class="panel panel-idea">
               <div class="panel-body">
                 <h3 class="truncate">
-                  @if ( $idea->ideaOrigin )
-                    <div style="background-color:{{ $challenge->color }}"data-toggle="tooltip" data-placement="bottom" title="Rebound from {{ $idea->ideaOrigin }}" class="rebound-container">
+                  @if ( $topIdea->ideaOrigin )
+                    <div style="background-color:{{ $challenge->color }}"data-toggle="tooltip" data-placement="bottom" title="Rebound from {{ $topIdea->ideaOrigin }}" class="rebound-container">
                       <img class="rebound-picto svg" height="20" src="{{ asset('img/picto/rebond.svg') }}" /> 
                     </div>
                   @endif
-                  {{ $idea->title }}
+                  {{ $topIdea->title }}
                 </h3>
-                  <!-- <h3><a href="{{$idea->IDIdea}}">{{ $idea->title }}</a></h3> -->
                 <p class="idea-content">
-                  {{ $idea->content }}
+                  {{ $topIdea->content }}
                 </p>
                 
                 <p class="tag-list">
-                  <span class="idea-tag tag-character-{{ $idea->IDIdea}}">{{ $idea->element->character}}</span>
-                  <span class="idea-tag tag-place-{{ $idea->IDIdea}}">{{ $idea->element->place}}</span>
-                  <span class="idea-tag tag-ressource-{{ $idea->IDIdea}}">{{ $idea->element->ressource}}</span>
-                  <span class="idea-tag tag-quest-{{ $idea->IDIdea}}">{{ $idea->element->quest}}</span>
-                  <span class="idea-tag tag-warning-{{ $idea->IDIdea}}">{{ $idea->element->warning}}</span>
-                  <span class="idea-tag tag-treasure-{{ $idea->IDIdea}}">{{ $idea->element->treasure}}</span>
+                  <span class="idea-tag tag-character-{{ $topIdea->IDIdea}}">{{ $topIdea->element->character}}</span>
+                  <span class="idea-tag tag-place-{{ $topIdea->IDIdea}}">{{ $topIdea->element->place}}</span>
+                  <span class="idea-tag tag-ressource-{{ $topIdea->IDIdea}}">{{ $topIdea->element->ressource}}</span>
+                  <span class="idea-tag tag-quest-{{ $topIdea->IDIdea}}">{{ $topIdea->element->quest}}</span>
+                  <span class="idea-tag tag-warning-{{ $topIdea->IDIdea}}">{{ $topIdea->element->warning}}</span>
+                  <span class="idea-tag tag-treasure-{{ $topIdea->IDIdea}}">{{ $topIdea->element->treasure}}</span>
                 </p>
-                <span class="user-idea pull-left"><i class="material-icons">account_circle</i>{{ $idea->name }}</span>
-                <strong class="pull-right" data-toggle="tooltip" data-placement="bottom" title="Disruptivity level"><i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i> {{ $idea->element->disruptive}}</strong>
+                <span class="user-idea pull-left"><i class="material-icons">account_circle</i>{{ $topIdea->name }}</span>
+                <strong class="pull-right" data-toggle="tooltip" data-placement="bottom" title="Disruptivity level"><i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i> {{ $topIdea->element->disruptive}}</strong>
               </div>
               @if (isset($isAdmin) && $isAdmin == 1)
-              <div class="panel-footer" data-id="{{$idea->IDIdea}}">
+              <div class="panel-footer" data-id="{{$topIdea->IDIdea}}">
                   <div>
                     <a data-toggle="modal" data-target=".modal-delete-idea"  class="text-danger js-modal-delete"><i class="fa fa-times"></i> Delete this idea</a>
                   </div>
@@ -137,24 +138,85 @@
 
               <div class="panel-idea-stats">
                 
-                <div {{  ! Auth::check() ? 'data-toggle=modal data-target=#modalCreate' : '' }} style="background-color:{{ $challenge->color }}" class="stat-container--like stat-container {{ Auth::check() && $challenge->status != 'closed' ? 'js-btn-votes' : '' }}"  data-id='{{ $idea->IDIdea}}'>
-                  @if( Auth::check() && $idea->votes()->where('IDUser', Auth::id())->first())
+                <div {{  ! Auth::check() ? 'data-toggle=modal data-target=#modalCreate' : '' }} style="background-color:{{ $challenge->color }}" class="stat-container--like stat-container {{ Auth::check() && $challenge->status != 'closed' ? 'js-btn-votes' : '' }}"  data-id='{{ $topIdea->IDIdea}}'>
+                  @if( Auth::check() && $topIdea->votes()->where('IDUser', Auth::id())->first())
                   <i class="fa fa-heart"></i>
                   @else
                   <i class="fa fa-heart-o"></i>
                   @endif
-                  <span class="stat-indic stat-indic-likes">{{ $idea->votes->count() }}</span>
+                  <span class="stat-indic stat-indic-likes">{{ $topIdea->votes->count() }}</span>
 
                 </div>
-                <div style="background-color:{{ $challenge->color }}" class="stat-container--rebound stat-container js-btn-rebound" data-id='{{ $idea->IDIdea}}'>
+                <div style="background-color:{{ $challenge->color }}" class="stat-container--rebound stat-container js-btn-rebound" data-id='{{ $topIdea->IDIdea}}'>
                   <img class="rebound-picto svg" src="{{ asset('img/picto/rebond.svg') }}" />
-                  <span class="stat-indic">{{ $idea->rebounds }}</span>
+                  <span class="stat-indic">{{ $topIdea->rebounds }}</span>
                 </div>
               </div>
             </div>
           </div>
-          @endif
           @endforeach
+          
+          
+        @else
+        <div class="row" id="ideas-list">
+          @foreach ($ideas as $idea)
+            @if($idea->element)
+            <div class="col-lg-4 col-md-6 col-sm-6">
+              <div class="panel panel-idea">
+                <div class="panel-body">
+                  <h3 class="truncate">
+                    @if ( $idea->ideaOrigin )
+                      <div style="background-color:{{ $challenge->color }}"data-toggle="tooltip" data-placement="bottom" title="Rebound from {{ $idea->ideaOrigin }}" class="rebound-container">
+                        <img class="rebound-picto svg" height="20" src="{{ asset('img/picto/rebond.svg') }}" /> 
+                      </div>
+                    @endif
+                    {{ $idea->title }}
+                  </h3>
+                    <!-- <h3><a href="{{$idea->IDIdea}}">{{ $idea->title }}</a></h3> -->
+                  <p class="idea-content">
+                    {{ $idea->content }}
+                  </p>
+                  
+                  <p class="tag-list">
+                    <span class="idea-tag tag-character-{{ $idea->IDIdea}}">{{ $idea->element->character}}</span>
+                    <span class="idea-tag tag-place-{{ $idea->IDIdea}}">{{ $idea->element->place}}</span>
+                    <span class="idea-tag tag-ressource-{{ $idea->IDIdea}}">{{ $idea->element->ressource}}</span>
+                    <span class="idea-tag tag-quest-{{ $idea->IDIdea}}">{{ $idea->element->quest}}</span>
+                    <span class="idea-tag tag-warning-{{ $idea->IDIdea}}">{{ $idea->element->warning}}</span>
+                    <span class="idea-tag tag-treasure-{{ $idea->IDIdea}}">{{ $idea->element->treasure}}</span>
+                  </p>
+                  <span class="user-idea pull-left"><i class="material-icons">account_circle</i>{{ $idea->name }}</span>
+                  <strong class="pull-right" data-toggle="tooltip" data-placement="bottom" title="Disruptivity level"><i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i> {{ $idea->element->disruptive}}</strong>
+                </div>
+                @if (isset($isAdmin) && $isAdmin == 1)
+                <div class="panel-footer" data-id="{{$idea->IDIdea}}">
+                    <div>
+                      <a data-toggle="modal" data-target=".modal-delete-idea"  class="text-danger js-modal-delete"><i class="fa fa-times"></i> Delete this idea</a>
+                    </div>
+                </div>
+                @endif
+
+                <div class="panel-idea-stats">
+                  
+                  <div {{  ! Auth::check() ? 'data-toggle=modal data-target=#modalCreate' : '' }} style="background-color:{{ $challenge->color }}" class="stat-container--like stat-container {{ Auth::check() && $challenge->status != 'closed' ? 'js-btn-votes' : '' }}"  data-id='{{ $idea->IDIdea}}'>
+                    @if( Auth::check() && $idea->votes()->where('IDUser', Auth::id())->first())
+                    <i class="fa fa-heart"></i>
+                    @else
+                    <i class="fa fa-heart-o"></i>
+                    @endif
+                    <span class="stat-indic stat-indic-likes">{{ $idea->votes->count() }}</span>
+
+                  </div>
+                  <div style="background-color:{{ $challenge->color }}" class="stat-container--rebound stat-container js-btn-rebound" data-id='{{ $idea->IDIdea}}'>
+                    <img class="rebound-picto svg" src="{{ asset('img/picto/rebond.svg') }}" />
+                    <span class="stat-indic">{{ $idea->rebounds }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            @endif
+          @endforeach
+        @endif
         </div>
 
 
