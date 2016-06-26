@@ -14,6 +14,11 @@
 // Route::group(['middleware' => ['web']], function () {
   Route::get('/', 'ChallengesController@index')->middleware('guest');
   
+  Route::get('/google80885be8a6b43109.html', function()
+  {
+      return view('about.about');
+  });
+  
   Route::get('/about', function()
   {
       return view('about.about');
