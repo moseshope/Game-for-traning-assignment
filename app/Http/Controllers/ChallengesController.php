@@ -25,10 +25,11 @@ class ChallengesController extends Controller
     //retourne la liste des challenges
     public function index(Request $request)
     {
-        $challenges = Challenges::orderBy('created_at', 'desc')->get();
-
-        $stats = DB::table('ideas')->select(DB::raw('count(*) as total, IDChallenge'))->groupBy('IDChallenge')->get();
-
+        // $challenges = Challenges::orderBy('created_at', 'desc')->get();
+        // $challenges = DB::select("select challenges.*, COUNT(ideas.IDIdea) as countIdeas, COUNT(ideas.rebounds) as countRebounds, COUNT(DISTINCT ideas.IDUser) as countDistinctUsers FROM challenges LEFT JOIN ideas ON ideas.IDChallenge = challenges.id GROUP BY challenges.id");
+        
+        $challenges = DB::select('select challenges.*, COUNT(ideas.IDIdea) as countIdeas, SUM(ideas.rebounds) as sumRebounds, SUM(ideas.totalVotes) as sumVotes, COUNT(DISTINCT ideas.IDUser) as countDistinctUsers FROM challenges LEFT JOIN ideas ON ideas.IDChallenge = challenges.id GROUP BY challenges.id');
+      
         $user = Auth::user();
 
         if (isset($user)){
@@ -41,7 +42,6 @@ class ChallengesController extends Controller
         return view('challenges.home', [
             'challenges' => $challenges,
             'isAdmin' => $isAdmin,
-            'stats' => $stats,
         ]);
     }
 
@@ -60,7 +60,7 @@ class ChallengesController extends Controller
       }
 
       $challenge = Challenges::where('url', $challengeUrl)->first();
-      
+
       if ($challenge->status == "closed"){
         $ideas = Ideas::where('IDChallenge', $challenge->id)->join('users', 'users.id', '=', 'ideas.IDUser')->orderBy('ideas.created_at', 'desc')->get();
         $ideaNBUser = $ideas->groupBy('IDUser')->count();

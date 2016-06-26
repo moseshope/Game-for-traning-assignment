@@ -81,6 +81,18 @@ $('document').ready(function(){
   totalPoints = (nbIdeas * 10) + (nbLikes * 1) - (nbRebounds * 5);
   $('#img-points').text(totalPoints);
   
+  if ($('.home-cover').length > 0){
+    $('.panel-challenge').each(function(index){
+      ptsRebounds = $(this).find('.indic-juice').attr('nb-rebounds') * 5;
+      ptsIdeas = $(this).find('.indic-juice').attr('nb-ideas') * 10;
+      ptsVotes = $(this).find('.indic-juice').attr('nb-votes') * 1;
+      
+      ptsTotal = ptsIdeas + ptsVotes - ptsRebounds;
+      $(this).find('.indic-juice strong').text(ptsTotal);
+    });
+  }
+  
+  
   
   /***ANIMATION***/
   $('.js-animate-points').addClass('animated shake');

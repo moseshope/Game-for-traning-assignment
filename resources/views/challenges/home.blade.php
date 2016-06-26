@@ -35,9 +35,9 @@
   @foreach ($challenges as $challenge)
 
   @if ($challenge->status != 'staging'  )
-  <!-- {{ $challenge }} -->
   <div class="col-md-4">
     <div class="panel panel-challenge">
+      
       <a href="{{route ('challenge_detail', $challenge->url) }}">
         @if (Storage::disk('covers')->has( $challenge->id . '_' . $challenge->url . '.jpg' ))
         <div class="panel-cover" style="background-image:url(../images/{{ $challenge->id . '_' . $challenge->url . '.jpg' }})"></div>
@@ -70,15 +70,15 @@
         <div class="row panel-overview text-center">
           <div class="col-xs-4 text-center indic">
             <img src="{{asset('/img/picto/ideas.svg')}}" class="icon-indic" width="40" alt="Ideas" />
-            <span class="indic-title"><strong>12</strong> Ideas</span>
+            <span class="indic-title"><strong>{{ $challenge->countIdeas }}</strong> Ideas</span>
           </div>
           <div class="col-xs-4 text-center indic">
             <img src="{{ asset('img/picto/users.svg') }}" class="icon-indic" width="50" alt="Ideas" />
-            <span class="indic-title"><strong>{{ '12' }}</strong> people</span>
+            <span class="indic-title"><strong>{{ $challenge->countDistinctUsers }}</strong> people</span>
           </div>
           <div class="col-xs-4 text-center indic">
             <img src="{{ asset('img/picto/picto-jus2.svg') }}" class="icon-indic" width="40" alt="Ideas" />
-            <span class="indic-title"><strong>{{ '78' }}</strong> points</span>
+            <span class="indic-title indic-juice" nb-rebounds="{{ $challenge->sumRebounds }}" nb-votes="{{ $challenge->sumVotes }}" nb-ideas="{{ $challenge->countIdeas }}"><strong>{{ $challenge->sumRebounds }}</strong> points</span>
           </div>
         </div>
         <div class="row text-center">
@@ -117,15 +117,15 @@
           <div class="row panel-overview text-center">
             <div class="col-xs-4 text-center indic">
               <img src="{{asset('/img/picto/ideas.svg')}}" class="icon-indic" width="40" alt="Ideas" />
-              <span class="indic-title"><strong>12</strong> Ideas</span>
+              <span class="indic-title"><strong>{{ $challenge->countIdeas }}</strong> Ideas</span>
             </div>
             <div class="col-xs-4 text-center indic">
               <img src="{{ asset('img/picto/users.svg') }}" class="icon-indic" width="50" alt="Ideas" />
-              <span class="indic-title"><strong>{{ '12' }}</strong> people</span>
+              <span class="indic-title"><strong>{{ $challenge->countDistinctUsers }}</strong> people</span>
             </div>
             <div class="col-xs-4 text-center indic">
               <img src="{{ asset('img/picto/picto-jus2.svg') }}" class="icon-indic" width="40" alt="Ideas" />
-              <span class="indic-title"><strong>{{ '78' }}</strong> points</span>
+              <span class="indic-title indic-juice" nb-rebounds="{{ $challenge->sumRebounds }}" nb-votes="{{ $challenge->sumVotes }}" nb-ideas="{{ $challenge->countIdeas }}"><strong>{{ $challenge->sumRebounds }}</strong> points</span>
             </div>
           </div>
           <div class="row text-center">

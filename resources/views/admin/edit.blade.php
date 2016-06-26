@@ -1,10 +1,6 @@
 @extends('layouts.main')
 
 @section('content')
-@if(Session::has('msg'))
-    {{Session::get('msg')}}
-@endif
-
 <form context-edit="true" action="{{ url('/admin/'.$challenge->id)}}" method="POST">
   {{ csrf_field() }}
   <div class="row">
@@ -79,11 +75,12 @@
       <br/>
       <label>Brief</label>
       <textarea class="form-control" name="content" rows="2">{{ $challenge->content }}</textarea>
+      <br/>
+      <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-save"></i> Save changes</button>
+
     </div>
   </div>
-  <div class="row">
-    
-  </div>
+
 
 </form>
 
