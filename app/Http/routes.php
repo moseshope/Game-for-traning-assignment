@@ -12,9 +12,7 @@
 */
 
 // Route::group(['middleware' => ['web']], function () {
-  Route::get('/', function () {
-      return redirect('/challenges');
-  })->middleware('guest');
+  Route::get('/', 'ChallengesController@index')->middleware('guest');
 
 
   Route::get('/home', function () {
