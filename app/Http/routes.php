@@ -13,11 +13,6 @@
 
 // Route::group(['middleware' => ['web']], function () {
   Route::get('/', 'ChallengesController@index')->middleware('guest');
-
-
-  Route::get('/home', function () {
-    return redirect('/challenges');
-  });
   
   Route::get('/about', function()
   {

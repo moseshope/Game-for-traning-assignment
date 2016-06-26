@@ -40,7 +40,7 @@
             <label for="task-name" class="col-sm-3 control-label">Challenge</label>
 
             <div class="col-sm-6">
-                <input type="text" name="name"  class="form-control" required value="">
+                <input type="text" name="name"  class="form-control" placeholder="Title: max 30 characters" required value="">
             </div>
         </div>
 
@@ -48,7 +48,7 @@
             <label class="col-sm-3 control-label">Challenge description</label>
 
             <div class="col-sm-6">
-              <textarea rows="2" name="description" class="form-control" required></textarea>
+              <textarea rows="2" placeholder="Small description of the challenge: max 140 characters" name="description" class="form-control" required></textarea>
             </div>
         </div>
 
@@ -61,7 +61,7 @@
         </div>
         
         <div class="form-group">
-            <label class="col-sm-3 control-label">Image cover (from pc)</label>
+            <label class="col-sm-3 control-label">Image cover</label>
 
             <div class="col-sm-6">
               <input type="file" name="cover" id="cover" accept="image/*">
@@ -74,7 +74,7 @@
             <label class="col-sm-3 control-label">Challenge brief</label>
 
             <div class="col-sm-6">
-              <textarea rows="5" name="content" class="form-control" required></textarea>
+              <textarea rows="5" name="content" class="form-control" placeholder="Brief display on the challenge page, max 300 characters" required></textarea>
             </div>
         </div>
 

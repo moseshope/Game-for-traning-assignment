@@ -132,8 +132,8 @@ class ChallengesController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|max:30',
-            'description' => 'required|max:500',
-            'content' => 'required|max:20000',
+            'description' => 'required|max:140',
+            'content' => 'required|max:300',
             'start_date' => 'required|date',
             'end_date' => 'required|date',
         ]);
