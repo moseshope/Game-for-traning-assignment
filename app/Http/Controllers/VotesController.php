@@ -24,18 +24,18 @@ class VotesController extends Controller{
         if($vote)
         {
           $vote->delete();
-          /*$idea->countVotes = $idea->countVotes -1 ;
-          $idea->save();*/
+          $idea->countVotes = $idea->countVotes -1 ;
+          $idea->save();
         }
         else
         {
           DB::table('votes')->insert(
             ['IDIdea'=> $request->get('id'),'IDUser'=> Auth::id()]
           );
-          /*$idea->countVotes = $idea->countVotes +1;
-          $idea->save();*/
+          $idea->countVotes = $idea->countVotes +1;
+          $idea->save();
         }
       }
-      return $this->totalVotes($request->get('id'));
+      return $idea->countVotes;
     }
   }

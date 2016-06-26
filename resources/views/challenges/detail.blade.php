@@ -153,7 +153,7 @@
                   @else
                   <i class="fa fa-heart-o"></i>
                   @endif
-                  <span class="stat-indic stat-indic-likes">{{ $topIdea->votes->count() }}</span>
+                  <span class="stat-indic stat-indic-likes">{{ $topIdea->countVotes }}</span>
 
                 </div>
                 <div style="background-color:{{ $challenge->color }}" class="stat-container--rebound stat-container js-btn-rebound" data-id='{{ $topIdea->IDIdea}}'>
@@ -226,7 +226,7 @@
                     @else
                     <i class="fa fa-heart-o"></i>
                     @endif
-                    <span class="stat-indic stat-indic-likes">{{ $idea->votes->count() }}</span>
+                    <span class="stat-indic stat-indic-likes">{{ $idea->countVotes }}</span>
 
                   </div>
                   <div style="background-color:{{ $challenge->color }}" class="stat-container--rebound stat-container js-btn-rebound" data-id='{{ $idea->IDIdea}}'>
