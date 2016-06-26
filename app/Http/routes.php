@@ -11,7 +11,7 @@
 |
 */
 
-Route::group(['middleware' => ['web']], function () {
+// Route::group(['middleware' => ['web']], function () {
   Route::get('/', function () {
       return redirect('/challenges');
   })->middleware('guest');
@@ -88,4 +88,4 @@ Route::group(['middleware' => ['web']], function () {
   /*Votes*/
   Route::post('api/challenge/vote',  array('as' => 'challenge_vote', 'uses' => 'VotesController@vote' ));
   // Route::post('/challenge/{challenge}', 'VotesController@upvote');
-});
+// });

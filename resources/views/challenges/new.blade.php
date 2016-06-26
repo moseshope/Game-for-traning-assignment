@@ -4,6 +4,27 @@
 
 <div class="row">
   <h2 class="text-center">New challenge</h2>
+  <div class="container">
+    @if (Session::has('message'))
+    <div class="col-md-8 col-md-offset-2">
+      <div class="alert alert-danger text-center">
+        <i class="fa fa-exclamation-triangle fa-2x"></i><br/>
+        {{ Session::get('message') }}
+      </div>
+    </div>   
+    @endif
+    
+    @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+  </div>
+  
 </div>
 
 <div class="container">

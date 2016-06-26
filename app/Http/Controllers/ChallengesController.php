@@ -12,6 +12,8 @@ use DB;
 use Auth;
 use Storage;
 use File;
+use Session;
+use Redirect;
 // use Input as Input;
 use Log;
 
@@ -129,34 +131,46 @@ class ChallengesController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|max:255',
+            'name' => 'required|max:30',
             'description' => 'required|max:500',
             'content' => 'required|max:20000',
             'start_date' => 'required|date',
             'end_date' => 'required|date',
         ]);
-
+        
         $challenge = new Challenges;
         $challenge->name = $request->name;
+        
+        /*check if already exist*/
         $challenge->url = str_slug($challenge->name, "-");
-        $challenge->description = $request->description;
-        $challenge->content = $request->content;
-        $challenge->img_cover = $request->img_cover;
-        $challenge->start_date = $request->start_date;
-        $challenge->end_date = $request->end_date;
-        $challenge->status = "staging";
-        $challenge->color = $request->color;
-        $challenge->save();
-        
-        $file = $request->file('cover');
-        $filename = $challenge->id . '_' . $challenge->url . '.jpg';
-        
-        if ($file){
-          Storage::disk('covers')->put($filename, File::get($file));
+        $checkURL = Challenges::where('url', $challenge->url)->first();
+        if (isset($checkURL)){
+          Session::flash('message', "Challenge name already taken");
+          return Redirect::back();
         }
-
-        Log::info($challenge);
-        return redirect('/admin');
+        else{
+          $challenge->description = $request->description;
+          $challenge->content = $request->content;
+          $challenge->img_cover = $request->img_cover;
+          $challenge->start_date = $request->start_date;
+          $challenge->end_date = $request->end_date;
+          $challenge->status = "staging";
+          $challenge->color = $request->color;
+          $challenge->save();
+          
+          $file = $request->file('cover');
+          $filename = $challenge->id . '_' . $challenge->url . '.jpg';
+          
+          if ($file){
+            Storage::disk('covers')->put($filename, File::get($file));
+          }
+  
+          Log::info($challenge);
+          return redirect('/admin');
+        }
+        
+        
+        
     }
     
     public function coverImage($filename){
