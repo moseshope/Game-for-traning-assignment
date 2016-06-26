@@ -64,7 +64,7 @@ $('document').ready(function(){
   
   /*IMG POINTS*/
   
-  nbIdeas = $('.panel-idea').length;
+  nbIdeas = $('#ideas-list .panel-idea').length;
   
   nbLikes = 0;
   $('#ideas-list .stat-container--like .stat-indic').each(function(index){
