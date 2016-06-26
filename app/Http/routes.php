@@ -16,7 +16,7 @@
   
   Route::get('/google80885be8a6b43109.html', function()
   {
-      return view('about.about');
+      return 'google-site-verification: google80885be8a6b43109.html';
   });
   
   Route::get('/about', function()

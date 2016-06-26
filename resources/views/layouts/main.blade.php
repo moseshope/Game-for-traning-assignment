@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Story Juice - Create ideas !</title>
+    <meta name="google-site-verification" content="FBg1eeYJ4N5dajZR2NVCPnC-uldEsGqYSA5CkpadxjQ" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="Story Juice">
