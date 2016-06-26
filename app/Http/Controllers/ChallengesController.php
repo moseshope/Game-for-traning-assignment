@@ -64,7 +64,7 @@ class ChallengesController extends Controller
       if ($challenge->status == "closed"){
         $ideas = Ideas::where('IDChallenge', $challenge->id)->join('users', 'users.id', '=', 'ideas.IDUser')->orderBy('ideas.created_at', 'desc')->get();
         $ideaNBUser = $ideas->groupBy('IDUser')->count();
-        $topIdeas = Ideas::where('IDChallenge', $challenge->id)->join('users', 'users.id', '=', 'ideas.IDUser')->orderBy('ideas.totalVotes', 'desc')->take(3)->get();
+        $topIdeas = Ideas::where('IDChallenge', $challenge->id)->join('users', 'users.id', '=', 'ideas.IDUser')->orderBy('ideas.countVotes', 'desc')->take(3)->get();
 
         return view('challenges.detail', [
           'challenge' => $challenge,
