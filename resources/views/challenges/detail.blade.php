@@ -95,8 +95,8 @@
               {{ $challenge->content }}
             </p>
           </div>
-        </div>      
-        
+        </div>
+
         @if ($challenge->status == 'closed')
           <h1 class="text-center"><i class="fa fa-trophy"></i> Results</h1>
           <h3 class="text-center">The 3 top voted ideas and rebounds</h3>
@@ -109,7 +109,7 @@
                 <h3 class="truncate">
                   @if ( $topIdea->ideaOrigin )
                     <div style="background-color:{{ $challenge->color }}"data-toggle="tooltip" data-placement="bottom" title="Rebound from {{ $topIdea->ideaOrigin }}" class="rebound-container">
-                      <img class="rebound-picto svg" height="20" src="{{ asset('img/picto/rebond.svg') }}" /> 
+                      <img class="rebound-picto svg" height="20" src="{{ asset('img/picto/rebond.svg') }}" />
                     </div>
                   @endif
                   {{ $topIdea->title }}
@@ -117,7 +117,7 @@
                 <p class="idea-content">
                   {{ $topIdea->content }}
                 </p>
-                
+
                 <p class="tag-list">
                   <span class="idea-tag tag-character-{{ $topIdea->IDIdea}}">{{ $topIdea->element->character}}</span>
                   <span class="idea-tag tag-place-{{ $topIdea->IDIdea}}">{{ $topIdea->element->place}}</span>
@@ -127,7 +127,7 @@
                   <span class="idea-tag tag-treasure-{{ $topIdea->IDIdea}}">{{ $topIdea->element->treasure}}</span>
                 </p>
                 <span class="user-idea pull-left"><i class="material-icons">account_circle</i><span class="user-idea-text">{{ $topIdea->name }}</span></span>
-                <strong class="pull-right" data-toggle="tooltip" data-placement="bottom" title="Disruptivity level">                 
+                <strong class="pull-right" data-toggle="tooltip" data-placement="bottom" title="Disruptivity level">
                   @if ($topIdea->element->disruptive >= 0 && $topIdea->element->disruptive <= 10)
                     <i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i> Innovative
                   @elseif ($topIdea->element->disruptive >= 11 && $topIdea->element->disruptive <= 14)
@@ -146,14 +146,14 @@
               @endif
 
               <div class="panel-idea-stats">
-                
+
                 <div {{  ! Auth::check() ? 'data-toggle=modal data-target=#modalCreate' : '' }} style="background-color:{{ $challenge->color }}" class="stat-container--like stat-container {{ Auth::check() && $challenge->status != 'closed' ? 'js-btn-votes' : '' }}"  data-id='{{ $topIdea->IDIdea}}'>
                   @if( Auth::check() && $topIdea->votes()->where('IDUser', Auth::id())->first())
                   <i class="fa fa-heart"></i>
                   @else
                   <i class="fa fa-heart-o"></i>
                   @endif
-                  <span class="stat-indic stat-indic-likes">{{ $topIdea->totalVotes }}</span>
+                  <span class="stat-indic stat-indic-likes">{{ $topIdea->votes->count() }}</span>
 
                 </div>
                 <div style="background-color:{{ $challenge->color }}" class="stat-container--rebound stat-container js-btn-rebound" data-id='{{ $topIdea->IDIdea}}'>
@@ -170,10 +170,10 @@
         <br/><br/>
         <!-- <h3 class="text-center">The 3 top voted ideas and rebounds</h3> -->
         @endif
-          
+
         <div class="row" id="ideas-list">
           @foreach ($ideas as $idea)
-          
+
             @if($idea->element)
             <div class="col-lg-4 col-md-6 col-sm-6">
               <div class="panel panel-idea">
@@ -181,7 +181,7 @@
                   <h3 class="truncate">
                     @if ( $idea->ideaOrigin )
                       <div style="background-color:{{ $challenge->color }}"data-toggle="tooltip" data-placement="bottom" title="Rebound from {{ $idea->ideaOrigin }}" class="rebound-container">
-                        <img class="rebound-picto svg" height="20" src="{{ asset('img/picto/rebond.svg') }}" /> 
+                        <img class="rebound-picto svg" height="20" src="{{ asset('img/picto/rebond.svg') }}" />
                       </div>
                     @endif
                     {{ $idea->title }}
@@ -190,7 +190,7 @@
                   <p class="idea-content">
                     {{ $idea->content }}
                   </p>
-                  
+
                   <p class="tag-list">
                     <span class="idea-tag tag-character-{{ $idea->IDIdea}}">{{ $idea->element->character}}</span>
                     <span class="idea-tag tag-place-{{ $idea->IDIdea}}">{{ $idea->element->place}}</span>
@@ -200,7 +200,7 @@
                     <span class="idea-tag tag-treasure-{{ $idea->IDIdea}}">{{ $idea->element->treasure}}</span>
                   </p>
                   <span class="user-idea pull-left"><i class="material-icons">account_circle</i><span class="user-idea-text">{{ $idea->name }}</span></span>
-                  <strong class="pull-right" data-toggle="tooltip" data-placement="bottom" title="Disruptivity level">                 
+                  <strong class="pull-right" data-toggle="tooltip" data-placement="bottom" title="Disruptivity level">
                     @if ($idea->element->disruptive >= 0 && $idea->element->disruptive <= 10)
                       <i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i> Innovative
                     @elseif ($idea->element->disruptive >= 11 && $idea->element->disruptive <= 14)
@@ -219,14 +219,14 @@
                 @endif
 
                 <div class="panel-idea-stats">
-                  
+
                   <div {{  ! Auth::check() ? 'data-toggle=modal data-target=#modalCreate' : '' }} style="background-color:{{ $challenge->color }}" class="stat-container--like stat-container {{ Auth::check() && $challenge->status != 'closed' ? 'js-btn-votes' : '' }}"  data-id='{{ $idea->IDIdea}}'>
                     @if( Auth::check() && $idea->votes()->where('IDUser', Auth::id())->first())
                     <i class="fa fa-heart"></i>
                     @else
                     <i class="fa fa-heart-o"></i>
                     @endif
-                    <span class="stat-indic stat-indic-likes">{{ $idea->totalVotes }}</span>
+                    <span class="stat-indic stat-indic-likes">{{ $idea->votes->count() }}</span>
 
                   </div>
                   <div style="background-color:{{ $challenge->color }}" class="stat-container--rebound stat-container js-btn-rebound" data-id='{{ $idea->IDIdea}}'>

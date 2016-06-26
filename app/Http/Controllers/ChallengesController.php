@@ -27,9 +27,9 @@ class ChallengesController extends Controller
     {
         // $challenges = Challenges::orderBy('created_at', 'desc')->get();
         // $challenges = DB::select("select challenges.*, COUNT(ideas.IDIdea) as countIdeas, COUNT(ideas.rebounds) as countRebounds, COUNT(DISTINCT ideas.IDUser) as countDistinctUsers FROM challenges LEFT JOIN ideas ON ideas.IDChallenge = challenges.id GROUP BY challenges.id");
-        
-        $challenges = DB::select('select challenges.*, COUNT(ideas.IDIdea) as countIdeas, SUM(ideas.rebounds) as sumRebounds, SUM(ideas.totalVotes) as sumVotes, COUNT(DISTINCT ideas.IDUser) as countDistinctUsers FROM challenges LEFT JOIN ideas ON ideas.IDChallenge = challenges.id GROUP BY challenges.id ORDER BY challenges.created_at DESC');
-        
+
+        $challenges = DB::select('select challenges.*, COUNT(ideas.IDIdea) as countIdeas, SUM(ideas.rebounds) as sumRebounds, SUM(ideas.countVotes) as sumVotes, COUNT(DISTINCT ideas.IDUser) as countDistinctUsers FROM challenges LEFT JOIN ideas ON ideas.IDChallenge = challenges.id GROUP BY challenges.id ORDER BY challenges.created_at DESC');
+
         $user = Auth::user();
 
         if (isset($user)){
@@ -65,7 +65,7 @@ class ChallengesController extends Controller
         $ideas = Ideas::where('IDChallenge', $challenge->id)->join('users', 'users.id', '=', 'ideas.IDUser')->orderBy('ideas.created_at', 'desc')->get();
         $ideaNBUser = $ideas->groupBy('IDUser')->count();
         $topIdeas = Ideas::where('IDChallenge', $challenge->id)->join('users', 'users.id', '=', 'ideas.IDUser')->orderBy('ideas.totalVotes', 'desc')->take(3)->get();
-              
+
         return view('challenges.detail', [
           'challenge' => $challenge,
           'userLogged' => $userLogged,
@@ -83,7 +83,7 @@ class ChallengesController extends Controller
         $elementsQuest = Elements::where('IDChallenge', $challenge->id)->where('category', 'Quest')->orderByRaw("RAND()")->take(2)->get();
         $elementsDisruptive = Elements::where('IDChallenge', $challenge->id)->where('category', 'Disruptive element')->orderByRaw("RAND()")->take(2)->get();
         $elementsPayment = Elements::where('IDChallenge', $challenge->id)->where('category', 'Payment')->orderByRaw("RAND()")->take(2)->get();
-      
+
         /*Retrieve Ideas*/
         $ideas = Ideas::where('IDChallenge', $challenge->id)->join('users', 'users.id', '=', 'ideas.IDUser')->orderBy('ideas.created_at', 'desc')->get();
         // $ideas = Ideas::where('IDChallenge', $challenge->id)->join('users', 'users.id', '=', 'ideas.IDUser')->join('ideas_elements', 'ideas_elements.IDIdea', '=', 'ideas.IDIdea')->orderBy('ideas.created_at', 'desc')->get();
@@ -103,8 +103,8 @@ class ChallengesController extends Controller
           'ideaNBUser' => $ideaNBUser,
           'isAdmin' => $isAdmin,
         ]);
-      }    
-      
+      }
+
     }
 
     //retourne le volet de création d'un nouveau challenge
@@ -137,10 +137,10 @@ class ChallengesController extends Controller
             'start_date' => 'required|date',
             'end_date' => 'required|date',
         ]);
-        
+
         $challenge = new Challenges;
         $challenge->name = $request->name;
-        
+
         /*check if already exist*/
         $challenge->url = str_slug($challenge->name, "-");
         $checkURL = Challenges::where('url', $challenge->url)->first();
@@ -157,22 +157,22 @@ class ChallengesController extends Controller
           $challenge->status = "staging";
           $challenge->color = $request->color;
           $challenge->save();
-          
+
           $file = $request->file('cover');
           $filename = $challenge->id . '_' . $challenge->url . '.jpg';
-          
+
           if ($file){
             Storage::disk('covers')->put($filename, File::get($file));
           }
-  
+
           Log::info($challenge);
           return redirect('/admin');
         }
-        
-        
-        
+
+
+
     }
-    
+
     public function coverImage($filename){
       $file = Storage::disk('covers')->get($filename);
       return new Response($file, 200);

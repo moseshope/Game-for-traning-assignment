@@ -37,7 +37,7 @@
   @if ($challenge->status != 'staging'  )
   <div class="col-md-4">
     <div class="panel panel-challenge">
-      
+
       <a href="{{route ('challenge_detail', $challenge->url) }}">
         @if (Storage::disk('covers')->has( $challenge->id . '_' . $challenge->url . '.jpg' ))
         <div class="panel-cover" style="background-image:url(../images/{{ $challenge->id . '_' . $challenge->url . '.jpg' }})"></div>
@@ -50,8 +50,8 @@
         <p>
           {{ $challenge->description}}
         </p>
-        
-        
+
+
         <div class="time-left">
           @if ($challenge->status == 'closed')
             <div class="text-center">
@@ -60,7 +60,7 @@
           @else
             <span class="time-left-indic">4 days left</span>
           @endif
-                
+
                 <div class="progress timeline" style="background-color:#fff" data-end-date="{{ $challenge->end_date }}" data-start-date="{{ $challenge->start_date }}">
             <div style="width:0%" class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
               <span class="sr-only">60% Complete</span>
