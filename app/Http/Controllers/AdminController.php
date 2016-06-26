@@ -10,6 +10,7 @@ use App\Elements;
 use App\IdeasElements;
 use App\User;
 use DB;
+use Flash;
 use Auth;
 use Log;
 use Storage;
@@ -34,7 +35,6 @@ class AdminController extends Controller
           $usersNB = User::count();
           $ideasNB = Ideas::count();
           $users = DB::table('users')->orderBy('isAdmin', 'desc')->orderBy('name', 'asc')->get();
-
           return view('admin.home', [
             'challenges' => $challenges,
             'challengesNB' => $challengesNB,
@@ -52,7 +52,7 @@ class AdminController extends Controller
       }
     }
 
-    public function showEdit($challenge)
+    public function showEdit($challengeUrl)
     {
       $user = Auth::user();
       if (isset($user)) {
@@ -60,7 +60,7 @@ class AdminController extends Controller
         $isAdmin = $user->isAdmin;
 
         if ($isAdmin == 1){
-          $challenge = Challenges::where('name', $challenge)->first();
+          $challenge = Challenges::where('url', $challengeUrl)->first();
 
           $elements = Elements::where('IDChallenge', $challenge->id)->get();
 
@@ -108,6 +108,7 @@ class AdminController extends Controller
                       "start_date" => $request->start_date,
                       "end_date" => $request->end_date,)
           );
+          session()->flash('msg','Hey, You have a message to read');
           return redirect()->back();
         }
         else{

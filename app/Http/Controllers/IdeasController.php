@@ -33,7 +33,7 @@ class IdeasController extends Controller
 
       $user = Auth::user();
 
-      $challengeName = Challenges::where('id', $challenge)->value('name');
+      $challengeUrl = Challenges::where('id', $challenge)->value('url');
 
       $this->validate($request, [
           'title' => 'required|max:255',
@@ -71,7 +71,7 @@ class IdeasController extends Controller
 
 
 
-      return redirect(route('challenge_detail', $challengeName));
+      return redirect(route('challenge_detail', $challengeUrl));
     }
 
     // public function upvote(Ideas $idea){

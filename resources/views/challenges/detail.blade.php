@@ -9,7 +9,7 @@
   <div class="challenge-cover" style="background-image:url({{$challenge->img_cover}})">
   @endif
     <div class="challenge-cover-filter"></div>
-    <h2>{{ $challenge->name }} {{$challenge->status}}</h2>
+    <h2>{{ $challenge->name }}</h2>
     <h4>{{ $challenge->description }}</h4>
     <div class="time-left">
       @if ($challenge->status != 'closed')
@@ -573,7 +573,7 @@
             <br/><br/>
             <h4><strong>Scenario</strong></h4>
             <p class="storygraph text-left">
-              Imagine if you are <strong class="text-lowercase">{{ $challenge->context }}</strong> in <span class="story story-location"></span> with <span class="story story-resource"></span> at your disposal. You would <span class="story story-advantage"></span> for this group of <span class="story story-user"></span> by this <span class="story story-revenue"></span> option. And what if you consider <span class="story story-game-changer"></span> ?
+              Imagine if you are <strong class="text-lowercase">{{ $challenge->context }}</strong> in <span class="story story-location"></span> with <span class="story story-resource"></span> at your disposal. You would <span class="story story-advantage"></span> for this group of <span class="story story-user"></span> users by this <span class="story story-revenue"></span> option. And what if you consider <span class="story story-game-changer"></span> ?
             </p>
             <button style="background-color:{{ $challenge->color }};-webkit-filter: grayscale(70%);filter: grayscale(70%);-moz-filter: grayscale(70%);-ms-filter: grayscale(70%);" class="btn btn-main btn-main--other js-modify-elements"><i class="fa fa-chevron-left"></i> &nbsp;Edit elements</button>
           </div>

@@ -1,11 +1,16 @@
 @extends('layouts.main')
 
 @section('content')
+@if(Session::has('msg'))
+    {{Session::get('msg')}}
+@endif
+
 <form context-edit="true" action="{{ url('/admin/'.$challenge->id)}}" method="POST">
   {{ csrf_field() }}
   <div class="row">
-    @if (Storage::disk('covers')->has( $challenge->url . '.jpg' ))
-    <div class="challenge-cover" style="background-image:url(../images/{{ $challenge->url . '.jpg' }})">
+    
+    @if (Storage::disk('covers')->has( $challenge->id . '_' . $challenge->url . '.jpg' ))
+    <div class="challenge-cover" style="background-image:url(../images/{{ $challenge->id . '_' . $challenge->url . '.jpg' }})">
     @else
     <div class="challenge-cover" style="background-image:url({{$challenge->img_cover}})">
     @endif

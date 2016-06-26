@@ -38,7 +38,7 @@
   <!-- {{ $challenge }} -->
   <div class="col-md-4">
     <div class="panel panel-challenge">
-      <a href="{{route ('challenge_detail', $challenge->name) }}">
+      <a href="{{route ('challenge_detail', $challenge->url) }}">
         @if (Storage::disk('covers')->has( $challenge->id . '_' . $challenge->url . '.jpg' ))
         <div class="panel-cover" style="background-image:url(../images/{{ $challenge->id . '_' . $challenge->url . '.jpg' }})"></div>
         @else
@@ -82,7 +82,7 @@
           </div>
         </div>
         <div class="row text-center">
-          <a href="{{route ('challenge_detail', $challenge->name) }}" class="btn btn-main">
+          <a href="{{route ('challenge_detail', $challenge->url) }}" class="btn btn-main">
             @if ($challenge->status == 'closed')
               Taste !
             @else
@@ -99,7 +99,7 @@
     @elseif ($challenge->status == 'staging' && (isset($isAdmin) && $isAdmin == 1))
     <div class="col-md-4">
       <div class="panel panel-challenge" style="border-color:blue">
-        <a href="{{route ('challenge_detail', $challenge->name) }}">
+        <a href="{{route ('challenge_detail', $challenge->url) }}">
           @if (Storage::disk('covers')->has( $challenge->id . '_' . $challenge->url . '.jpg' ))
           <div class="panel-cover" style="background-image:url(../images/{{ $challenge->id . '_' . $challenge->url . '.jpg' }})"></div>
           @else
@@ -129,7 +129,7 @@
             </div>
           </div>
           <div class="row text-center">
-            <a href="{{route ('challenge_detail', $challenge->name) }}" class="btn btn-main">Let's make juice</a>
+            <a href="{{route ('challenge_detail', $challenge->url) }}" class="btn btn-main">Let's make juice</a>
           </div>
         </div>
 

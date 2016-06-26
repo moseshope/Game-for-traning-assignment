@@ -28,13 +28,13 @@ Route::group(['middleware' => ['web']], function () {
   
   Route::get('/profile', function()
   {
-      return view('auth.passwords.email');
+    return view('auth.passwords.email');
   });
 
 
   /*ADMIN*/
   Route::get('/admin', 'AdminController@index');
-  Route::get('/admin/{challenge}', array('as' => 'challenge_edit', 'uses' => 'AdminController@showEdit' ));
+  Route::get('/admin/{challengeUrl}', array('as' => 'challenge_edit', 'uses' => 'AdminController@showEdit' ));
   Route::post('/admin/{challengeID}', 'AdminController@edit');
   Route::post('/admin/{challengeID}/status', 'AdminController@editStatus');
   Route::post('/admin/{challengeID}/color', 'AdminController@editColor');
@@ -54,7 +54,7 @@ Route::group(['middleware' => ['web']], function () {
   Route::get('/challenges', 'ChallengesController@index');
   Route::get('/challenges/new', 'ChallengesController@showStore');
   Route::post('/challenges/new', 'ChallengesController@store');
-  Route::get('/challenges/{challenge}', array('as' => 'challenge_detail', 'uses' => 'ChallengesController@detail' ));
+  Route::get('/challenges/{challengeUrl}', array('as' => 'challenge_detail', 'uses' => 'ChallengesController@detail' ));
   Route::get('/cover/{coverimage}', [
     'uses' => 'ChallengesController@coverImage',
     'as' => 'challenge.coverImage'

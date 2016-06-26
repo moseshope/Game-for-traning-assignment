@@ -44,7 +44,7 @@ class ChallengesController extends Controller
     }
 
     //retourne le detail d'un challenge
-    public function detail($challenge)
+    public function detail($challengeUrl)
     {
       $user = Auth::user();
       if (isset($user)) {
@@ -57,7 +57,7 @@ class ChallengesController extends Controller
         $isAdmin = false;
       }
 
-      $challenge = Challenges::where('name', $challenge)->first();
+      $challenge = Challenges::where('url', $challengeUrl)->first();
       
       if ($challenge->status == "closed"){
         $ideas = Ideas::where('IDChallenge', $challenge->id)->join('users', 'users.id', '=', 'ideas.IDUser')->orderBy('ideas.created_at', 'desc')->get();

@@ -2,6 +2,7 @@
 
 @section('content')
 <br/>
+
 <div class="row text-center">
   <div class="col-md-4">
     <div class="panel panel-default">
@@ -37,7 +38,7 @@
       @foreach ($challenges as $challenge)
       <li class="list-group-item">
         <span>
-          <a href="{{route ('challenge_detail', $challenge->name) }}"><i class="fa fa-eye"></i></a>
+          <a href="{{route ('challenge_detail', $challenge->url) }}"><i class="fa fa-eye"></i></a>
         </span>
         <strong>{{$challenge->name}}</strong>
         @if ($challenge->status == 'live')
@@ -49,7 +50,7 @@
         @endif
         
         <div class="pull-right">
-          <a href="{{route ('challenge_edit', $challenge->name) }}"><i class="fa fa-pencil"></i> Manage challenge</a>
+          <a href="{{route ('challenge_edit', $challenge->url) }}"><i class="fa fa-pencil"></i> Manage challenge</a>
         </div>
         
       </li>
