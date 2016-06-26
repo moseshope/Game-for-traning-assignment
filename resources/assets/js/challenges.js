@@ -64,13 +64,13 @@ $('document').ready(function(){
   nbIdeas = $('.panel-idea').length;
   
   nbLikes = 0;
-  $('.stat-container--like .stat-indic').each(function(index){
+  $('#ideas-list .stat-container--like .stat-indic').each(function(index){
     transformNB = parseInt($(this).text());
     nbLikes = nbLikes + transformNB;
   });
   
   nbRebounds = 0;
-  $('.stat-container--rebound .stat-indic').each(function(index){
+  $('#ideas-list .stat-container--rebound .stat-indic').each(function(index){
     transformNB = parseInt($(this).text());
     nbRebounds = nbRebounds + transformNB;
   });

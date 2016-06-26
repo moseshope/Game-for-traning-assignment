@@ -28,8 +28,8 @@ class ChallengesController extends Controller
         // $challenges = Challenges::orderBy('created_at', 'desc')->get();
         // $challenges = DB::select("select challenges.*, COUNT(ideas.IDIdea) as countIdeas, COUNT(ideas.rebounds) as countRebounds, COUNT(DISTINCT ideas.IDUser) as countDistinctUsers FROM challenges LEFT JOIN ideas ON ideas.IDChallenge = challenges.id GROUP BY challenges.id");
         
-        $challenges = DB::select('select challenges.*, COUNT(ideas.IDIdea) as countIdeas, SUM(ideas.rebounds) as sumRebounds, SUM(ideas.totalVotes) as sumVotes, COUNT(DISTINCT ideas.IDUser) as countDistinctUsers FROM challenges LEFT JOIN ideas ON ideas.IDChallenge = challenges.id GROUP BY challenges.id');
-      
+        $challenges = DB::select('select challenges.*, COUNT(ideas.IDIdea) as countIdeas, SUM(ideas.rebounds) as sumRebounds, SUM(ideas.totalVotes) as sumVotes, COUNT(DISTINCT ideas.IDUser) as countDistinctUsers FROM challenges LEFT JOIN ideas ON ideas.IDChallenge = challenges.id GROUP BY challenges.id ORDER BY challenges.created_at DESC');
+        
         $user = Auth::user();
 
         if (isset($user)){
