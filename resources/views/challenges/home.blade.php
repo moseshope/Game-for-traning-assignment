@@ -8,7 +8,7 @@
     <div class="home-cover--text">
       <h1>Story Juice</h1>
       <p>
-        Let's generate the future
+        @lang('home.tagline')
       </p>
     </div>
   </div>
@@ -29,7 +29,7 @@
 <div class="container-fluid challenges-container">
 
   <p class="text-center text-accroche">
-    Which challenge do you choose<br/> to change the world today ?
+  @lang('home.main')
   </p>
 
   @foreach ($challenges as $challenge)
@@ -55,7 +55,7 @@
         <div class="time-left">
           @if ($challenge->status == 'closed')
             <div class="text-center">
-              <strong><i class="fa fa-lock"></i> Challenge completed</strong>
+              <strong><i class="fa fa-lock"></i> @lang('challenge.challenge-closed')</strong>
             </div>
           @else
             <span class="time-left-indic">4 days left</span>
@@ -70,23 +70,23 @@
         <div class="row panel-overview text-center">
           <div class="col-xs-4 text-center indic">
             <img src="{{asset('/img/picto/ideas.svg')}}" class="icon-indic" width="40" alt="Ideas" />
-            <span class="indic-title"><strong>{{ $challenge->countIdeas }}</strong> Ideas</span>
+            <span class="indic-title"><strong>{{ $challenge->countIdeas }}</strong> @lang('challenge.ideas')</span>
           </div>
           <div class="col-xs-4 text-center indic">
             <img src="{{ asset('img/picto/users.svg') }}" class="icon-indic" width="50" alt="Ideas" />
-            <span class="indic-title"><strong>{{ $challenge->countDistinctUsers }}</strong> people</span>
+            <span class="indic-title"><strong>{{ $challenge->countDistinctUsers }}</strong> @lang('challenge.creatives')</span>
           </div>
           <div class="col-xs-4 text-center indic">
             <img src="{{ asset('img/picto/picto-jus2.svg') }}" class="icon-indic" width="40" alt="Ideas" />
-            <span class="indic-title indic-juice" nb-rebounds="{{ $challenge->sumRebounds }}" nb-votes="{{ $challenge->sumVotes }}" nb-ideas="{{ $challenge->countIdeas }}"><strong>{{ $challenge->sumRebounds }}</strong> points</span>
+            <span class="indic-title indic-juice" nb-rebounds="{{ $challenge->sumRebounds }}" nb-votes="{{ $challenge->sumVotes }}" nb-ideas="{{ $challenge->countIdeas }}"><strong>{{ $challenge->sumRebounds }}</strong> @lang('challenge.points')</span>
           </div>
         </div>
         <div class="row text-center">
           <a href="{{route ('challenge_detail', $challenge->url) }}" class="btn btn-main">
             @if ($challenge->status == 'closed')
-              Taste !
+              @lang('challenge.cta-home-closed')
             @else
-              Let's make juice !
+              @lang('challenge.cta-home')
             @endif
           </a>
         </div>
@@ -117,19 +117,19 @@
           <div class="row panel-overview text-center">
             <div class="col-xs-4 text-center indic">
               <img src="{{asset('/img/picto/ideas.svg')}}" class="icon-indic" width="40" alt="Ideas" />
-              <span class="indic-title"><strong>{{ $challenge->countIdeas }}</strong> Ideas</span>
+              <span class="indic-title"><strong>{{ $challenge->countIdeas }}</strong> @lang('challenge.ideas')</span>
             </div>
             <div class="col-xs-4 text-center indic">
               <img src="{{ asset('img/picto/users.svg') }}" class="icon-indic" width="50" alt="Ideas" />
-              <span class="indic-title"><strong>{{ $challenge->countDistinctUsers }}</strong> people</span>
+              <span class="indic-title"><strong>{{ $challenge->countDistinctUsers }}</strong> @lang('challenge.creatives')</span>
             </div>
             <div class="col-xs-4 text-center indic">
               <img src="{{ asset('img/picto/picto-jus2.svg') }}" class="icon-indic" width="40" alt="Ideas" />
-              <span class="indic-title indic-juice" nb-rebounds="{{ $challenge->sumRebounds }}" nb-votes="{{ $challenge->sumVotes }}" nb-ideas="{{ $challenge->countIdeas }}"><strong>{{ $challenge->sumRebounds }}</strong> points</span>
+              <span class="indic-title indic-juice" nb-rebounds="{{ $challenge->sumRebounds }}" nb-votes="{{ $challenge->sumVotes }}" nb-ideas="{{ $challenge->countIdeas }}"><strong>{{ $challenge->sumRebounds }}</strong> @lang('challenge.points')</span>
             </div>
           </div>
           <div class="row text-center">
-            <a href="{{route ('challenge_detail', $challenge->url) }}" class="btn btn-main">Let's make juice</a>
+            <a href="{{route ('challenge_detail', $challenge->url) }}" class="btn btn-main">@lang('challenge.cta-home')</a>
           </div>
         </div>
 

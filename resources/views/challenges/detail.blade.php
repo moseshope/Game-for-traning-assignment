@@ -15,7 +15,7 @@
       @if ($challenge->status != 'closed')
       <span class="time-left-indic">0 days left</span>
       @else
-      <span class="time-left-indic time-closed"><i class="fa fa-lock"></i> Challenge completed</span>
+      <span class="time-left-indic time-closed"><i class="fa fa-lock"></i> @lang('challenge.challenge-closed')</span>
       @endif
       <div class="progress timeline" style="background-color:#fff" data-end-date="{{ $challenge->end_date }}" data-start-date="{{ $challenge->start_date }}">
         <div style="background-color:{{ $challenge->color }}; width:0%" class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
@@ -39,18 +39,18 @@
         <div class="row">
           <div class="col-xs-4 text-center indic">
             <img src="{{ asset('img/picto/ideas.svg') }}" class="icon-indic icon-fadein" width="45" alt="Ideas">
-            <span class="indic-title"><strong class="counter" style="color:{{ $challenge->color }}">{{ count($ideas) }}</strong> Ideas</span>
+            <span class="indic-title"><strong class="counter" style="color:{{ $challenge->color }}">{{ count($ideas) }}</strong> @lang('challenge.ideas')</span>
           </div>
           <div class="col-xs-4 text-center indic">
             <img src="{{ asset('img/picto/users.svg') }}" class="icon-indic icon-fadein" width="55" alt="Ideas">
-            <span class="indic-title"><strong class="counter" style="color:{{ $challenge->color }}">{{ $ideaNBUser }}</strong> Creatives</span>
+            <span class="indic-title"><strong class="counter" style="color:{{ $challenge->color }}">{{ $ideaNBUser }}</strong> @lang('challenge.creatives')</span>
           </div>
           <div class="col-xs-4 text-center indic" data-toggle="tooltip" data-placement="bottom"
                 title="1 new idea = 10 points
 1 rebound = 5 points
 1 like = 1 point">
             <img src="{{ asset('img/picto/picto-jus2.svg') }}" class="icon-indic js-animate-points" width="55" alt="Ideas">
-            <span class="indic-title"><strong class="counter" id="img-points" style="color:{{ $challenge->color }}">0</strong> OZ</span>
+            <span class="indic-title"><strong class="counter" id="img-points" style="color:{{ $challenge->color }}">0</strong> @lang('challenge.OZ')</span>
           </div>
         </div>
 
@@ -59,7 +59,7 @@
       <a data-toggle="modal" data-target="#modalCreate" class="nostyle btn-recap">
       <div style="background-color:{{ $challenge->color }}" class="panel-overview-create col-md-2 text-center">
           <i class="icon-indic material-icons">library_add</i>
-          <span class="indic-title">create</span>
+          <span class="indic-title">@lang('challenge.create')</span>
       </div>
       </a>
       @endif
@@ -284,10 +284,10 @@
     <div class="modal-content">
       <div class="ideas-create">
         <div class="left-col col-sm-6">
-          <h3>1/2 - <strong>Compose the scenario</strong></h3>
+          <h3>1/2 - <strong>@lang('create.compose-scenario')</strong></h3>
           <div class="tab-content tabs-scenario">
             <div role="tabpanel" class="tab-pane fade in active tab-pane--active" id="tab-place">
-              <p class="storygraph">"Imagine if you are  <strong class="text-lowercase">{{ $challenge->context or 'Default' }}</strong> in a specific context</p>
+              <p class="storygraph">"@lang('create.imagine-you-are')  <strong class="text-lowercase">{{ $challenge->context or 'Default' }}</strong> @lang('create.in-context')</p>
               <div class="row">
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
@@ -301,7 +301,7 @@
                 </div>
                 <div class="col-sm-2 text-center">
                   <br class="hidden-xs"/>
-                  or
+                  @lang('create.or')
                   <br class="hidden-sm hidden-md hidden-lg"/>
                   <br class="hidden-sm hidden-md hidden-lg"/>
                 </div>
@@ -318,7 +318,7 @@
               </div>
             </div>
             <div role="tabpanel" class="tab-pane fade" id="tab-ressource">
-              <p class="storygraph">"With this resource at your disposal...</p>
+              <p class="storygraph">"@lang('create.with-ressource')</p>
               <div class="row">
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
@@ -347,7 +347,7 @@
               </div>
             </div>
             <div role="tabpanel" class="tab-pane fade" id="tab-quest">
-              <p class="storygraph">"You would use to...</p>
+              <p class="storygraph">"@lang('create.would-use')...</p>
               <div class="row">
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
@@ -361,7 +361,7 @@
                 </div>
                 <div class="col-sm-2 text-center">
                   <br/>
-                  ou
+                  @lang('create.or')
                 </div>
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
@@ -376,7 +376,7 @@
               </div>
             </div>
             <div role="tabpanel" class="tab-pane fade" id="tab-character">
-              <p class="storygraph">"For this group of users...</p>
+              <p class="storygraph">"@lang('create.user-group')...</p>
               <div class="row">
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
@@ -390,7 +390,7 @@
                 </div>
                 <div class="col-sm-2 text-center">
                   <br/>
-                  ou
+                  @lang('create.or')
                 </div>
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
@@ -405,7 +405,7 @@
               </div>
             </div>
             <div role="tabpanel" class="tab-pane fade" id="tab-treasure">
-              <p class="storygraph">"By this revenue option...</p>
+              <p class="storygraph">"@lang('create.by-revenue-option')...</p>
               <div class="row">
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
@@ -419,7 +419,7 @@
                 </div>
                 <div class="col-sm-2 text-center">
                   <br/>
-                  ou
+                  @lang('create.or')
                 </div>
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
@@ -435,7 +435,7 @@
             </div>
 
             <div role="tabpanel" class="tab-pane fade" id="tab-danger">
-              <p class="storygraph">"And what if...</p>
+              <p class="storygraph">"@lang('create.and-what-if')...</p>
               <div class="row">
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
@@ -449,7 +449,7 @@
                 </div>
                 <div class="col-sm-2 text-center">
                   <br/>
-                  ou
+                  @lang('create.or')
                 </div>
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
@@ -468,17 +468,17 @@
           <div class="row">
             <br/><br/>
             <div class="col-sm-4 col-xs-6 col-sm-offset-2">
-              <button disabled="disabled" style="background-color:{{ $challenge->color }};-webkit-filter: grayscale(70%);filter: grayscale(70%);-moz-filter: grayscale(70%);-ms-filter: grayscale(70%);" class="btn btn-block btn-main btn-main--other js-btn-element-previous">Previous</button>
+              <button disabled="disabled" style="background-color:{{ $challenge->color }};-webkit-filter: grayscale(70%);filter: grayscale(70%);-moz-filter: grayscale(70%);-ms-filter: grayscale(70%);" class="btn btn-block btn-main btn-main--other js-btn-element-previous">@lang('create.previous')</button>
             </div>
             <div class="col-sm-4 col-xs-6">
-              <button style="background-color:{{ $challenge->color }}" class="btn btn-block btn-main js-btn-element-next">Next</button>
+              <button style="background-color:{{ $challenge->color }}" class="btn btn-block btn-main js-btn-element-next">@lang('create.next')</button>
             </div>
           </div>
 
         </div>
         <div class="right-col col-sm-6">
           <br/>
-          <h4><strong>Scenario</strong></h4>
+          <h4><strong>@lang('create.scenario')</strong></h4>
           <div class="element-recap col-sm-6">
             <div class="icon-element">
               <img src="{{ asset('img/picto/location.svg') }}" alt="Location" />
@@ -560,7 +560,7 @@
           </div>
           <div class="text-center">
             <br/>
-            <button type="button" style="background-color:{{ $challenge->color }}" class="btn btn-main btn-main--disabled js-btn-switch-write" disabled="disabled">Let's go !</button>
+            <button type="button" style="background-color:{{ $challenge->color }}" class="btn btn-main btn-main--disabled js-btn-switch-write" disabled="disabled">@lang('create.lets-go')</button>
 
           </div>
 
@@ -568,14 +568,14 @@
       </div>
       <div class="ideas-propose" style="display:none">
         <div class="left-col col-sm-6">
-          <h3>2/2 - <strong>Create an idea</strong></h3>
+          <h3>2/2 - <strong>@lang('create.create-idea')</strong></h3>
           <div>
             <br/><br/>
-            <h4><strong>Scenario</strong></h4>
+            <h4><strong>@lang('create.scenario')</strong></h4>
             <p class="storygraph text-left">
               Imagine if you are <strong class="text-lowercase">{{ $challenge->context }}</strong> in <span class="story story-location"></span> with <span class="story story-resource"></span> at your disposal. You would <span class="story story-advantage"></span> for this group of <span class="story story-user"></span> users by this <span class="story story-revenue"></span> option. And what if you consider <span class="story story-game-changer"></span> ?
             </p>
-            <button style="background-color:{{ $challenge->color }};-webkit-filter: grayscale(70%);filter: grayscale(70%);-moz-filter: grayscale(70%);-ms-filter: grayscale(70%);" class="btn btn-main btn-main--other js-modify-elements"><i class="fa fa-chevron-left"></i> &nbsp;Edit elements</button>
+            <button style="background-color:{{ $challenge->color }};-webkit-filter: grayscale(70%);filter: grayscale(70%);-moz-filter: grayscale(70%);-ms-filter: grayscale(70%);" class="btn btn-main btn-main--other js-modify-elements"><i class="fa fa-chevron-left"></i> &nbsp;@lang('create.edit-elements')</button>
           </div>
 
         </div>
@@ -583,11 +583,11 @@
             <form action="{{ route('challenge_detail_process', $challenge->id)}}" method="POST">
             {{ csrf_field() }}
             <br/>
-            <h4><strong>Idea</strong></h4>
-            <textarea name="content" pattern=".{50,250}" placeholder="Now you have your scenario, so : which product or service would you imaginate to meet this challenge ?" required title="50 to 250 chars" class="form-control" rows="10"></textarea>
+            <h4><strong>@lang('create.idea')</strong></h4>
+            <textarea name="content" pattern=".{50,250}" placeholder="@lang('create.idea-placeholder')" required title="50 to 250 chars" class="form-control" rows="10"></textarea>
 
-            <h4><strong>Idea title</strong></h4>
-            <input type="text" name="title" placeholder="The name of your product or service" class="form-control" />
+            <h4><strong>@lang('create.idea-title')</strong></h4>
+            <input type="text" name="title" placeholder="@lang('create.title-placeholder')" class="form-control" />
 
             <div class="hidden elements-form">
               <input type="hidden" name="place" />
@@ -600,7 +600,7 @@
               <input type="hidden" name="disruptive" />
             </div>
             <div class="text-center">
-              <button style="background-color:{{ $challenge->color }}" type="submit" class="btn btn-main">Share my idea to the world !</button>
+              <button style="background-color:{{ $challenge->color }}" type="submit" class="btn btn-main">@lang('create.share-my-idea')</button>
             </div>
 
           </form>
@@ -631,11 +631,11 @@
           <div class="col-md-6 col-md-offset-3">
             <div class="alert alert-info text-center" role="alert">
               <h2><i class="material-icons">account_circle</i></h2>
-              You must be logged in to contribute to a challenge<br/>
+              @lang('challenge.must-be-logged')<br/>
 
-              <a type="button" class="btn btn-link" data-toggle="modal" data-target=".modal-login">Log In</a>
-              Or
-              <a type="button" class="btn btn-link" data-toggle="modal" data-target=".modal-register">Register</a>
+              <a type="button" class="btn btn-link" data-toggle="modal" data-target=".modal-login">@lang('main.login')</a>
+              @lang('create.or')
+              <a type="button" class="btn btn-link" data-toggle="modal" data-target=".modal-register">@lang('main.register')</a>
             </div>
           </div>
         </div>
@@ -643,7 +643,7 @@
 
       <div class="modal-footer text-center">
         <div class="row text-center">
-          <button style="background-color:{{ $challenge->color }}; margin:10px" type="button" class="btn btn-main" data-dismiss="modal">Close</button>
+          <button style="background-color:{{ $challenge->color }}; margin:10px" type="button" class="btn btn-main" data-dismiss="modal">@lang('main.close')</button>
         </div>
       </div>
     </div>

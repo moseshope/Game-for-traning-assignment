@@ -52,15 +52,15 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             @if (Auth::guest())
-              <li><a href="{{ url('/challenges') }}"><strong>Challenges</strong></a></li>
-              <li><a href="{{ url('/about') }}">About</a></li>
-              <li data-toggle="modal" data-target=".modal-login"><a href="#">Login</a></li>
+              <li><a href="{{ url('/challenges') }}"><strong>@lang('main.challenges')</strong></a></li>
+              <li><a href="{{ url('/about') }}">@lang('main.about')</a></li>
+              <li data-toggle="modal" data-target=".modal-login"><a href="#">@lang('main.login')</a></li>
               <li>
-                <a data-toggle="modal" data-target=".modal-register" href="">Register</a>
+                <a data-toggle="modal" data-target=".modal-register" href="">@lang('main.register')</a>
               </li>
             @else
-              <li><a href="{{ url('/challenges') }}"><strong>Challenges</strong></a></li>
-              <li><a href="{{ url('/about') }}">About</a></li>
+              <li><a href="{{ url('/challenges') }}"><strong>@lang('main.challenges')</strong></a></li>
+              <li><a href="{{ url('/about') }}">@lang('main.about')</a></li>
               <!-- <li><a href="#">
                 <div class="notif-counter">
                   2
@@ -70,8 +70,8 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="material-icons">account_circle</i> {{ Auth::user()->name }}  <i class="fa fa-chevron-down"></i></a>
                 <ul class="dropdown-menu">
-                  <li><a href="{{ url('/profile') }}">Profile</a></li>
-                  <li><a href="{{ url('/logout') }}">Log out</a></li>
+                  <li><a href="{{ url('/profile') }}">@lang('main.profile')</a></li>
+                  <li><a href="{{ url('/logout') }}">@lang('main.logout')</a></li>
                 </ul>
               </li>
             @endif
@@ -97,7 +97,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h3 class="modal-title text-center">Login</h3>
+          <h3 class="modal-title text-center">@lang('main.login')</h3>
         </div>
         <div class="modal-body">
           <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
