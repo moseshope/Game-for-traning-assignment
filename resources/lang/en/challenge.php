@@ -5,7 +5,7 @@ return [
     'creatives' => 'Creatives',
     'OZ' => 'OZ',
     'create' => 'Create',
-    'feasable' => 'Feasable'
+    'feasable' => 'Feasable',
     'original' => 'Original',
     'disruptive' => 'Diruptive',
     'rebounds' => 'rebounds',

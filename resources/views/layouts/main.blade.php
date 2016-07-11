@@ -47,7 +47,10 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="{{ url('/') }}"><img title="Story Juice" height="35" src="{{ asset('/img/logo-sj.svg')}}" /></a>
+          <a class="navbar-brand" href="{{ url('/') }}">
+            <span class="beta-logo">BETA</span>
+            <img title="Story Juice" height="35" src="{{ asset('/img/logo-sj.svg')}}" />
+          </a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">

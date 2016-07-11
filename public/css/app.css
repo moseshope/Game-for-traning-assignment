@@ -15,6 +15,14 @@ nav.navbar .navbar-brand {
 nav.navbar .navbar-nav {
   padding: 0;
 }
+nav.navbar .beta-logo {
+  position: absolute;
+  right: 0;
+  top: -5px;
+  color: #999;
+  font-size: 12px;
+  font-weight: bold;
+}
 nav.navbar .navbar-nav > li > a {
   color: #37474F;
   font-size: 16px;
