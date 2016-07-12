@@ -7,7 +7,7 @@ return [
     'create' => 'Créer',
     'feasable' => 'Faisable',
     'original' => 'Original',
-    'disruptive' => 'Diruptif',
+    'disruptive' => 'Disruptif',
     'rebounds' => 'Rebonds',
     'disruptivity-lvl' => 'Niveau de disruptivité',
     'points-explain' => '1 nouvelle idée = 10 points

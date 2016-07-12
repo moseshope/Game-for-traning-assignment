@@ -15,7 +15,7 @@ return [
     'previous' => 'Précédent',
     'next' => 'Suivant',
     'lets-go' => "C'est parti !",
-    'create-idea' => 'Créer son idée',
+    'create-idea' => 'Créez votre idée',
     'scenario' => 'Scénario',
     'idea' => 'Idée',
     'idea-title' => 'Titre de l\'idée',

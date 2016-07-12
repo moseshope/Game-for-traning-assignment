@@ -13,7 +13,7 @@
     <h4>{{ $challenge->description }}</h4>
     <div class="time-left">
       @if ($challenge->status != 'closed')
-      <span class="time-left-indic">0 days left</span>
+      <span class="time-left-indic">4</span> @lang('home.days-left')
       @else
       <span class="time-left-indic time-closed"><i class="fa fa-lock"></i> @lang('challenge.challenge-closed')</span>
       @endif
@@ -126,11 +126,11 @@
                 <span class="user-idea pull-left"><i class="material-icons">account_circle</i><span class="user-idea-text">{{ $topIdea->name }}</span></span>
                 <strong class="pull-right" data-toggle="tooltip" data-placement="bottom" title="@lang('challenge.disruptivity-lvl')">
                   @if ($topIdea->element->disruptive >= 0 && $topIdea->element->disruptive <= 10)
-                    <i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i> Innovative
+                    <i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i> @lang('challenge.feasable')
                   @elseif ($topIdea->element->disruptive >= 11 && $topIdea->element->disruptive <= 14)
-                    <i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i><i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i> Original
+                    <i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i><i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i> @lang('challenge.original')
                   @elseif ($topIdea->element->disruptive >= 15 && $topIdea->element->disruptive <=18)
-                    <i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i><i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i><i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i> Disruptive
+                    <i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i><i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i><i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i> @lang('challenge.disruptive')
                   @endif
                 </strong>
               </div>
@@ -199,11 +199,11 @@
                   <span class="user-idea pull-left"><i class="material-icons">account_circle</i><span class="user-idea-text">{{ $idea->name }}</span></span>
                   <strong class="pull-right" data-toggle="tooltip" data-placement="bottom" title="@lang('challenge.disruptivity-lvl')">
                     @if ($idea->element->disruptive >= 0 && $idea->element->disruptive <= 10)
-                      <i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i> Innovative
+                      <i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i> @lang('challenge.feasable')
                     @elseif ($idea->element->disruptive >= 11 && $idea->element->disruptive <= 14)
-                      <i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i><i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i> Original
+                      <i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i><i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i> @lang('challenge.original')
                     @elseif ($idea->element->disruptive >= 15 && $idea->element->disruptive <=18)
-                      <i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i><i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i><i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i> Disruptive
+                      <i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i><i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i><i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i> @lang('challenge.disruptive')
                     @endif
                   </strong>
                 </div>
@@ -284,7 +284,7 @@
           <h3>1/2 - <strong>@lang('create.compose-scenario')</strong></h3>
           <div class="tab-content tabs-scenario">
             <div role="tabpanel" class="tab-pane fade in active tab-pane--active" id="tab-place">
-              <p class="storygraph">"@lang('create.imagine-you-are')  <strong class="text-lowercase">{{ $challenge->context or 'Default' }}</strong> @lang('create.in-context')</p>
+              <p class="storygraph">"@lang('create.imagine-you-are')  <strong class="text-lowercase">{{ $challenge->context or 'Default' }}</strong> <span class="text-lowercase">@lang('create.in-context')...</span></p>
               <div class="row">
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">
@@ -315,7 +315,7 @@
               </div>
             </div>
             <div role="tabpanel" class="tab-pane fade" id="tab-ressource">
-              <p class="storygraph">"@lang('create.with-ressource')</p>
+              <p class="storygraph">"@lang('create.with-ressource')...</p>
               <div class="row">
                 <div class="col-sm-5">
                   <div class="panel panel-default panel-element">

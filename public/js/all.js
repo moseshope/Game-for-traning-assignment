@@ -41,10 +41,10 @@ $('document').ready(function(){
     daysLeft = dateFns.differenceInCalendarDays(endDate, todayDate);
     
     if (daysLeft < 0){
-      $(this).find('.time-left-indic').text('0 day left');
+      $(this).find('.time-left-indic').text('0');
     }
     else{
-      $(this).find('.time-left-indic').text(daysLeft + ' days left');
+      $(this).find('.time-left-indic').text(daysLeft);
     }
       
     /*JAUGE*/

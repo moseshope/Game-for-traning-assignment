@@ -100,12 +100,12 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h3 class="modal-title text-center">@lang('main.login')</h3>
+          <h3 class="modal-title text-center">@lang('auth.login')</h3>
         </div>
         <div class="modal-body">
           <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
               {!! csrf_field() !!}
-              <p class="text-center">Login to start innovating !</p>
+              <p class="text-center">@lang('auth.login-phrase')</p>
               <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
 
                   <div class="col-md-8 col-md-offset-2">
@@ -126,7 +126,7 @@
                   <div class="col-md-8 col-md-offset-2">
                     <div class="input-container">
                       <i class="icon-indic material-icons">lock</i>
-                      <input placeholder="Password" type="password" class="form-control" name="password">
+                      <input placeholder="@lang('auth.password')" type="password" class="form-control" name="password">
                     </div>
 
                       @if ($errors->has('password'))
@@ -142,22 +142,22 @@
                   <div class="col-md-4 col-md-offset-2">
                       <div class="checkbox" style="padding-top:0">
                           <label>
-                              <input type="checkbox" name="remember"> Remember Me
+                              <input type="checkbox" name="remember"> @lang('auth.remember')
                           </label>
                       </div>
                   </div>
                   <div class="col-md-4 text-right">
-                    <a href="{{ url('/password/reset') }}" class="lost-password">Forgot Your Password?</a>
+                    <a href="{{ url('/password/reset') }}" class="lost-password">@lang('auth.forgot-pwd')</a>
                   </div>
               </div>
 
               <div class="form-group text-center">
                 <button type="submit" class="btn btn-main">
-                    Login
+                    @lang('auth.login')
                 </button>
               </div>
 
-              <p>Not a member yet ? <a onclick="$('.modal-login').modal('hide');$('.modal-register').modal('show')" class="color-main">Register</a></p>
+              <p>@lang('auth.not-member') <a onclick="$('.modal-login').modal('hide');$('.modal-register').modal('show')" class="color-main">@lang('auth.register')</a></p>
           </form>
         </div>
       </div>
@@ -169,19 +169,19 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h3 class="modal-title text-center">Register</h3>
+          <h3 class="modal-title text-center">@lang('auth.register')</h3>
         </div>
         <div class="modal-body">
           <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
               {!! csrf_field() !!}
-              <p class="text-center">Register to start innovating !</p>
+              <p class="text-center">@lang('auth.register-phrase') !</p>
 
               <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
 
                 <div class="col-md-8 col-md-offset-2">
                   <div class="input-container">
                     <i class="icon-indic material-icons">account_circle</i>
-                      <input placeholder="Username" type="text" class="form-control" name="name" value="{{ old('name') }}">
+                      <input placeholder="@lang('auth.username')" type="text" class="form-control" name="name" value="{{ old('name') }}">
                   </div>
                       @if ($errors->has('name'))
                           <span class="help-block">
@@ -211,7 +211,7 @@
                   <div class="col-md-8 col-md-offset-2">
                     <div class="input-container">
                       <i class="icon-indic material-icons">lock</i>
-                      <input placeholder="Password" type="password" class="form-control" name="password">
+                      <input placeholder="@lang('auth.password')" type="password" class="form-control" name="password">
                     </div>
                       @if ($errors->has('password'))
                           <span class="help-block">
@@ -226,7 +226,7 @@
                 <div class="col-md-8 col-md-offset-2">
                   <div class="input-container">
                     <i class="icon-indic material-icons">lock</i>
-                    <input placeholder="Confirm password" type="password" class="form-control" name="password_confirmation">
+                    <input placeholder="@lang('auth.confirm-password')" type="password" class="form-control" name="password_confirmation">
                   </div>
                       @if ($errors->has('password_confirmation'))
                           <span class="help-block">
@@ -238,11 +238,11 @@
 
               <div class="form-group text-center">
                 <button type="submit" class="btn btn-main">
-                    Register
+                    @lang('auth.register')
                 </button>
               </div>
 
-              <p>Already a member ? <a onclick="$('.modal-register').modal('hide');$('.modal-login').modal('show')" class="color-main">Login in</a></p>
+              <p>@lang('auth.login') ? <a onclick="$('.modal-register').modal('hide');$('.modal-login').modal('show')" class="color-main">@lang('auth.login')</a></p>
 
           </form>
         </div>

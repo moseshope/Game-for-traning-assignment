@@ -58,7 +58,7 @@
               <strong><i class="fa fa-lock"></i> @lang('challenge.challenge-closed')</strong>
             </div>
           @else
-            <span class="time-left-indic">4 days left</span>
+            <span class="time-left-indic">4</span> @lang('home.days-left')
           @endif
 
                 <div class="progress timeline" style="background-color:#fff" data-end-date="{{ $challenge->end_date }}" data-start-date="{{ $challenge->start_date }}">
