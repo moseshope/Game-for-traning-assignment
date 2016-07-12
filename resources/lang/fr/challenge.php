@@ -17,6 +17,8 @@ return [
     'cta-home' => "C'est parti pour le jus !",
     'cta-home-closed' => "Goûter !",
     'challenge-closed' => 'Mission accomplie',
+    'challenge-results' => 'Les résultats',
+    'top-ideas' => 'Les 3 idées ou rebonds les plus likés !',
     'all-ideas' => 'Toutes les idées',
     'must-be-logged' => 'Vous devez être connecté pour contribuer au challenge'
 ];
