@@ -1,6 +1,7 @@
 <?php
 
 return [
-    'tagline' => "Générons le future de l'innovation !",
-    'main' => 'Quel challenge choisissez-vous pour changer le monde aujourd\'hui ?'
+    'tagline' => 'Ensemble, générons le futur',
+    'main' => 'Et toi ? Avec quel challenge changeras-tu le monde de demain ?',
+    'days-left' => 'jours restants'
 ];

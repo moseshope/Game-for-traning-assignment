@@ -45,10 +45,7 @@
             <img src="{{ asset('img/picto/users.svg') }}" class="icon-indic icon-fadein" width="55" alt="Ideas">
             <span class="indic-title"><strong class="counter" style="color:{{ $challenge->color }}">{{ $ideaNBUser }}</strong> @lang('challenge.creatives')</span>
           </div>
-          <div class="col-xs-4 text-center indic" data-toggle="tooltip" data-placement="bottom"
-                title="1 new idea = 10 points
-1 rebound = 5 points
-1 like = 1 point">
+          <div class="col-xs-4 text-center indic" data-toggle="tooltip" data-placement="bottom" title="@lang('challenge.points-explain')">
             <img src="{{ asset('img/picto/picto-jus2.svg') }}" class="icon-indic js-animate-points" width="55" alt="Ideas">
             <span class="indic-title"><strong class="counter" id="img-points" style="color:{{ $challenge->color }}">0</strong> @lang('challenge.OZ')</span>
           </div>
@@ -98,8 +95,8 @@
         </div>
 
         @if ($challenge->status == 'closed')
-          <h1 class="text-center"><i class="fa fa-trophy"></i> Results</h1>
-          <h3 class="text-center">The 3 top voted ideas and rebounds</h3>
+          <h1 class="text-center"><i class="fa fa-trophy"></i> @lang('challenge.results')</h1>
+          <h3 class="text-center">@lang('challenge.top-ideas')</h3>
           <br/>
           <div class="row">
           @foreach($topIdeas as $topIdea)
@@ -127,7 +124,7 @@
                   <span class="idea-tag tag-treasure-{{ $topIdea->IDIdea}}">{{ $topIdea->element->treasure}}</span>
                 </p>
                 <span class="user-idea pull-left"><i class="material-icons">account_circle</i><span class="user-idea-text">{{ $topIdea->name }}</span></span>
-                <strong class="pull-right" data-toggle="tooltip" data-placement="bottom" title="Disruptivity level">
+                <strong class="pull-right" data-toggle="tooltip" data-placement="bottom" title="@lang('challenge.disruptivity-lvl')">
                   @if ($topIdea->element->disruptive >= 0 && $topIdea->element->disruptive <= 10)
                     <i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i> Innovative
                   @elseif ($topIdea->element->disruptive >= 11 && $topIdea->element->disruptive <= 14)
@@ -166,7 +163,7 @@
           @endforeach
         </div>
         <br/><br/><br/>
-        <h1 class="text-center">All ideas</h1>
+        <h1 class="text-center">@lang('challenge.all-ideas')</h1>
         <br/><br/>
         <!-- <h3 class="text-center">The 3 top voted ideas and rebounds</h3> -->
         @endif
@@ -200,7 +197,7 @@
                     <span class="idea-tag tag-treasure-{{ $idea->IDIdea}}">{{ $idea->element->treasure}}</span>
                   </p>
                   <span class="user-idea pull-left"><i class="material-icons">account_circle</i><span class="user-idea-text">{{ $idea->name }}</span></span>
-                  <strong class="pull-right" data-toggle="tooltip" data-placement="bottom" title="Disruptivity level">
+                  <strong class="pull-right" data-toggle="tooltip" data-placement="bottom" title="@lang('challenge.disruptivity-lvl')">
                     @if ($idea->element->disruptive >= 0 && $idea->element->disruptive <= 10)
                       <i style="color: {{ $challenge->color }}" class="fa fa-bolt fa-lg"></i> Innovative
                     @elseif ($idea->element->disruptive >= 11 && $idea->element->disruptive <= 14)
@@ -573,7 +570,7 @@
             <br/><br/>
             <h4><strong>@lang('create.scenario')</strong></h4>
             <p class="storygraph text-left">
-              Imagine if you are <strong class="text-lowercase">{{ $challenge->context }}</strong> in <span class="story story-location"></span> with <span class="story story-resource"></span> at your disposal. You would <span class="story story-advantage"></span> for this group of <span class="story story-user"></span> users by this <span class="story story-revenue"></span> option. And what if you consider <span class="story story-game-changer"></span> ?
+              @lang('create.imagine-you-are') <strong class="text-lowercase">{{ $challenge->context }}</strong>. @lang('create.in-context') <span class="story story-location"></span>. @lang('create.with-ressource')  <span class="story story-resource"></span>. @lang('create.would-use') <span class="text-lowercase">@lang('create.user-group')</span> <span class="story story-user"></span>. @lang('create.by-revenue-option')<span class="story story-revenue"></span>. @lang('create.and-what-if') <span class="story story-game-changer"></span> ?
             </p>
             <button style="background-color:{{ $challenge->color }};-webkit-filter: grayscale(70%);filter: grayscale(70%);-moz-filter: grayscale(70%);-ms-filter: grayscale(70%);" class="btn btn-main btn-main--other js-modify-elements"><i class="fa fa-chevron-left"></i> &nbsp;@lang('create.edit-elements')</button>
           </div>

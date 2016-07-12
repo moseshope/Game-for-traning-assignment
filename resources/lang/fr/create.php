@@ -2,14 +2,15 @@
 
 
 return [
-    'compose-scenario' => 'Créer le scenario',
+    'compose-scenario' => 'Composez votre scénario',
+    'compose-idea' => 'Proposez une idée',
     'imagine-you-are' => 'Imaginez que vous êtes',
-    'in-context' => 'dans ce context specifique',
-    'with-ressource' => 'Avec cette ressource à votre disposition...',
-    'would-use' => 'Vous utiliserez',
-    'user-group' => 'Pour ce groupe d\'utilisateurs',
-    'by-revenue-option' => 'Avec ce système de revenue',
-    'and-what-if' => 'Et que faire si...',
+    'in-context' => 'Dans le contexte suivant',
+    'with-ressource' => 'Vous disposez des ressources suivantes',
+    'would-use' => 'Que vous utiliserez pour',
+    'user-group' => 'Le groupe d’utilisateurs suivant',
+    'by-revenue-option' => 'Avec le modèle de revenu suivant',
+    'and-what-if' => 'Et si tout cela se créait',
     'or' => 'ou',
     'previous' => 'Précédent',
     'next' => 'Suivant',
@@ -19,7 +20,7 @@ return [
     'idea' => 'Idée',
     'idea-title' => 'Titre de l\'idée',
     'idea-placeholder' => 'Maintenant que vous avez votre scénario, quel produit ou service allez-vous imaginer pour répondre à ce challenge ?',
-    'title-placeholder' => 'Le nom du produit ou du service imaginée',
+    'title-placeholder' => 'Nom du produit ou du service imaginé',
     'share-my-idea' => 'Partager mon idée au monde !',
     'edit-elements' => 'Modifier les éléments'
 ];
