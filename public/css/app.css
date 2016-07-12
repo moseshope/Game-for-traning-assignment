@@ -227,6 +227,7 @@ nav.navbar .dropdown.open > a {
 }
 .panel-challenge .time-left {
   top: 0;
+  color: #37474F;
 }
 .panel-challenge .time-left .time-left-indic {
   color: #37474F;
