@@ -22,5 +22,10 @@ return [
     'idea-placeholder' => 'Maintenant que vous avez votre scénario, quel produit ou service allez-vous imaginer pour répondre à ce challenge ?',
     'title-placeholder' => 'Nom du produit ou du service imaginé',
     'share-my-idea' => 'Partager mon idée au monde !',
-    'edit-elements' => 'Modifier les éléments'
+    'edit-elements' => 'Modifier les éléments',
+	'2-in' => 'dans',
+	'2-with' => 'avec',
+	'2-disposal' => 'à votre disposition que vous utilisez pour',
+	'2-based-on' => 'en vous basant sur',
+	'2-changer' => 'Et si en plus cela se créait'
 ];
