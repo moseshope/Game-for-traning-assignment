@@ -546,13 +546,13 @@
           <br/>
           <div class="row text-center pepper-gauge">
             <div class="col-xs-4 gauge-step" style="background-color: {{ $challenge->color }}">
-              <i class="fa fa-bolt"></i> <span>Innovative</span>
+              <i class="fa fa-bolt"></i> <span>@lang('challenge.feasable')</span>
             </div>
             <div class="col-xs-4 gauge-step" style="background-color: {{ $challenge->color }}">
-              <i class="fa fa-bolt"></i><i class="fa fa-bolt"></i><span>Original</span>
+              <i class="fa fa-bolt"></i><i class="fa fa-bolt"></i><span>@lang('challenge.original')</span>
             </div>
             <div class="col-xs-4 gauge-step" style="background-color: {{ $challenge->color }}">
-              <i class="fa fa-bolt"></i><i class="fa fa-bolt"></i><i class="fa fa-bolt"></i><span>Disruptive</span>
+              <i class="fa fa-bolt"></i><i class="fa fa-bolt"></i><i class="fa fa-bolt"></i><span>@lang('challenge.disruptive')</span>
             </div>
           </div>
           <div class="text-center">
