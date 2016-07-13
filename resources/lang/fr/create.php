@@ -7,7 +7,7 @@ return [
     'imagine-you-are' => 'Imaginez que vous êtes',
     'in-context' => 'Dans le contexte suivant',
     'with-ressource' => 'Vous disposez des ressources suivantes',
-    'would-use' => 'Que vous utiliserez pour',
+    'would-use' => 'Que vous utiliserez afin de',
     'user-group' => 'Le groupe d’utilisateurs suivant',
     'by-revenue-option' => 'Avec le modèle de revenu suivant',
     'and-what-if' => 'Et si tout cela se créait',
@@ -23,9 +23,10 @@ return [
     'title-placeholder' => 'Nom du produit ou du service imaginé',
     'share-my-idea' => 'Partager mon idée au monde !',
     'edit-elements' => 'Modifier les éléments',
-	'2-in' => 'dans',
-	'2-with' => 'avec',
-	'2-disposal' => 'à votre disposition que vous utilisez pour',
+	'2-in' => '. Vous souhaitez créer un produit ou un service dans',
+	'2-with' => 'avec à votre disposition',
+	'2-disposal' => 'que vous utilisez afin de',
+  '2-for' => 'pour',
 	'2-based-on' => 'en vous basant sur',
-	'2-changer' => 'Et si en plus cela se créait'
+	'2-changer' => 'Et si en plus cela avait lieu'
 ];

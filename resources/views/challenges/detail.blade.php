@@ -570,7 +570,7 @@
             <br/><br/>
             <h4><strong>@lang('create.scenario')</strong></h4>
             <p class="storygraph text-left">
-              @lang('create.imagine-you-are') <strong class="text-lowercase">{{ $challenge->context }}</strong> @lang('create.2-in') <span class="story story-location"></span> @lang('create.2-with')  <span class="story story-resource"></span> @lang('create.2-disposal') <span class="story story-advantage"></span> <span class="story story-user"></span> @lang('create.2-based-on') <span class="story story-game-changer"></span>. @lang('create.2-changer') <span class="story story-revenue"></span> ?
+              @lang('create.imagine-you-are') <strong class="text-lowercase">{{ $challenge->context }}</strong> @lang('create.2-in') <span class="story story-location"></span> @lang('create.2-with')  <span class="story story-resource"></span> @lang('create.2-disposal') <span class="story story-advantage"></span> @lang('create.2-for') <span class="story story-user"></span> @lang('create.2-based-on') <span class="story story-game-changer"></span>. @lang('create.2-changer') <span class="story story-revenue"></span> ?
             </p>
             <button style="background-color:{{ $challenge->color }};-webkit-filter: grayscale(70%);filter: grayscale(70%);-moz-filter: grayscale(70%);-ms-filter: grayscale(70%);" class="btn btn-main btn-main--other js-modify-elements"><i class="fa fa-chevron-left"></i> &nbsp;@lang('create.edit-elements')</button>
           </div>
