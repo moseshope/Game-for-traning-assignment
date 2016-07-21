@@ -14,10 +14,7 @@
 // Route::group(['middleware' => ['web']], function () {
   Route::get('/', 'ChallengesController@index')->middleware('guest');
   
-  Route::get('/google80885be8a6b43109.html', function()
-  {
-      return 'google-site-verification: google80885be8a6b43109.html';
-  });
+  Route::get('/lang/{lang}', 'LanguageController@setLang');
   
   Route::get('/about', function()
   {
