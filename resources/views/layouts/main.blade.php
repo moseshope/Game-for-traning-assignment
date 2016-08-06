@@ -57,6 +57,13 @@
             @if (Auth::guest())
               <li><a href="{{ url('/challenges') }}"><strong>@lang('main.challenges')</strong></a></li>
               <li><a href="{{ url('/about') }}">@lang('main.about')</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-globe"></i> <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="{{ url('/lang/en') }}">English</a></li>
+                  <li><a href="{{ url('/lang/fr') }}">Français</a></li>
+                </ul>
+              </li>
               <li data-toggle="modal" data-target=".modal-login"><a href="#">@lang('main.login')</a></li>
               <li>
                 <a data-toggle="modal" data-target=".modal-register" href="">@lang('main.register')</a>
@@ -70,6 +77,13 @@
                 </div>
                 <i class="fa fa-bell fa-lg"></i></a>
               </li> -->
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-globe"></i> <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="{{ url('/lang/en') }}">English</a></li>
+                  <li><a href="{{ url('/lang/fr') }}">Français</a></li>
+                </ul>
+              </li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="material-icons">account_circle</i> {{ Auth::user()->name }}  <i class="fa fa-chevron-down"></i></a>
                 <ul class="dropdown-menu">

@@ -14,7 +14,7 @@ return [
     1 rebond = 5 points
     1 like = 1 point',
     'points' => 'points',
-    'cta-home' => "C'est parti pour le jus !",
+    'cta-home' => "Je me lance",
     'cta-home-closed' => "Goûter !",
     'challenge-closed' => 'Mission accomplie',
     'results' => 'Les résultats',
