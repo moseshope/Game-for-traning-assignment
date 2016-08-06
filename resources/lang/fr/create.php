@@ -1,6 +1,5 @@
 <?php
 
-
 return [
     'compose-scenario' => 'Composez votre scénario',
     'compose-idea' => 'Proposez une idée',

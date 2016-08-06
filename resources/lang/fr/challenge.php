@@ -20,5 +20,6 @@ return [
     'results' => 'Les résultats',
     'top-ideas' => 'Les 3 idées ou rebonds les plus likés !',
     'all-ideas' => 'Toutes les idées',
-    'must-be-logged' => 'Vous devez être connecté pour contribuer au challenge'
+    'must-be-logged' => 'Vous devez être connecté pour contribuer au challenge',
+    'rebound-from' => 'Rebond de'
 ];

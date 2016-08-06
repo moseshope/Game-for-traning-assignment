@@ -105,7 +105,7 @@
               <div class="panel-body">
                 <h3 class="truncate">
                   @if ( $topIdea->ideaOrigin )
-                    <div style="background-color:{{ $challenge->color }}"data-toggle="tooltip" data-placement="bottom" title="Rebound from {{ $topIdea->ideaOrigin }}" class="rebound-container">
+                    <div style="background-color:{{ $challenge->color }}"data-toggle="tooltip" data-placement="bottom" title="@lang('challenge.rebound-from') {{ $topIdea->ideaOrigin }}" class="rebound-container">
                       <img class="rebound-picto svg" height="20" src="{{ asset('img/picto/rebond.svg') }}" />
                     </div>
                   @endif
@@ -177,7 +177,7 @@
                 <div class="panel-body">
                   <h3 class="truncate">
                     @if ( $idea->ideaOrigin )
-                      <div style="background-color:{{ $challenge->color }}"data-toggle="tooltip" data-placement="bottom" title="Rebound from {{ $idea->ideaOrigin }}" class="rebound-container">
+                      <div style="background-color:{{ $challenge->color }}"data-toggle="tooltip" data-placement="bottom" title="@lang('challenge.rebound-from') {{ $idea->ideaOrigin }}" class="rebound-container">
                         <img class="rebound-picto svg" height="20" src="{{ asset('img/picto/rebond.svg') }}" />
                       </div>
                     @endif

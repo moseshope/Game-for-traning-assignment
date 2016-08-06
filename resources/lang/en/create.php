@@ -2,6 +2,7 @@
 
 return [
     'compose-scenario' => 'Compose the scenario',
+    'compose-idea' => 'Compose your idea',
     'imagine-you-are' => 'Imagine if you are',
     'in-context' => 'In a specific context',
     'with-ressource' => 'With this resource at your disposal',
