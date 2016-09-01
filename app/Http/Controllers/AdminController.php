@@ -283,13 +283,13 @@ class AdminController extends Controller
     }
 
     public function export($challengeID){
-      $challenge = Challenges::where('id', $challengeID)->first();
-      $ideas = Ideas::orderBy('created_at', 'desc')->where('IDChallenge', $challengeID)->get();
+      $challenge = Challenges::where('id', $challengeID)->first(); //on recupère le challenge
+      $ideas = Ideas::orderBy('created_at', 'desc')->where('IDChallenge', $challengeID)->get(); //on recupère les idées de ce challenge
 
-      foreach ($ideas as $idea) {
-        $ideas->element = IdeasElements::where('id', $idea->IDElements)->get();
-        $idea->votes = Votes::where('IDIdea', $idea->IDIdea )->count();
-        $idea->user = User::where('id', $idea->IDUser )->first();
+      foreach ($ideas as $idea) { //on boucle sur chaque idées :
+        $ideas->element = IdeasElements::where('id', $idea->IDElements)->get(); //on recupère les éléments d'une idée,
+        $idea->votes = Votes::where('IDIdea', $idea->IDIdea )->count(); //son nombre de votes,
+        $idea->user = User::where('id', $idea->IDUser )->first();//et son créateur.
 
         /*foreach ($ideas as $idea){
           $idea->disruptiveCounter = $idea->disruptiveCounter + $idea->element->disruptive;
